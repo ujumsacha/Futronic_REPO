@@ -23,15 +23,15 @@ namespace FutronicFingerPrint
         public MainForm()
         {
             InitializeComponent();
-            //InitializeDevice();
-            
-            //Task.Run(() =>
-            //{
-            //    device.StartFingerDetection();
-            //    device.SwitchLedState(false, true);
+            InitializeDevice();
 
-            //    device.SwitchLedState(false, false);
-            //});
+            Task.Run(() =>
+            {
+                device.StartFingerDetection();
+                device.SwitchLedState(false, true);
+
+                device.SwitchLedState(false, false);
+            });
         }
 
         private void InitializeDevice()
@@ -122,6 +122,18 @@ namespace FutronicFingerPrint
         private void printToolStripBtn_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserRegistrationForm registrationForm = new();
+            registrationForm.ShowDialog();
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VerificationForm verifForm = new();
+            verifForm.ShowDialog();            
         }
     }
 }

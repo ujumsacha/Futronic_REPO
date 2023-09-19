@@ -1,5 +1,6 @@
-﻿using Futronic.Infrastructure.Services;
+﻿//using Futronic.Infrastructure.Services;
 using Futronic.Models;
+using Futronic.Scanners.FS26X80;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,7 +29,7 @@ namespace FutronicFingerPrint.Forms
         [DataMember]
         private byte[] LittleFinger;
 
-        private IRepository<long, User> _repository;
+        //private IRepository<long, User> _repository;
 
         public FingerprintForm()
         {
@@ -37,8 +38,8 @@ namespace FutronicFingerPrint.Forms
 
         private void FingerprintForm_Load(object sender, EventArgs e)
         {
-            var repository = Activator.CreateInstance(typeof(IRepository<long, User>)) as IRepository<long, User>;
-            _repository = repository;
+            //var repository = Activator.CreateInstance(typeof(IRepository<long, User>)) as IRepository<long, User>;
+           // _repository = repository;
         }
 
         private void btnCaptureThumb_Click(object sender, EventArgs e)
@@ -55,7 +56,19 @@ namespace FutronicFingerPrint.Forms
 
         private void btnCaptureMiddle_Click(object sender, EventArgs e)
         {
-            pictureMiddle.Image = picturePreview.Image;
+            var accessor = new DeviceAccessor();
+
+            using (var device = accessor.AccessFingerprintDevice())
+            {
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureMiddle.Image = ber;
+                device.SwitchLedState(false, false);
+            }
+            //pictureMiddle.Image = picturePreview.Image;
+            //this.RightHand.MiddleFinger = GetImageBytes(this.pictureMiddle.Image);
+            //pictureMiddle.Image = picturePreview.Image;
             this.MiddleFinger = GetImageBytes(this.pictureMiddle.Image);
         }
 
