@@ -22,12 +22,6 @@ namespace FutronicFingerPrint
                 Dpi = 500
             };
 
-            //var probe = new FingerprintTemplate(new FingerprintImage(fingerprint1.Width, fingerprint1.Height,
-            //    new byte[8]));
-
-            //var candidate = new FingerprintTemplate(new FingerprintImage(fingerprint2.Width, fingerprint2.Height,
-            //    new byte[8]));
-
             ////////////**************************************************IMAGE 1 *******************************************************
             MemoryStream stream = new MemoryStream();
             fingerprint1.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp); 
@@ -38,8 +32,6 @@ namespace FutronicFingerPrint
             fingerprint2.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
             byte[] imageBytesget = stream.ToArray();
             ////////////**************************************************IMAGE 1 *******************************************************
-
-
 
             var probe = new FingerprintTemplate(new FingerprintImage(imageBytesreceive));
             var candidate = new FingerprintTemplate(new FingerprintImage(imageBytesget));

@@ -133,7 +133,30 @@ namespace FutronicFingerPrint
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             VerificationForm verifForm = new();
-            verifForm.ShowDialog();            
+
+            bool isFormRunning = IsFormRunning(typeof(VerificationForm)); // Vérifiez si le formulaire est déjà en cours d'exécution
+
+            if (!isFormRunning)
+            {
+                verifForm.ShowDialog(); ; // Lancez le formulaire si ce n'est pas déjà en cours d'exécution
+            }
+
+
+                        
+        }
+
+
+
+        public bool IsFormRunning(Type formType)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == formType)
+                {
+                    return true; // Le formulaire est déjà en cours d'exécution
+                }
+            }
+            return false; // Le formulaire n'est pas en cours d'exécution
         }
     }
 }

@@ -66,7 +66,7 @@ namespace FutronicFingerPrint.Forms
             }
             else
             {
-                MessageBox.Show("Comparaison Erroné", "ECHEC");
+                MessageBox.Show("Comparaison Erroné", "ECHEC",MessageBoxButtons.OK);
                 //this.lbl_result_conversion.BeginInvoke(new Action(() => {
                 //    // Code à exécuter dans le thread principal
                 //    lbl_result_conversion.ForeColor = Color.Red;

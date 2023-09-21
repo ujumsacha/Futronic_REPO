@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FutronicFingerPrint", "FutronicFingerPrint\FutronicFingerPrint.csproj", "{2580F43C-9E40-4BB3-8862-656B5FD56CDD}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futronic.Models", "Futronic.Models\Futronic.Models.csproj", "{12113153-DB92-4D07-96B0-3808274A25FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Futronic.Infrastructure", "Futronic.Infrastructure\Futronic.Infrastructure.csproj", "{947DD4FC-7394-4085-B3CD-B56EB750BF3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiEnrolement", "C:\Users\sacha.ogou\source\repos\FutronicFingerPrintOKFUTRONIC\ApiEnrolement\ApiEnrolement.csproj", "{4AE03410-FFD0-44AF-A66B-B22B177B5FAB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{947DD4FC-7394-4085-B3CD-B56EB750BF3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{947DD4FC-7394-4085-B3CD-B56EB750BF3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{947DD4FC-7394-4085-B3CD-B56EB750BF3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AE03410-FFD0-44AF-A66B-B22B177B5FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AE03410-FFD0-44AF-A66B-B22B177B5FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AE03410-FFD0-44AF-A66B-B22B177B5FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AE03410-FFD0-44AF-A66B-B22B177B5FAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
