@@ -1,53 +1,35 @@
-﻿//using Futronic.Infrastructure.Services;
-using Futronic.Models;
-using Futronic.Scanners.FS26X80;
-using Microsoft.VisualBasic.FileIO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-using System.Drawing.Design;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Data.SqlClient;
+using Futronic.Scanners.FS26X80;
+using Microsoft.VisualBasic.FileIO;
 using Npgsql;
 
-namespace FutronicFingerPrint.Forms
+namespace Fingerprint1
 {
-    [Serializable]
-    public partial class UserRegistrationForm : Form
+    public partial class Form1 : Form
     {
-        [DataMember]
-        public long Id { get; set; }
-        [DataMember]
-        public string FirstName { get; set; }
-        [DataMember]
-        public string LastName { get; set; }
-        [DataMember]
-        public string UserName { get; set; }
-        [DataMember]
-        public FingerPrint LeftHand { get; set; }
-        [DataMember]
-        public DoigtDroit RightHand { get; set; }
-
+        private DeviceAccessor accessor = new();
+        private FingerprintDevice device;
         private List<byte[]> listEmpreinte;
 
+        private bool statButton = false;
         private byte[] Thumb;
         private byte[] IndexFinger;
         private byte[] MiddleFinger;
         private byte[] RingFinger;
         private byte[] LittleFinger;
 
-        private FingerprintDevice _device;
-        private DeviceAccessor _accessor = new DeviceAccessor();
 
 
         private NpgsqlConnection con = new NpgsqlConnection(connectionString: "Server=172.10.10.103;Port=5434;User Id=vitbank;Password=vitbank;Database=Bd_enrollement;");
@@ -57,137 +39,88 @@ namespace FutronicFingerPrint.Forms
         string cheminImagemajeur;
         string cheminImageAnnulaire;
         string cheminImageAuriculaire;
-
-
-        //private IRepository<long, User> _userRepository;
-        //private IRepository<long, AttendanceLog> _attendanceRepository;
-
-        public UserRegistrationForm()
+        public Form1()
         {
+
             InitializeComponent();
-            InstantiateRepository();
+            InitializeDevice();
+            this.pictureLittle.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureRing.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureThumb.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureIndex.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-
-            _device = _accessor.AccessFingerprintDevice();
-
-        }
-        public UserRegistrationForm(long userId)
-        {
-            InitializeComponent();
-            InstantiateRepository();
-
-        }
-
-        private void InstantiateRepository()
-        {
-
-        }
-
-        private void UserRegistrationForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnUpdateData_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEnrollLeft_Click(object sender, EventArgs e)
-        {
-            FingerprintForm form = new();
-            form.ShowDialog();
-            if (form.ShowDialog() == DialogResult.OK)
+            Task.Run(() =>
             {
-                var fingerprints = form.GetFingerPrints();
-                this.LeftHand = fingerprints;
-                Task.Run(CheckRegisteredLeftFingers);
-            }
-        }
-        private void CheckRegisteredLeftFingers()
-        {
-            this.Invoke(new MethodInvoker(delegate ()
-            {
-                checkBoxLT.Checked = LeftHand.Thumb != null;
-                checkBoxLI.Checked = LeftHand.IndexFinger != null;
-                checkBoxLM.Checked = LeftHand.MiddleFinger != null;
-                checkBoxLR.Checked = LeftHand.RingFinger != null;
-                checkBoxLL.Checked = LeftHand.LittleFinger != null;
-            }));
-        }
+                device.StartFingerDetection();
+                device.SwitchLedState(false, true);
 
-        private void txtUsername_TextChanged(object sender, EventArgs e)
-        {
-            this.UserName = txtUsername.Text;
-        }
-
-        private void txtFirstname_TextChanged(object sender, EventArgs e)
-        {
-            this.FirstName = txtFirstname.Text;
-        }
-
-        private void txtLastname_TextChanged(object sender, EventArgs e)
-        {
-            this.LastName = txtLastname.Text;
-        }
-
-        private void picturePassport_DoubleClick(object sender, EventArgs e)
-        {
-            OpenFileDialog openFile = new();
-            openFile.Multiselect = false;
-            openFile.Title = "Select Image";
-            openFile.Filter = "*.jpg|*.png";
-            openFile.DefaultExt = "jpg";
-            openFile.AddExtension = true;
-            openFile.InitialDirectory = SpecialDirectories.MyPictures;
-            if (openFile.ShowDialog() == DialogResult.OK)
-            {
-                this.picturePassport.Image = Image.FromFile(openFile.FileName);
-            }
-        }
-
-        private void btnCaptureMiddle_Click(object sender, EventArgs e)
-        {
-            var accessor = new DeviceAccessor();
-
-            using (var device = accessor.AccessFingerprintDevice())
-            {
-                device.SwitchLedState(true, false);
-                //device.StartFingerDetection();
-                Bitmap ber = device.ReadFingerprint();
-                this.pictureMiddle.Image = ber;
                 device.SwitchLedState(false, false);
-            }
-            this.MiddleFinger = GetImageBytes(this.pictureMiddle.Image);
-            //listEmpreinte.Add(this.MiddleFinger);
+            });
         }
 
-        private byte[] GetImageBytes(Image image)
+        private void InitializeDevice()
         {
-            MemoryStream ms = new();
-            image.Save(ms, ImageFormat.Png);
-            return ms.ToArray();
+            device = accessor.AccessFingerprintDevice();
+            device.SwitchLedState(false, false);
+
+        }
+
+        private void FingerReleased(object? sender, EventArgs e)
+        {
+            Trace.TraceWarning("delete");
+        }
+
+        //private void FingerDetected(object? sender, EventArgs e)
+        //{
+        //    //pictureBox1.Image = null;
+        //    Bitmap ber = device.ReadFingerprint();
+        //    pictureBox1.Image = ber;
+        //}
+
+        private void PouceDetected(object? sender, EventArgs e)
+        {
+            //pictureBox1.Image = null;
+            Bitmap ber = device.ReadFingerprint();
+            pictureThumb.Image = ber;
+        }
+        private void IndexDetected(object? sender, EventArgs e)
+        {
+            //pictureBox1.Image = null;
+            Bitmap ber = device.ReadFingerprint();
+            pictureIndex.Image = ber;
+        }
+        private void MiddleDetected(object? sender, EventArgs e)
+        {
+            //pictureBox1.Image = null;
+            Bitmap ber = device.ReadFingerprint();
+            pictureMiddle.Image = ber;
+        }
+        private void AnnulaireDetected(object? sender, EventArgs e)
+        {
+            //pictureBox1.Image = null;
+            Bitmap ber = device.ReadFingerprint();
+            pictureRing.Image = ber;
+        }
+        private void LitteDetect(object? sender, EventArgs e)
+        {
+            //pictureBox1.Image = null;
+            Bitmap ber = device.ReadFingerprint();
+            pictureLittle.Image = ber;
         }
 
         private void btnCaptureThumb_Click(object sender, EventArgs e)
         {
             try
             {
-                var accessor = new DeviceAccessor();
 
-                using (var device = accessor.AccessFingerprintDevice())
-                {
-                    device.SwitchLedState(true, false);
-                    //device.StartFingerDetection();
-                    Bitmap ber = device.ReadFingerprint();
-                    this.pictureThumb.Image = ber;
-                    device.SwitchLedState(false, false);
-                }
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureThumb.Image = ber;
+                device.SwitchLedState(false, false);
+
                 this.Thumb = GetImageBytes(this.pictureThumb.Image);
                 //listEmpreinte.Add(this.Thumb);
             }
@@ -203,55 +136,95 @@ namespace FutronicFingerPrint.Forms
 
         }
 
+        private byte[] GetImageBytes(Image image)
+        {
+            MemoryStream ms = new();
+            image.Save(ms, ImageFormat.Png);
+            return ms.ToArray();
+        }
+
         private void btnCaptureIndex_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
 
-            using (var device = accessor.AccessFingerprintDevice())
-            {
-                device.SwitchLedState(true, false);
-                //device.StartFingerDetection();
-                Bitmap ber = device.ReadFingerprint();
-                this.pictureIndex.Image = ber;
-                device.SwitchLedState(false, false);
-            }
+            device.SwitchLedState(true, false);
+            //device.StartFingerDetection();
+            Bitmap ber = device.ReadFingerprint();
+            this.pictureIndex.Image = ber;
+            device.SwitchLedState(false, false);
+
             this.IndexFinger = GetImageBytes(this.pictureIndex.Image);
             //listEmpreinte.Add(this.IndexFinger);
         }
 
         private void btnCaptureRing_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
 
-            using (var device = accessor.AccessFingerprintDevice())
-            {
-                device.SwitchLedState(true, false);
-                //device.StartFingerDetection();
-                Bitmap ber = device.ReadFingerprint();
-                this.pictureRing.Image = ber;
-                device.SwitchLedState(false, false);
-            }
+            device.SwitchLedState(true, false);
+            //device.StartFingerDetection();
+            Bitmap ber = device.ReadFingerprint();
+            this.pictureRing.Image = ber;
+            device.SwitchLedState(false, false);
+
             this.RingFinger = GetImageBytes(this.pictureRing.Image);
             //listEmpreinte.Add(this.RingFinger);
         }
 
         private void btnCaptureLittle_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
 
-            using (var device = accessor.AccessFingerprintDevice())
-            {
-                device.SwitchLedState(true, false);
-                //device.StartFingerDetection();
-                Bitmap ber = device.ReadFingerprint();
-                this.pictureLittle.Image = ber;
-                device.SwitchLedState(false, false);
-            }
+            device.SwitchLedState(true, false);
+            //device.StartFingerDetection();
+            Bitmap ber = device.ReadFingerprint();
+            this.pictureLittle.Image = ber;
+            device.SwitchLedState(true, true);
+
             this.LittleFinger = GetImageBytes(this.pictureLittle.Image);
             //listEmpreinte.Add(this.LittleFinger);
         }
 
+        private void btnCaptureMiddle_Click(object sender, EventArgs e)
+        {
+            device.SwitchLedState(true, false);
+            //device.StartFingerDetection();
+            Bitmap ber = device.ReadFingerprint();
+            this.pictureMiddle.Image = ber;
+            device.SwitchLedState(true, false);
+
+            this.MiddleFinger = GetImageBytes(this.pictureIndex.Image);
+        }
+
         private void button1_Click(object sender, EventArgs e)
+        {
+            if (!statButton)
+            {
+                statButton = true;
+                this.button1.BackColor = Color.Green;
+                device.FingerDetected += RechercheTodatabase;
+            }
+            else
+            {
+                statButton = false;
+                this.button1.BackColor = Color.Red;
+            }
+
+        }
+
+
+
+        private void RechercheTodatabase(object sender, EventArgs e)
+        {
+            Bitmap ber = device.ReadFingerprint();
+            device.FingerDetected -= RechercheTodatabase;
+            this.button1.BackColor = Color.Red;
+            this.statButton = false;
+            pictureBox1.Image=ber;
+
+            //******************************************************Go to database ********************************************************************
+
+            //******************************************************Go to database ********************************************************************
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             string pathget = Directory.GetCurrentDirectory();
             pathget = Path.Combine(pathget, "empreintePicture");
@@ -280,14 +253,12 @@ namespace FutronicFingerPrint.Forms
             File.WriteAllBytes(cheminImageAuriculaire, this.LittleFinger);
             savedata();
             MessageBox.Show("ok");
-
         }
 
-        public async Task savedata()
+        private void savedata()
         {
             try
             {
-
                 con.Open();
                 using var cmd = new NpgsqlCommand();
                 cmd.Connection = con;
@@ -316,21 +287,6 @@ namespace FutronicFingerPrint.Forms
                 con.Close();
                 MessageBox.Show($"Execute non query {ex.Message}");
             }
-
-
-        }
-
-
-
-        public class DoigtDroit
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (con.State == ConnectionState.Open)
-                con.Close();
 
         }
     }

@@ -18,7 +18,7 @@ namespace FutronicFingerPrint
 {
     public partial class MainForm : Form
     {
-        private DeviceAccessor accessor = new ();
+        private DeviceAccessor accessor = new();
         private FingerprintDevice device;
         public MainForm()
         {
@@ -60,10 +60,10 @@ namespace FutronicFingerPrint
         {
             device.SwitchLedState(false, true);
         }
-       
+
         private void btnCapture_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFile = new ();
+            SaveFileDialog saveFile = new();
             saveFile.Title = "Save Fingerprint";
             saveFile.Filter = "*.jpg|*.png";
             saveFile.DefaultExt = "jpg";
@@ -100,7 +100,7 @@ namespace FutronicFingerPrint
 
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            
+
         }
 
         private void openToolStripBtn_Click(object sender, EventArgs e)
@@ -110,8 +110,8 @@ namespace FutronicFingerPrint
 
         private void newToolStripBtn_Click(object sender, EventArgs e)
         {
-            UserRegistrationForm registrationForm = new();
-            registrationForm.ShowDialog();
+            //UserRegistrationForm registrationForm = new();
+            //registrationForm.ShowDialog();
         }
 
         private void saveToolStripBtn_Click(object sender, EventArgs e)
@@ -126,23 +126,23 @@ namespace FutronicFingerPrint
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UserRegistrationForm registrationForm = new();
-            registrationForm.ShowDialog();
+            //UserRegistrationForm registrationForm = new();
+            //registrationForm.ShowDialog();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerificationForm verifForm = new();
+            //VerificationForm verifForm = new();
 
-            bool isFormRunning = IsFormRunning(typeof(VerificationForm)); // Vérifiez si le formulaire est déjà en cours d'exécution
+            //bool isFormRunning = IsFormRunning(typeof(VerificationForm)); // Vérifiez si le formulaire est déjà en cours d'exécution
 
-            if (!isFormRunning)
-            {
-                verifForm.ShowDialog(); ; // Lancez le formulaire si ce n'est pas déjà en cours d'exécution
-            }
+            //if (!isFormRunning)
+            //{
+            //    verifForm.ShowDialog(); ; // Lancez le formulaire si ce n'est pas déjà en cours d'exécution
+            //}
 
 
-                        
+
         }
 
 
@@ -157,6 +157,17 @@ namespace FutronicFingerPrint
                 }
             }
             return false; // Le formulaire n'est pas en cours d'exécution
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            UserRegistrationForm registrationForm = new();
+            registrationForm.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
