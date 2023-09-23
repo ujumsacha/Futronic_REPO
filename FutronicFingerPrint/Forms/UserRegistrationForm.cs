@@ -333,5 +333,10 @@ namespace FutronicFingerPrint.Forms
                 con.Close();
 
         }
+
+        private void btnCaptureThumb_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -112,9 +112,14 @@ namespace Fingerprint1
 
         private void btnCaptureThumb_Click(object sender, EventArgs e)
         {
+
+
+
             try
             {
+                var accessor = new DeviceAccessor();
 
+                var device = accessor.AccessFingerprintDevice();
                 device.SwitchLedState(true, false);
                 //device.StartFingerDetection();
                 Bitmap ber = device.ReadFingerprint();
@@ -145,7 +150,9 @@ namespace Fingerprint1
 
         private void btnCaptureIndex_Click(object sender, EventArgs e)
         {
+            var accessor = new DeviceAccessor();
 
+            var device = accessor.AccessFingerprintDevice();
             device.SwitchLedState(true, false);
             //device.StartFingerDetection();
             Bitmap ber = device.ReadFingerprint();
@@ -158,7 +165,9 @@ namespace Fingerprint1
 
         private void btnCaptureRing_Click(object sender, EventArgs e)
         {
+            var accessor = new DeviceAccessor();
 
+            var device = accessor.AccessFingerprintDevice();
             device.SwitchLedState(true, false);
             //device.StartFingerDetection();
             Bitmap ber = device.ReadFingerprint();
@@ -171,7 +180,9 @@ namespace Fingerprint1
 
         private void btnCaptureLittle_Click(object sender, EventArgs e)
         {
+            var accessor = new DeviceAccessor();
 
+            var device = accessor.AccessFingerprintDevice();
             device.SwitchLedState(true, false);
             //device.StartFingerDetection();
             Bitmap ber = device.ReadFingerprint();
@@ -184,6 +195,9 @@ namespace Fingerprint1
 
         private void btnCaptureMiddle_Click(object sender, EventArgs e)
         {
+            var accessor = new DeviceAccessor();
+
+            var device = accessor.AccessFingerprintDevice();
             device.SwitchLedState(true, false);
             //device.StartFingerDetection();
             Bitmap ber = device.ReadFingerprint();
@@ -195,6 +209,9 @@ namespace Fingerprint1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //var accessor = new DeviceAccessor();
+
+            //var device = accessor.AccessFingerprintDevice();
             if (!statButton)
             {
                 statButton = true;
@@ -208,11 +225,9 @@ namespace Fingerprint1
             }
 
         }
-
-
-
         private void RechercheTodatabase(object sender, EventArgs e)
         {
+            
             Bitmap ber = device.ReadFingerprint();
             device.FingerDetected -= RechercheTodatabase;
             this.button1.BackColor = Color.Red;
@@ -287,6 +302,11 @@ namespace Fingerprint1
                 con.Close();
                 MessageBox.Show($"Execute non query {ex.Message}");
             }
+
+        }
+
+        private void btn_search_cni_Click(object sender, EventArgs e)
+        {
 
         }
     }
