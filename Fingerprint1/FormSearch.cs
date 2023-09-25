@@ -19,7 +19,7 @@ namespace Fingerprint1
         private DeviceAccessor accessor = new();
         private FingerprintDevice device;
         private bool _isDetecteMode = false;
-        private NpgsqlConnection con = new NpgsqlConnection(connectionString: "Server=127.0.0.1;Port=5432;User Id=vitbank;Password=vitbank;Database=Bd_enrollement;");
+        private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
         public FormSearch()
         {
             InitializeComponent();
@@ -60,7 +60,11 @@ namespace Fingerprint1
                     }
                     else
                     {
-                        MessageBox.Show("trouvé");
+                        rd.Read();
+                        this.label8.Text = rd.GetString(1);
+                        this.label9.Text = rd.GetString(3);
+                        this.label10.Text = rd.GetString(4); ;
+                        this.label11.Text = rd.GetString(7);
 
                     }
 
@@ -127,33 +131,42 @@ namespace Fingerprint1
 
         private void recupempreinte(object? sender, EventArgs e)
         {
-            var ber = device.ReadFingerprint();
-            pictureBox1.Image = ber;
-
-            var tempFile = Guid.NewGuid().ToString();
-            var tempFileall=Path.Combine(Outils.recup().tempfolder, tempFile);
-            var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
-            ber.Save(tmpBmpFile);
-
-            device.FingerDetected -= recupempreinte;
-            _isDetecteMode = false;
-            button1.BackColor = Color.Red;
-
-
-
-            //check into file to see if is goood empreinte
-            (bool,double,string) res = BiometricVerification.Verify(tempFileall).Result;
-            if(!res.Item1)
+            try
             {
-                MessageBox.Show("Aucune correspondance avec les empreinte de la base de donnée");
+                var ber = device.ReadFingerprint();
+                pictureBox1.Image = ber;
+
+                var tempFile = Guid.NewGuid().ToString();
+                var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
+                var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
+                ber.Save(tmpBmpFile);
+
+                device.FingerDetected -= recupempreinte;
+                _isDetecteMode = false;
+                button1.BackColor = Color.Red;
+
+
+
+                //check into file to see if is goood empreinte
+                (bool, double, string) res = BiometricVerification.Verify(tempFileall).Result;
+                if (!res.Item1)
+                {
+                    MessageBox.Show("Aucune correspondance avec les empreinte de la base de donnée");
+                }
+                else
+                {
+                    //**************************************recupere l'empreinte l'utilisateur dans la BD********************************
+                    string[] retarray = res.Item3.Split("\\");
+                    getinfoUserFromDatabase(retarray.Last());
+                    //**************************************recupere l'empreinte l'utilisateur dans la BD********************************
+                }
             }
-            else
-            { 
-            //**************************************recupere l'empreinte l'utilisateur dans la BD********************************
-            string [] retarray= res.Item3.Split("\\");
-            getinfoUserFromDatabase(retarray.Last());
-                //**************************************recupere l'empreinte l'utilisateur dans la BD********************************
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur dans a detection de l'empreinte veuillez contacter l'administrateur");
             }
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)

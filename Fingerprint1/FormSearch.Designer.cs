@@ -28,233 +28,219 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            button1 = new System.Windows.Forms.Button();
-            btn_search_cni = new System.Windows.Forms.Button();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
-            btn_par_numero_unique = new System.Windows.Forms.Button();
-            label4 = new System.Windows.Forms.Label();
-            txt_numero_unique = new System.Windows.Forms.TextBox();
-            label3 = new System.Windows.Forms.Label();
-            txt_search_cni = new System.Windows.Forms.TextBox();
-            groupBox4 = new System.Windows.Forms.GroupBox();
-            label11 = new System.Windows.Forms.Label();
-            label10 = new System.Windows.Forms.Label();
-            label9 = new System.Windows.Forms.Label();
-            label8 = new System.Windows.Forms.Label();
-            label7 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
-            label5 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            groupBox4.SuspendLayout();
-            SuspendLayout();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btn_search_cni = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btn_par_numero_unique = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txt_numero_unique = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txt_search_cni = new System.Windows.Forms.TextBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(button1);
-            groupBox1.Controls.Add(btn_search_cni);
-            groupBox1.Controls.Add(pictureBox1);
-            groupBox1.Controls.Add(btn_par_numero_unique);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(txt_numero_unique);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(txt_search_cni);
-            groupBox1.Location = new System.Drawing.Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(239, 496);
-            groupBox1.TabIndex = 44;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Recherche";
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.btn_search_cni);
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.btn_par_numero_unique);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.txt_numero_unique);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txt_search_cni);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(239, 496);
+            this.groupBox1.TabIndex = 44;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Recherche";
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(72, 399);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(75, 23);
-            button1.TabIndex = 48;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Location = new System.Drawing.Point(72, 399);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 41);
+            this.button1.TabIndex = 48;
+            this.button1.Text = "Debuter la Detection";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btn_search_cni
             // 
-            btn_search_cni.Location = new System.Drawing.Point(72, 82);
-            btn_search_cni.Name = "btn_search_cni";
-            btn_search_cni.Size = new System.Drawing.Size(75, 23);
-            btn_search_cni.TabIndex = 44;
-            btn_search_cni.Text = "Recherche";
-            btn_search_cni.UseVisualStyleBackColor = true;
-            btn_search_cni.Click += btn_search_cni_Click;
+            this.btn_search_cni.Location = new System.Drawing.Point(72, 85);
+            this.btn_search_cni.Name = "btn_search_cni";
+            this.btn_search_cni.Size = new System.Drawing.Size(75, 23);
+            this.btn_search_cni.TabIndex = 44;
+            this.btn_search_cni.Text = "Recherche";
+            this.btn_search_cni.UseVisualStyleBackColor = true;
+            this.btn_search_cni.Click += new System.EventHandler(this.btn_search_cni_Click);
             // 
             // pictureBox1
             // 
-            pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            pictureBox1.Location = new System.Drawing.Point(39, 214);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(144, 179);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(144, 179);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // btn_par_numero_unique
             // 
-            btn_par_numero_unique.Location = new System.Drawing.Point(76, 185);
-            btn_par_numero_unique.Name = "btn_par_numero_unique";
-            btn_par_numero_unique.Size = new System.Drawing.Size(75, 23);
-            btn_par_numero_unique.TabIndex = 47;
-            btn_par_numero_unique.Text = "Recherche";
-            btn_par_numero_unique.UseVisualStyleBackColor = true;
-            btn_par_numero_unique.Click += btn_par_numero_unique_Click;
+            this.btn_par_numero_unique.Location = new System.Drawing.Point(74, 184);
+            this.btn_par_numero_unique.Name = "btn_par_numero_unique";
+            this.btn_par_numero_unique.Size = new System.Drawing.Size(75, 23);
+            this.btn_par_numero_unique.TabIndex = 47;
+            this.btn_par_numero_unique.Text = "Recherche";
+            this.btn_par_numero_unique.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(60, 129);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(118, 15);
-            label4.TabIndex = 46;
-            label4.Text = "Par Numero Unique :";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(60, 129);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 15);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Par Numero Unique :";
             // 
             // txt_numero_unique
             // 
-            txt_numero_unique.Location = new System.Drawing.Point(30, 156);
-            txt_numero_unique.Name = "txt_numero_unique";
-            txt_numero_unique.Size = new System.Drawing.Size(170, 23);
-            txt_numero_unique.TabIndex = 45;
+            this.txt_numero_unique.Location = new System.Drawing.Point(30, 156);
+            this.txt_numero_unique.Name = "txt_numero_unique";
+            this.txt_numero_unique.Size = new System.Drawing.Size(170, 23);
+            this.txt_numero_unique.TabIndex = 45;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(56, 25);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(100, 15);
-            label3.TabIndex = 43;
-            label3.Text = "Par Numero CNI :";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(56, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 15);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "Par Numero CNI :";
             // 
             // txt_search_cni
             // 
-            txt_search_cni.Location = new System.Drawing.Point(26, 53);
-            txt_search_cni.Name = "txt_search_cni";
-            txt_search_cni.Size = new System.Drawing.Size(170, 23);
-            txt_search_cni.TabIndex = 42;
+            this.txt_search_cni.Location = new System.Drawing.Point(26, 53);
+            this.txt_search_cni.Name = "txt_search_cni";
+            this.txt_search_cni.Size = new System.Drawing.Size(170, 23);
+            this.txt_search_cni.TabIndex = 42;
             // 
             // groupBox4
             // 
-            groupBox4.Controls.Add(label11);
-            groupBox4.Controls.Add(label10);
-            groupBox4.Controls.Add(label9);
-            groupBox4.Controls.Add(label8);
-            groupBox4.Controls.Add(label7);
-            groupBox4.Controls.Add(label6);
-            groupBox4.Controls.Add(label5);
-            groupBox4.Controls.Add(label2);
-            groupBox4.Controls.Add(label1);
-            groupBox4.Location = new System.Drawing.Point(286, 23);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new System.Drawing.Size(464, 485);
-            groupBox4.TabIndex = 45;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "Information Personnel";
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
+            this.groupBox4.Controls.Add(this.label2);
+            this.groupBox4.Controls.Add(this.label1);
+            this.groupBox4.Location = new System.Drawing.Point(286, 23);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(464, 197);
+            this.groupBox4.TabIndex = 45;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Information Personnel";
             // 
             // label11
             // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(13, 337);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(44, 15);
-            label11.TabIndex = 8;
-            label11.Text = "label11";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(204, 153);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 15);
+            this.label11.TabIndex = 8;
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(13, 303);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(44, 15);
-            label10.TabIndex = 7;
-            label10.Text = "label10";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(204, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 15);
+            this.label10.TabIndex = 7;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(13, 265);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(38, 15);
-            label9.TabIndex = 6;
-            label9.Text = "label9";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(204, 79);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(0, 15);
+            this.label9.TabIndex = 6;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(13, 227);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(38, 15);
-            label8.TabIndex = 5;
-            label8.Text = "label8";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(13, 191);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(107, 15);
-            label7.TabIndex = 4;
-            label7.Text = "Lieu de Naissance :";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(204, 40);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(0, 15);
+            this.label8.TabIndex = 5;
             // 
             // label6
             // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(13, 153);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(109, 15);
-            label6.TabIndex = 3;
-            label6.Text = "Date de Naissance :";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 153);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(72, 15);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Nationnalité";
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(13, 118);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(60, 15);
-            label5.TabIndex = 2;
-            label5.Text = "Prénoms :";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 15);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Prénoms :";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(13, 79);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(40, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Nom :";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 79);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(40, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Nom :";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(13, 40);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(83, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Numero  CNI :";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Numero  CNI :";
             // 
             // FormSearch
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(772, 520);
-            Controls.Add(groupBox4);
-            Controls.Add(groupBox1);
-            Name = "FormSearch";
-            Text = "FormSearch";
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(772, 520);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox1);
+            this.Name = "FormSearch";
+            this.Text = "FormSearch";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -272,7 +258,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
