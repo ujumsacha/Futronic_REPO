@@ -31,8 +31,8 @@ namespace Fingerprint1
         private byte[] LittleFinger;
 
 
-
-        private NpgsqlConnection con = new NpgsqlConnection(connectionString: "Server=172.10.10.103;Port=5434;User Id=vitbank;Password=vitbank;Database=Bd_enrollement;");
+        //string URIBD = Outils.recup().DatabaseString;
+        private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
 
         string cheminImagethumb;
         string cheminImageIndex;
@@ -49,7 +49,7 @@ namespace Fingerprint1
             this.pictureRing.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureThumb.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureIndex.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            //this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
             Task.Run(() =>
             {
@@ -212,27 +212,27 @@ namespace Fingerprint1
             //var accessor = new DeviceAccessor();
 
             //var device = accessor.AccessFingerprintDevice();
-            if (!statButton)
-            {
-                statButton = true;
-                this.button1.BackColor = Color.Green;
-                device.FingerDetected += RechercheTodatabase;
-            }
-            else
-            {
-                statButton = false;
-                this.button1.BackColor = Color.Red;
-            }
+            //if (!statButton)
+            //{
+            //    statButton = true;
+            //    //this.button1.BackColor = Color.Green;
+            //    device.FingerDetected += RechercheTodatabase;
+            //}
+            //else
+            //{
+            //    statButton = false;
+            //    //this.button1.BackColor = Color.Red;
+            //}
 
         }
         private void RechercheTodatabase(object sender, EventArgs e)
         {
-            
-            Bitmap ber = device.ReadFingerprint();
-            device.FingerDetected -= RechercheTodatabase;
-            this.button1.BackColor = Color.Red;
-            this.statButton = false;
-            pictureBox1.Image=ber;
+
+            //Bitmap ber = device.ReadFingerprint();
+            //device.FingerDetected -= RechercheTodatabase;
+            ////this.button1.BackColor = Color.Red;
+            ////this.statButton = false;
+            //pictureBox1.Image = ber;
 
             //******************************************************Go to database ********************************************************************
 
@@ -306,6 +306,11 @@ namespace Fingerprint1
         }
 
         private void btn_search_cni_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
 
         }

@@ -121,4 +121,10 @@
   <data name="save empreitnte" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save empreitnte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="save empreitnte1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save empreitnte1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="verife empreinte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\verife empreinte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
