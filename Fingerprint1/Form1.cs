@@ -55,7 +55,6 @@ namespace Fingerprint1
             {
                 device.StartFingerDetection();
                 device.SwitchLedState(false, true);
-
                 device.SwitchLedState(false, false);
             });
         }
@@ -63,8 +62,7 @@ namespace Fingerprint1
         private void InitializeDevice()
         {
             device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(false, false);
-
+            //device.SwitchLedState(false, false);
         }
 
         private void FingerReleased(object? sender, EventArgs e)
@@ -267,7 +265,31 @@ namespace Fingerprint1
             File.WriteAllBytes(cheminImageAnnulaire, this.RingFinger);
             File.WriteAllBytes(cheminImageAuriculaire, this.LittleFinger);
             savedata();
-            MessageBox.Show("ok");
+
+
+
+            reinitialisechamp();
+            MessageBox.Show("Enregistrement effectué avec Succes");
+        }
+
+        private void reinitialisechamp()
+        {
+            this.txt_cni.Text= "";
+            this.txt_lieu_emission.Text = "";
+            this.txt_lieu_naissance.Text = "";
+            this.txt_nationnalite.Text = "";
+            this.txt_nni.Text = "";
+            this.txt_nom.Text = "";
+            this.txt_num_unique.Text = "";
+            this.txt_prenom.Text = "";
+            this.txt_profession.Text = "";
+            this.txt_taille.Text = "";
+            this.pictureIndex.Image= null;
+            this.pictureLittle.Image= null;
+            this.pictureMiddle.Image= null;
+            this.pictureRing.Image= null;
+            this.pictureThumb.Image= null;
+
         }
 
         private void savedata()

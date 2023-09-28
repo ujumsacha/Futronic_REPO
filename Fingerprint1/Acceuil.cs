@@ -19,6 +19,7 @@ namespace Fingerprint1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show("API de verification pas encore disponible ");
             FormSearch fr1 = new FormSearch();
             fr1.ShowDialog();
         }

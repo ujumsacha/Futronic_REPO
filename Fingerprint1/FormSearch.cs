@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Timers;
+using System.Threading;
 
 namespace Fingerprint1
 {
@@ -20,6 +22,16 @@ namespace Fingerprint1
         private FingerprintDevice device;
         private bool _isDetecteMode = false;
         private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
+        public void Mymethod(object sender, ElapsedEventArgs e)
+        {
+            device = accessor.AccessFingerprintDevice();
+            device.StartFingerDetection();
+            if (device.IsFingerPresent)
+            {
+                device.SwitchLedState(true, false);
+                var ber = device.ReadFingerprint();
+            }
+        }
         public FormSearch()
         {
             InitializeComponent();
@@ -31,11 +43,13 @@ namespace Fingerprint1
 
                 device.SwitchLedState(false, false);
             });
+
         }
         private void chargeall()
         {
+            //device.StopFingerDetection();
             device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(false, false);
+            //device.SwitchLedState(true, false);
 
         }
         private void btn_search_cni_Click(object sender, EventArgs e)
@@ -77,7 +91,6 @@ namespace Fingerprint1
                 finally { con.Close(); }
             }
         }
-
         private void btn_par_numero_unique_Click(object sender, EventArgs e)
         {
             if (txt_numero_unique.Text == string.Empty)
@@ -114,44 +127,28 @@ namespace Fingerprint1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //est en non detection et doit passer en detection 
-            if (!_isDetecteMode)
-            {
-
-                _isDetecteMode = true;
-            }
-            //est en detetction et dois passer en non detection
-            else
-            {
-                _isDetecteMode = false;
-            }
-        }
-
         private void recupempreinte(object? sender, EventArgs e)
         {
             try
             {
-                var ber = device.ReadFingerprint();
-                pictureBox1.Image = ber;
+                this.label8.Text = "";
+                this.label9.Text = "";
+                this.label10.Text = "";
+                this.label11.Text = "";
 
+                var ber = device.ReadFingerprint();
                 var tempFile = Guid.NewGuid().ToString();
                 var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
                 var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
                 ber.Save(tmpBmpFile);
+                pictureBox1.Image = ber;
 
-                device.FingerDetected -= recupempreinte;
-                _isDetecteMode = false;
-                button1.BackColor = Color.Red;
-
-
-
-                //check into file to see if is goood empreinte
-                (bool, double, string) res = BiometricVerification.Verify(tempFileall).Result;
+                ////check into file to see if is goood empreinte
+                (bool, double, string) res = BiometricVerification.Verify(tmpBmpFile).Result;
                 if (!res.Item1)
                 {
-                    MessageBox.Show("Aucune correspondance avec les empreinte de la base de donnée");
+                    MessageBox.Show($"Aucune correspondance avec les empreintes de la base de donnée {res.Item3}");
+                    //device.Dispose();
                 }
                 else
                 {
@@ -164,30 +161,103 @@ namespace Fingerprint1
             catch (Exception ex)
             {
 
-                MessageBox.Show("Erreur dans a detection de l'empreinte veuillez contacter l'administrateur");
+                MessageBox.Show($"Erreur dans a detection de l'empreinte veuillez contacter l'administrateur {ex.Message}");
             }
-            
         }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //fromConsole();
             if (!_isDetecteMode)
             {
                 device.FingerDetected += recupempreinte;
                 _isDetecteMode = true;
                 button1.BackColor = Color.Green;
             }
-            else {
+            else
+            {
                 device.FingerDetected -= recupempreinte;
                 _isDetecteMode = false;
                 button1.BackColor = Color.Red;
             }
-            
 
         }
         private void getinfoUserFromDatabase(string info)
         {
 
+            try
+            {
+                con.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand();
+                cmd.Connection = con;
+                cmd.CommandText = $"SELECT p1.* FROM sc_enrollement.t_info_personne as p1 inner join sc_enrollement.t_empreinte as p2 on p2.r_id_personne_fk=p1.r_id where p2.r_lien like '%{info}'";
+                NpgsqlDataReader rd = cmd.ExecuteReader();
+
+                if (!rd.HasRows)
+                {
+                    MessageBox.Show("Empreinte existante mais données non trouvé");
+                }
+                else
+                {
+                    rd.Read();
+                    string el1 = rd.GetString(1);
+                    string el2 = rd.GetString(3);
+                    string el3 = rd.GetString(4); ;
+                    string el4 = rd.GetString(7);
+                    rd.Close();
+
+                    Thread thread = new Thread(() =>
+                    {
+                        // Effectuez votre travail long ici
+
+                        // Créez un délégué pour mettre à jour l'interface utilisateur avec des paramètres
+                        Action<string> updateDelegate = new Action<string>((message) =>
+                        {
+                            // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                            UpdateUIFromThread(el1, el2, el3, el4);
+                        });
+
+                        // Appelez Invoke sur le formulaire pour mettre à jour l'interface utilisateur
+                        this.Invoke(updateDelegate, "Mise à jour depuis le thread secondaire avec des paramètres");
+                    });
+
+                    // Démarrez le thread
+                    thread.Start();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur systeme veuillez contacter l'administrateur");
+            }
+            finally { con.Close(); }
+        }
+        private void UpdateUIFromThread(string elmt1, string elmt2, string elmt3, string elmt4)
+        {
+            this.label8.Text = elmt1;
+            this.label9.Text = elmt2;
+            this.label10.Text = elmt3; ;
+            this.label11.Text = elmt4;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var accessor = new DeviceAccessor();
+
+            var device = accessor.AccessFingerprintDevice();
+            device.SwitchLedState(true, false);
+            //device.StartFingerDetection();
+            Bitmap ber = device.ReadFingerprint();
+            this.pictureBox1.Image = ber;
+            device.SwitchLedState(false, false);
+        }
+
+        private void FormSearch_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            device.FingerDetected -= recupempreinte;
+            _isDetecteMode = false;
+            button1.BackColor = Color.Red;
+            device.StopFingerDetection();
+            device.Dispose();
         }
     }
 }

@@ -26,6 +26,7 @@ namespace Fingerprint1
         public static Task<(bool, double,string)> Verify(string fingerprint1)
         {
             int nbrTentative = 0;
+            string? bmpdefault = "";
             try
             {
                 LabelDepart:
@@ -46,14 +47,13 @@ namespace Fingerprint1
                 //    imageBytes = ms.ToArray();
                 //}
                 //convertir ma premiere image en byte array 
-
+                bmpdefault = "before go to checke repertoire";
                 // Vérifier si le répertoire existe
                 if (Directory.Exists(directoryPath))
                 {
                     // Récupérer tous les fichiers .bmp du répertoire
                     string[] bmpFiles = Directory.GetFiles(directoryPath, "*.bmp");
 
-                    // Parcourir les fichiers .bmp
                     foreach (string bmpFile in ret)
                     {
                         Image fingerprint2 = Image.FromFile(bmpFile);
@@ -68,10 +68,10 @@ namespace Fingerprint1
                         double threshold = 40;
                         bool match = score >= threshold;
                         if(match)
-                            return Task.FromResult((match, score, bmpFile));
+                            return Task.FromResult((match, score, string.Empty));
 
                     }
-                    return Task.FromResult((false, 0.0,string.Empty));
+                    return Task.FromResult((false, 0.0, string.Empty));
 
                 }
                 else
@@ -86,6 +86,7 @@ namespace Fingerprint1
             }
             catch (Exception ex)
             {
+
                 return Task.FromResult((false, 0.0, string.Empty));
             }
         }
@@ -93,23 +94,21 @@ namespace Fingerprint1
         public static byte[] convertTobytearray(string uri)
         {
             return File.ReadAllBytes(uri);
-
-            
         }
 
 
-        static void ListAllFiles(string directoryPath)
+        static List<string> ListAllFiles(string directoryPath)
         {
-            
+            List<string> LstString = new List<string>();
             try
             {
                 // Récupérez tous les fichiers dans le répertoire actuel
                 string[] fichiers = Directory.GetFiles(directoryPath);
                 foreach (string fichier in fichiers)
                 {
+                    LstString.Add(fichier);
                     ret.Add(fichier);
                 }
-
                 // Récupérez tous les sous-dossiers dans le répertoire actuel
                 string[] sousDossiers = Directory.GetDirectories(directoryPath);
                 foreach (string sousDossier in sousDossiers)
@@ -117,10 +116,11 @@ namespace Fingerprint1
                     // Récursion pour parcourir les sous-dossiers et leurs fichiers
                     ListAllFiles(sousDossier);
                 }
+                return LstString;
             }
             catch (Exception ex)
             {
-                throw new Exception("Erreur dans la gestion des fichier ");
+                throw new Exception("Erreur dans la gestion des fichier " + ex.Message);
             }
         }
     }

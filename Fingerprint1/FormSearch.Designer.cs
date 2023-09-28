@@ -107,6 +107,7 @@
             this.btn_par_numero_unique.TabIndex = 47;
             this.btn_par_numero_unique.Text = "Recherche";
             this.btn_par_numero_unique.UseVisualStyleBackColor = true;
+            this.btn_par_numero_unique.Click += new System.EventHandler(this.btn_par_numero_unique_Click);
             // 
             // label4
             // 
@@ -234,6 +235,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "FormSearch";
             this.Text = "FormSearch";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearch_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
