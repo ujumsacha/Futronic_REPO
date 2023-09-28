@@ -126,7 +126,6 @@ namespace Fingerprint1
                 finally { con.Close(); }
             }
         }
-
         private void recupempreinte(object? sender, EventArgs e)
         {
             try
@@ -250,7 +249,6 @@ namespace Fingerprint1
             this.pictureBox1.Image = ber;
             device.SwitchLedState(false, false);
         }
-
         private void FormSearch_FormClosing(object sender, FormClosingEventArgs e)
         {
             device.FingerDetected -= recupempreinte;
