@@ -114,6 +114,7 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.txt_num_unique);
             this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Location = new System.Drawing.Point(12, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(827, 284);
@@ -563,6 +564,7 @@
             this.ClientSize = new System.Drawing.Size(851, 538);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Finger Print ";
             this.groupBox2.ResumeLayout(false);
