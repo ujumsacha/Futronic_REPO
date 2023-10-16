@@ -29,5 +29,16 @@ namespace Fingerprint1
             Form1 fr1 = new Form1();
             fr1.ShowDialog();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+           
+        }
     }
 }

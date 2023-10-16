@@ -49,28 +49,37 @@ namespace Futronic.Scanners.FS26X80
 
         private void FingerDetectionCallback(object state)
         {
-            var result = LibScanApi.ftrScanIsFingerPresent(this.handle, out var pFrameParameters);
-
-            if (!result)
+            try
             {
-                // There could be an error
-                // var error = LibScanApi.GetLastError();
-                return;
+                var result = LibScanApi.ftrScanIsFingerPresent(this.handle, out var pFrameParameters);
+
+                if (!result)
+                {
+                    // There could be an error
+                    // var error = LibScanApi.GetLastError();
+                    return;
+                }
+
+                var lastFingerDetectedResult = pFrameParameters.nContrastOnDose2 > FingerDetectionContrastThreshold;
+
+                if (lastFingerDetectedResult && !this.IsFingerPresent)
+                {
+                    this.IsFingerPresent = true;
+                    this.OnFingerDetected();
+                }
+
+                if (!lastFingerDetectedResult && this.IsFingerPresent)
+                {
+                    this.IsFingerPresent = false;
+                    this.OnFingerReleased();
+                }
             }
-
-            var lastFingerDetectedResult = pFrameParameters.nContrastOnDose2 > FingerDetectionContrastThreshold;
-
-            if (lastFingerDetectedResult && !this.IsFingerPresent)
+            catch (Exception ex)
             {
-                this.IsFingerPresent = true;
-                this.OnFingerDetected();
+                throw new Exception("Erreur de la detection du materiel");
+                
             }
-
-            if (!lastFingerDetectedResult && this.IsFingerPresent)
-            {
-                this.IsFingerPresent = false;
-                this.OnFingerReleased();
-            }
+           
         }
 
         public void Dispose()
@@ -99,6 +108,7 @@ namespace Futronic.Scanners.FS26X80
 
         public void SwitchLedState(bool green, bool red)
         {
+            byte bber = (byte)(green ? 255 : 0);
             LibScanApi.ftrScanSetDiodesStatus(this.handle, (byte)(green ? 255 : 0), (byte)(red ? 255 : 0));
         }
 
@@ -136,6 +146,7 @@ namespace Futronic.Scanners.FS26X80
 
                 greenIsOn = state;
 
+                byte bb = (byte)(greenIsOn ? 255 : 0);
                 LibScanApi.ftrScanSetDiodesStatus(this.handle, (byte)(greenIsOn ? 255 : 0), (byte)(redIsOn ? 255 : 0));
             }
         }
