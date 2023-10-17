@@ -118,13 +118,22 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="save empreitnte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\save empreitnte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="verife empreinte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\verife empreinte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="save empreitnte1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\save empreitnte1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="verife empreinte" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\verife empreinte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="save empreitnte" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\save empreitnte.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ML2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ML2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rechercher" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rechercher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rechercher1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rechercher1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

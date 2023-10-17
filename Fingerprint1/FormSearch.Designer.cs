@@ -29,278 +29,497 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSearch));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_search_cni = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_par_numero_unique = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt_numero_unique = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_search_cni = new System.Windows.Forms.TextBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.btn_search_cni);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.btn_par_numero_unique);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txt_numero_unique);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txt_search_cni);
-            this.groupBox1.Location = new System.Drawing.Point(16, 38);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(239, 496);
-            this.groupBox1.TabIndex = 44;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Recherche";
+            button1 = new System.Windows.Forms.Button();
+            btn_search_cni = new System.Windows.Forms.Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            panel1 = new System.Windows.Forms.Panel();
+            label7 = new System.Windows.Forms.Label();
+            btn_close = new System.Windows.Forms.Button();
+            label12 = new System.Windows.Forms.Label();
+            panel2 = new System.Windows.Forms.Panel();
+            label3 = new System.Windows.Forms.Label();
+            txt_search_cni = new System.Windows.Forms.TextBox();
+            panel3 = new System.Windows.Forms.Panel();
+            btn_par_numero_unique = new System.Windows.Forms.Button();
+            label44 = new System.Windows.Forms.Label();
+            txt_numero_unique = new System.Windows.Forms.TextBox();
+            panel4 = new System.Windows.Forms.Panel();
+            label4 = new System.Windows.Forms.Label();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            label_separateur = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            panel6 = new System.Windows.Forms.Panel();
+            label14 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            label17 = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            panel5 = new System.Windows.Forms.Panel();
+            panel7 = new System.Windows.Forms.Panel();
+            label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            panel1.SuspendLayout();
+            panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            panel5.SuspendLayout();
+            SuspendLayout();
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(72, 399);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 41);
-            this.button1.TabIndex = 48;
-            this.button1.Text = "Debuter la Detection";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            button1.BackColor = System.Drawing.Color.Red;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.ForeColor = System.Drawing.Color.White;
+            button1.Location = new System.Drawing.Point(0, 191);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(236, 41);
+            button1.TabIndex = 48;
+            button1.Text = "Débuter la détection";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // btn_search_cni
             // 
-            this.btn_search_cni.Location = new System.Drawing.Point(72, 85);
-            this.btn_search_cni.Name = "btn_search_cni";
-            this.btn_search_cni.Size = new System.Drawing.Size(75, 23);
-            this.btn_search_cni.TabIndex = 44;
-            this.btn_search_cni.Text = "Recherche";
-            this.btn_search_cni.UseVisualStyleBackColor = true;
-            this.btn_search_cni.Click += new System.EventHandler(this.btn_search_cni_Click);
+            btn_search_cni.BackColor = System.Drawing.Color.FromArgb(0, 147, 133);
+            btn_search_cni.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 147, 133);
+            btn_search_cni.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_search_cni.Image = Properties.Resources.Rechercher;
+            btn_search_cni.Location = new System.Drawing.Point(195, 0);
+            btn_search_cni.Name = "btn_search_cni";
+            btn_search_cni.Size = new System.Drawing.Size(41, 71);
+            btn_search_cni.TabIndex = 44;
+            btn_search_cni.UseVisualStyleBackColor = false;
+            btn_search_cni.Click += btn_search_cni_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(39, 214);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(144, 144);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btn_par_numero_unique
-            // 
-            this.btn_par_numero_unique.Location = new System.Drawing.Point(74, 184);
-            this.btn_par_numero_unique.Name = "btn_par_numero_unique";
-            this.btn_par_numero_unique.Size = new System.Drawing.Size(75, 23);
-            this.btn_par_numero_unique.TabIndex = 47;
-            this.btn_par_numero_unique.Text = "Recherche";
-            this.btn_par_numero_unique.UseVisualStyleBackColor = true;
-            this.btn_par_numero_unique.Click += new System.EventHandler(this.btn_par_numero_unique_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(60, 129);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(118, 15);
-            this.label4.TabIndex = 46;
-            this.label4.Text = "Par Numero Unique :";
-            // 
-            // txt_numero_unique
-            // 
-            this.txt_numero_unique.Location = new System.Drawing.Point(30, 156);
-            this.txt_numero_unique.Name = "txt_numero_unique";
-            this.txt_numero_unique.Size = new System.Drawing.Size(170, 23);
-            this.txt_numero_unique.TabIndex = 45;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(56, 25);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 15);
-            this.label3.TabIndex = 43;
-            this.label3.Text = "Par Numero CNI :";
-            // 
-            // txt_search_cni
-            // 
-            this.txt_search_cni.Location = new System.Drawing.Point(26, 53);
-            this.txt_search_cni.Name = "txt_search_cni";
-            this.txt_search_cni.Size = new System.Drawing.Size(170, 23);
-            this.txt_search_cni.TabIndex = 42;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label10);
-            this.groupBox4.Controls.Add(this.label9);
-            this.groupBox4.Controls.Add(this.label8);
-            this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Location = new System.Drawing.Point(289, 335);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(464, 199);
-            this.groupBox4.TabIndex = 45;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Information Personnel";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(204, 153);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(0, 15);
-            this.label11.TabIndex = 8;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(204, 118);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 15);
-            this.label10.TabIndex = 7;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(204, 79);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 15);
-            this.label9.TabIndex = 6;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(204, 40);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(0, 15);
-            this.label8.TabIndex = 5;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 153);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(72, 15);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Nationnalité";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 15);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Prénoms :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(40, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Nom :";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 40);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Numero  CNI :";
+            pictureBox1.BackColor = System.Drawing.Color.Gainsboro;
+            pictureBox1.Location = new System.Drawing.Point(35, 24);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(159, 143);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(153)))), ((int)(((byte)(139)))));
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(773, 30);
-            this.panel1.TabIndex = 46;
+            panel1.BackColor = System.Drawing.Color.FromArgb(0, 147, 133);
+            panel1.Controls.Add(label7);
+            panel1.Controls.Add(btn_close);
+            panel1.Location = new System.Drawing.Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(773, 30);
+            panel1.TabIndex = 46;
             // 
-            // button3
+            // label7
             // 
-            this.button3.BackColor = System.Drawing.Color.Maroon;
-            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(82)))), ((int)(((byte)(153)))), ((int)(((byte)(139)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(734, 3);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(33, 24);
-            this.button3.TabIndex = 0;
-            this.button3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.UseVisualStyleBackColor = false;
+            label7.AutoSize = true;
+            label7.BackColor = System.Drawing.Color.Transparent;
+            label7.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label7.ForeColor = System.Drawing.Color.White;
+            label7.Location = new System.Drawing.Point(8, 5);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(258, 20);
+            label7.TabIndex = 11;
+            label7.Text = "Formulaire de recherche - ML Enroll";
+            label7.Click += label7_Click;
+            // 
+            // btn_close
+            // 
+            btn_close.BackColor = System.Drawing.Color.Maroon;
+            btn_close.BackgroundImage = (System.Drawing.Image)resources.GetObject("btn_close.BackgroundImage");
+            btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            btn_close.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_close.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            btn_close.ForeColor = System.Drawing.Color.White;
+            btn_close.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            btn_close.Location = new System.Drawing.Point(734, 3);
+            btn_close.Name = "btn_close";
+            btn_close.Size = new System.Drawing.Size(33, 24);
+            btn_close.TabIndex = 0;
+            btn_close.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            btn_close.UseVisualStyleBackColor = false;
+            btn_close.Click += btn_close_Click;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.BackColor = System.Drawing.Color.Transparent;
+            label12.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label12.ForeColor = System.Drawing.Color.Black;
+            label12.Location = new System.Drawing.Point(8, 55);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(122, 20);
+            label12.TabIndex = 48;
+            label12.Text = "Rechercher par :";
+            label12.Click += label12_Click_1;
+            // 
+            // panel2
+            // 
+            panel2.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            panel2.Controls.Add(label3);
+            panel2.Controls.Add(btn_search_cni);
+            panel2.Controls.Add(txt_search_cni);
+            panel2.Location = new System.Drawing.Point(12, 83);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(236, 70);
+            panel2.TabIndex = 49;
+            panel2.Paint += panel2_Paint;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new System.Drawing.Point(9, 12);
+            label3.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(80, 15);
+            label3.TabIndex = 45;
+            label3.Text = "Numéro CNI :";
+            // 
+            // txt_search_cni
+            // 
+            txt_search_cni.Location = new System.Drawing.Point(13, 30);
+            txt_search_cni.Name = "txt_search_cni";
+            txt_search_cni.Size = new System.Drawing.Size(170, 23);
+            txt_search_cni.TabIndex = 44;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            panel3.Controls.Add(btn_par_numero_unique);
+            panel3.Controls.Add(label44);
+            panel3.Controls.Add(txt_numero_unique);
+            panel3.Location = new System.Drawing.Point(12, 177);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(236, 70);
+            panel3.TabIndex = 50;
+            // 
+            // btn_par_numero_unique
+            // 
+            btn_par_numero_unique.BackColor = System.Drawing.Color.FromArgb(0, 147, 133);
+            btn_par_numero_unique.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 147, 133);
+            btn_par_numero_unique.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn_par_numero_unique.Image = Properties.Resources.Rechercher1;
+            btn_par_numero_unique.Location = new System.Drawing.Point(195, 0);
+            btn_par_numero_unique.Name = "btn_par_numero_unique";
+            btn_par_numero_unique.Size = new System.Drawing.Size(41, 71);
+            btn_par_numero_unique.TabIndex = 48;
+            btn_par_numero_unique.UseVisualStyleBackColor = false;
+            btn_par_numero_unique.Click += btn_par_numero_unique_Click_1;
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Location = new System.Drawing.Point(9, 12);
+            label44.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            label44.Name = "label44";
+            label44.Size = new System.Drawing.Size(97, 15);
+            label44.TabIndex = 45;
+            label44.Text = "Numéro unique :";
+            // 
+            // txt_numero_unique
+            // 
+            txt_numero_unique.Location = new System.Drawing.Point(13, 30);
+            txt_numero_unique.Name = "txt_numero_unique";
+            txt_numero_unique.Size = new System.Drawing.Size(170, 23);
+            txt_numero_unique.TabIndex = 44;
+            // 
+            // panel4
+            // 
+            panel4.BackColor = System.Drawing.Color.FromArgb(251, 244, 237);
+            panel4.Controls.Add(button1);
+            panel4.Controls.Add(pictureBox1);
+            panel4.Location = new System.Drawing.Point(12, 295);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(236, 232);
+            panel4.TabIndex = 51;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = System.Drawing.Color.Transparent;
+            label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label4.ForeColor = System.Drawing.Color.Black;
+            label4.Location = new System.Drawing.Point(265, 55);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(209, 20);
+            label4.TabIndex = 52;
+            label4.Text = "Information du personnelle :";
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new System.Drawing.Point(14, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(132, 146);
+            pictureBox2.TabIndex = 0;
+            pictureBox2.TabStop = false;
+            // 
+            // label_separateur
+            // 
+            label_separateur.AutoSize = true;
+            label_separateur.Location = new System.Drawing.Point(223, 36);
+            label_separateur.Name = "label_separateur";
+            label_separateur.Size = new System.Drawing.Size(167, 15);
+            label_separateur.TabIndex = 1;
+            label_separateur.Text = "--------------------------------";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label13.ForeColor = System.Drawing.Color.FromArgb(232, 80, 30);
+            label13.Location = new System.Drawing.Point(218, 15);
+            label13.Name = "label13";
+            label13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            label13.Size = new System.Drawing.Size(179, 15);
+            label13.TabIndex = 2;
+            label13.Text = "CARTE NATIONALE D'IDENTITÉ";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = System.Drawing.Color.FromArgb(251, 244, 237);
+            panel6.Controls.Add(label14);
+            panel6.Controls.Add(label22);
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(label15);
+            panel6.Controls.Add(label23);
+            panel6.Controls.Add(label16);
+            panel6.Controls.Add(label19);
+            panel6.Controls.Add(pictureBox3);
+            panel6.Controls.Add(label17);
+            panel6.Controls.Add(label20);
+            panel6.Controls.Add(label21);
+            panel6.Location = new System.Drawing.Point(269, 83);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(491, 250);
+            panel6.TabIndex = 53;
+            panel6.Paint += panel5_Paint;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label14.Location = new System.Drawing.Point(183, 206);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(167, 15);
+            label14.TabIndex = 8;
+            label14.Text = "XXXXXXXXXXXXXXXXXXXX";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label22.ForeColor = System.Drawing.Color.FromArgb(232, 80, 30);
+            label22.Location = new System.Drawing.Point(232, 15);
+            label22.Name = "label22";
+            label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            label22.Size = new System.Drawing.Size(179, 15);
+            label22.TabIndex = 2;
+            label22.Text = "CARTE NATIONALE D'IDENTITÉ";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new System.Drawing.Point(183, 185);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(72, 15);
+            label18.TabIndex = 3;
+            label18.Text = "Nationnalité";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label15.Location = new System.Drawing.Point(183, 163);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(184, 15);
+            label15.TabIndex = 7;
+            label15.Text = "XXX XXXXXXX XXXXXX XXXXX";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new System.Drawing.Point(237, 36);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(167, 15);
+            label23.TabIndex = 1;
+            label23.Text = "--------------------------------";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label16.Location = new System.Drawing.Point(183, 115);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(167, 15);
+            label16.TabIndex = 6;
+            label16.Text = "XXXXXXXXXXXXXXXXXXXX";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new System.Drawing.Point(183, 142);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(60, 15);
+            label19.TabIndex = 2;
+            label19.Text = "Prénoms :";
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox3.Location = new System.Drawing.Point(14, 18);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(149, 164);
+            pictureBox3.TabIndex = 0;
+            pictureBox3.TabStop = false;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label17.Location = new System.Drawing.Point(248, 69);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(114, 15);
+            label17.TabIndex = 5;
+            label17.Text = "CIXXXXXXXXXXXX";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(183, 95);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(40, 15);
+            label20.TabIndex = 1;
+            label20.Text = "Nom :";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new System.Drawing.Point(183, 69);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(58, 15);
+            label21.TabIndex = 0;
+            label21.Text = "N° pièce :";
+            label21.Click += label1_Click;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(label13);
+            panel5.Controls.Add(label_separateur);
+            panel5.Controls.Add(pictureBox2);
+            panel5.Location = new System.Drawing.Point(386, 582);
+            panel5.Name = "panel5";
+            panel5.Size = new System.Drawing.Size(481, 444);
+            panel5.TabIndex = 53;
+            panel5.Paint += panel5_Paint;
+            // 
+            // panel7
+            // 
+            panel7.BackColor = System.Drawing.Color.FromArgb(251, 244, 237);
+            panel7.Location = new System.Drawing.Point(269, 349);
+            panel7.Name = "panel7";
+            panel7.Size = new System.Drawing.Size(491, 178);
+            panel7.TabIndex = 54;
+            panel7.Paint += panel7_Paint;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(11, 270);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(77, 20);
+            label1.TabIndex = 55;
+            label1.Text = "Détection";
             // 
             // FormSearch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(772, 556);
-            this.ControlBox = false;
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormSearch";
-            this.Text = "FormSearch";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormSearch_FormClosing);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.Color.White;
+            ClientSize = new System.Drawing.Size(772, 556);
+            ControlBox = false;
+            Controls.Add(label1);
+            Controls.Add(panel7);
+            Controls.Add(panel6);
+            Controls.Add(panel5);
+            Controls.Add(label4);
+            Controls.Add(panel4);
+            Controls.Add(panel3);
+            Controls.Add(panel2);
+            Controls.Add(label12);
+            Controls.Add(panel1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            HelpButton = true;
+            Name = "FormSearch";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            Text = "FormSearch";
+            FormClosing += FormSearch_FormClosing;
+            Load += FormSearch_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_par_numero_unique;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txt_numero_unique;
         private System.Windows.Forms.Button btn_search_cni;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_search_cni;
-        private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_close;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txt_search_cni;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label44;
+        // private System.Windows.Forms.TextBox txt_numero_unique;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Button btn_par_numero_unique;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label_separateur;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label1;
     }
 }

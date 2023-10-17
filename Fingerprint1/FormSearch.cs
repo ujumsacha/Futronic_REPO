@@ -21,7 +21,7 @@ namespace Fingerprint1
         private DeviceAccessor accessor = new();
         private FingerprintDevice device;
         private bool _isDetecteMode = false;
-        private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
+        //private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
         public void Mymethod(object sender, ElapsedEventArgs e)
         {
             device = accessor.AccessFingerprintDevice();
@@ -35,14 +35,14 @@ namespace Fingerprint1
         public FormSearch()
         {
             InitializeComponent();
-            chargeall();
-            Task.Run(() =>
-            {
-                device.StartFingerDetection();
-                device.SwitchLedState(false, true);
+            //chargeall();
+            //Task.Run(() =>
+            //{
+            //    device.StartFingerDetection();
+            //    device.SwitchLedState(false, true);
 
-                device.SwitchLedState(false, false);
-            });
+            //    device.SwitchLedState(false, false);
+            //});
 
         }
         private void chargeall()
@@ -62,25 +62,25 @@ namespace Fingerprint1
             {
                 try
                 {
-                    con.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = $"Select * FROM sc_enrollement.t_info_personne where r_num_cni='{txt_search_cni.Text}'";
-                    NpgsqlDataReader rd = cmd.ExecuteReader();
+                    //con.Open();
+                    //NpgsqlCommand cmd = new NpgsqlCommand();
+                    //cmd.Connection = con;
+                    //cmd.CommandText = $"Select * FROM sc_enrollement.t_info_personne where r_num_cni='{txt_search_cni.Text}'";
+                    //NpgsqlDataReader rd = cmd.ExecuteReader();
 
-                    if (!rd.HasRows)
-                    {
-                        MessageBox.Show("Aucun Client avec cette CNI n'a été trouvé");
-                    }
-                    else
-                    {
-                        rd.Read();
-                        this.label8.Text = rd.GetString(1);
-                        this.label9.Text = rd.GetString(3);
-                        this.label10.Text = rd.GetString(4); ;
-                        this.label11.Text = rd.GetString(7);
+                    //if (!rd.HasRows)
+                    //{
+                    //    MessageBox.Show("Aucun Client avec cette CNI n'a été trouvé");
+                    //}
+                    //else
+                    //{
+                    //    rd.Read();
+                    //    //this.label8.Text = rd.GetString(1);
+                    //    //this.label9.Text = rd.GetString(3);
+                    //    //this.label10.Text = rd.GetString(4); ;
+                    //    //this.label11.Text = rd.GetString(7);
 
-                    }
+                    //}
 
                 }
                 catch (Exception ex)
@@ -88,7 +88,7 @@ namespace Fingerprint1
 
                     MessageBox.Show("Erreur systeme veuillez contacter l'administrateur");
                 }
-                finally { con.Close(); }
+                finally {/* con.Close();*/ }
             }
         }
         private void btn_par_numero_unique_Click(object sender, EventArgs e)
@@ -101,21 +101,21 @@ namespace Fingerprint1
             {
                 try
                 {
-                    con.Open();
-                    NpgsqlCommand cmd = new NpgsqlCommand();
-                    cmd.Connection = con;
-                    cmd.CommandText = $"Select * FROM sc_enrollement.t_info_personne where r_num_unique='{txt_numero_unique.Text}'";
-                    NpgsqlDataReader rd = cmd.ExecuteReader();
+                    //con.Open();
+                    //NpgsqlCommand cmd = new NpgsqlCommand();
+                    //cmd.Connection = con;
+                    //cmd.CommandText = $"Select * FROM sc_enrollement.t_info_personne where r_num_unique='{txt_numero_unique.Text}'";
+                    //NpgsqlDataReader rd = cmd.ExecuteReader();
 
-                    if (!rd.HasRows)
-                    {
-                        MessageBox.Show("Aucun Client avec ce Numero Unique n'a été trouvé");
-                    }
-                    else
-                    {
-                        MessageBox.Show("trouvé");
+                    //if (!rd.HasRows)
+                    //{
+                    //    MessageBox.Show("Aucun Client avec ce Numéro Unique n'a été trouvé");
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("trouvé");
 
-                    }
+                    //}
 
                 }
                 catch (Exception ex)
@@ -123,17 +123,17 @@ namespace Fingerprint1
 
                     MessageBox.Show("Erreur systeme veuillez contacter l'administrateur");
                 }
-                finally { con.Close(); }
+                finally { /*con.Close(); */}
             }
         }
         private void recupempreinte(object? sender, EventArgs e)
         {
             try
             {
-                this.label8.Text = "";
-                this.label9.Text = "";
-                this.label10.Text = "";
-                this.label11.Text = "";
+                //this.label8.Text = "";
+                //this.label9.Text = "";
+                //this.label10.Text = "";
+                //this.label11.Text = "";
 
                 var ber = device.ReadFingerprint();
                 var tempFile = Guid.NewGuid().ToString();
@@ -185,58 +185,58 @@ namespace Fingerprint1
 
             try
             {
-                con.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand();
-                cmd.Connection = con;
-                cmd.CommandText = $"SELECT p1.* FROM sc_enrollement.t_info_personne as p1 inner join sc_enrollement.t_empreinte as p2 on p2.r_id_personne_fk=p1.r_id where p2.r_lien like '%{info}'";
-                NpgsqlDataReader rd = cmd.ExecuteReader();
+                //con.Open();
+                //NpgsqlCommand cmd = new NpgsqlCommand();
+                //cmd.Connection = con;
+                //cmd.CommandText = $"SELECT p1.* FROM sc_enrollement.t_info_personne as p1 inner join sc_enrollement.t_empreinte as p2 on p2.r_id_personne_fk=p1.r_id where p2.r_lien like '%{info}'";
+                //NpgsqlDataReader rd = cmd.ExecuteReader();
 
-                if (!rd.HasRows)
-                {
-                    MessageBox.Show("Empreinte existante mais données non trouvé");
-                }
-                else
-                {
-                    rd.Read();
-                    string el1 = rd.GetString(1);
-                    string el2 = rd.GetString(3);
-                    string el3 = rd.GetString(4); ;
-                    string el4 = rd.GetString(7);
-                    rd.Close();
+                //if (!rd.HasRows)
+                //{
+                //    MessageBox.Show("Empreinte existante mais données non trouvé");
+                //}
+                //else
+                //{
+                //    rd.Read();
+                //    string el1 = rd.GetString(1);
+                //    string el2 = rd.GetString(3);
+                //    string el3 = rd.GetString(4); ;
+                //    string el4 = rd.GetString(7);
+                //    rd.Close();
 
-                    Thread thread = new Thread(() =>
-                    {
-                        // Effectuez votre travail long ici
+                //    Thread thread = new Thread(() =>
+                //    {
+                //        // Effectuez votre travail long ici
 
-                        // Créez un délégué pour mettre à jour l'interface utilisateur avec des paramètres
-                        Action<string> updateDelegate = new Action<string>((message) =>
-                        {
-                            // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
-                            UpdateUIFromThread(el1, el2, el3, el4);
-                        });
+                //        // Créez un délégué pour mettre à jour l'interface utilisateur avec des paramètres
+                //        Action<string> updateDelegate = new Action<string>((message) =>
+                //        {
+                //            // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                //            UpdateUIFromThread(el1, el2, el3, el4);
+                //        });
 
-                        // Appelez Invoke sur le formulaire pour mettre à jour l'interface utilisateur
-                        this.Invoke(updateDelegate, "Mise à jour depuis le thread secondaire avec des paramètres");
-                    });
+                //        // Appelez Invoke sur le formulaire pour mettre à jour l'interface utilisateur
+                //        this.Invoke(updateDelegate, "Mise à jour depuis le thread secondaire avec des paramètres");
+                //    });
 
-                    // Démarrez le thread
-                    thread.Start();
+                //    // Démarrez le thread
+                //    thread.Start();
 
-                }
+                //}
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Erreur systeme veuillez contacter l'administrateur");
             }
-            finally { con.Close(); }
+            finally { /*con.Close();*/ }
         }
         private void UpdateUIFromThread(string elmt1, string elmt2, string elmt3, string elmt4)
         {
-            this.label8.Text = elmt1;
-            this.label9.Text = elmt2;
-            this.label10.Text = elmt3; ;
-            this.label11.Text = elmt4;
+            //this.label8.Text = elmt1;
+            //this.label9.Text = elmt2;
+            //this.label10.Text = elmt3; ;
+            //this.label11.Text = elmt4;
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -256,6 +256,76 @@ namespace Fingerprint1
             button1.BackColor = Color.Red;
             device.StopFingerDetection();
             device.Dispose();
+        }
+
+        private void groupBox4_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormSearch_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_search_cni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_par_numero_unique_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel7_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close
         }
     }
 }

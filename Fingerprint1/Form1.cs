@@ -32,7 +32,9 @@ namespace Fingerprint1
 
 
         //string URIBD = Outils.recup().DatabaseString;
-        private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
+
+        //private NpgsqlConnection con =  new NpgsqlConnection("");
+        //private NpgsqlConnection con =  new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
 
         string cheminImagethumb;
         string cheminImageIndex;
@@ -43,7 +45,7 @@ namespace Fingerprint1
         {
 
             InitializeComponent();
-            InitializeDevice();
+            //InitializeDevice();
             this.pictureLittle.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureRing.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -51,12 +53,12 @@ namespace Fingerprint1
             this.pictureIndex.SizeMode = PictureBoxSizeMode.StretchImage;
             //this.pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            Task.Run(() =>
-            {
-                device.StartFingerDetection();
-                device.SwitchLedState(false, true);
-                device.SwitchLedState(false, false);
-            });
+            ////Task.Run(() =>
+            ////{
+            ////    device.StartFingerDetection();
+            ////    device.SwitchLedState(false, true);
+            ////    device.SwitchLedState(false, false);
+            ////});
         }
 
         private void InitializeDevice()
@@ -274,7 +276,7 @@ namespace Fingerprint1
 
         private void reinitialisechamp()
         {
-            this.txt_cni.Text= "";
+            this.txt_cni.Text = "";
             this.txt_lieu_emission.Text = "";
             this.txt_lieu_naissance.Text = "";
             this.txt_nationnalite.Text = "";
@@ -284,11 +286,11 @@ namespace Fingerprint1
             this.txt_prenom.Text = "";
             this.txt_profession.Text = "";
             this.txt_taille.Text = "";
-            this.pictureIndex.Image= null;
-            this.pictureLittle.Image= null;
-            this.pictureMiddle.Image= null;
-            this.pictureRing.Image= null;
-            this.pictureThumb.Image= null;
+            this.pictureIndex.Image = null;
+            this.pictureLittle.Image = null;
+            this.pictureMiddle.Image = null;
+            this.pictureRing.Image = null;
+            this.pictureThumb.Image = null;
 
         }
 
@@ -296,9 +298,9 @@ namespace Fingerprint1
         {
             try
             {
-                con.Open();
+                //con.Open();
                 using var cmd = new NpgsqlCommand();
-                cmd.Connection = con;
+                //cmd.Connection = con;
                 string id = Guid.NewGuid().ToString();
                 string sex = (txt_sexe.Text == "Homme") ? "H" : "F";
                 //cmd.CommandText = $"Insert into sc_enrollement.t_info_personne values('{id}','{txt_cni.Text}','{txt_num_unique.Text}','{txt_nom.Text}','{txt_prenom.Text}','{sex}',{Convert.ToInt32(txt_taille.Text)},'{txt_nationnalite.Text}','{txt_lieu_naissance.Text}','TO_DATE({txt_dat_exp_cni.Value.ToString().Substring(0,10)},YYYYMMDD)','{txt_nni.Text}','{txt_profession.Text}','TO_DATE({txt_date_emission.Value.ToString().Substring(0,10)},YYYYMMDD)','{txt_lieu_emission.Text}','Syteme','TODATE({DateTime.Now.Date.ToString().Substring(0,10)},YYYYMMDD)','Systeme','TODATE({DateTime.Now.Date.ToString().Substring(0, 10)},YYYYMMDD)',{false},'{string.Empty}','{txt_date_naissance.Value.ToString().Substring(0, 10)}')";
@@ -313,15 +315,15 @@ namespace Fingerprint1
                                     INSERT INTO sc_enrollement.t_empreinte(r_type, r_valeur, r_lien, r_id_personne_fk, r_created_by, r_created_on)VALUES ( 'MAJEUR', '{this.MiddleFinger}', '{this.cheminImagemajeur}', '{id}', 'Systeme', now());
                                     INSERT INTO sc_enrollement.t_empreinte(r_type, r_valeur, r_lien, r_id_personne_fk, r_created_by, r_created_on)VALUES ( 'ANNULAIRE', '{this.RingFinger}', '{this.cheminImageAnnulaire}', '{id}', 'Systeme', now());
                                     INSERT INTO sc_enrollement.t_empreinte(r_type, r_valeur, r_lien, r_id_personne_fk, r_created_by, r_created_on)VALUES ( 'AURICULAIRE', '{this.LittleFinger}', '{this.cheminImageAuriculaire}', '{id}', 'Systeme', now());";
-                cmd1.Connection = con;
+                //cmd1.Connection = con;
                 cmd1.CommandText = requette.Replace("\r", "");
                 cmd1.CommandText = cmd1.CommandText.Replace("\n", "");
                 cmd1.ExecuteNonQuery();
-                con.Close();
+                // con.Close();
             }
             catch (Exception ex)
             {
-                con.Close();
+                //con.Close();
                 MessageBox.Show($"Execute non query {ex.Message}");
             }
 
@@ -333,6 +335,16 @@ namespace Fingerprint1
         }
 
         private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_nni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_prenom_TextChanged(object sender, EventArgs e)
         {
 
         }

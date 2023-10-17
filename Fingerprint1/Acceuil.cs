@@ -20,8 +20,8 @@ namespace Fingerprint1
         private void button2_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("API de verification pas encore disponible ");
-            FormSearch fr1 = new FormSearch();
-            fr1.ShowDialog();
+            FormSearch frsearch = new FormSearch();
+            frsearch.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,7 +38,27 @@ namespace Fingerprint1
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-           
+
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Acceuil_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_close_Click(object sender, EventArgs e)
+        {
+            this.Close()
         }
     }
 }
