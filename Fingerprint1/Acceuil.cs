@@ -58,7 +58,7 @@ namespace Fingerprint1
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-            this.Close()
+            this.Close();
         }
     }
 }

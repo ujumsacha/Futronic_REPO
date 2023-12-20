@@ -31,10 +31,10 @@ namespace Fingerprint1
         private byte[] LittleFinger;
 
 
-        //string URIBD = Outils.recup().DatabaseString;
+        string URIBD = Outils.recup().DatabaseString;
 
-        //private NpgsqlConnection con =  new NpgsqlConnection("");
-        //private NpgsqlConnection con =  new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
+        // private NpgsqlConnection con = new NpgsqlConnection("");
+        private NpgsqlConnection con = new NpgsqlConnection(connectionString: Outils.recup().DatabaseString);
 
         string cheminImagethumb;
         string cheminImageIndex;
@@ -45,7 +45,7 @@ namespace Fingerprint1
         {
 
             InitializeComponent();
-            //InitializeDevice();
+            InitializeDevice();
             this.pictureLittle.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureMiddle.SizeMode = PictureBoxSizeMode.StretchImage;
             this.pictureRing.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -141,137 +141,234 @@ namespace Fingerprint1
 
         }
 
-        private byte[] GetImageBytes(Image image)
+        private byte[]? GetImageBytes(Image image)
         {
-            MemoryStream ms = new();
-            image.Save(ms, ImageFormat.Png);
-            return ms.ToArray();
+            try
+            {
+                MemoryStream ms = new();
+                image.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+            catch (Exception ex)
+            {
+
+                return null;
+            }
+           
         }
 
         private void btnCaptureIndex_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
+            try
+            {
 
-            var device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(true, false);
-            //device.StartFingerDetection();
-            Bitmap ber = device.ReadFingerprint();
-            this.pictureIndex.Image = ber;
-            device.SwitchLedState(false, false);
+                var accessor = new DeviceAccessor();
 
-            this.IndexFinger = GetImageBytes(this.pictureIndex.Image);
+                var device = accessor.AccessFingerprintDevice();
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureIndex.Image = ber;
+                device.SwitchLedState(false, false);
+
+                this.IndexFinger = GetImageBytes(this.pictureIndex.Image);
+                //listEmpreinte.Add(this.Thumb);
+            }
+            catch (NullReferenceException ec)
+            {
+                MessageBox.Show("Veuillez posez votre empreinte sur le lecteur");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Syeteme veuillez contacter l'administrateur");
+            }
+
+
             //listEmpreinte.Add(this.IndexFinger);
         }
 
         private void btnCaptureRing_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
+            try
+            {
 
-            var device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(true, false);
-            //device.StartFingerDetection();
-            Bitmap ber = device.ReadFingerprint();
-            this.pictureRing.Image = ber;
-            device.SwitchLedState(false, false);
+                var accessor = new DeviceAccessor();
 
-            this.RingFinger = GetImageBytes(this.pictureRing.Image);
+                var device = accessor.AccessFingerprintDevice();
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureRing.Image = ber;
+                device.SwitchLedState(false, false);
+
+                this.RingFinger = GetImageBytes(this.pictureRing.Image);
+                //listEmpreinte.Add(this.Thumb);
+            }
+            catch (NullReferenceException ec)
+            {
+                MessageBox.Show("Veuillez posez votre empreinte sur le lecteur");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Syeteme veuillez contacter l'administrateur");
+            }
+
+
+
+          
             //listEmpreinte.Add(this.RingFinger);
         }
 
         private void btnCaptureLittle_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
 
-            var device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(true, false);
-            //device.StartFingerDetection();
-            Bitmap ber = device.ReadFingerprint();
-            this.pictureLittle.Image = ber;
-            device.SwitchLedState(true, true);
 
-            this.LittleFinger = GetImageBytes(this.pictureLittle.Image);
+            try
+            {
+
+                var accessor = new DeviceAccessor();
+
+                var device = accessor.AccessFingerprintDevice();
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureLittle.Image = ber;
+                device.SwitchLedState(true, true);
+
+                this.LittleFinger = GetImageBytes(this.pictureLittle.Image);
+                //listEmpreinte.Add(this.Thumb);
+            }
+            catch (NullReferenceException ec)
+            {
+                MessageBox.Show("Veuillez posez votre empreinte sur le lecteur");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Syeteme veuillez contacter l'administrateur");
+            }
+
+
+
+           
             //listEmpreinte.Add(this.LittleFinger);
         }
 
         private void btnCaptureMiddle_Click(object sender, EventArgs e)
         {
-            var accessor = new DeviceAccessor();
 
-            var device = accessor.AccessFingerprintDevice();
-            device.SwitchLedState(true, false);
-            //device.StartFingerDetection();
-            Bitmap ber = device.ReadFingerprint();
-            this.pictureMiddle.Image = ber;
-            device.SwitchLedState(true, false);
+            try
+            {
 
-            this.MiddleFinger = GetImageBytes(this.pictureIndex.Image);
+                var accessor = new DeviceAccessor();
+
+                var device = accessor.AccessFingerprintDevice();
+                device.SwitchLedState(true, false);
+                //device.StartFingerDetection();
+                Bitmap ber = device.ReadFingerprint();
+                this.pictureMiddle.Image = ber;
+                device.SwitchLedState(true, false);
+
+                this.MiddleFinger = GetImageBytes(this.pictureIndex.Image);
+                //listEmpreinte.Add(this.Thumb);
+            }
+            catch (NullReferenceException ec)
+            {
+                MessageBox.Show("Veuillez posez votre empreinte sur le lecteur");
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //var accessor = new DeviceAccessor();
+            try
+            {
+                var accessor = new DeviceAccessor();
 
-            //var device = accessor.AccessFingerprintDevice();
-            //if (!statButton)
-            //{
-            //    statButton = true;
-            //    //this.button1.BackColor = Color.Green;
-            //    device.FingerDetected += RechercheTodatabase;
-            //}
-            //else
-            //{
-            //    statButton = false;
-            //    //this.button1.BackColor = Color.Red;
-            //}
+                var device = accessor.AccessFingerprintDevice();
+                if (!statButton)
+                {
+                    statButton = true;
+                    //this.button1.BackColor = Color.Green;
+                    device.FingerDetected += RechercheTodatabase;
+                }
+                else
+                {
+                    statButton = false;
+                    //this.button1.BackColor = Color.Red;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }
+           
 
         }
         private void RechercheTodatabase(object sender, EventArgs e)
         {
+            try
+            {
+                Bitmap ber = device.ReadFingerprint();
+                device.FingerDetected -= RechercheTodatabase;
+            }
+            catch (Exception ex)
+            {
 
-            //Bitmap ber = device.ReadFingerprint();
-            //device.FingerDetected -= RechercheTodatabase;
-            ////this.button1.BackColor = Color.Red;
-            ////this.statButton = false;
-            //pictureBox1.Image = ber;
-
-            //******************************************************Go to database ********************************************************************
-
-            //******************************************************Go to database ********************************************************************
+                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string pathget = Directory.GetCurrentDirectory();
-            pathget = Path.Combine(pathget, "empreintePicture");
-
-            string pathutilisateur = Path.Combine(pathget, txt_cni.Text);
-
-            if (!Directory.Exists(pathget))
+            try
             {
-                Directory.CreateDirectory(pathget);
+                string pathget = Directory.GetCurrentDirectory();
+                pathget = Path.Combine(pathget, "empreintePicture");
+
+                string pathutilisateur = Path.Combine(pathget, txt_cni.Text);
+
+                if (!Directory.Exists(pathget))
+                {
+                    Directory.CreateDirectory(pathget);
+                }
+                if (!Directory.Exists(pathutilisateur))
+                {
+                    Directory.CreateDirectory(pathutilisateur);
+                }
+
+                cheminImagethumb = Path.Combine(pathutilisateur, txt_cni.Text + "thumb.bmp");
+                cheminImageIndex = Path.Combine(pathutilisateur, txt_cni.Text + "index.bmp");
+                cheminImagemajeur = Path.Combine(pathutilisateur, txt_cni.Text + "majeur.bmp");
+                cheminImageAnnulaire = Path.Combine(pathutilisateur, txt_cni.Text + "Annulaire.bmp");
+                cheminImageAuriculaire = Path.Combine(pathutilisateur, txt_cni.Text + "Auriculaire.bmp");
+
+                File.WriteAllBytes(cheminImagethumb, this.Thumb);
+                File.WriteAllBytes(cheminImageIndex, this.IndexFinger);
+                File.WriteAllBytes(cheminImagemajeur, this.MiddleFinger);
+                File.WriteAllBytes(cheminImageAnnulaire, this.RingFinger);
+                File.WriteAllBytes(cheminImageAuriculaire, this.LittleFinger);
+                savedata();
+
+
+
+                reinitialisechamp();
+                MessageBox.Show("Enregistrement effectué avec Succes");
             }
-            if (!Directory.Exists(pathutilisateur))
+            catch (Exception ex)
             {
-                Directory.CreateDirectory(pathutilisateur);
-            }
 
-            cheminImagethumb = Path.Combine(pathutilisateur, txt_cni.Text + "thumb.bmp");
-            cheminImageIndex = Path.Combine(pathutilisateur, txt_cni.Text + "index.bmp");
-            cheminImagemajeur = Path.Combine(pathutilisateur, txt_cni.Text + "majeur.bmp");
-            cheminImageAnnulaire = Path.Combine(pathutilisateur, txt_cni.Text + "Annulaire.bmp");
-            cheminImageAuriculaire = Path.Combine(pathutilisateur, txt_cni.Text + "Auriculaire.bmp");
-
-            File.WriteAllBytes(cheminImagethumb, this.Thumb);
-            File.WriteAllBytes(cheminImageIndex, this.IndexFinger);
-            File.WriteAllBytes(cheminImagemajeur, this.MiddleFinger);
-            File.WriteAllBytes(cheminImageAnnulaire, this.RingFinger);
-            File.WriteAllBytes(cheminImageAuriculaire, this.LittleFinger);
-            savedata();
-
-
-
-            reinitialisechamp();
-            MessageBox.Show("Enregistrement effectué avec Succes");
+                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }           
         }
 
         private void reinitialisechamp()
@@ -328,25 +425,10 @@ namespace Fingerprint1
             }
 
         }
-
-        private void btn_search_cni_Click(object sender, EventArgs e)
+       
+        private void btn_close_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_nni_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txt_prenom_TextChanged(object sender, EventArgs e)
-        {
-
+            this.Close();
         }
     }
 }

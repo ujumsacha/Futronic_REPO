@@ -76,7 +76,7 @@
             button2.ForeColor = System.Drawing.Color.White;
             button2.Location = new System.Drawing.Point(539, 262);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(150, 28);
+            button2.Size = new System.Drawing.Size(150, 30);
             button2.TabIndex = 5;
             button2.Text = "Verification";
             button2.UseVisualStyleBackColor = true;
@@ -91,7 +91,7 @@
             button1.ForeColor = System.Drawing.Color.White;
             button1.Location = new System.Drawing.Point(353, 262);
             button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(150, 28);
+            button1.Size = new System.Drawing.Size(150, 30);
             button1.TabIndex = 4;
             button1.Text = "Enrôlement";
             button1.UseVisualStyleBackColor = true;
@@ -136,7 +136,7 @@
             label3.AutoSize = true;
             label3.BackColor = System.Drawing.Color.White;
             label3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            label3.ForeColor = System.Drawing.Color.Coral;
+            label3.ForeColor = System.Drawing.Color.FromArgb(254, 185, 64);
             label3.Location = new System.Drawing.Point(196, 223);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(82, 15);
@@ -167,14 +167,15 @@
             // 
             // btn_close
             // 
-            btn_close.BackColor = System.Drawing.Color.Maroon;
-            btn_close.BackgroundImage = (System.Drawing.Image)resources.GetObject("btn_close.BackgroundImage");
+            btn_close.BackColor = System.Drawing.Color.Crimson;
+            btn_close.BackgroundImage = Properties.Resources.close;
             btn_close.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            btn_close.Cursor = System.Windows.Forms.Cursors.Hand;
             btn_close.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(82, 153, 139);
             btn_close.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             btn_close.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btn_close.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            btn_close.ForeColor = System.Drawing.Color.White;
+            btn_close.ForeColor = System.Drawing.Color.Transparent;
             btn_close.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             btn_close.Location = new System.Drawing.Point(691, 3);
             btn_close.Name = "btn_close";
