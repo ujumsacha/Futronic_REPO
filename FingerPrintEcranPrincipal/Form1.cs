@@ -187,8 +187,22 @@ namespace FingerPrintEcranPrincipal
 
         private void button6_Click(object sender, EventArgs e)
         {
-            PopupInformation pinf = new PopupInformation();
-            var test = pinf.ShowDialog();
+            PopupInformation popup = new PopupInformation();
+            if (popup.ShowDialog() == DialogResult.OK)
+            {
+                // Récupérez les informations saisies par l'utilisateur
+                string numpiece = popup.numeroPIECE;
+                string typePiece = popup.Typedepiece;
+                DateTime datenaissance = popup.datenaissance;
+                DateTime dateExpire = popup.dateExpire;
+                
+                // Utilisez les informations récupérées comme vous le souhaitez
+                MessageBox.Show($"Nom d'utilisateur saisi : {typePiece} avec TypePiece {typePiece}");
+            }
+            if(DialogResult==DialogResult.None)
+            {
+                MessageBox.Show($"Vous avez annuler l'operation");
+            }
         }
     }
 }

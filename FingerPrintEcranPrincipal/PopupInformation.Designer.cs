@@ -33,12 +33,12 @@
             groupBox1 = new System.Windows.Forms.GroupBox();
             label4 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
-            textBox1 = new System.Windows.Forms.TextBox();
+            txt_numpiece = new System.Windows.Forms.TextBox();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            dateniassance = new System.Windows.Forms.DateTimePicker();
+            dateexp = new System.Windows.Forms.DateTimePicker();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             panel5.SuspendLayout();
@@ -69,12 +69,12 @@
             // 
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(comboBox1);
-            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(txt_numpiece);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(dateTimePicker2);
-            groupBox1.Controls.Add(dateTimePicker1);
+            groupBox1.Controls.Add(dateniassance);
+            groupBox1.Controls.Add(dateexp);
             groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             groupBox1.Location = new System.Drawing.Point(14, 52);
             groupBox1.Name = "groupBox1";
@@ -101,12 +101,12 @@
             comboBox1.TabIndex = 6;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
-            // textBox1
+            // txt_numpiece
             // 
-            textBox1.Location = new System.Drawing.Point(158, 86);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new System.Drawing.Size(189, 29);
-            textBox1.TabIndex = 5;
+            txt_numpiece.Location = new System.Drawing.Point(158, 86);
+            txt_numpiece.Name = "txt_numpiece";
+            txt_numpiece.Size = new System.Drawing.Size(189, 29);
+            txt_numpiece.TabIndex = 5;
             // 
             // label3
             // 
@@ -135,21 +135,21 @@
             label1.TabIndex = 2;
             label1.Text = "Date de Naissance :";
             // 
-            // dateTimePicker2
+            // dateniassance
             // 
-            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new System.Drawing.Point(157, 126);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new System.Drawing.Size(190, 29);
-            dateTimePicker2.TabIndex = 1;
+            dateniassance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dateniassance.Location = new System.Drawing.Point(157, 126);
+            dateniassance.Name = "dateniassance";
+            dateniassance.Size = new System.Drawing.Size(190, 29);
+            dateniassance.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dateexp
             // 
-            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new System.Drawing.Point(158, 168);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new System.Drawing.Size(190, 29);
-            dateTimePicker1.TabIndex = 0;
+            dateexp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dateexp.Location = new System.Drawing.Point(158, 172);
+            dateexp.Name = "dateexp";
+            dateexp.Size = new System.Drawing.Size(190, 29);
+            dateexp.TabIndex = 0;
             // 
             // button1
             // 
@@ -159,6 +159,7 @@
             button1.TabIndex = 6;
             button1.Text = "Valider";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // button2
             // 
@@ -195,11 +196,11 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateexp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker dateniassance;
+        private System.Windows.Forms.TextBox txt_numpiece;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox1;

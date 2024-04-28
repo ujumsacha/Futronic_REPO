@@ -12,6 +12,11 @@ namespace FingerPrintEcranPrincipal
 {
     public partial class PopupInformation : Form
     {
+
+        public string Typedepiece { get; set; }
+        public string numeroPIECE { get; set; }
+        public DateTime datenaissance { get; set; }
+        public DateTime dateExpire { get; set; }
         public PopupInformation()
         {
             InitializeComponent();
@@ -20,14 +25,14 @@ namespace FingerPrintEcranPrincipal
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
         private void ChargeCombo()
         {
             List<KeyValuePair<string, string>> items = new List<KeyValuePair<string, string>>();
-            items.Add(new KeyValuePair<string, string>( "P001", "Ancienne CNI"));
-            items.Add(new KeyValuePair<string, string>( "P002", "Nouvelle CNI"));
-            items.Add(new KeyValuePair<string, string>( "p003", "Passport"));
+            items.Add(new KeyValuePair<string, string>("P001", "Ancienne CNI"));
+            items.Add(new KeyValuePair<string, string>("P002", "Nouvelle CNI"));
+            items.Add(new KeyValuePair<string, string>("p003", "Passport"));
 
             // Attribuez les éléments à la source de données du ComboBox
             comboBox1.DataSource = items;
@@ -45,6 +50,17 @@ namespace FingerPrintEcranPrincipal
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Typedepiece = comboBox1.SelectedValue.ToString();
+            numeroPIECE = txt_numpiece.Text;
+            datenaissance = datenaissance.Date;
+            dateExpire = dateExpire.Date;
+            this.Close();
+            
+
         }
     }
 }

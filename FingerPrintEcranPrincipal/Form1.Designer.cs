@@ -47,7 +47,7 @@
             rd_empreinte = new System.Windows.Forms.RadioButton();
             rd_numUnique = new System.Windows.Forms.RadioButton();
             rd_numPiece = new System.Windows.Forms.RadioButton();
-            panel2 = new System.Windows.Forms.Panel();
+            panelEnrollement = new System.Windows.Forms.Panel();
             panelporteur = new System.Windows.Forms.Panel();
             button6 = new System.Windows.Forms.Button();
             label11 = new System.Windows.Forms.Label();
@@ -81,7 +81,7 @@
             panelVerif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             grp1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelEnrollement.SuspendLayout();
             panelporteur.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel5.SuspendLayout();
@@ -108,7 +108,7 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.ForeColor = System.Drawing.SystemColors.Control;
-            label1.Location = new System.Drawing.Point(86, 30);
+            label1.Location = new System.Drawing.Point(14, 27);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(149, 29);
             label1.TabIndex = 50;
@@ -289,19 +289,19 @@
             rd_numPiece.Text = "Par numero de CNI";
             rd_numPiece.UseVisualStyleBackColor = true;
             // 
-            // panel2
+            // panelEnrollement
             // 
-            panel2.Controls.Add(panelporteur);
-            panel2.Controls.Add(panelclient);
-            panel2.Controls.Add(button5);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(groupBox3);
-            panel2.Controls.Add(groupBox1);
-            panel2.Location = new System.Drawing.Point(13, 107);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(986, 497);
-            panel2.TabIndex = 56;
-            panel2.Paint += panel2_Paint_1;
+            panelEnrollement.Controls.Add(panelporteur);
+            panelEnrollement.Controls.Add(panelclient);
+            panelEnrollement.Controls.Add(button5);
+            panelEnrollement.Controls.Add(button4);
+            panelEnrollement.Controls.Add(groupBox3);
+            panelEnrollement.Controls.Add(groupBox1);
+            panelEnrollement.Location = new System.Drawing.Point(13, 109);
+            panelEnrollement.Name = "panelEnrollement";
+            panelEnrollement.Size = new System.Drawing.Size(986, 497);
+            panelEnrollement.TabIndex = 56;
+            panelEnrollement.Paint += panel2_Paint_1;
             // 
             // panelporteur
             // 
@@ -610,7 +610,7 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1014, 640);
             ControlBox = false;
-            Controls.Add(panel2);
+            Controls.Add(panelEnrollement);
             Controls.Add(panelVerif);
             Controls.Add(panelconsentement);
             Controls.Add(panel1);
@@ -629,7 +629,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             grp1.ResumeLayout(false);
             grp1.PerformLayout();
-            panel2.ResumeLayout(false);
+            panelEnrollement.ResumeLayout(false);
             panelporteur.ResumeLayout(false);
             panelporteur.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -665,7 +665,7 @@
         private System.Windows.Forms.RadioButton rd_empreinte;
         private System.Windows.Forms.RadioButton rd_numUnique;
         private System.Windows.Forms.RadioButton rd_numPiece;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelEnrollement;
         private System.Windows.Forms.Panel panelclient;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
