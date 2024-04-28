@@ -266,6 +266,7 @@
             rd_empreinte.TabStop = true;
             rd_empreinte.Text = "Par empreinte Digital";
             rd_empreinte.UseVisualStyleBackColor = true;
+            rd_empreinte.CheckedChanged += radiobutton_CheckedChanged;
             // 
             // rd_numUnique
             // 
@@ -277,6 +278,7 @@
             rd_numUnique.TabStop = true;
             rd_numUnique.Text = "Par numero Unique ";
             rd_numUnique.UseVisualStyleBackColor = true;
+            rd_numUnique.CheckedChanged += radiobutton_CheckedChanged;
             // 
             // rd_numPiece
             // 
@@ -288,6 +290,7 @@
             rd_numPiece.TabStop = true;
             rd_numPiece.Text = "Par numero de CNI";
             rd_numPiece.UseVisualStyleBackColor = true;
+            rd_numPiece.CheckedChanged += radiobutton_CheckedChanged;
             // 
             // panelEnrollement
             // 
@@ -297,7 +300,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(13, 109);
+            panelEnrollement.Location = new System.Drawing.Point(13, 110);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(986, 497);
             panelEnrollement.TabIndex = 56;

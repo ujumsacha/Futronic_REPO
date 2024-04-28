@@ -23,6 +23,13 @@ namespace FingerPrintEcranPrincipal
             lbl_messageinput.Visible = true;
             lbl_messageinput.Text = "Veuillez renseigner le numero CNI SVP ...";
             radioButton5.Checked = true;
+
+
+            //panelclient.Visible = true;
+            panelconsentement.Visible = false;
+            panelEnrollement.Visible = false;
+            //panelporteur.Visible = false;
+            panelVerif.Visible = true;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -34,9 +41,6 @@ namespace FingerPrintEcranPrincipal
         {
 
         }
-
-
-
         private void radiobutton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton? radioButton = sender as RadioButton;
@@ -76,27 +80,22 @@ namespace FingerPrintEcranPrincipal
                 }
             }
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
-
         private void groupBox3_Enter(object sender, EventArgs e)
         {
 
         }
-
         private void radiobuttonClient_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton? radioButton = sender as RadioButton;
@@ -123,9 +122,6 @@ namespace FingerPrintEcranPrincipal
                 }
             }
         }
-
-
-
         private void RadioButtonCNAMNFCSAISIE(object sender, EventArgs e)
         {
             RadioButton? radioButton = sender as RadioButton;
@@ -164,27 +160,22 @@ namespace FingerPrintEcranPrincipal
             groupBox1.Visible = false;
             radioButton5.Checked = true;
         }
-
         private void panel2_Paint_1(object sender, PaintEventArgs e)
         {
 
         }
-
         private void panelclient_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void textBox4_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void panelporteur_Paint(object sender, PaintEventArgs e)
         {
 
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             PopupInformation popup = new PopupInformation();
