@@ -1,5 +1,7 @@
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,7 +19,51 @@ namespace FingerPrintEcranPrincipal
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            createfile();
             Application.Run(new frm_Acceuil());
+        }
+
+
+
+
+        public static void createfile()
+        {
+            try
+            {
+                string lechemin = Path.Combine(Directory.GetCurrentDirectory(), "ConfigFolder");
+                if (!Directory.Exists(lechemin))
+                {
+                    Directory.CreateDirectory(lechemin);
+                }
+
+                string lechemin1 = Path.Combine(Directory.GetCurrentDirectory(), "tempfolder");
+                if (!Directory.Exists(lechemin1))
+                {
+                    Directory.CreateDirectory(lechemin1);
+                }
+
+
+                string file = Path.Combine(lechemin, "param.json");
+
+                if (!File.Exists(file))
+                {
+                    using (StreamWriter fs = File.CreateText(file))
+                    {
+                        Param pr = new Param();
+                        pr.publicrepertory = "";
+                        pr.baseUriApi = "";
+                        pr.NFCappLaunch = "";
+                        fs.Write(JsonConvert.SerializeObject(pr));
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur de lancement de l'application veuillez verifier le fichier de configuration");
+            }
+
         }
     }
 }

@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acceuil));
             panel1 = new System.Windows.Forms.Panel();
             label1 = new System.Windows.Forms.Label();
-            panelconsentement = new System.Windows.Forms.Panel();
-            button3 = new System.Windows.Forms.Button();
-            btn_annuler = new System.Windows.Forms.Button();
-            checkBox1 = new System.Windows.Forms.CheckBox();
-            textBox2 = new System.Windows.Forms.TextBox();
             panelVerif = new System.Windows.Forms.Panel();
             button2 = new System.Windows.Forms.Button();
             label2 = new System.Windows.Forms.Label();
@@ -48,6 +43,7 @@
             rd_numUnique = new System.Windows.Forms.RadioButton();
             rd_numPiece = new System.Windows.Forms.RadioButton();
             panelEnrollement = new System.Windows.Forms.Panel();
+            button14 = new System.Windows.Forms.Button();
             panelporteur = new System.Windows.Forms.Panel();
             button6 = new System.Windows.Forms.Button();
             label11 = new System.Windows.Forms.Label();
@@ -76,8 +72,116 @@
             radioButton1 = new System.Windows.Forms.RadioButton();
             radioButton2 = new System.Windows.Forms.RadioButton();
             radioButton3 = new System.Windows.Forms.RadioButton();
+            panelSignaletique = new System.Windows.Forms.Panel();
+            button13 = new System.Windows.Forms.Button();
+            groupBox4 = new System.Windows.Forms.GroupBox();
+            label68 = new System.Windows.Forms.Label();
+            textBox20 = new System.Windows.Forms.TextBox();
+            nom = new System.Windows.Forms.Label();
+            txt_sexe = new System.Windows.Forms.ComboBox();
+            txt_nom = new System.Windows.Forms.TextBox();
+            label46 = new System.Windows.Forms.Label();
+            label67 = new System.Windows.Forms.Label();
+            textBox19 = new System.Windows.Forms.TextBox();
+            label66 = new System.Windows.Forms.Label();
+            textBox18 = new System.Windows.Forms.TextBox();
+            label65 = new System.Windows.Forms.Label();
+            textBox17 = new System.Windows.Forms.TextBox();
+            label62 = new System.Windows.Forms.Label();
+            textBox14 = new System.Windows.Forms.TextBox();
+            groupBox2 = new System.Windows.Forms.GroupBox();
+            label64 = new System.Windows.Forms.Label();
+            textBox16 = new System.Windows.Forms.TextBox();
+            label63 = new System.Windows.Forms.Label();
+            textBox15 = new System.Windows.Forms.TextBox();
+            label61 = new System.Windows.Forms.Label();
+            textBox13 = new System.Windows.Forms.TextBox();
+            label60 = new System.Windows.Forms.Label();
+            textBox12 = new System.Windows.Forms.TextBox();
+            label59 = new System.Windows.Forms.Label();
+            textBox11 = new System.Windows.Forms.TextBox();
+            label58 = new System.Windows.Forms.Label();
+            textBox10 = new System.Windows.Forms.TextBox();
+            label57 = new System.Windows.Forms.Label();
+            textBox9 = new System.Windows.Forms.TextBox();
+            label56 = new System.Windows.Forms.Label();
+            textBox8 = new System.Windows.Forms.TextBox();
+            label47 = new System.Windows.Forms.Label();
+            comboBox1 = new System.Windows.Forms.ComboBox();
+            textBox7 = new System.Windows.Forms.TextBox();
+            label49 = new System.Windows.Forms.Label();
+            button10 = new System.Windows.Forms.Button();
+            button11 = new System.Windows.Forms.Button();
+            panelconsentement = new System.Windows.Forms.Panel();
+            button15 = new System.Windows.Forms.Button();
+            panelEmpreinte = new System.Windows.Forms.Panel();
+            labelMsgemp = new System.Windows.Forms.Label();
+            pB_empr = new System.Windows.Forms.PictureBox();
+            groupBox5 = new System.Windows.Forms.GroupBox();
+            label73 = new System.Windows.Forms.Label();
+            pictureLittle = new System.Windows.Forms.PictureBox();
+            pictureRing = new System.Windows.Forms.PictureBox();
+            label71 = new System.Windows.Forms.Label();
+            label72 = new System.Windows.Forms.Label();
+            pictureIndex = new System.Windows.Forms.PictureBox();
+            pictureThumb = new System.Windows.Forms.PictureBox();
+            pictureMiddle = new System.Windows.Forms.PictureBox();
+            label70 = new System.Windows.Forms.Label();
+            label69 = new System.Windows.Forms.Label();
+            button9 = new System.Windows.Forms.Button();
+            button12 = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
+            btn_annuler = new System.Windows.Forms.Button();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            textBox2 = new System.Windows.Forms.TextBox();
+            panelResultatRecherche = new System.Windows.Forms.Panel();
+            panel3 = new System.Windows.Forms.Panel();
+            label45 = new System.Windows.Forms.Label();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            label42 = new System.Windows.Forms.Label();
+            label43 = new System.Windows.Forms.Label();
+            label39 = new System.Windows.Forms.Label();
+            label41 = new System.Windows.Forms.Label();
+            label37 = new System.Windows.Forms.Label();
+            label38 = new System.Windows.Forms.Label();
+            label35 = new System.Windows.Forms.Label();
+            label36 = new System.Windows.Forms.Label();
+            label40 = new System.Windows.Forms.Label();
+            label48 = new System.Windows.Forms.Label();
+            label34 = new System.Windows.Forms.Label();
+            label44 = new System.Windows.Forms.Label();
+            label50 = new System.Windows.Forms.Label();
+            label51 = new System.Windows.Forms.Label();
+            label52 = new System.Windows.Forms.Label();
+            label53 = new System.Windows.Forms.Label();
+            label54 = new System.Windows.Forms.Label();
+            label55 = new System.Windows.Forms.Label();
+            panel6 = new System.Windows.Forms.Panel();
+            label27 = new System.Windows.Forms.Label();
+            label25 = new System.Windows.Forms.Label();
+            label26 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label24 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            label16 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            label22 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            label20 = new System.Windows.Forms.Label();
+            label21 = new System.Windows.Forms.Label();
+            label23 = new System.Windows.Forms.Label();
+            label28 = new System.Windows.Forms.Label();
+            label29 = new System.Windows.Forms.Label();
+            label30 = new System.Windows.Forms.Label();
+            label31 = new System.Windows.Forms.Label();
+            label32 = new System.Windows.Forms.Label();
+            label33 = new System.Windows.Forms.Label();
+            button7 = new System.Windows.Forms.Button();
+            button8 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
-            panelconsentement.SuspendLayout();
             panelVerif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             grp1.SuspendLayout();
@@ -89,6 +193,22 @@
             panel4.SuspendLayout();
             groupBox3.SuspendLayout();
             groupBox1.SuspendLayout();
+            panelSignaletique.SuspendLayout();
+            groupBox4.SuspendLayout();
+            groupBox2.SuspendLayout();
+            panelconsentement.SuspendLayout();
+            panelEmpreinte.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pB_empr).BeginInit();
+            groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureLittle).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureRing).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureIndex).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureThumb).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureMiddle).BeginInit();
+            panelResultatRecherche.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            panel6.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -99,7 +219,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1020, 88);
+            panel1.Size = new System.Drawing.Size(1091, 70);
             panel1.TabIndex = 47;
             // 
             // label1
@@ -108,64 +228,11 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.ForeColor = System.Drawing.SystemColors.Control;
-            label1.Location = new System.Drawing.Point(14, 27);
+            label1.Location = new System.Drawing.Point(15, 21);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(149, 29);
             label1.TabIndex = 50;
             label1.Text = "VERIFICATION";
-            // 
-            // panelconsentement
-            // 
-            panelconsentement.Controls.Add(button3);
-            panelconsentement.Controls.Add(btn_annuler);
-            panelconsentement.Controls.Add(checkBox1);
-            panelconsentement.Controls.Add(textBox2);
-            panelconsentement.Location = new System.Drawing.Point(12, 110);
-            panelconsentement.Name = "panelconsentement";
-            panelconsentement.Size = new System.Drawing.Size(987, 486);
-            panelconsentement.TabIndex = 51;
-            // 
-            // button3
-            // 
-            button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button3.Image = (System.Drawing.Image)resources.GetObject("button3.Image");
-            button3.Location = new System.Drawing.Point(835, 418);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(68, 46);
-            button3.TabIndex = 54;
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // btn_annuler
-            // 
-            btn_annuler.Location = new System.Drawing.Point(32, 441);
-            btn_annuler.Name = "btn_annuler";
-            btn_annuler.Size = new System.Drawing.Size(81, 23);
-            btn_annuler.TabIndex = 2;
-            btn_annuler.Text = "Annuler";
-            btn_annuler.UseVisualStyleBackColor = true;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new System.Drawing.Point(31, 399);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(340, 19);
-            checkBox1.TabIndex = 1;
-            checkBox1.Text = "Je consens à l'enrôlement de mes empreintes biométriques.";
-            checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBox2.Location = new System.Drawing.Point(30, 17);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new System.Drawing.Size(873, 370);
-            textBox2.TabIndex = 0;
-            textBox2.Text = resources.GetString("textBox2.Text");
-            textBox2.TextChanged += textBox2_TextChanged;
             // 
             // panelVerif
             // 
@@ -176,15 +243,15 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(13, 109);
+            panelVerif.Location = new System.Drawing.Point(16, 78);
             panelVerif.Name = "panelVerif";
-            panelVerif.Size = new System.Drawing.Size(986, 483);
+            panelVerif.Size = new System.Drawing.Size(1026, 489);
             panelVerif.TabIndex = 52;
             // 
             // button2
             // 
             button2.Image = Properties.Resources.question;
-            button2.Location = new System.Drawing.Point(878, 4);
+            button2.Location = new System.Drawing.Point(981, 4);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(40, 32);
             button2.TabIndex = 56;
@@ -217,11 +284,12 @@
             // 
             button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             button1.Image = (System.Drawing.Image)resources.GetObject("button1.Image");
-            button1.Location = new System.Drawing.Point(850, 431);
+            button1.Location = new System.Drawing.Point(953, 434);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(68, 46);
             button1.TabIndex = 53;
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // lbl_messageinput
             // 
@@ -294,17 +362,27 @@
             // 
             // panelEnrollement
             // 
+            panelEnrollement.Controls.Add(button14);
             panelEnrollement.Controls.Add(panelporteur);
             panelEnrollement.Controls.Add(panelclient);
             panelEnrollement.Controls.Add(button5);
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(13, 110);
+            panelEnrollement.Location = new System.Drawing.Point(18, 80);
             panelEnrollement.Name = "panelEnrollement";
-            panelEnrollement.Size = new System.Drawing.Size(986, 497);
+            panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
             panelEnrollement.Paint += panel2_Paint_1;
+            // 
+            // button14
+            // 
+            button14.Image = Properties.Resources.question;
+            button14.Location = new System.Drawing.Point(962, 4);
+            button14.Name = "button14";
+            button14.Size = new System.Drawing.Size(40, 32);
+            button14.TabIndex = 83;
+            button14.UseVisualStyleBackColor = true;
             // 
             // panelporteur
             // 
@@ -324,12 +402,15 @@
             // 
             // button6
             // 
-            button6.Location = new System.Drawing.Point(189, 226);
+            button6.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            button6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            button6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            button6.Location = new System.Drawing.Point(156, 216);
             button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(85, 24);
+            button6.Size = new System.Drawing.Size(138, 48);
             button6.TabIndex = 62;
             button6.Text = "Cliquez Ici";
-            button6.UseVisualStyleBackColor = true;
+            button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
             // label11
@@ -337,11 +418,11 @@
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             label11.ForeColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            label11.Location = new System.Drawing.Point(135, 194);
+            label11.Location = new System.Drawing.Point(55, 190);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(187, 17);
+            label11.Size = new System.Drawing.Size(354, 17);
             label11.TabIndex = 61;
-            label11.Text = "Veuillez poser votre Piece";
+            label11.Text = "Veuillez poser votre Piece puis cliquez ci-dessous";
             label11.Visible = false;
             // 
             // pictureBox1
@@ -502,22 +583,24 @@
             // 
             // button5
             // 
-            button5.Location = new System.Drawing.Point(47, 391);
+            button5.Location = new System.Drawing.Point(46, 431);
             button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(81, 23);
+            button5.Size = new System.Drawing.Size(65, 46);
             button5.TabIndex = 55;
             button5.Text = "Annuler";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
             button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             button4.Image = (System.Drawing.Image)resources.GetObject("button4.Image");
-            button4.Location = new System.Drawing.Point(848, 379);
+            button4.Location = new System.Drawing.Point(940, 431);
             button4.Name = "button4";
             button4.Size = new System.Drawing.Size(68, 46);
             button4.TabIndex = 54;
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // groupBox3
             // 
@@ -607,15 +690,1183 @@
             radioButton3.UseVisualStyleBackColor = true;
             radioButton3.CheckedChanged += RadioButtonCNAMNFCSAISIE;
             // 
+            // panelSignaletique
+            // 
+            panelSignaletique.Controls.Add(button13);
+            panelSignaletique.Controls.Add(groupBox4);
+            panelSignaletique.Controls.Add(groupBox2);
+            panelSignaletique.Controls.Add(button10);
+            panelSignaletique.Controls.Add(button11);
+            panelSignaletique.Location = new System.Drawing.Point(19, 75);
+            panelSignaletique.Name = "panelSignaletique";
+            panelSignaletique.Size = new System.Drawing.Size(1024, 497);
+            panelSignaletique.TabIndex = 58;
+            // 
+            // button13
+            // 
+            button13.Image = Properties.Resources.question;
+            button13.Location = new System.Drawing.Point(981, 7);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(40, 32);
+            button13.TabIndex = 82;
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            groupBox4.Controls.Add(label68);
+            groupBox4.Controls.Add(textBox20);
+            groupBox4.Controls.Add(nom);
+            groupBox4.Controls.Add(txt_sexe);
+            groupBox4.Controls.Add(txt_nom);
+            groupBox4.Controls.Add(label46);
+            groupBox4.Controls.Add(label67);
+            groupBox4.Controls.Add(textBox19);
+            groupBox4.Controls.Add(label66);
+            groupBox4.Controls.Add(textBox18);
+            groupBox4.Controls.Add(label65);
+            groupBox4.Controls.Add(textBox17);
+            groupBox4.Controls.Add(label62);
+            groupBox4.Controls.Add(textBox14);
+            groupBox4.Location = new System.Drawing.Point(19, 247);
+            groupBox4.Name = "groupBox4";
+            groupBox4.Size = new System.Drawing.Size(929, 140);
+            groupBox4.TabIndex = 81;
+            groupBox4.TabStop = false;
+            groupBox4.Text = "Information Sur la Pièce";
+            // 
+            // label68
+            // 
+            label68.AutoSize = true;
+            label68.Location = new System.Drawing.Point(741, 76);
+            label68.Name = "label68";
+            label68.Size = new System.Drawing.Size(34, 15);
+            label68.TabIndex = 95;
+            label68.Text = "NNI :";
+            // 
+            // textBox20
+            // 
+            textBox20.AcceptsReturn = true;
+            textBox20.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox20.Location = new System.Drawing.Point(741, 93);
+            textBox20.Name = "textBox20";
+            textBox20.Size = new System.Drawing.Size(81, 23);
+            textBox20.TabIndex = 94;
+            // 
+            // nom
+            // 
+            nom.AutoSize = true;
+            nom.Location = new System.Drawing.Point(210, 20);
+            nom.Name = "nom";
+            nom.Size = new System.Drawing.Size(104, 15);
+            nom.TabIndex = 91;
+            nom.Text = "Numero de Pièce :";
+            // 
+            // txt_sexe
+            // 
+            txt_sexe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_sexe.FormattingEnabled = true;
+            txt_sexe.Items.AddRange(new object[] { "Homme", "Femme" });
+            txt_sexe.Location = new System.Drawing.Point(14, 40);
+            txt_sexe.Name = "txt_sexe";
+            txt_sexe.Size = new System.Drawing.Size(161, 23);
+            txt_sexe.TabIndex = 93;
+            // 
+            // txt_nom
+            // 
+            txt_nom.AcceptsReturn = true;
+            txt_nom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_nom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_nom.Location = new System.Drawing.Point(211, 41);
+            txt_nom.Name = "txt_nom";
+            txt_nom.Size = new System.Drawing.Size(183, 23);
+            txt_nom.TabIndex = 90;
+            // 
+            // label46
+            // 
+            label46.AutoSize = true;
+            label46.Location = new System.Drawing.Point(14, 20);
+            label46.Name = "label46";
+            label46.Size = new System.Drawing.Size(84, 15);
+            label46.TabIndex = 92;
+            label46.Text = "Type de Piece :";
+            // 
+            // label67
+            // 
+            label67.AutoSize = true;
+            label67.Location = new System.Drawing.Point(590, 76);
+            label67.Name = "label67";
+            label67.Size = new System.Drawing.Size(103, 15);
+            label67.TabIndex = 89;
+            label67.Text = "Date d'Expiration :";
+            // 
+            // textBox19
+            // 
+            textBox19.AcceptsReturn = true;
+            textBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox19.Location = new System.Drawing.Point(590, 93);
+            textBox19.Name = "textBox19";
+            textBox19.Size = new System.Drawing.Size(128, 23);
+            textBox19.TabIndex = 88;
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Location = new System.Drawing.Point(401, 76);
+            label66.Name = "label66";
+            label66.Size = new System.Drawing.Size(85, 15);
+            label66.TabIndex = 87;
+            label66.Text = "Lieu Emission :";
+            // 
+            // textBox18
+            // 
+            textBox18.AcceptsReturn = true;
+            textBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox18.Location = new System.Drawing.Point(401, 94);
+            textBox18.Name = "textBox18";
+            textBox18.Size = new System.Drawing.Size(172, 23);
+            textBox18.TabIndex = 86;
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Location = new System.Drawing.Point(210, 76);
+            label65.Name = "label65";
+            label65.Size = new System.Drawing.Size(87, 15);
+            label65.TabIndex = 85;
+            label65.Text = "Date emission :";
+            // 
+            // textBox17
+            // 
+            textBox17.AcceptsReturn = true;
+            textBox17.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox17.Location = new System.Drawing.Point(210, 96);
+            textBox17.Name = "textBox17";
+            textBox17.Size = new System.Drawing.Size(164, 23);
+            textBox17.TabIndex = 84;
+            // 
+            // label62
+            // 
+            label62.AutoSize = true;
+            label62.Location = new System.Drawing.Point(16, 76);
+            label62.Name = "label62";
+            label62.Size = new System.Drawing.Size(101, 15);
+            label62.TabIndex = 83;
+            label62.Text = "Numero Unique  :";
+            // 
+            // textBox14
+            // 
+            textBox14.AcceptsReturn = true;
+            textBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox14.Location = new System.Drawing.Point(16, 96);
+            textBox14.Name = "textBox14";
+            textBox14.Size = new System.Drawing.Size(137, 23);
+            textBox14.TabIndex = 82;
+            // 
+            // groupBox2
+            // 
+            groupBox2.Controls.Add(label64);
+            groupBox2.Controls.Add(textBox16);
+            groupBox2.Controls.Add(label63);
+            groupBox2.Controls.Add(textBox15);
+            groupBox2.Controls.Add(label61);
+            groupBox2.Controls.Add(textBox13);
+            groupBox2.Controls.Add(label60);
+            groupBox2.Controls.Add(textBox12);
+            groupBox2.Controls.Add(label59);
+            groupBox2.Controls.Add(textBox11);
+            groupBox2.Controls.Add(label58);
+            groupBox2.Controls.Add(textBox10);
+            groupBox2.Controls.Add(label57);
+            groupBox2.Controls.Add(textBox9);
+            groupBox2.Controls.Add(label56);
+            groupBox2.Controls.Add(textBox8);
+            groupBox2.Controls.Add(label47);
+            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(textBox7);
+            groupBox2.Controls.Add(label49);
+            groupBox2.Location = new System.Drawing.Point(20, 22);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new System.Drawing.Size(928, 212);
+            groupBox2.TabIndex = 80;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Information personnelles";
+            // 
+            // label64
+            // 
+            label64.AutoSize = true;
+            label64.Location = new System.Drawing.Point(737, 89);
+            label64.Name = "label64";
+            label64.Size = new System.Drawing.Size(68, 15);
+            label64.TabIndex = 101;
+            label64.Text = "Profession :";
+            // 
+            // textBox16
+            // 
+            textBox16.AcceptsReturn = true;
+            textBox16.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox16.Location = new System.Drawing.Point(739, 109);
+            textBox16.Name = "textBox16";
+            textBox16.Size = new System.Drawing.Size(172, 23);
+            textBox16.TabIndex = 100;
+            // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Location = new System.Drawing.Point(474, 141);
+            label63.Name = "label63";
+            label63.Size = new System.Drawing.Size(98, 15);
+            label63.TabIndex = 99;
+            label63.Text = "Nom de la Mère :";
+            // 
+            // textBox15
+            // 
+            textBox15.AcceptsReturn = true;
+            textBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox15.Location = new System.Drawing.Point(474, 162);
+            textBox15.Name = "textBox15";
+            textBox15.Size = new System.Drawing.Size(359, 23);
+            textBox15.TabIndex = 98;
+            // 
+            // label61
+            // 
+            label61.AutoSize = true;
+            label61.Location = new System.Drawing.Point(15, 142);
+            label61.Name = "label61";
+            label61.Size = new System.Drawing.Size(83, 15);
+            label61.TabIndex = 95;
+            label61.Text = "Nom du Père :";
+            // 
+            // textBox13
+            // 
+            textBox13.AcceptsReturn = true;
+            textBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox13.Location = new System.Drawing.Point(17, 162);
+            textBox13.Name = "textBox13";
+            textBox13.Size = new System.Drawing.Size(404, 23);
+            textBox13.TabIndex = 94;
+            // 
+            // label60
+            // 
+            label60.AutoSize = true;
+            label60.Location = new System.Drawing.Point(539, 86);
+            label60.Name = "label60";
+            label60.Size = new System.Drawing.Size(71, 15);
+            label60.TabIndex = 93;
+            label60.Text = "Nationalité :";
+            // 
+            // textBox12
+            // 
+            textBox12.AcceptsReturn = true;
+            textBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox12.Location = new System.Drawing.Point(541, 106);
+            textBox12.Name = "textBox12";
+            textBox12.Size = new System.Drawing.Size(151, 23);
+            textBox12.TabIndex = 92;
+            // 
+            // label59
+            // 
+            label59.AutoSize = true;
+            label59.Location = new System.Drawing.Point(353, 86);
+            label59.Name = "label59";
+            label59.Size = new System.Drawing.Size(107, 15);
+            label59.TabIndex = 91;
+            label59.Text = "Lieu de Naissance :";
+            // 
+            // textBox11
+            // 
+            textBox11.AcceptsReturn = true;
+            textBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox11.Location = new System.Drawing.Point(355, 107);
+            textBox11.Name = "textBox11";
+            textBox11.Size = new System.Drawing.Size(157, 23);
+            textBox11.TabIndex = 90;
+            // 
+            // label58
+            // 
+            label58.AutoSize = true;
+            label58.Location = new System.Drawing.Point(159, 86);
+            label58.Name = "label58";
+            label58.Size = new System.Drawing.Size(112, 15);
+            label58.TabIndex = 89;
+            label58.Text = "Date de Naissance  :";
+            // 
+            // textBox10
+            // 
+            textBox10.AcceptsReturn = true;
+            textBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox10.Location = new System.Drawing.Point(159, 108);
+            textBox10.Name = "textBox10";
+            textBox10.Size = new System.Drawing.Size(154, 23);
+            textBox10.TabIndex = 88;
+            // 
+            // label57
+            // 
+            label57.AutoSize = true;
+            label57.Location = new System.Drawing.Point(15, 86);
+            label57.Name = "label57";
+            label57.Size = new System.Drawing.Size(39, 15);
+            label57.TabIndex = 87;
+            label57.Text = "Taille :";
+            // 
+            // textBox9
+            // 
+            textBox9.AcceptsReturn = true;
+            textBox9.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox9.Location = new System.Drawing.Point(17, 106);
+            textBox9.Name = "textBox9";
+            textBox9.Size = new System.Drawing.Size(108, 23);
+            textBox9.TabIndex = 86;
+            // 
+            // label56
+            // 
+            label56.AutoSize = true;
+            label56.Location = new System.Drawing.Point(157, 31);
+            label56.Name = "label56";
+            label56.Size = new System.Drawing.Size(55, 15);
+            label56.TabIndex = 85;
+            label56.Text = "Prénom :";
+            // 
+            // textBox8
+            // 
+            textBox8.AcceptsReturn = true;
+            textBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox8.Location = new System.Drawing.Point(159, 51);
+            textBox8.Name = "textBox8";
+            textBox8.Size = new System.Drawing.Size(353, 23);
+            textBox8.TabIndex = 84;
+            // 
+            // label47
+            // 
+            label47.AutoSize = true;
+            label47.Location = new System.Drawing.Point(15, 31);
+            label47.Name = "label47";
+            label47.Size = new System.Drawing.Size(40, 15);
+            label47.TabIndex = 81;
+            label47.Text = "Nom :";
+            // 
+            // comboBox1
+            // 
+            comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Items.AddRange(new object[] { "Homme", "Femme" });
+            comboBox1.Location = new System.Drawing.Point(541, 51);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new System.Drawing.Size(97, 23);
+            comboBox1.TabIndex = 83;
+            // 
+            // textBox7
+            // 
+            textBox7.AcceptsReturn = true;
+            textBox7.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            textBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            textBox7.Location = new System.Drawing.Point(17, 51);
+            textBox7.Name = "textBox7";
+            textBox7.Size = new System.Drawing.Size(108, 23);
+            textBox7.TabIndex = 80;
+            // 
+            // label49
+            // 
+            label49.AutoSize = true;
+            label49.Location = new System.Drawing.Point(541, 31);
+            label49.Name = "label49";
+            label49.Size = new System.Drawing.Size(47, 15);
+            label49.TabIndex = 82;
+            label49.Text = "Genre  :";
+            // 
+            // button10
+            // 
+            button10.Location = new System.Drawing.Point(17, 434);
+            button10.Name = "button10";
+            button10.Size = new System.Drawing.Size(65, 46);
+            button10.TabIndex = 55;
+            button10.Text = "Annuler";
+            button10.UseVisualStyleBackColor = true;
+            // 
+            // button11
+            // 
+            button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button11.Image = (System.Drawing.Image)resources.GetObject("button11.Image");
+            button11.Location = new System.Drawing.Point(944, 429);
+            button11.Name = "button11";
+            button11.Size = new System.Drawing.Size(68, 46);
+            button11.TabIndex = 54;
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += button11_Click;
+            // 
+            // panelconsentement
+            // 
+            panelconsentement.Controls.Add(button15);
+            panelconsentement.Controls.Add(panelEmpreinte);
+            panelconsentement.Controls.Add(button3);
+            panelconsentement.Controls.Add(btn_annuler);
+            panelconsentement.Controls.Add(checkBox1);
+            panelconsentement.Controls.Add(textBox2);
+            panelconsentement.Location = new System.Drawing.Point(19, 74);
+            panelconsentement.Name = "panelconsentement";
+            panelconsentement.Size = new System.Drawing.Size(1021, 492);
+            panelconsentement.TabIndex = 60;
+            // 
+            // button15
+            // 
+            button15.Image = Properties.Resources.question;
+            button15.Location = new System.Drawing.Point(973, 3);
+            button15.Name = "button15";
+            button15.Size = new System.Drawing.Size(40, 32);
+            button15.TabIndex = 84;
+            button15.UseVisualStyleBackColor = true;
+            // 
+            // panelEmpreinte
+            // 
+            panelEmpreinte.Controls.Add(labelMsgemp);
+            panelEmpreinte.Controls.Add(pB_empr);
+            panelEmpreinte.Controls.Add(groupBox5);
+            panelEmpreinte.Controls.Add(button9);
+            panelEmpreinte.Controls.Add(button12);
+            panelEmpreinte.Location = new System.Drawing.Point(391, 155);
+            panelEmpreinte.Name = "panelEmpreinte";
+            panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
+            panelEmpreinte.TabIndex = 61;
+            // 
+            // labelMsgemp
+            // 
+            labelMsgemp.AutoSize = true;
+            labelMsgemp.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            labelMsgemp.ForeColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            labelMsgemp.Location = new System.Drawing.Point(334, 193);
+            labelMsgemp.Name = "labelMsgemp";
+            labelMsgemp.Size = new System.Drawing.Size(340, 18);
+            labelMsgemp.TabIndex = 83;
+            labelMsgemp.Text = "Veuillez poser votre empreinte sur le capteur";
+            labelMsgemp.Visible = false;
+            // 
+            // pB_empr
+            // 
+            pB_empr.Image = Properties.Resources.verife_empreinte;
+            pB_empr.Location = new System.Drawing.Point(419, 26);
+            pB_empr.Name = "pB_empr";
+            pB_empr.Size = new System.Drawing.Size(150, 160);
+            pB_empr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pB_empr.TabIndex = 82;
+            pB_empr.TabStop = false;
+            pB_empr.Visible = false;
+            pB_empr.WaitOnLoad = true;
+            pB_empr.Click += pB_empr_Click;
+            // 
+            // groupBox5
+            // 
+            groupBox5.Controls.Add(label73);
+            groupBox5.Controls.Add(pictureLittle);
+            groupBox5.Controls.Add(pictureRing);
+            groupBox5.Controls.Add(label71);
+            groupBox5.Controls.Add(label72);
+            groupBox5.Controls.Add(pictureIndex);
+            groupBox5.Controls.Add(pictureThumb);
+            groupBox5.Controls.Add(pictureMiddle);
+            groupBox5.Controls.Add(label70);
+            groupBox5.Controls.Add(label69);
+            groupBox5.Location = new System.Drawing.Point(39, 224);
+            groupBox5.Name = "groupBox5";
+            groupBox5.Size = new System.Drawing.Size(952, 199);
+            groupBox5.TabIndex = 81;
+            groupBox5.TabStop = false;
+            groupBox5.Text = "Mes Empreintes";
+            // 
+            // label73
+            // 
+            label73.AutoSize = true;
+            label73.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label73.Location = new System.Drawing.Point(832, 169);
+            label73.Name = "label73";
+            label73.Size = new System.Drawing.Size(82, 19);
+            label73.TabIndex = 69;
+            label73.Text = "Auriculaire";
+            label73.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureLittle
+            // 
+            pictureLittle.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            pictureLittle.Image = Properties.Resources.empreintedigitale;
+            pictureLittle.Location = new System.Drawing.Point(812, 33);
+            pictureLittle.Name = "pictureLittle";
+            pictureLittle.Size = new System.Drawing.Size(118, 133);
+            pictureLittle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureLittle.TabIndex = 60;
+            pictureLittle.TabStop = false;
+            pictureLittle.Click += pictureLittle_Click;
+            // 
+            // pictureRing
+            // 
+            pictureRing.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            pictureRing.Image = Properties.Resources.empreintedigitale;
+            pictureRing.Location = new System.Drawing.Point(621, 33);
+            pictureRing.Name = "pictureRing";
+            pictureRing.Size = new System.Drawing.Size(118, 133);
+            pictureRing.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureRing.TabIndex = 61;
+            pictureRing.TabStop = false;
+            pictureRing.Click += pictureRing_Click;
+            // 
+            // label71
+            // 
+            label71.AutoSize = true;
+            label71.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label71.Location = new System.Drawing.Point(459, 169);
+            label71.Name = "label71";
+            label71.Size = new System.Drawing.Size(56, 19);
+            label71.TabIndex = 67;
+            label71.Text = "Majeur";
+            label71.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // label72
+            // 
+            label72.AutoSize = true;
+            label72.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label72.Location = new System.Drawing.Point(646, 169);
+            label72.Name = "label72";
+            label72.Size = new System.Drawing.Size(73, 19);
+            label72.TabIndex = 68;
+            label72.Text = "Annulaire";
+            label72.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pictureIndex
+            // 
+            pictureIndex.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            pictureIndex.Image = Properties.Resources.empreintedigitale;
+            pictureIndex.Location = new System.Drawing.Point(229, 33);
+            pictureIndex.Name = "pictureIndex";
+            pictureIndex.Size = new System.Drawing.Size(118, 133);
+            pictureIndex.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureIndex.TabIndex = 63;
+            pictureIndex.TabStop = false;
+            pictureIndex.Click += pictureIndex_Click;
+            // 
+            // pictureThumb
+            // 
+            pictureThumb.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            pictureThumb.ErrorImage = (System.Drawing.Image)resources.GetObject("pictureThumb.ErrorImage");
+            pictureThumb.Image = (System.Drawing.Image)resources.GetObject("pictureThumb.Image");
+            pictureThumb.Location = new System.Drawing.Point(24, 33);
+            pictureThumb.Name = "pictureThumb";
+            pictureThumb.Size = new System.Drawing.Size(118, 133);
+            pictureThumb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureThumb.TabIndex = 64;
+            pictureThumb.TabStop = false;
+            pictureThumb.Click += pictureThumb_Click;
+            // 
+            // pictureMiddle
+            // 
+            pictureMiddle.BackColor = System.Drawing.Color.FromArgb(239, 245, 240);
+            pictureMiddle.Image = Properties.Resources.empreintedigitale;
+            pictureMiddle.Location = new System.Drawing.Point(426, 33);
+            pictureMiddle.Name = "pictureMiddle";
+            pictureMiddle.Size = new System.Drawing.Size(118, 133);
+            pictureMiddle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureMiddle.TabIndex = 62;
+            pictureMiddle.TabStop = false;
+            pictureMiddle.Click += pictureMiddle_Click;
+            // 
+            // label70
+            // 
+            label70.AutoSize = true;
+            label70.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label70.Location = new System.Drawing.Point(265, 169);
+            label70.Name = "label70";
+            label70.Size = new System.Drawing.Size(46, 19);
+            label70.TabIndex = 66;
+            label70.Text = "Index";
+            // 
+            // label69
+            // 
+            label69.AutoSize = true;
+            label69.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label69.Location = new System.Drawing.Point(54, 169);
+            label69.Name = "label69";
+            label69.Size = new System.Drawing.Size(50, 19);
+            label69.TabIndex = 65;
+            label69.Text = "Pouce";
+            // 
+            // button9
+            // 
+            button9.Location = new System.Drawing.Point(17, 434);
+            button9.Name = "button9";
+            button9.Size = new System.Drawing.Size(65, 46);
+            button9.TabIndex = 55;
+            button9.Text = "Annuler";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += button9_Click_1;
+            // 
+            // button12
+            // 
+            button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button12.Image = (System.Drawing.Image)resources.GetObject("button12.Image");
+            button12.Location = new System.Drawing.Point(903, 429);
+            button12.Name = "button12";
+            button12.Size = new System.Drawing.Size(68, 46);
+            button12.TabIndex = 54;
+            button12.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button3.Enabled = false;
+            button3.Image = (System.Drawing.Image)resources.GetObject("button3.Image");
+            button3.Location = new System.Drawing.Point(945, 429);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(68, 46);
+            button3.TabIndex = 54;
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // btn_annuler
+            // 
+            btn_annuler.Location = new System.Drawing.Point(30, 438);
+            btn_annuler.Name = "btn_annuler";
+            btn_annuler.Size = new System.Drawing.Size(58, 37);
+            btn_annuler.TabIndex = 2;
+            btn_annuler.Text = "Annuler";
+            btn_annuler.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(33, 413);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(340, 19);
+            checkBox1.TabIndex = 1;
+            checkBox1.Text = "Je consens à l'enrôlement de mes empreintes biométriques.";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            textBox2.Location = new System.Drawing.Point(30, 37);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new System.Drawing.Size(886, 370);
+            textBox2.TabIndex = 0;
+            textBox2.Text = resources.GetString("textBox2.Text");
+            // 
+            // panelResultatRecherche
+            // 
+            panelResultatRecherche.Controls.Add(panel3);
+            panelResultatRecherche.Controls.Add(panel6);
+            panelResultatRecherche.Controls.Add(button7);
+            panelResultatRecherche.Controls.Add(button8);
+            panelResultatRecherche.Location = new System.Drawing.Point(14, 74);
+            panelResultatRecherche.Name = "panelResultatRecherche";
+            panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
+            panelResultatRecherche.TabIndex = 62;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = System.Drawing.Color.FromArgb(251, 244, 237);
+            panel3.Controls.Add(label45);
+            panel3.Controls.Add(pictureBox4);
+            panel3.Controls.Add(label42);
+            panel3.Controls.Add(label43);
+            panel3.Controls.Add(label39);
+            panel3.Controls.Add(label41);
+            panel3.Controls.Add(label37);
+            panel3.Controls.Add(label38);
+            panel3.Controls.Add(label35);
+            panel3.Controls.Add(label36);
+            panel3.Controls.Add(label40);
+            panel3.Controls.Add(label48);
+            panel3.Controls.Add(label34);
+            panel3.Controls.Add(label44);
+            panel3.Controls.Add(label50);
+            panel3.Controls.Add(label51);
+            panel3.Controls.Add(label52);
+            panel3.Controls.Add(label53);
+            panel3.Controls.Add(label54);
+            panel3.Controls.Add(label55);
+            panel3.Location = new System.Drawing.Point(524, 45);
+            panel3.Name = "panel3";
+            panel3.Size = new System.Drawing.Size(498, 311);
+            panel3.TabIndex = 65;
+            // 
+            // label45
+            // 
+            label45.AutoSize = true;
+            label45.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label45.Location = new System.Drawing.Point(339, 177);
+            label45.Name = "label45";
+            label45.Size = new System.Drawing.Size(61, 15);
+            label45.TabIndex = 76;
+            label45.Text = "Signature";
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            pictureBox4.Location = new System.Drawing.Point(293, 159);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(150, 53);
+            pictureBox4.TabIndex = 75;
+            pictureBox4.TabStop = false;
+            // 
+            // label42
+            // 
+            label42.AutoSize = true;
+            label42.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label42.Location = new System.Drawing.Point(125, 278);
+            label42.Name = "label42";
+            label42.Size = new System.Drawing.Size(81, 15);
+            label42.TabIndex = 74;
+            label42.Text = "JJ/MM/AAAA";
+            // 
+            // label43
+            // 
+            label43.AutoSize = true;
+            label43.Location = new System.Drawing.Point(23, 278);
+            label43.Name = "label43";
+            label43.Size = new System.Drawing.Size(34, 15);
+            label43.TabIndex = 73;
+            label43.Text = "Né le";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label39.Location = new System.Drawing.Point(123, 229);
+            label39.Name = "label39";
+            label39.Size = new System.Drawing.Size(81, 15);
+            label39.TabIndex = 72;
+            label39.Text = "JJ/MM/AAAA";
+            // 
+            // label41
+            // 
+            label41.AutoSize = true;
+            label41.Location = new System.Drawing.Point(21, 229);
+            label41.Name = "label41";
+            label41.Size = new System.Drawing.Size(34, 15);
+            label41.TabIndex = 71;
+            label41.Text = "Né le";
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label37.Location = new System.Drawing.Point(123, 254);
+            label37.Name = "label37";
+            label37.Size = new System.Drawing.Size(101, 13);
+            label37.TabIndex = 70;
+            label37.Text = "CIXXXXXXXXXXXX";
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Location = new System.Drawing.Point(21, 253);
+            label38.Name = "label38";
+            label38.Size = new System.Drawing.Size(95, 15);
+            label38.TabIndex = 69;
+            label38.Text = "Nom de la mère:";
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label35.Location = new System.Drawing.Point(121, 202);
+            label35.Name = "label35";
+            label35.Size = new System.Drawing.Size(101, 13);
+            label35.TabIndex = 68;
+            label35.Text = "CIXXXXXXXXXXXX";
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Location = new System.Drawing.Point(19, 201);
+            label36.Name = "label36";
+            label36.Size = new System.Drawing.Size(83, 15);
+            label36.TabIndex = 67;
+            label36.Text = "Nom du père :";
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label40.Location = new System.Drawing.Point(370, 122);
+            label40.Name = "label40";
+            label40.Size = new System.Drawing.Size(77, 13);
+            label40.TabIndex = 66;
+            label40.Text = "XXXXXXXXXX";
+            // 
+            // label48
+            // 
+            label48.AutoSize = true;
+            label48.Location = new System.Drawing.Point(279, 121);
+            label48.Name = "label48";
+            label48.Size = new System.Drawing.Size(85, 15);
+            label48.TabIndex = 65;
+            label48.Text = "Lieu émission :";
+            // 
+            // label34
+            // 
+            label34.AutoSize = true;
+            label34.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label34.Location = new System.Drawing.Point(113, 121);
+            label34.Name = "label34";
+            label34.Size = new System.Drawing.Size(81, 15);
+            label34.TabIndex = 64;
+            label34.Text = "JJ/MM/AAAA";
+            // 
+            // label44
+            // 
+            label44.AutoSize = true;
+            label44.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label44.ForeColor = System.Drawing.Color.FromArgb(232, 80, 30);
+            label44.Location = new System.Drawing.Point(187, 15);
+            label44.Name = "label44";
+            label44.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            label44.Size = new System.Drawing.Size(45, 15);
+            label44.TabIndex = 2;
+            label44.Text = "VERSO";
+            // 
+            // label50
+            // 
+            label50.AutoSize = true;
+            label50.Location = new System.Drawing.Point(137, 36);
+            label50.Name = "label50";
+            label50.Size = new System.Drawing.Size(167, 15);
+            label50.TabIndex = 1;
+            label50.Text = "--------------------------------";
+            // 
+            // label51
+            // 
+            label51.AutoSize = true;
+            label51.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label51.Location = new System.Drawing.Point(113, 89);
+            label51.Name = "label51";
+            label51.Size = new System.Drawing.Size(147, 13);
+            label51.TabIndex = 6;
+            label51.Text = "XXXXXXXXXXXXXXXXXXXX";
+            // 
+            // label52
+            // 
+            label52.AutoSize = true;
+            label52.Location = new System.Drawing.Point(17, 121);
+            label52.Name = "label52";
+            label52.Size = new System.Drawing.Size(87, 15);
+            label52.TabIndex = 2;
+            label52.Text = "Date émission :";
+            // 
+            // label53
+            // 
+            label53.AutoSize = true;
+            label53.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label53.Location = new System.Drawing.Point(112, 60);
+            label53.Name = "label53";
+            label53.Size = new System.Drawing.Size(101, 13);
+            label53.TabIndex = 5;
+            label53.Text = "CIXXXXXXXXXXXX";
+            // 
+            // label54
+            // 
+            label54.AutoSize = true;
+            label54.Location = new System.Drawing.Point(16, 88);
+            label54.Name = "label54";
+            label54.Size = new System.Drawing.Size(62, 15);
+            label54.TabIndex = 1;
+            label54.Text = "Profession";
+            // 
+            // label55
+            // 
+            label55.AutoSize = true;
+            label55.Location = new System.Drawing.Point(17, 59);
+            label55.Name = "label55";
+            label55.Size = new System.Drawing.Size(34, 15);
+            label55.TabIndex = 0;
+            label55.Text = "NNI :";
+            // 
+            // panel6
+            // 
+            panel6.BackColor = System.Drawing.Color.FromArgb(251, 244, 237);
+            panel6.Controls.Add(label27);
+            panel6.Controls.Add(label25);
+            panel6.Controls.Add(label26);
+            panel6.Controls.Add(label13);
+            panel6.Controls.Add(label24);
+            panel6.Controls.Add(label12);
+            panel6.Controls.Add(label14);
+            panel6.Controls.Add(label15);
+            panel6.Controls.Add(label16);
+            panel6.Controls.Add(label17);
+            panel6.Controls.Add(label22);
+            panel6.Controls.Add(label18);
+            panel6.Controls.Add(label19);
+            panel6.Controls.Add(label20);
+            panel6.Controls.Add(label21);
+            panel6.Controls.Add(label23);
+            panel6.Controls.Add(label28);
+            panel6.Controls.Add(label29);
+            panel6.Controls.Add(label30);
+            panel6.Controls.Add(label31);
+            panel6.Controls.Add(label32);
+            panel6.Controls.Add(label33);
+            panel6.Location = new System.Drawing.Point(10, 45);
+            panel6.Name = "panel6";
+            panel6.Size = new System.Drawing.Size(509, 311);
+            panel6.TabIndex = 57;
+            // 
+            // label27
+            // 
+            label27.AutoSize = true;
+            label27.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label27.Location = new System.Drawing.Point(432, 264);
+            label27.Name = "label27";
+            label27.Size = new System.Drawing.Size(63, 20);
+            label27.TabIndex = 64;
+            label27.Text = "000000";
+            // 
+            // label25
+            // 
+            label25.AutoSize = true;
+            label25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label25.Location = new System.Drawing.Point(154, 269);
+            label25.Name = "label25";
+            label25.Size = new System.Drawing.Size(81, 15);
+            label25.TabIndex = 63;
+            label25.Text = "JJ/MM/AAAA";
+            // 
+            // label26
+            // 
+            label26.AutoSize = true;
+            label26.Location = new System.Drawing.Point(154, 249);
+            label26.Name = "label26";
+            label26.Size = new System.Drawing.Size(103, 15);
+            label26.TabIndex = 62;
+            label26.Text = "Date d'expiration :";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label13.Location = new System.Drawing.Point(154, 226);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(135, 15);
+            label13.TabIndex = 61;
+            label13.Text = "XXXXXXXXXXXXXXXX";
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Location = new System.Drawing.Point(154, 206);
+            label24.Name = "label24";
+            label24.Size = new System.Drawing.Size(105, 15);
+            label24.TabIndex = 60;
+            label24.Text = "Lieu de niassance :";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label12.Location = new System.Drawing.Point(325, 184);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(31, 15);
+            label12.TabIndex = 59;
+            label12.Text = "XXX";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label14.Location = new System.Drawing.Point(51, 112);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(48, 15);
+            label14.TabIndex = 9;
+            label14.Text = "PHOTO";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label15.Location = new System.Drawing.Point(273, 184);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(35, 15);
+            label15.TabIndex = 57;
+            label15.Text = "M / F";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label16.Location = new System.Drawing.Point(367, 184);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(135, 15);
+            label16.TabIndex = 8;
+            label16.Text = "XXXXXXXXXXXXXXXX";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(325, 164);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(39, 15);
+            label17.TabIndex = 58;
+            label17.Text = "Taille :";
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label22.ForeColor = System.Drawing.Color.FromArgb(232, 80, 30);
+            label22.Location = new System.Drawing.Point(242, 15);
+            label22.Name = "label22";
+            label22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            label22.Size = new System.Drawing.Size(44, 15);
+            label22.TabIndex = 2;
+            label22.Text = "RECTO";
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label18.Location = new System.Drawing.Point(153, 184);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(81, 15);
+            label18.TabIndex = 11;
+            label18.Text = "JJ/MM/AAAA";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new System.Drawing.Point(367, 164);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(78, 15);
+            label19.TabIndex = 3;
+            label19.Text = "Nationnalité :";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new System.Drawing.Point(273, 164);
+            label20.Name = "label20";
+            label20.Size = new System.Drawing.Size(37, 15);
+            label20.TabIndex = 56;
+            label20.Text = "Sexe :";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label21.Location = new System.Drawing.Point(153, 142);
+            label21.Name = "label21";
+            label21.Size = new System.Drawing.Size(184, 15);
+            label21.TabIndex = 7;
+            label21.Text = "XXX XXXXXXX XXXXXX XXXXX";
+            // 
+            // label23
+            // 
+            label23.AutoSize = true;
+            label23.Location = new System.Drawing.Point(153, 164);
+            label23.Name = "label23";
+            label23.Size = new System.Drawing.Size(107, 15);
+            label23.TabIndex = 10;
+            label23.Text = "Date de naissance :";
+            // 
+            // label28
+            // 
+            label28.AutoSize = true;
+            label28.Location = new System.Drawing.Point(197, 36);
+            label28.Name = "label28";
+            label28.Size = new System.Drawing.Size(167, 15);
+            label28.TabIndex = 1;
+            label28.Text = "--------------------------------";
+            // 
+            // label29
+            // 
+            label29.AutoSize = true;
+            label29.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label29.Location = new System.Drawing.Point(153, 101);
+            label29.Name = "label29";
+            label29.Size = new System.Drawing.Size(147, 13);
+            label29.TabIndex = 6;
+            label29.Text = "XXXXXXXXXXXXXXXXXXXX";
+            // 
+            // label30
+            // 
+            label30.AutoSize = true;
+            label30.Location = new System.Drawing.Point(153, 121);
+            label30.Name = "label30";
+            label30.Size = new System.Drawing.Size(60, 15);
+            label30.TabIndex = 2;
+            label30.Text = "Prénoms :";
+            // 
+            // label31
+            // 
+            label31.AutoSize = true;
+            label31.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label31.Location = new System.Drawing.Point(218, 60);
+            label31.Name = "label31";
+            label31.Size = new System.Drawing.Size(101, 13);
+            label31.TabIndex = 5;
+            label31.Text = "CIXXXXXXXXXXXX";
+            // 
+            // label32
+            // 
+            label32.AutoSize = true;
+            label32.Location = new System.Drawing.Point(153, 81);
+            label32.Name = "label32";
+            label32.Size = new System.Drawing.Size(40, 15);
+            label32.TabIndex = 1;
+            label32.Text = "Nom :";
+            // 
+            // label33
+            // 
+            label33.AutoSize = true;
+            label33.Location = new System.Drawing.Point(153, 59);
+            label33.Name = "label33";
+            label33.Size = new System.Drawing.Size(58, 15);
+            label33.TabIndex = 0;
+            label33.Text = "N° pièce :";
+            // 
+            // button7
+            // 
+            button7.Image = Properties.Resources.question;
+            button7.Location = new System.Drawing.Point(982, 7);
+            button7.Name = "button7";
+            button7.Size = new System.Drawing.Size(40, 32);
+            button7.TabIndex = 56;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button8
+            // 
+            button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button8.Image = (System.Drawing.Image)resources.GetObject("button8.Image");
+            button8.Location = new System.Drawing.Point(957, 439);
+            button8.Name = "button8";
+            button8.Size = new System.Drawing.Size(68, 46);
+            button8.TabIndex = 53;
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += button8_Click_1;
+            // 
             // frm_Acceuil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1014, 640);
+            ClientSize = new System.Drawing.Size(1085, 595);
             ControlBox = false;
-            Controls.Add(panelEnrollement);
+            Controls.Add(panelResultatRecherche);
             Controls.Add(panelVerif);
             Controls.Add(panelconsentement);
+            Controls.Add(panelSignaletique);
+            Controls.Add(panelEnrollement);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             ImeMode = System.Windows.Forms.ImeMode.On;
@@ -625,8 +1876,6 @@
             Load += frm_Acceuil_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panelconsentement.ResumeLayout(false);
-            panelconsentement.PerformLayout();
             panelVerif.ResumeLayout(false);
             panelVerif.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -646,17 +1895,35 @@
             groupBox3.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            panelSignaletique.ResumeLayout(false);
+            groupBox4.ResumeLayout(false);
+            groupBox4.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            panelconsentement.ResumeLayout(false);
+            panelconsentement.PerformLayout();
+            panelEmpreinte.ResumeLayout(false);
+            panelEmpreinte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pB_empr).EndInit();
+            groupBox5.ResumeLayout(false);
+            groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureLittle).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureRing).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureIndex).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureThumb).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureMiddle).EndInit();
+            panelResultatRecherche.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btn_annuler;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelconsentement;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Panel panelVerif;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
@@ -697,5 +1964,115 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel panelSignaletique;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.Label nom;
+        private System.Windows.Forms.ComboBox txt_sexe;
+        private System.Windows.Forms.TextBox txt_nom;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Panel panelconsentement;
+        private System.Windows.Forms.Button button15;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btn_annuler;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Panel panelEmpreinte;
+        private System.Windows.Forms.Label labelMsgemp;
+        private System.Windows.Forms.PictureBox pB_empr;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.PictureBox pictureLittle;
+        private System.Windows.Forms.PictureBox pictureRing;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.PictureBox pictureIndex;
+        private System.Windows.Forms.PictureBox pictureThumb;
+        private System.Windows.Forms.PictureBox pictureMiddle;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Panel panelResultatRecherche;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button button8;
     }
 }

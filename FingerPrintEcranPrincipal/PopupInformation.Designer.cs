@@ -59,7 +59,7 @@
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label7.Location = new System.Drawing.Point(146, 11);
+            label7.Location = new System.Drawing.Point(227, 9);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(89, 19);
             label7.TabIndex = 1;
