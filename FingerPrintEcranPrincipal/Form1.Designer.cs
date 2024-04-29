@@ -179,8 +179,9 @@
             label31 = new System.Windows.Forms.Label();
             label32 = new System.Windows.Forms.Label();
             label33 = new System.Windows.Forms.Label();
-            button7 = new System.Windows.Forms.Button();
             button8 = new System.Windows.Forms.Button();
+            button7 = new System.Windows.Forms.Button();
+            button16 = new System.Windows.Forms.Button();
             panel1.SuspendLayout();
             panelVerif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -215,11 +216,13 @@
             // 
             panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             panel1.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            panel1.Controls.Add(button16);
+            panel1.Controls.Add(button7);
             panel1.Controls.Add(label1);
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1091, 70);
+            panel1.Size = new System.Drawing.Size(1093, 70);
             panel1.TabIndex = 47;
             // 
             // label1
@@ -1366,7 +1369,6 @@
             // 
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
-            panelResultatRecherche.Controls.Add(button7);
             panelResultatRecherche.Controls.Add(button8);
             panelResultatRecherche.Location = new System.Drawing.Point(14, 74);
             panelResultatRecherche.Name = "panelResultatRecherche";
@@ -1836,25 +1838,34 @@
             label33.TabIndex = 0;
             label33.Text = "N° pièce :";
             // 
-            // button7
-            // 
-            button7.Image = Properties.Resources.question;
-            button7.Location = new System.Drawing.Point(982, 7);
-            button7.Name = "button7";
-            button7.Size = new System.Drawing.Size(40, 32);
-            button7.TabIndex = 56;
-            button7.UseVisualStyleBackColor = true;
-            // 
             // button8
             // 
             button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             button8.Image = (System.Drawing.Image)resources.GetObject("button8.Image");
-            button8.Location = new System.Drawing.Point(957, 439);
+            button8.Location = new System.Drawing.Point(944, 413);
             button8.Name = "button8";
-            button8.Size = new System.Drawing.Size(68, 46);
+            button8.Size = new System.Drawing.Size(81, 72);
             button8.TabIndex = 53;
             button8.UseVisualStyleBackColor = true;
             button8.Click += button8_Click_1;
+            // 
+            // button7
+            // 
+            button7.Image = Properties.Resources.question;
+            button7.Location = new System.Drawing.Point(986, 18);
+            button7.Name = "button7";
+            button7.Size = new System.Drawing.Size(40, 32);
+            button7.TabIndex = 57;
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button16
+            // 
+            button16.Image = (System.Drawing.Image)resources.GetObject("button16.Image");
+            button16.Location = new System.Drawing.Point(1036, 18);
+            button16.Name = "button16";
+            button16.Size = new System.Drawing.Size(40, 32);
+            button16.TabIndex = 58;
+            button16.UseVisualStyleBackColor = true;
             // 
             // frm_Acceuil
             // 
@@ -2072,7 +2083,8 @@
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.Button button16;
+        private System.Windows.Forms.Button button7;
     }
 }
