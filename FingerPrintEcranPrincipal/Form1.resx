@@ -120,17 +120,17 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="button16.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAecAAAHnAVeuOTYAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAAB2ElEQVRIS7WWvUoDQRSFN1rbiCGIlZA6jU0eQBJLn8DGLuAriFWeIWlS5AVio5DGJoKthYUg2Fna
-        KfhTrOczd4abzWRVcAc+uHPOnbubmbu7yfI8/xGNA3En7g3ig1RukaTo0aiJR8HEg1ZLrfEsC1nWERfi
-        TGyJQ4HxLHYMYjQ8cshlTWep3sJkvhVvggl8uHjg8gZO9zmsXdg6X7xrCUxG4tridzEWGy53wzQ8hJlg
-        DTE1ujHXLZpawshpu2IzzIvgkePm4SLTqDmzb+YsaH9FI/zqftScWRdhP+NdmbcnzsWTQbxXyOHXElCj
-        HnUzacXQLexr3BaNY/EpmHjQjl0e2xXOhFrfLcygc3yfj92ipng1fSL2DWI0vKbL5+AJgJrUzh5MoLdp
-        P98tp4LgNmjOuzXv1Gl0FzXCc0Lt7MUmDV/AFoQ77SW8nnmThNcwj9qlFxiaN/yjt3CBsi06EgTsdcvp
-        LdOYHDk9uUVlh7wubkyHKyPM8dZc/vIhm1HWptviUoSFAbRtl5duU5ew8kEzvy1OjHbCX/2gWULlr4rK
-        X3bVvq5tYXUfnCjMfwnbxZlw8KG76O3UJ5McclkT7zzWKwpFNP73o59Cg63jqeTRB+Jf/G3Jsy8jYM+R
-        eHKYKAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
+        5AAAAeQB+hcYWwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAHYSURBVEhLtZa9
+        SgNBFIU3WtuIIYiVkDqNTR5AEkufwMYu4CuIVZ4haVLkBWKjkMYmgq2FhSDYWdop+FOs5zN3hpvNZFVw
+        Bz64c86du5uZu7vJ8jz/EY0DcSfuDeKDVG6RpOjRqIlHwcSDVkut8SwLWdYRF+JMbIlDgfEsdgxiNDxy
+        yGVNZ6newmS+FW+CCXy4eODyBk73Oaxd2DpfvGsJTEbi2uJ3MRYbLnfDNDyEmWANMTW6MdctmlrCyGm7
+        YjPMi+CR4+bhItOoObNv5ixof0Uj/Op+1JxZF2E/412ZtyfOxZNBvFfI4dcSUKMedTNpxdAt7GvcFo1j
+        8SmYeNCOXR7bFc6EWt8tzKBzfJ+P3aKmeDV9IvYNYjS8psvn4AmAmtTOHkygt2k/3y2nguA2aM67Ne/U
+        aXQXNcJzQu3sxSYNX8AWhDvtJbyeeZOE1zCP2qUXGJo3/KO3cIGyLToSBOx1y+kt05gcOT25RWWHvC5u
+        TIcrI8zx1lz+8iGbUdam2+JShIUBtG2Xl25Tl7DyQTO/LU6MdsJf/aBZQuWvispfdtW+rm1hdR+cKMx/
+        CdvFmXDwobvo7dQnkxxyWRPvPNYrCkU0/vejn0KDreOp5NEH4l/8bcmzLyNgz5F4cpgoAAAAAElFTkSu
+        QmCC
 </value>
   </data>
   <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -180,6 +180,25 @@
         yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
         pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIxSURBVFhHvZe9
+        TsMwFIWz8PMGwEMw8QIMSKiUNi1SF0DQhfK3ISEkJLa+AAuFiR0JWgY60AGBGHgCBBVQqVkKiAoSdTb3
+        RE1I01uw04ThQ/Tauecktq9tTQghRawcG0oUU7H4WfowcZa+ni2mqoTVpoqY3UZ90JfLwcEGvUyfzo3N
+        lvQCiZiEkMQkIwfJ8+QIl9MLGwSTx9nheEnPU7KWL7kKVryY2sucZAY5DcAGZ04yo/QGd0zCQNCL3Pb6
+        Gl2BmZI+Tg8Z/iQhUEduv17HD7w5dYxC3KHu/xLuPxjzMD97LzAc3jnhGmhPOPYhL1tX2+Lh/VGsVjbZ
+        dhkwMTsM2EtNcrbPXyyJWrMm3qw3sXq5wfaRwHKGwjbQXudcR5bFcla8kIlX6zWwCdQJ2wCqFgVUiozN
+        YnnZNZG7XGf7/MHXxFFuQEPpZBqlgInn5otomMFM0Lyb0lC/uUZZFi7IxMezbWJF1URJ39faGwvfQZIf
+        Ew1VExWN/mBX4xqVwOp4ck2ssX0Y7mEA2ynXqIzXRPo8w/bxYUZiADVC0oAV+hDYBUq+SlZDnYSK4gLa
+        oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
+        yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
+        pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>Nous vous remercions de votre intérêt pour nos services. Afin de vous offrir une expérience sécurisée et pratique, nous vous proposons d'enrôler vos empreintes biométriques. Cela vous permettra d'accéder à nos services plus rapidement et facilement, sans avoir à saisir votre mot de passe à chaque fois.L'enrôlement de vos empreintes biométriques est un processus simple et rapide. Il ne vous faudra que quelques minutes pour enregistrer vos empreintes digitales sur un appareil sécurisé. Une fois vos empreintes biométriques enregistrées, vous pourrez les utiliser pour accéder à nos services, tels que la connexion à votre compte en ligne, l'authentification de vos transactions et l'accès à nos installations physiques.L'enrôlement de vos empreintes biométriques présente plusieurs avantages, notamment :  •	Sécurité accrue : Les empreintes biométriques sont un moyen très sécurisé d'authentifier votre identité. Elles sont beaucoup plus difficiles à falsifier que les mots de passe, qui peuvent être facilement oubliés ou volés.</value>
   </data>
   <data name="pictureThumb.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -505,29 +524,10 @@
         pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIxSURBVFhHvZe9
-        TsMwFIWz8PMGwEMw8QIMSKiUNi1SF0DQhfK3ISEkJLa+AAuFiR0JWgY60AGBGHgCBBVQqVkKiAoSdTb3
-        RE1I01uw04ThQ/Tauecktq9tTQghRawcG0oUU7H4WfowcZa+ni2mqoTVpoqY3UZ90JfLwcEGvUyfzo3N
-        lvQCiZiEkMQkIwfJ8+QIl9MLGwSTx9nheEnPU7KWL7kKVryY2sucZAY5DcAGZ04yo/QGd0zCQNCL3Pb6
-        Gl2BmZI+Tg8Z/iQhUEduv17HD7w5dYxC3KHu/xLuPxjzMD97LzAc3jnhGmhPOPYhL1tX2+Lh/VGsVjbZ
-        dhkwMTsM2EtNcrbPXyyJWrMm3qw3sXq5wfaRwHKGwjbQXudcR5bFcla8kIlX6zWwCdQJ2wCqFgVUiozN
-        YnnZNZG7XGf7/MHXxFFuQEPpZBqlgInn5otomMFM0Lyb0lC/uUZZFi7IxMezbWJF1URJ39faGwvfQZIf
-        Ew1VExWN/mBX4xqVwOp4ck2ssX0Y7mEA2ynXqIzXRPo8w/bxYUZiADVC0oAV+hDYBUq+SlZDnYSK4gLa
-        oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
-        yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
-        pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>Nous vous remercions de votre intérêt pour nos services. Afin de vous offrir une expérience sécurisée et pratique, nous vous proposons d'enrôler vos empreintes biométriques. Cela vous permettra d'accéder à nos services plus rapidement et facilement, sans avoir à saisir votre mot de passe à chaque fois.L'enrôlement de vos empreintes biométriques est un processus simple et rapide. Il ne vous faudra que quelques minutes pour enregistrer vos empreintes digitales sur un appareil sécurisé. Une fois vos empreintes biométriques enregistrées, vous pourrez les utiliser pour accéder à nos services, tels que la connexion à votre compte en ligne, l'authentification de vos transactions et l'accès à nos installations physiques.L'enrôlement de vos empreintes biométriques présente plusieurs avantages, notamment :  •	Sécurité accrue : Les empreintes biométriques sont un moyen très sécurisé d'authentifier votre identité. Elles sont beaucoup plus difficiles à falsifier que les mots de passe, qui peuvent être facilement oubliés ou volés.</value>
-  </data>
   <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        5AAAAOQBXaJ52AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARjSURBVFhHrVdZ
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARjSURBVFhHrVdZ
         UBVHFH2W+ulbcMEYNdGKfxr/1PiVL+MSKzGKMwOucSFa8cfKt6KWFmIqUSvK8mYG3FIlJn4om6Q0iKJl
         LP8AEysiuABuLPqeKFt7750enJnugcdyqFPM9F1Oz0z37fsCg0LGl2PGmerCkKlsC5nqoZCh5hLxGsbG
         GdoX6MO9Rw5hQ5kbMjQTxNqBbAC2wYSMSFT7nIcPHUmmOg0S4lN2OwQSZU/I1ApDZupMnm5wgCdeDUni
@@ -547,6 +547,165 @@
         Ds4Ydttc1o1wVPkOHHxbMmy3NkC3cw4OqP+gDYt1dhDxuvD/69QJDdSSwXpTuJwc2DhKAkeEQVPZxWX6
         Abbl1iRGtC0PGuruhNpyG/hjAgJ918QgCDm0lTzt4JAUTZsKCYb30yyaMoOnGzpwz0JCHdsoj4hIqHDw
         Py+iK7N5+AgCyja2UXiIgFAmCNk/zzNxjGq7XV4TQiDwHo+gTumeApJnAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="textBox21.Text" xml:space="preserve">
+    <value>Article 1 : Objet
+1.1. La présente convention définit les conditions dans lesquelles La Banque met à la disposition 
+de son client L’Abonné qui l'accepte, « BP ONLINE », le service permettant d’interagir 
+avec son compte, de procéder à des opérations et d’avoir des informations bancaires à partir 
+de son PC, sa tablette ou de son smartphone.
+
+1.2. Les services offerts sur ces canaux ne sont pas limitatifs et comprennent :
+- Les services d’authentification forte ;
+- Les services d’information (évènement, avis, infos)
+- Les services de consultation ;
+- Les services de gestion ;
+- Les services de transaction dont le virement ;
+- Les services à valeur ajoutée (paiement de facture CIE/SODECI).
+Article 2 : Modalités d’identification
+2.1. L’Abonné accède à « BP ONLINE » après s'être identifié par la composition d’un 
+identifiant et d’un mot de passe qui lui sont communiqués par La Banque par sms sur le numéro 
+de téléphone mobile transmis par L’Abonné. L’Abonné peut, à son initiative et à tout moment, 
+modifier son mot de passe, ce qui lui est d'ailleurs conseillé de faire fréquemment et en 
+particulier dès la réception de son premier mot de passe. L’Abonné doit prendre toutes les 
+mesures propres à assurer la sécurité du mot de passe. II doit donc être tenu absolument secret 
+dans son intérêt même et n'être communiqué à qui que ce soit. Il ne doit notamment pas l'inscrire 
+sur un quelconque document. L’Abonné est responsable de sa conservation et de son utilisation.
+Le mot de passe a un caractère strictement confidentiel. Il ne circule sur les réseaux de 
+télécommunications que sous forme cryptée. En cas d'abonnement joint, les Co-abonnés sont 
+solidairement responsables de la conservation et de l'utilisation du mot de passe. Il est, en 
+conséquence, expressément convenu que toute utilisation de BP ONLINE précédé de la saisie 
+de son identifiant et de son mot de passe, est réputé émaner de L’Abonné lui-même ou de son 
+Co abonné en cas d'abonnement joint.
+2.2. La Banque se réserve le droit de suspendre l'accès à « BP ONLINE » d'une manière 
+générale ou par l'intermédiaire d'une clé d'accès particulière, si elle devait relever des faits 
+laissant présumer l'utilisation frauduleuse ou la tentative d'utilisation frauduleuse de ses 
+services. Elle en informe aussitôt le ou les intéressés, par tout moyen à sa convenance.
+Article 3 : L’utilisation du service : Virement
+Les virements dont le montant excédent une certaine limite seront soumis à l’arbitrage de la 
+banque.
+La Banque se réserve le droit de rejeter toute opération de virement de fonds via la plateforme 
+électronique mobile – Banking actuellement dénommée BP ONLINE dans les cas suivants :
+- Absence ou défaut de provision du compte à débiter
+- Comptes erronés
+- Non-respect de toutes ou parties des conditions établies par la présente convention 
+- Non-respect des dispositions relatives à la règlementation en vigueur sur la lutte contre 
+le blanchiment
+CONDITIONS GENERALES DU SERVICE BP ONLINE
+« Il est bon de préciser que la validation effectuée par le client sur l’application digitale BP 
+ONLINE tient lieu d’autorisation expresse donnée à la Banque pour débiter automatiquement 
+son compte principal du montant spécifié et créditer le compte indiqué, sans tout autre préalable 
+».
+Article 4 : Évolution du produit – Mise à disposition des services
+En fonction, notamment, des évolutions technologiques, La Banque apportera à « BP ONLINE 
+» les évolutions et adaptations, qui s'imposent ou lui semblent souhaitables. La Banque 
+informera L’Abonné de ces évolutions par tout moyen.
+Article 5 : Informations bancaires transmises :
+5.1. Les informations sont fournies à la date précisée sur l'écran récepteur et sous réserve des 
+opérations en cours de traitement au moment de la mise à disposition.
+5.2. Le client reconnaît que les informations fournies par le service sont données à titre indicatif. 
+Seuls les relevés de compte adressés périodiquement au client ont valeur probante.
+Article 6 : Conditions financières
+6.1. L'abonnement à « BP ONLINE » est gratuit, toutefois, le service fait l'objet d’une 
+facturation mensuelle. La facturation du service se fait chaque fin de mois selon que le client 
+soit un particulier ou une entreprise.
+6.2. Les tarifs sont fonction de la formule d’abonnement et sont consultable sur le site ou dans 
+les conditions de banque affichés ou mises à disposition par la banque.
+Toute modification des tarifs ou des modalités de facturation sera précisée à L’Abonné par tout 
+moyen et notamment sous la rubrique "Messages" de « BP ONLINE », trente jours au moins 
+avant sa date d'entrée en vigueur. Si L’Abonné ne l'accepte pas, il lui est loisible de résilier la 
+présente convention. L'utilisation de « BP ONLINE », postérieurement à l'entrée en vigueur des 
+modifications tarifaires, vaudra acceptation de celles-ci par L’Abonné.
+6.3. L’Abonné fait son affaire personnelle du règlement des communications et autres charges 
+dont le coût est directement facturé par l'exploitant du réseau de télécommunication.
+Article 7 : Responsabilités des Parties
+7.1. La Banque s'engage à mettre tout en œuvre pour assurer, dans des conditions optimales, le 
+fonctionnement de « BP ONLINE », la confidentialité des informations communiquées et la 
+sécurité des opérations bancaires en ligne. Ainsi, toutes les informations personnelles - et en 
+particulier les données bancaires, l’identifiant et le mot de passe - circulant sur les réseaux de 
+télécommunications sont systématiquement cryptés.
+7.2. La Banque n'est pas responsable du transport des données, de la qualité et de la disponibilité 
+des réseaux de télécommunications ni des interruptions de service par suite de cas fortuits ou 
+de force majeure et en particulier, sans que cette liste ne soit exhaustive, celles qui se 
+produiraient du fait :
+- De conflits sociaux - même partiels - survenant à la BPCI ou chez tout autre intermédiaire 
+intervenant dans le fonctionnement de ce service ;
+- De défaut de fourniture de courant électrique ;
+- D'interruptions de service consécutives à un mauvais fonctionnement du matériel de 
+L’Abonné ou du réseau de télécommunications.
+7.3. Les enregistrements par les appareils de La Banque qui sont utilisés pour la réception des 
+instructions ou leur reproduction sur un support informatique ou papier constituent pour La 
+Banque et L’Abonné la preuve desdites instructions et la justification de leur imputation au 
+compte de L’Abonné. La Banque n’est tenue de conserver ces renseignements ou reproductions 
+que pendant un an.
+7.4. La Banque s'engage à ne faire usage des informations nominatives recueillies dans le cadre 
+de « BP ONLINE » que pour les seules nécessitées de leur gestion et pour satisfaire aux 
+obligations légales et réglementaires. Elle s'engage par ailleurs à assurer leur confidentialité 
+conformément aux règles prescrites par l’article 16-2 du décret N° 97-392 du 9 juillet 1997 
+définissant les modalités d’octroi des autorisations de fournitures de services de 
+télécommunications. Ces informations peuvent donner lieu aux droits d'accès et de rectification, 
+par l'intermédiaire de l'agence, sur les livres desquels sont tenu le compte de facturation.
+Par ailleurs, le client reconnaît avoir été informé par la Banque des risques que présente 
+l’utilisation des moyens électroniques comme outil de communication, tel que : la défaillance 
+technique du système, les erreurs d’adressage, l’usage abusif ou frauduleux, l’altération du 
+message.
+Le Client assume entièrement, tout en dégageant pleinement la responsabilité de la Banque, les 
+éventuelles conséquences afférentes au présent contrat, sachant que la Banque demeure 
+uniquement tenue de vérifier la conformité apparente des signatures figurant sur les documents 
+reçus par rapport au (x) spécimen (s) déposé (s).
+La responsabilité de la Banque ne pourra nullement être engagée en cas de fraude ou acte 
+malveillant qui surviendrait relativement à l’utilisation du télécopieur, télex du SWIFT ou de 
+tout autre moyen électronique utilisé dans le cadre de la présente convention.
+Article 8 : Précautions
+8.1. Pour protéger le caractère confidentiel de ses données bancaires, L’Abonné est invité à 
+prendre les précautions adéquates, en fonction de son propre matériel et logiciel pour, soit 
+prévenir la mémorisation, dans son micro-ordinateur, des données consultées, soit pour 
+procéder à l'effacement de celles-ci une fois la consultation terminée.
+S'il importe des données bancaires sur un logiciel de gestion, L’Abonné veillera à en interdire 
+l'accès aux tiers non autorisés.
+8.2. Il appartient, d'autre part, à L’Abonné de prendre toutes mesures appropriées pour protéger 
+les données et/ou les logiciels stockés ou chargés sur son équipement informatique de la 
+contamination par des virus ou de tentatives d'intrusion.
+Article 9 : Durée – Résiliation de l’abonnement
+9.1. L’Abonné peut mettre fin au présent contrat sur demande écrite avec accusé de réception. 
+La résiliation prend alors effet au plus tard trente (30) jours après prélèvement des éventuelles 
+facturations en cours.
+9.2. La résiliation par la BPCI produit les mêmes effets.
+9.3. La BPCI pourra suspendre ou mettre fin au service dans les cas suivants :
+- En cas de non-paiement des services ;
+- Si les opérateurs auxquels elle fait appel lui interdisent de continuer la prestation ;
+- En cas de décès, incapacité de L’Abonné, incident sur le compte ou ouverture d'une procédure 
+collective.
+9.4. Le présent contrat prendra fin automatiquement en cas de clôture du compte support.
+Article 10 : Modification de la convention
+Toute modification de la présente convention sera notifiée à L’Abonné au moins trente jours 
+avant sa date d'entrée en vigueur, par tout moyen, et notamment sous la rubrique "Messages" 
+de « BP ONLINE », ou par l'intermédiaire de messages spécifiques ou inclus dans une lettre 
+d’information BPCI adressée à L’Abonné.
+Article 11 : Documents contractuels et loi applicable
+11.1. Le Contrat d’Abonnement « BP ONLINE » se compose du présent texte, des conditions 
+particulières au recto et ses annexes sous réserve des avenants ou autres annexes qui viendraient 
+en modifier ou compléter les dispositions.
+11.2. La présente convention est soumise au droit ivoirien.
+11.3. En cas de litige sur la validité, l’interprétation ou l’exécution des présentes et de ses 
+annexes, compétence est expressément attribuée au Tribunal de Commerce d’Abidjan 
+nonobstant la pluralité de défendeurs.</value>
+  </data>
+  <data name="btn_suivant.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIxSURBVFhHvZe9
+        TsMwFIWz8PMGwEMw8QIMSKiUNi1SF0DQhfK3ISEkJLa+AAuFiR0JWgY60AGBGHgCBBVQqVkKiAoSdTb3
+        RE1I01uw04ThQ/Tauecktq9tTQghRawcG0oUU7H4WfowcZa+ni2mqoTVpoqY3UZ90JfLwcEGvUyfzo3N
+        lvQCiZiEkMQkIwfJ8+QIl9MLGwSTx9nheEnPU7KWL7kKVryY2sucZAY5DcAGZ04yo/QGd0zCQNCL3Pb6
+        Gl2BmZI+Tg8Z/iQhUEduv17HD7w5dYxC3KHu/xLuPxjzMD97LzAc3jnhGmhPOPYhL1tX2+Lh/VGsVjbZ
+        dhkwMTsM2EtNcrbPXyyJWrMm3qw3sXq5wfaRwHKGwjbQXudcR5bFcla8kIlX6zWwCdQJ2wCqFgVUiozN
+        YnnZNZG7XGf7/MHXxFFuQEPpZBqlgInn5otomMFM0Lyb0lC/uUZZFi7IxMezbWJF1URJ39faGwvfQZIf
+        Ew1VExWN/mBX4xqVwOp4ck2ssX0Y7mEA2ynXqIzXRPo8w/bxYUZiADVC0oAV+hDYBUq+SlZDnYSK4gLa
+        oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
+        yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
+        pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
 </value>
   </data>
 </root>

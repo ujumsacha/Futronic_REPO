@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fingerprint1", "Fingerprint
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLEnrollement", "DLLEnrollement\DLLEnrollement.csproj", "{3CF9AEA6-6D03-4B36-8F68-5A52E297EA92}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FingerPrintEcranPrincipal", "FingerPrintEcranPrincipal\FingerPrintEcranPrincipal.csproj", "{40FF8276-E96D-451B-BAAF-AD6D87D67C19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FingerPrintEcranPrincipal", "FingerPrintEcranPrincipal\FingerPrintEcranPrincipal.csproj", "{40FF8276-E96D-451B-BAAF-AD6D87D67C19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormCreation", "FormCreation\FormCreation.csproj", "{F424C098-7FC2-4570-80A3-E5908B03B363}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{40FF8276-E96D-451B-BAAF-AD6D87D67C19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40FF8276-E96D-451B-BAAF-AD6D87D67C19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40FF8276-E96D-451B-BAAF-AD6D87D67C19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F424C098-7FC2-4570-80A3-E5908B03B363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F424C098-7FC2-4570-80A3-E5908B03B363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F424C098-7FC2-4570-80A3-E5908B03B363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F424C098-7FC2-4570-80A3-E5908B03B363}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

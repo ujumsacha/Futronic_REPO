@@ -22,10 +22,6 @@ namespace FingerPrintEcranPrincipal
             createfile();
             Application.Run(new frm_Acceuil());
         }
-
-
-
-
         public static void createfile()
         {
             try
