@@ -44,7 +44,6 @@
             rd_numUnique = new System.Windows.Forms.RadioButton();
             rd_numPiece = new System.Windows.Forms.RadioButton();
             panelEnrollement = new System.Windows.Forms.Panel();
-            button14 = new System.Windows.Forms.Button();
             panelporteur = new System.Windows.Forms.Panel();
             button6 = new System.Windows.Forms.Button();
             label11 = new System.Windows.Forms.Label();
@@ -74,7 +73,6 @@
             radioButton2 = new System.Windows.Forms.RadioButton();
             radioButton3 = new System.Windows.Forms.RadioButton();
             panelSignaletique = new System.Windows.Forms.Panel();
-            button13 = new System.Windows.Forms.Button();
             groupBox4 = new System.Windows.Forms.GroupBox();
             label68 = new System.Windows.Forms.Label();
             textBox20 = new System.Windows.Forms.TextBox();
@@ -114,7 +112,6 @@
             button10 = new System.Windows.Forms.Button();
             button11 = new System.Windows.Forms.Button();
             panelconsentement = new System.Windows.Forms.Panel();
-            button15 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             btn_annuler = new System.Windows.Forms.Button();
             checkBox1 = new System.Windows.Forms.CheckBox();
@@ -182,9 +179,14 @@
             label33 = new System.Windows.Forms.Label();
             button8 = new System.Windows.Forms.Button();
             panelCondutil = new System.Windows.Forms.Panel();
+            button2 = new System.Windows.Forms.Button();
             chkConsend = new System.Windows.Forms.CheckBox();
             textBox21 = new System.Windows.Forms.TextBox();
             btn_suivant = new System.Windows.Forms.Button();
+            panelRecapitulatif = new System.Windows.Forms.Panel();
+            btn_precedent = new System.Windows.Forms.Button();
+            button13 = new System.Windows.Forms.Button();
+            textBox22 = new System.Windows.Forms.TextBox();
             panel1.SuspendLayout();
             panelVerif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -214,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel6.SuspendLayout();
             panelCondutil.SuspendLayout();
+            panelRecapitulatif.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -237,6 +240,7 @@
             button16.Size = new System.Drawing.Size(40, 32);
             button16.TabIndex = 58;
             button16.UseVisualStyleBackColor = true;
+            button16.Click += button16_Click;
             // 
             // button7
             // 
@@ -267,9 +271,9 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(30, 94);
+            panelVerif.Location = new System.Drawing.Point(38, 86);
             panelVerif.Name = "panelVerif";
-            panelVerif.Size = new System.Drawing.Size(1026, 489);
+            panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
             // 
             // label2
@@ -377,27 +381,17 @@
             // 
             // panelEnrollement
             // 
-            panelEnrollement.Controls.Add(button14);
             panelEnrollement.Controls.Add(panelporteur);
             panelEnrollement.Controls.Add(panelclient);
             panelEnrollement.Controls.Add(button5);
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(25, 90);
+            panelEnrollement.Location = new System.Drawing.Point(17, 84);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
             panelEnrollement.Paint += panel2_Paint_1;
-            // 
-            // button14
-            // 
-            button14.Image = Properties.Resources.question;
-            button14.Location = new System.Drawing.Point(962, 4);
-            button14.Name = "button14";
-            button14.Size = new System.Drawing.Size(40, 32);
-            button14.TabIndex = 83;
-            button14.UseVisualStyleBackColor = true;
             // 
             // panelporteur
             // 
@@ -603,7 +597,7 @@
             // 
             button5.Location = new System.Drawing.Point(46, 431);
             button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(65, 46);
+            button5.Size = new System.Drawing.Size(81, 46);
             button5.TabIndex = 55;
             button5.Text = "Annuler";
             button5.UseVisualStyleBackColor = true;
@@ -710,24 +704,14 @@
             // 
             // panelSignaletique
             // 
-            panelSignaletique.Controls.Add(button13);
             panelSignaletique.Controls.Add(groupBox4);
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(1062, 86);
+            panelSignaletique.Location = new System.Drawing.Point(24, 77);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
-            // 
-            // button13
-            // 
-            button13.Image = Properties.Resources.question;
-            button13.Location = new System.Drawing.Point(981, 7);
-            button13.Name = "button13";
-            button13.Size = new System.Drawing.Size(40, 32);
-            button13.TabIndex = 82;
-            button13.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -1108,10 +1092,11 @@
             // 
             button10.Location = new System.Drawing.Point(17, 434);
             button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(65, 46);
+            button10.Size = new System.Drawing.Size(89, 46);
             button10.TabIndex = 55;
-            button10.Text = "Annuler";
+            button10.Text = "Precedent";
             button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // button11
             // 
@@ -1126,24 +1111,14 @@
             // 
             // panelconsentement
             // 
-            panelconsentement.Controls.Add(button15);
             panelconsentement.Controls.Add(button3);
             panelconsentement.Controls.Add(btn_annuler);
             panelconsentement.Controls.Add(checkBox1);
             panelconsentement.Controls.Add(textBox2);
-            panelconsentement.Location = new System.Drawing.Point(28, 3);
+            panelconsentement.Location = new System.Drawing.Point(12, 74);
             panelconsentement.Name = "panelconsentement";
             panelconsentement.Size = new System.Drawing.Size(1021, 492);
             panelconsentement.TabIndex = 60;
-            // 
-            // button15
-            // 
-            button15.Image = Properties.Resources.question;
-            button15.Location = new System.Drawing.Point(973, 3);
-            button15.Name = "button15";
-            button15.Size = new System.Drawing.Size(40, 32);
-            button15.TabIndex = 84;
-            button15.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -1165,6 +1140,7 @@
             btn_annuler.TabIndex = 2;
             btn_annuler.Text = "Annuler";
             btn_annuler.UseVisualStyleBackColor = true;
+            btn_annuler.Click += btn_annuler_Click;
             // 
             // checkBox1
             // 
@@ -1196,7 +1172,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(24, 589);
+            panelEmpreinte.Location = new System.Drawing.Point(4, 0);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -1378,13 +1354,14 @@
             button12.Size = new System.Drawing.Size(68, 46);
             button12.TabIndex = 54;
             button12.UseVisualStyleBackColor = true;
+            button12.Click += button12_Click;
             // 
             // panelResultatRecherche
             // 
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
             panelResultatRecherche.Controls.Add(button8);
-            panelResultatRecherche.Location = new System.Drawing.Point(24, 83);
+            panelResultatRecherche.Location = new System.Drawing.Point(23, 84);
             panelResultatRecherche.Name = "panelResultatRecherche";
             panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
             panelResultatRecherche.TabIndex = 62;
@@ -1616,7 +1593,6 @@
             panel6.Controls.Add(label27);
             panel6.Controls.Add(label25);
             panel6.Controls.Add(label26);
-            panel6.Controls.Add(panelconsentement);
             panel6.Controls.Add(label13);
             panel6.Controls.Add(label24);
             panel6.Controls.Add(label12);
@@ -1828,11 +1804,10 @@
             // label31
             // 
             label31.AutoSize = true;
-            label31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             label31.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label31.Location = new System.Drawing.Point(218, 60);
             label31.Name = "label31";
-            label31.Size = new System.Drawing.Size(103, 15);
+            label31.Size = new System.Drawing.Size(101, 13);
             label31.TabIndex = 5;
             label31.Text = "CIXXXXXXXXXXXX";
             // 
@@ -1867,14 +1842,26 @@
             // 
             // panelCondutil
             // 
+            panelCondutil.Controls.Add(button2);
             panelCondutil.Controls.Add(chkConsend);
             panelCondutil.Controls.Add(textBox21);
+            panelCondutil.Controls.Add(panelEmpreinte);
             panelCondutil.Controls.Add(btn_suivant);
-            panelCondutil.Location = new System.Drawing.Point(26, 86);
+            panelCondutil.Location = new System.Drawing.Point(29, 84);
             panelCondutil.Name = "panelCondutil";
             panelCondutil.Size = new System.Drawing.Size(1026, 489);
             panelCondutil.TabIndex = 63;
             panelCondutil.Visible = false;
+            // 
+            // button2
+            // 
+            button2.Location = new System.Drawing.Point(15, 442);
+            button2.Name = "button2";
+            button2.Size = new System.Drawing.Size(85, 36);
+            button2.TabIndex = 59;
+            button2.Text = "Annuler";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // chkConsend
             // 
@@ -1908,18 +1895,57 @@
             btn_suivant.UseVisualStyleBackColor = true;
             btn_suivant.Click += btn_suivant_Click;
             // 
+            // panelRecapitulatif
+            // 
+            panelRecapitulatif.Controls.Add(btn_precedent);
+            panelRecapitulatif.Controls.Add(button13);
+            panelRecapitulatif.Controls.Add(textBox22);
+            panelRecapitulatif.Location = new System.Drawing.Point(1087, 81);
+            panelRecapitulatif.Name = "panelRecapitulatif";
+            panelRecapitulatif.Size = new System.Drawing.Size(1036, 476);
+            panelRecapitulatif.TabIndex = 64;
+            // 
+            // btn_precedent
+            // 
+            btn_precedent.Location = new System.Drawing.Point(19, 420);
+            btn_precedent.Name = "btn_precedent";
+            btn_precedent.Size = new System.Drawing.Size(85, 36);
+            btn_precedent.TabIndex = 60;
+            btn_precedent.Text = "Precedent";
+            btn_precedent.UseVisualStyleBackColor = true;
+            btn_precedent.Click += btn_precedent_Click;
+            // 
+            // button13
+            // 
+            button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button13.Image = (System.Drawing.Image)resources.GetObject("button13.Image");
+            button13.Location = new System.Drawing.Point(950, 409);
+            button13.Name = "button13";
+            button13.Size = new System.Drawing.Size(68, 46);
+            button13.TabIndex = 55;
+            button13.UseVisualStyleBackColor = true;
+            // 
+            // textBox22
+            // 
+            textBox22.Location = new System.Drawing.Point(19, 16);
+            textBox22.Multiline = true;
+            textBox22.Name = "textBox22";
+            textBox22.Size = new System.Drawing.Size(999, 388);
+            textBox22.TabIndex = 0;
+            // 
             // frm_Acceuil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1940, 957);
+            ClientSize = new System.Drawing.Size(1940, 1100);
             ControlBox = false;
+            Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
             Controls.Add(panelResultatRecherche);
-            Controls.Add(panelEmpreinte);
-            Controls.Add(panelEnrollement);
+            Controls.Add(panelconsentement);
             Controls.Add(panelVerif);
             Controls.Add(panelSignaletique);
+            Controls.Add(panelEnrollement);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             ImeMode = System.Windows.Forms.ImeMode.On;
@@ -1973,6 +1999,8 @@
             panel6.PerformLayout();
             panelCondutil.ResumeLayout(false);
             panelCondutil.PerformLayout();
+            panelRecapitulatif.ResumeLayout(false);
+            panelRecapitulatif.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2056,10 +2084,7 @@
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Panel panelconsentement;
-        private System.Windows.Forms.Button button15;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_annuler;
         private System.Windows.Forms.CheckBox checkBox1;
@@ -2133,5 +2158,10 @@
         private System.Windows.Forms.CheckBox chkConsend;
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.Button btn_suivant;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panelRecapitulatif;
+        private System.Windows.Forms.Button btn_precedent;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.TextBox textBox22;
     }
 }

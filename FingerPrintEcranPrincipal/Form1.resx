@@ -200,6 +200,22 @@
   <data name="textBox2.Text" xml:space="preserve">
     <value>Nous vous remercions de votre intérêt pour nos services. Afin de vous offrir une expérience sécurisée et pratique, nous vous proposons d'enrôler vos empreintes biométriques. Cela vous permettra d'accéder à nos services plus rapidement et facilement, sans avoir à saisir votre mot de passe à chaque fois.L'enrôlement de vos empreintes biométriques est un processus simple et rapide. Il ne vous faudra que quelques minutes pour enregistrer vos empreintes digitales sur un appareil sécurisé. Une fois vos empreintes biométriques enregistrées, vous pourrez les utiliser pour accéder à nos services, tels que la connexion à votre compte en ligne, l'authentification de vos transactions et l'accès à nos installations physiques.L'enrôlement de vos empreintes biométriques présente plusieurs avantages, notamment :  •	Sécurité accrue : Les empreintes biométriques sont un moyen très sécurisé d'authentifier votre identité. Elles sont beaucoup plus difficiles à falsifier que les mots de passe, qui peuvent être facilement oubliés ou volés.</value>
   </data>
+  <data name="button12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIxSURBVFhHvZe9
+        TsMwFIWz8PMGwEMw8QIMSKiUNi1SF0DQhfK3ISEkJLa+AAuFiR0JWgY60AGBGHgCBBVQqVkKiAoSdTb3
+        RE1I01uw04ThQ/Tauecktq9tTQghRawcG0oUU7H4WfowcZa+ni2mqoTVpoqY3UZ90JfLwcEGvUyfzo3N
+        lvQCiZiEkMQkIwfJ8+QIl9MLGwSTx9nheEnPU7KWL7kKVryY2sucZAY5DcAGZ04yo/QGd0zCQNCL3Pb6
+        Gl2BmZI+Tg8Z/iQhUEduv17HD7w5dYxC3KHu/xLuPxjzMD97LzAc3jnhGmhPOPYhL1tX2+Lh/VGsVjbZ
+        dhkwMTsM2EtNcrbPXyyJWrMm3qw3sXq5wfaRwHKGwjbQXudcR5bFcla8kIlX6zWwCdQJ2wCqFgVUiozN
+        YnnZNZG7XGf7/MHXxFFuQEPpZBqlgInn5otomMFM0Lyb0lC/uUZZFi7IxMezbWJF1URJ39faGwvfQZIf
+        Ew1VExWN/mBX4xqVwOp4ck2ssX0Y7mEA2ynXqIzXRPo8w/bxYUZiADVC0oAV+hDYBUq+SlZDnYSK4gLa
+        oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
+        yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
+        pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="pictureThumb.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAC
@@ -508,22 +524,6 @@
         QmCC
 </value>
   </data>
-  <data name="button12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIxSURBVFhHvZe9
-        TsMwFIWz8PMGwEMw8QIMSKiUNi1SF0DQhfK3ISEkJLa+AAuFiR0JWgY60AGBGHgCBBVQqVkKiAoSdTb3
-        RE1I01uw04ThQ/Tauecktq9tTQghRawcG0oUU7H4WfowcZa+ni2mqoTVpoqY3UZ90JfLwcEGvUyfzo3N
-        lvQCiZiEkMQkIwfJ8+QIl9MLGwSTx9nheEnPU7KWL7kKVryY2sucZAY5DcAGZ04yo/QGd0zCQNCL3Pb6
-        Gl2BmZI+Tg8Z/iQhUEduv17HD7w5dYxC3KHu/xLuPxjzMD97LzAc3jnhGmhPOPYhL1tX2+Lh/VGsVjbZ
-        dhkwMTsM2EtNcrbPXyyJWrMm3qw3sXq5wfaRwHKGwjbQXudcR5bFcla8kIlX6zWwCdQJ2wCqFgVUiozN
-        YnnZNZG7XGf7/MHXxFFuQEPpZBqlgInn5otomMFM0Lyb0lC/uUZZFi7IxMezbWJF1URJ39faGwvfQZIf
-        Ew1VExWN/mBX4xqVwOp4ck2ssX0Y7mEA2ynXqIzXRPo8w/bxYUZiADVC0oAV+hDYBUq+SlZDnYSK4gLa
-        oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
-        yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
-        pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
-</value>
-  </data>
   <data name="button8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
@@ -706,6 +706,31 @@ nonobstant la pluralité de défendeurs.</value>
         oS1DVXEA7VAKURBxAO2+S3FQccKEdl+bUR/iqIIFdzdU2Y4x5u52HFSctKDpGgCyB5Kdm11hfBr9iGMT
         yju6roH/OpJBA1pdBsA/HEoNaHg1OwyACI/lxp/HcoewLybI5X9zh66AQ0hXsxZyeMfcDxv0EvRyimec
         pfYbbJAjmuu50L4BuxecomiuxygAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button13.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        6wAAAOsBK2zXwgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAARjSURBVFhHrVdZ
+        UBVHFH2W+ulbcMEYNdGKfxr/1PiVL+MSKzGKMwOucSFa8cfKt6KWFmIqUSvK8mYG3FIlJn4om6Q0iKJl
+        LP8AEysiuABuLPqeKFt7750enJnugcdyqFPM9F1Oz0z37fsCg0LGl2PGmerCkKlsC5nqoZCh5hLxGsbG
+        GdoX6MO9Rw5hQ5kbMjQTxNqBbAC2wYSMSFT7nIcPHUmmOg0S4lN2OwQSZU/I1ApDZupMnm5wgCdeDUni
+        nqRDYQzeyCqeNgGwwKiwru2BwF5PouGwN2yoGZibq/iDi8uSDJs0if4Ar30lOPo++aSCtez7v4+yP+tu
+        sHttT1i86y0Rr/+4X8U2XjnCJuavkcZy9gZ1ReVyboT11E/AwfebY/KG18+YE0/ftBGdqH/1lK2/clia
+        gzMeyU2ZzmU/IKyrpyTObHx+GsupKaPkvfB34cEtlnIpkyXD27B98Hp1+UF2sf4f8kFkV5ewJDPVlctm
+        0FQLuKwFa5/DtpE4R2vLKWHzm1a2uChDsHu5tHgP+SJw4jIfYI+rTvAiIzimXz1GiZrirWz22R8Fux/R
+        157EJlgzMp+QrkQt9dytY2FAqHDJBetYY/wlvdJFF3e5bInwq6LdFPs49oJyiT5KK5VtrN+iUWXbK3Po
+        CXB1y+wyflu2n578wJ1zdI+7BfFD5XHBFwlrYX4gqGvbZcbShjsUvLxkn2CTcUXZAdbR/Y5iztyroLFv
+        SvfTfVH9bcGfqGvp8P2Vn2VGfP3verrYBNgFMruTTvGbzf+yj09upHGM7ezpZk9iL4UYi1oWTEDN8xoi
+        psa6IPDh6+eucRkt8U5B3OYjyIG5pFvSVHL6nQAG22O41yefWO/yWwX1wBa/1ljDPvLYkbgI8S1gTq/N
+        moDVWAhG5ycIGxq7395EVW/++Z/IjuJvuXhlY7VUPKFP4LcIixtuU3JcSDiBmpaHdI81YWeV4RL3vhmb
+        +HkQWD1ldlqEwaiyQGbcVplNwbiV8H7W7+nsbssjGrNR1VTLppzcIMTaPF93k/zSr/psQz11HvV5cNPm
+        NWLxwFeHxQSLCo59dmYrq+VvYiDxJVCSMRbXkfPc6KOptgQKU0ZTMcQeTnAAbqn4jcSwuNil+NPTm+lI
+        liblnHN2R18pRl+ZDzCPxBF4MMCA9DDK5SchLsBlJXsFu5dfQ+Gyj+jsmlKpD7A7kp82h8tbCBraCYkj
+        Hcd4tNrAqqaUZ7nqO14rf2X1LVzEsepi3+MYDz8u+wHYJIAxJjpbXHf5V2o2nHjW0U50ou5VM1tz+Rdp
+        Ds4Ydttc1o1wVPkOHHxbMmy3NkC3cw4OqP+gDYt1dhDxuvD/69QJDdSSwXpTuJwc2DhKAkeEQVPZxWX6
+        Abbl1iRGtC0PGuruhNpyG/hjAgJ918QgCDm0lTzt4JAUTZsKCYb30yyaMoOnGzpwz0JCHdsoj4hIqHDw
+        Py+iK7N5+AgCyja2UXiIgFAmCNk/zzNxjGq7XV4TQiDwHo+gTumeApJnAAAAAElFTkSuQmCC
 </value>
   </data>
 </root>

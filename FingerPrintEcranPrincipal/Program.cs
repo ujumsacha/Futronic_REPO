@@ -20,6 +20,7 @@ namespace FingerPrintEcranPrincipal
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             createfile();
+            createfileParametre();
             Application.Run(new frm_Acceuil());
         }
         public static void createfile()
@@ -49,6 +50,45 @@ namespace FingerPrintEcranPrincipal
                         pr.publicrepertory = "";
                         pr.baseUriApi = "";
                         pr.NFCappLaunch = "";
+                        fs.Write(JsonConvert.SerializeObject(pr));
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur de lancement de l'application veuillez verifier le fichier de configuration");
+            }
+
+        }
+        public static void createfileParametre()
+        {
+            try
+            {
+                string lechemin = Path.Combine(Directory.GetCurrentDirectory(), "ConfigFolder");
+                if (!Directory.Exists(lechemin))
+                {
+                    Directory.CreateDirectory(lechemin);
+                }
+
+                string lechemin1 = Path.Combine(Directory.GetCurrentDirectory(), "tempfolder");
+                if (!Directory.Exists(lechemin1))
+                {
+                    Directory.CreateDirectory(lechemin1);
+                }
+
+
+                string file = Path.Combine(lechemin, "AdminSystem.json");
+
+                if (!File.Exists(file))
+                {
+                    using (StreamWriter fs = File.CreateText(file))
+                    {
+                        AdminsystemeParam pr = new AdminsystemeParam();
+                        pr.created_at = DateTime.Now;
+                        pr.modify_at = DateTime.Now;
+                        pr.Use_empreinte = false;
                         fs.Write(JsonConvert.SerializeObject(pr));
                     }
                 }

@@ -29,23 +29,33 @@ namespace FingerPrintEcranPrincipal
         private bool _isDetecteMode = false;
         //**********************GESTION EMPREINTE DIGITALE ****************************************
 
+        private int _doigt = 0;
 
 
-
+        private AdminsystemeParam ParamApp = Outils.recupAdminParam();
 
         private readonly string URIBD = Outils.recup().baseUriApi.ToString();
         private string LanceAPP = Outils.recup().NFCappLaunch.ToString();
         public frm_Acceuil()
         {
             InitializeComponent();
-            device = accessor.AccessFingerprintDevice();
-            Task.Run(() =>
+            try
             {
-                device.StartFingerDetection();
-                device.SwitchLedState(false, true);
+                device = accessor.AccessFingerprintDevice();
+                Task.Run(() =>
+                {
+                    device.StartFingerDetection();
+                    device.SwitchLedState(false, true);
 
-                device.SwitchLedState(false, false);
-            });
+                    device.SwitchLedState(false, false);
+                });
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur veuillez connecter tous les lecteurs SVP");
+            }
+
         }
 
 
@@ -353,11 +363,14 @@ namespace FingerPrintEcranPrincipal
             labelMsgemp.Text = "Veuillez poser votre pouce sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
-            
+            activedetectionFingerprintEnrollement(1);
+
+
         }
 
-        private async void activedetectionFingerprintEnrollement(object? sender, EventArgs e)
+        private async void activedetectionFingerprintEnrollement(int doigt)
         {
+            this._doigt = doigt;
             device.FingerDetected += recupempreinteEnrollement;
             _isDetecteMode = true;
             Action<string> affichagedumessageutilisateurA = new Action<string>((message) =>
@@ -381,14 +394,38 @@ namespace FingerPrintEcranPrincipal
                 var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
                 var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
                 ber.Save(tmpBmpFile);
+                Action<string> AffichageEmpreinte = new Action<string>((message) =>
+                {
+                    switch (this._doigt)
+                    {
+                        case 1:
+                            pictureThumb.Image = ber;
+                            break;
+                        case 2:
+                            pictureIndex.Image = ber;
+                            break;
+                        case 3:
+                            pictureMiddle.Image = ber;
+                            break;
+                        case 4:
+                            pictureRing.Image = ber;
+
+                            break;
+                        case 5:
+                            pictureLittle.Image = ber;
+                            break;
+                    }
+
+                });
+                this.Invoke(AffichageEmpreinte, "Mise à jour depuis le thread secondaire avec des paramètres");
                 //return tmpBmpFile;
             }
             catch (Exception ex)
             {
 
             }
-            finally 
-            { 
+            finally
+            {
 
             }
         }
@@ -396,29 +433,33 @@ namespace FingerPrintEcranPrincipal
 
 
 
-        private void pictureIndex_Click(object sender, EventArgs e)
+        private async void pictureIndex_Click(object sender, EventArgs e)
         {
             labelMsgemp.Text = "Veuillez poser index pouce sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
+            activedetectionFingerprintEnrollement(2);
         }
-        private void pictureMiddle_Click(object sender, EventArgs e)
+        private async void pictureMiddle_Click(object sender, EventArgs e)
         {
             labelMsgemp.Text = "Veuillez poser votre Majeur sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
+            activedetectionFingerprintEnrollement(3);
         }
-        private void pictureRing_Click(object sender, EventArgs e)
+        private async void pictureRing_Click(object sender, EventArgs e)
         {
             labelMsgemp.Text = "Veuillez poser votre Annulaire sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
+            activedetectionFingerprintEnrollement(4);
         }
-        private void pictureLittle_Click(object sender, EventArgs e)
+        private async void pictureLittle_Click(object sender, EventArgs e)
         {
             labelMsgemp.Text = "Veuillez poser votre Auriculaire sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
+            activedetectionFingerprintEnrollement(4);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -433,12 +474,7 @@ namespace FingerPrintEcranPrincipal
 
         private void button5_Click(object sender, EventArgs e)
         {
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = true;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
+            OuverturePanelVerification();
         }
 
         private async void button4_Click(object sender, EventArgs e)
@@ -458,13 +494,7 @@ namespace FingerPrintEcranPrincipal
                 {
                     button6.Visible = false;
                     //********************************************PAR SAISIE MANUELLE *************************************************************
-                    panelconsentement.Visible = false;
-                    panelEnrollement.Visible = false;
-                    panelVerif.Visible = false;
-                    panelEmpreinte.Visible = false;
-                    panelSignaletique.Visible = true;
-                    panelResultatRecherche.Visible = false;
-                    label1.Text = "SAISIE DES INFORMATION SIGNALETIQUE";
+                    OuverturePanelSaisieEnrollement();
                     //********************************************PAR SAISIE MANUELLE *************************************************************
                 }
                 else if (radioButton2.Checked)
@@ -506,13 +536,21 @@ namespace FingerPrintEcranPrincipal
         }
         private void button11_Click(object sender, EventArgs e)
         {
-            panelconsentement.Visible = true;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = false;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
-            label1.Text = "CONSENTEMENT";
+            //************************************SI activation empreinte valide alors appeler la lecture de l'empreinte sinon passer au recapitulatif**************
+            if (ParamApp.Use_empreinte)
+            {
+                OuverturePanelConsentement();
+            }
+            else
+            {
+                //********************************Ouverture Panel recapitulatif*****************************************
+
+                //renseigner les données du panel recapitulatif
+                OuverturePanelRecapitulatif();
+            }
+
+
+
         }
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -527,14 +565,7 @@ namespace FingerPrintEcranPrincipal
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = false;
-            panelEmpreinte.Visible = true;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
-
-            label1.Text = "EMPREINTES";
+            OuverturePanelEmpreinte();
         }
         private void button8_Click(object sender, EventArgs e)
         {
@@ -632,13 +663,13 @@ namespace FingerPrintEcranPrincipal
                 activedetectionFingerprint();
             }
         }
-         private async void recupempreinteEnroll(object? sender, EventArgs e)
+        private async void recupempreinteEnroll(object? sender, EventArgs e)
         {
             try
             {
                 var ber = device.ReadFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
-                    desactivedetectionFingerprint();
+                desactivedetectionFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
 
                 var tempFile = Guid.NewGuid().ToString();
@@ -673,6 +704,7 @@ namespace FingerPrintEcranPrincipal
         //************************************OUVERTURE DES DIFFERENTES PAGES ********************************************
         public void OuverturePanelResultatrecherche()
         {
+            panelRecapitulatif.Visible = false;
             panelCondutil.Visible = false;
             panelconsentement.Visible = false;
             panelEnrollement.Visible = false;
@@ -684,6 +716,7 @@ namespace FingerPrintEcranPrincipal
         }
         public void OuverturePanelConditionUtilisation()
         {
+            panelRecapitulatif.Visible = false;
             panelCondutil.Visible = true;
             panelconsentement.Visible = false;
             panelEnrollement.Visible = false;
@@ -691,10 +724,13 @@ namespace FingerPrintEcranPrincipal
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = false;
             panelResultatRecherche.Visible = false;
+            chkConsend.Checked = false;
+            btn_suivant.Enabled = false;
             label1.Text = "CONDITIONS D'UTILISATION";
         }
         public void OuverturePanelEnrollement()
         {
+            panelRecapitulatif.Visible = false;
             panelCondutil.Visible = false;
             panelconsentement.Visible = false;
             panelEnrollement.Visible = true;
@@ -706,6 +742,7 @@ namespace FingerPrintEcranPrincipal
         }
         public void OuverturePanelVerification()
         {
+            panelRecapitulatif.Visible = false;
             panelCondutil.Visible = false;
             panelconsentement.Visible = false;
             panelEnrollement.Visible = false;
@@ -717,14 +754,52 @@ namespace FingerPrintEcranPrincipal
         }
         public void OuverturePanelSaisieEnrollement()
         {
+            panelRecapitulatif.Visible = false;
             panelCondutil.Visible = false;
             panelconsentement.Visible = false;
             panelEnrollement.Visible = false;
             panelVerif.Visible = false;
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = true;
-            panelResultatRecherche.Visible = true;
+            panelResultatRecherche.Visible = false;
             label1.Text = "SAISIE DES INFORMATION SIGNALETIQUE";
+        }
+        public void OuverturePanelConsentement()
+        {
+            panelRecapitulatif.Visible = false;
+            panelCondutil.Visible = false;
+            panelconsentement.Visible = true;
+            panelEnrollement.Visible = false;
+            panelVerif.Visible = false;
+            panelEmpreinte.Visible = false;
+            panelSignaletique.Visible = false;
+            panelResultatRecherche.Visible = false;
+            label1.Text = "CONSENTEMENT";
+        }
+        public void OuverturePanelRecapitulatif()
+        {
+            panelRecapitulatif.Visible = true;
+            panelCondutil.Visible = false;
+            panelconsentement.Visible = false;
+            panelEnrollement.Visible = false;
+            panelVerif.Visible = false;
+            panelEmpreinte.Visible = false;
+            panelSignaletique.Visible = false;
+            panelResultatRecherche.Visible = false;
+            label1.Text = "CONSENTEMENT";
+        }
+        public void OuverturePanelEmpreinte()
+        {
+            panelRecapitulatif.Visible = false;
+            panelCondutil.Visible = false;
+            panelconsentement.Visible = false;
+            panelEnrollement.Visible = false;
+            panelVerif.Visible = false;
+            panelEmpreinte.Visible = true;
+            panelSignaletique.Visible = false;
+            panelResultatRecherche.Visible = false;
+
+            label1.Text = "EMPREINTES";
         }
         //************************************OUVERTURE DES DIFFERENTES PAGES ********************************************
         public async void voidMiseAblancSearchTiers()
@@ -827,6 +902,57 @@ namespace FingerPrintEcranPrincipal
             }
             else
             { btn_suivant.Enabled = false; }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            OuverturePanelEnrollement();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OuverturePanelVerification();
+        }
+
+        private void button16_Click(object sender, EventArgs e)
+        {
+            SecureMdp Smdp = new SecureMdp();
+            Smdp.ShowDialog();
+
+            if (Smdp.is_ok)
+            {
+                Parametre pr = new Parametre();
+                pr.Show();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void btn_precedent_Click(object sender, EventArgs e)
+        {
+            if (ParamApp.Use_empreinte)
+            {
+               OuverturePanelEmpreinte() ;
+            }
+            else
+            {
+                //********************************Ouverture Panel recapitulatif*****************************************
+
+                //renseigner les données du panel recapitulatif
+                OuverturePanelSaisieEnrollement();
+            }
+        }
+
+        private void btn_annuler_Click(object sender, EventArgs e)
+        {
+            OuverturePanelSaisieEnrollement();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            OuverturePanelRecapitulatif();
         }
     }
 }
