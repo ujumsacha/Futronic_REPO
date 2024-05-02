@@ -74,39 +74,39 @@
             radioButton3 = new System.Windows.Forms.RadioButton();
             panelSignaletique = new System.Windows.Forms.Panel();
             groupBox4 = new System.Windows.Forms.GroupBox();
+            dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             label68 = new System.Windows.Forms.Label();
-            textBox20 = new System.Windows.Forms.TextBox();
+            txt_NNi = new System.Windows.Forms.TextBox();
             nom = new System.Windows.Forms.Label();
             txt_sexe = new System.Windows.Forms.ComboBox();
-            txt_nom = new System.Windows.Forms.TextBox();
+            txt_numpiece = new System.Windows.Forms.TextBox();
             label46 = new System.Windows.Forms.Label();
             label67 = new System.Windows.Forms.Label();
-            textBox19 = new System.Windows.Forms.TextBox();
             label66 = new System.Windows.Forms.Label();
-            textBox18 = new System.Windows.Forms.TextBox();
+            txt_lieuemission = new System.Windows.Forms.TextBox();
             label65 = new System.Windows.Forms.Label();
-            textBox17 = new System.Windows.Forms.TextBox();
             label62 = new System.Windows.Forms.Label();
-            textBox14 = new System.Windows.Forms.TextBox();
+            txt_numuniq = new System.Windows.Forms.TextBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
+            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             label64 = new System.Windows.Forms.Label();
-            textBox16 = new System.Windows.Forms.TextBox();
+            txt_proffession = new System.Windows.Forms.TextBox();
             label63 = new System.Windows.Forms.Label();
-            textBox15 = new System.Windows.Forms.TextBox();
+            txt_merename = new System.Windows.Forms.TextBox();
             label61 = new System.Windows.Forms.Label();
-            textBox13 = new System.Windows.Forms.TextBox();
+            txt_perename = new System.Windows.Forms.TextBox();
             label60 = new System.Windows.Forms.Label();
-            textBox12 = new System.Windows.Forms.TextBox();
+            txt_nationnalite = new System.Windows.Forms.TextBox();
             label59 = new System.Windows.Forms.Label();
-            textBox11 = new System.Windows.Forms.TextBox();
+            txtLieuNaissance = new System.Windows.Forms.TextBox();
             label58 = new System.Windows.Forms.Label();
-            textBox10 = new System.Windows.Forms.TextBox();
             label57 = new System.Windows.Forms.Label();
             textBox9 = new System.Windows.Forms.TextBox();
             label56 = new System.Windows.Forms.Label();
             textBox8 = new System.Windows.Forms.TextBox();
             label47 = new System.Windows.Forms.Label();
-            comboBox1 = new System.Windows.Forms.ComboBox();
+            comboSex = new System.Windows.Forms.ComboBox();
             textBox7 = new System.Windows.Forms.TextBox();
             label49 = new System.Windows.Forms.Label();
             button10 = new System.Windows.Forms.Button();
@@ -271,7 +271,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(38, 86);
+            panelVerif.Location = new System.Drawing.Point(44, 97);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -387,7 +387,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(17, 84);
+            panelEnrollement.Location = new System.Drawing.Point(21, 91);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -708,33 +708,49 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(24, 77);
+            panelSignaletique.Location = new System.Drawing.Point(25, 84);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(dateTimePicker3);
+            groupBox4.Controls.Add(dateTimePicker2);
             groupBox4.Controls.Add(label68);
-            groupBox4.Controls.Add(textBox20);
+            groupBox4.Controls.Add(txt_NNi);
             groupBox4.Controls.Add(nom);
             groupBox4.Controls.Add(txt_sexe);
-            groupBox4.Controls.Add(txt_nom);
+            groupBox4.Controls.Add(txt_numpiece);
             groupBox4.Controls.Add(label46);
             groupBox4.Controls.Add(label67);
-            groupBox4.Controls.Add(textBox19);
             groupBox4.Controls.Add(label66);
-            groupBox4.Controls.Add(textBox18);
+            groupBox4.Controls.Add(txt_lieuemission);
             groupBox4.Controls.Add(label65);
-            groupBox4.Controls.Add(textBox17);
             groupBox4.Controls.Add(label62);
-            groupBox4.Controls.Add(textBox14);
+            groupBox4.Controls.Add(txt_numuniq);
             groupBox4.Location = new System.Drawing.Point(19, 247);
             groupBox4.Name = "groupBox4";
             groupBox4.Size = new System.Drawing.Size(929, 140);
             groupBox4.TabIndex = 81;
             groupBox4.TabStop = false;
             groupBox4.Text = "Information Sur la Pièce";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dateTimePicker3.Location = new System.Drawing.Point(592, 96);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new System.Drawing.Size(112, 23);
+            dateTimePicker3.TabIndex = 97;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dateTimePicker2.Location = new System.Drawing.Point(211, 96);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new System.Drawing.Size(118, 23);
+            dateTimePicker2.TabIndex = 96;
             // 
             // label68
             // 
@@ -745,15 +761,15 @@
             label68.TabIndex = 95;
             label68.Text = "NNI :";
             // 
-            // textBox20
+            // txt_NNi
             // 
-            textBox20.AcceptsReturn = true;
-            textBox20.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox20.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox20.Location = new System.Drawing.Point(741, 93);
-            textBox20.Name = "textBox20";
-            textBox20.Size = new System.Drawing.Size(81, 23);
-            textBox20.TabIndex = 94;
+            txt_NNi.AcceptsReturn = true;
+            txt_NNi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_NNi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_NNi.Location = new System.Drawing.Point(741, 95);
+            txt_NNi.Name = "txt_NNi";
+            txt_NNi.Size = new System.Drawing.Size(81, 23);
+            txt_NNi.TabIndex = 94;
             // 
             // nom
             // 
@@ -771,18 +787,18 @@
             txt_sexe.Items.AddRange(new object[] { "Homme", "Femme" });
             txt_sexe.Location = new System.Drawing.Point(14, 40);
             txt_sexe.Name = "txt_sexe";
-            txt_sexe.Size = new System.Drawing.Size(161, 23);
+            txt_sexe.Size = new System.Drawing.Size(139, 23);
             txt_sexe.TabIndex = 93;
             // 
-            // txt_nom
+            // txt_numpiece
             // 
-            txt_nom.AcceptsReturn = true;
-            txt_nom.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            txt_nom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            txt_nom.Location = new System.Drawing.Point(211, 41);
-            txt_nom.Name = "txt_nom";
-            txt_nom.Size = new System.Drawing.Size(183, 23);
-            txt_nom.TabIndex = 90;
+            txt_numpiece.AcceptsReturn = true;
+            txt_numpiece.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_numpiece.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_numpiece.Location = new System.Drawing.Point(211, 39);
+            txt_numpiece.Name = "txt_numpiece";
+            txt_numpiece.Size = new System.Drawing.Size(183, 23);
+            txt_numpiece.TabIndex = 90;
             // 
             // label46
             // 
@@ -802,16 +818,6 @@
             label67.TabIndex = 89;
             label67.Text = "Date d'Expiration :";
             // 
-            // textBox19
-            // 
-            textBox19.AcceptsReturn = true;
-            textBox19.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox19.Location = new System.Drawing.Point(590, 93);
-            textBox19.Name = "textBox19";
-            textBox19.Size = new System.Drawing.Size(128, 23);
-            textBox19.TabIndex = 88;
-            // 
             // label66
             // 
             label66.AutoSize = true;
@@ -821,15 +827,15 @@
             label66.TabIndex = 87;
             label66.Text = "Lieu Emission :";
             // 
-            // textBox18
+            // txt_lieuemission
             // 
-            textBox18.AcceptsReturn = true;
-            textBox18.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox18.Location = new System.Drawing.Point(401, 94);
-            textBox18.Name = "textBox18";
-            textBox18.Size = new System.Drawing.Size(172, 23);
-            textBox18.TabIndex = 86;
+            txt_lieuemission.AcceptsReturn = true;
+            txt_lieuemission.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_lieuemission.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_lieuemission.Location = new System.Drawing.Point(401, 96);
+            txt_lieuemission.Name = "txt_lieuemission";
+            txt_lieuemission.Size = new System.Drawing.Size(172, 23);
+            txt_lieuemission.TabIndex = 86;
             // 
             // label65
             // 
@@ -840,16 +846,6 @@
             label65.TabIndex = 85;
             label65.Text = "Date emission :";
             // 
-            // textBox17
-            // 
-            textBox17.AcceptsReturn = true;
-            textBox17.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox17.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox17.Location = new System.Drawing.Point(210, 96);
-            textBox17.Name = "textBox17";
-            textBox17.Size = new System.Drawing.Size(164, 23);
-            textBox17.TabIndex = 84;
-            // 
             // label62
             // 
             label62.AutoSize = true;
@@ -859,36 +855,36 @@
             label62.TabIndex = 83;
             label62.Text = "Numero Unique  :";
             // 
-            // textBox14
+            // txt_numuniq
             // 
-            textBox14.AcceptsReturn = true;
-            textBox14.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox14.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox14.Location = new System.Drawing.Point(16, 96);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new System.Drawing.Size(137, 23);
-            textBox14.TabIndex = 82;
+            txt_numuniq.AcceptsReturn = true;
+            txt_numuniq.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_numuniq.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_numuniq.Location = new System.Drawing.Point(16, 95);
+            txt_numuniq.Name = "txt_numuniq";
+            txt_numuniq.Size = new System.Drawing.Size(137, 23);
+            txt_numuniq.TabIndex = 82;
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(dateTimePicker1);
             groupBox2.Controls.Add(label64);
-            groupBox2.Controls.Add(textBox16);
+            groupBox2.Controls.Add(txt_proffession);
             groupBox2.Controls.Add(label63);
-            groupBox2.Controls.Add(textBox15);
+            groupBox2.Controls.Add(txt_merename);
             groupBox2.Controls.Add(label61);
-            groupBox2.Controls.Add(textBox13);
+            groupBox2.Controls.Add(txt_perename);
             groupBox2.Controls.Add(label60);
-            groupBox2.Controls.Add(textBox12);
+            groupBox2.Controls.Add(txt_nationnalite);
             groupBox2.Controls.Add(label59);
-            groupBox2.Controls.Add(textBox11);
+            groupBox2.Controls.Add(txtLieuNaissance);
             groupBox2.Controls.Add(label58);
-            groupBox2.Controls.Add(textBox10);
             groupBox2.Controls.Add(label57);
             groupBox2.Controls.Add(textBox9);
             groupBox2.Controls.Add(label56);
             groupBox2.Controls.Add(textBox8);
             groupBox2.Controls.Add(label47);
-            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(comboSex);
             groupBox2.Controls.Add(textBox7);
             groupBox2.Controls.Add(label49);
             groupBox2.Location = new System.Drawing.Point(20, 22);
@@ -897,6 +893,14 @@
             groupBox2.TabIndex = 80;
             groupBox2.TabStop = false;
             groupBox2.Text = "Information personnelles";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            dateTimePicker1.Location = new System.Drawing.Point(159, 107);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new System.Drawing.Size(137, 23);
+            dateTimePicker1.TabIndex = 102;
             // 
             // label64
             // 
@@ -907,15 +911,15 @@
             label64.TabIndex = 101;
             label64.Text = "Profession :";
             // 
-            // textBox16
+            // txt_proffession
             // 
-            textBox16.AcceptsReturn = true;
-            textBox16.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox16.Location = new System.Drawing.Point(739, 109);
-            textBox16.Name = "textBox16";
-            textBox16.Size = new System.Drawing.Size(172, 23);
-            textBox16.TabIndex = 100;
+            txt_proffession.AcceptsReturn = true;
+            txt_proffession.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_proffession.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_proffession.Location = new System.Drawing.Point(739, 109);
+            txt_proffession.Name = "txt_proffession";
+            txt_proffession.Size = new System.Drawing.Size(172, 23);
+            txt_proffession.TabIndex = 100;
             // 
             // label63
             // 
@@ -926,15 +930,15 @@
             label63.TabIndex = 99;
             label63.Text = "Nom de la Mère :";
             // 
-            // textBox15
+            // txt_merename
             // 
-            textBox15.AcceptsReturn = true;
-            textBox15.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox15.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox15.Location = new System.Drawing.Point(474, 162);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new System.Drawing.Size(359, 23);
-            textBox15.TabIndex = 98;
+            txt_merename.AcceptsReturn = true;
+            txt_merename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_merename.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_merename.Location = new System.Drawing.Point(474, 162);
+            txt_merename.Name = "txt_merename";
+            txt_merename.Size = new System.Drawing.Size(359, 23);
+            txt_merename.TabIndex = 98;
             // 
             // label61
             // 
@@ -945,15 +949,15 @@
             label61.TabIndex = 95;
             label61.Text = "Nom du Père :";
             // 
-            // textBox13
+            // txt_perename
             // 
-            textBox13.AcceptsReturn = true;
-            textBox13.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox13.Location = new System.Drawing.Point(17, 162);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new System.Drawing.Size(404, 23);
-            textBox13.TabIndex = 94;
+            txt_perename.AcceptsReturn = true;
+            txt_perename.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_perename.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_perename.Location = new System.Drawing.Point(17, 162);
+            txt_perename.Name = "txt_perename";
+            txt_perename.Size = new System.Drawing.Size(404, 23);
+            txt_perename.TabIndex = 94;
             // 
             // label60
             // 
@@ -964,15 +968,15 @@
             label60.TabIndex = 93;
             label60.Text = "Nationalité :";
             // 
-            // textBox12
+            // txt_nationnalite
             // 
-            textBox12.AcceptsReturn = true;
-            textBox12.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox12.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox12.Location = new System.Drawing.Point(541, 106);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new System.Drawing.Size(151, 23);
-            textBox12.TabIndex = 92;
+            txt_nationnalite.AcceptsReturn = true;
+            txt_nationnalite.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txt_nationnalite.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_nationnalite.Location = new System.Drawing.Point(541, 106);
+            txt_nationnalite.Name = "txt_nationnalite";
+            txt_nationnalite.Size = new System.Drawing.Size(151, 23);
+            txt_nationnalite.TabIndex = 92;
             // 
             // label59
             // 
@@ -983,15 +987,15 @@
             label59.TabIndex = 91;
             label59.Text = "Lieu de Naissance :";
             // 
-            // textBox11
+            // txtLieuNaissance
             // 
-            textBox11.AcceptsReturn = true;
-            textBox11.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox11.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox11.Location = new System.Drawing.Point(355, 107);
-            textBox11.Name = "textBox11";
-            textBox11.Size = new System.Drawing.Size(157, 23);
-            textBox11.TabIndex = 90;
+            txtLieuNaissance.AcceptsReturn = true;
+            txtLieuNaissance.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            txtLieuNaissance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txtLieuNaissance.Location = new System.Drawing.Point(355, 107);
+            txtLieuNaissance.Name = "txtLieuNaissance";
+            txtLieuNaissance.Size = new System.Drawing.Size(157, 23);
+            txtLieuNaissance.TabIndex = 90;
             // 
             // label58
             // 
@@ -1001,16 +1005,6 @@
             label58.Size = new System.Drawing.Size(112, 15);
             label58.TabIndex = 89;
             label58.Text = "Date de Naissance  :";
-            // 
-            // textBox10
-            // 
-            textBox10.AcceptsReturn = true;
-            textBox10.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            textBox10.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            textBox10.Location = new System.Drawing.Point(159, 108);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new System.Drawing.Size(154, 23);
-            textBox10.TabIndex = 88;
             // 
             // label57
             // 
@@ -1059,15 +1053,16 @@
             label47.TabIndex = 81;
             label47.Text = "Nom :";
             // 
-            // comboBox1
+            // comboSex
             // 
-            comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Homme", "Femme" });
-            comboBox1.Location = new System.Drawing.Point(541, 51);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new System.Drawing.Size(97, 23);
-            comboBox1.TabIndex = 83;
+            comboSex.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            comboSex.FormattingEnabled = true;
+            comboSex.Items.AddRange(new object[] { "Homme", "Femme" });
+            comboSex.Location = new System.Drawing.Point(541, 51);
+            comboSex.Name = "comboSex";
+            comboSex.Size = new System.Drawing.Size(97, 23);
+            comboSex.TabIndex = 83;
+            comboSex.SelectedIndexChanged += comboSex_SelectedIndexChanged;
             // 
             // textBox7
             // 
@@ -1115,7 +1110,7 @@
             panelconsentement.Controls.Add(btn_annuler);
             panelconsentement.Controls.Add(checkBox1);
             panelconsentement.Controls.Add(textBox2);
-            panelconsentement.Location = new System.Drawing.Point(12, 74);
+            panelconsentement.Location = new System.Drawing.Point(38, 106);
             panelconsentement.Name = "panelconsentement";
             panelconsentement.Size = new System.Drawing.Size(1021, 492);
             panelconsentement.TabIndex = 60;
@@ -1172,7 +1167,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(4, 0);
+            panelEmpreinte.Location = new System.Drawing.Point(21, 87);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -1361,7 +1356,7 @@
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
             panelResultatRecherche.Controls.Add(button8);
-            panelResultatRecherche.Location = new System.Drawing.Point(23, 84);
+            panelResultatRecherche.Location = new System.Drawing.Point(31, 95);
             panelResultatRecherche.Name = "panelResultatRecherche";
             panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
             panelResultatRecherche.TabIndex = 62;
@@ -1845,9 +1840,8 @@
             panelCondutil.Controls.Add(button2);
             panelCondutil.Controls.Add(chkConsend);
             panelCondutil.Controls.Add(textBox21);
-            panelCondutil.Controls.Add(panelEmpreinte);
             panelCondutil.Controls.Add(btn_suivant);
-            panelCondutil.Location = new System.Drawing.Point(29, 84);
+            panelCondutil.Location = new System.Drawing.Point(33, 100);
             panelCondutil.Name = "panelCondutil";
             panelCondutil.Size = new System.Drawing.Size(1026, 489);
             panelCondutil.TabIndex = 63;
@@ -1900,10 +1894,11 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(1087, 81);
+            panelRecapitulatif.Location = new System.Drawing.Point(20, 97);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1036, 476);
             panelRecapitulatif.TabIndex = 64;
+            panelRecapitulatif.Visible = false;
             // 
             // btn_precedent
             // 
@@ -1924,6 +1919,7 @@
             button13.Size = new System.Drawing.Size(68, 46);
             button13.TabIndex = 55;
             button13.UseVisualStyleBackColor = true;
+            button13.Click += button13_Click;
             // 
             // textBox22
             // 
@@ -1942,9 +1938,10 @@
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
             Controls.Add(panelResultatRecherche);
+            Controls.Add(panelEmpreinte);
             Controls.Add(panelconsentement);
-            Controls.Add(panelVerif);
             Controls.Add(panelSignaletique);
+            Controls.Add(panelVerif);
             Controls.Add(panelEnrollement);
             Controls.Add(panel1);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -2048,42 +2045,39 @@
         private System.Windows.Forms.Panel panelSignaletique;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtLieuNaissance;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboSex;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txt_numuniq;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txt_proffession;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txt_merename;
         private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txt_perename;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txt_nationnalite;
         private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txt_NNi;
         private System.Windows.Forms.Label nom;
         private System.Windows.Forms.ComboBox txt_sexe;
-        private System.Windows.Forms.TextBox txt_nom;
+        private System.Windows.Forms.TextBox txt_numpiece;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.Label label66;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txt_lieuemission;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Panel panelconsentement;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btn_annuler;
@@ -2163,5 +2157,8 @@
         private System.Windows.Forms.Button btn_precedent;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker3;
     }
 }

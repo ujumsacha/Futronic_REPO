@@ -9,10 +9,12 @@ using System.Data;
 using System.Diagnostics;
 using System.DirectoryServices.ActiveDirectory;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Json;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,9 +33,18 @@ namespace FingerPrintEcranPrincipal
 
         private int _doigt = 0;
 
+        //***********************Gestion d'array de byte pour les empreinte*******************************
+        private byte[] Thumb;
+        private byte[] IndexFinger;
+        private byte[] MiddleFinger;
+        private byte[] RingFinger;
+        private byte[] LittleFinger;
+        //***********************Gestion d'array de byte pour les empreinte*******************************
+
 
         private AdminsystemeParam ParamApp = Outils.recupAdminParam();
-
+        private DtoEnroll _dtoEnroll;
+        private DtoEmpreinte _empreinte = new DtoEmpreinte();
         private readonly string URIBD = Outils.recup().baseUriApi.ToString();
         private string LanceAPP = Outils.recup().NFCappLaunch.ToString();
         public frm_Acceuil()
@@ -376,10 +387,26 @@ namespace FingerPrintEcranPrincipal
             Action<string> affichagedumessageutilisateurA = new Action<string>((message) =>
             {
                 // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
-                this.label2.Text = "Veuillez poser votre empreinte sur le capteur"; //cni
+                this.labelMsgemp.Text = "Veuillez poser votre empreinte sur le capteur"; //cni
 
             });
         }
+        private async void DesactivedetectionFingerprintEnrollement()
+        {
+
+            device.FingerDetected -= recupempreinteEnrollement;
+            _isDetecteMode = true;
+            Action<string> affichagedumessageutilisateurA = new Action<string>((message) =>
+            {
+                // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                this.labelMsgemp.Visible = true;
+                this.pB_empr.Visible = false;
+                this.labelMsgemp.Text = "Veuillez retirer votre empreinte";
+
+            });
+            this.Invoke(affichagedumessageutilisateurA, "Validation");
+        }
+
 
         private async void recupempreinteEnrollement(object? sender, EventArgs e)
         {
@@ -387,32 +414,44 @@ namespace FingerPrintEcranPrincipal
             {
                 var ber = device.ReadFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
-                //desactivedetectionEnrollement();
+
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
 
                 var tempFile = Guid.NewGuid().ToString();
                 var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
                 var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
                 ber.Save(tmpBmpFile);
+                DesactivedetectionFingerprintEnrollement();
+
                 Action<string> AffichageEmpreinte = new Action<string>((message) =>
                 {
                     switch (this._doigt)
                     {
                         case 1:
                             pictureThumb.Image = ber;
+                            this.Thumb = GetImageBytes(ber);
+                            _empreinte.pouce = Convert.ToBase64String(this.Thumb);
                             break;
                         case 2:
                             pictureIndex.Image = ber;
+                            this.IndexFinger = GetImageBytes(ber);
+                            _empreinte.index = Convert.ToBase64String(this.Thumb);
                             break;
                         case 3:
                             pictureMiddle.Image = ber;
+                            this.MiddleFinger = GetImageBytes(ber);
+                            _empreinte.majeur = Convert.ToBase64String(this.Thumb);
                             break;
                         case 4:
                             pictureRing.Image = ber;
+                            this.RingFinger = GetImageBytes(ber);
+                            _empreinte.annulaire = Convert.ToBase64String(this.RingFinger);
 
                             break;
                         case 5:
                             pictureLittle.Image = ber;
+                            this.LittleFinger = GetImageBytes(ber);
+                            _empreinte.auriculaire = Convert.ToBase64String(this.Thumb);
                             break;
                     }
 
@@ -459,7 +498,7 @@ namespace FingerPrintEcranPrincipal
             labelMsgemp.Text = "Veuillez poser votre Auriculaire sur le Capteur ...";
             labelMsgemp.Visible = true;
             pB_empr.Visible = true;
-            activedetectionFingerprintEnrollement(4);
+            activedetectionFingerprintEnrollement(5);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -537,6 +576,26 @@ namespace FingerPrintEcranPrincipal
         private void button11_Click(object sender, EventArgs e)
         {
             //************************************SI activation empreinte valide alors appeler la lecture de l'empreinte sinon passer au recapitulatif**************
+            _dtoEnroll = new DtoEnroll
+            {
+                txt_cni = txt_numpiece.Text,
+                txt_lieu_emission = txt_lieuemission.Text,
+                txt_lieu_naissance = txtLieuNaissance.Text,
+                txt_nationnalite = txt_nationnalite.Text,
+                txt_nni = txt_NNi.Text,
+                txt_nom = textBox7.Text,
+                txt_num_unique = txt_numuniq.Text,
+                txt_prenom = textBox8.Text,
+                txt_profession = txt_proffession.Text,
+                txt_taille = textBox9.Text,
+                txt_sexe = (comboSex.SelectedIndex == 0) ? 'M' : 'F',
+                date_emiss_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker2.Value.Date),
+                date_expir_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker3.Value.Date),
+                date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date)
+
+
+            };
+
             if (ParamApp.Use_empreinte)
             {
                 OuverturePanelConsentement();
@@ -544,9 +603,10 @@ namespace FingerPrintEcranPrincipal
             else
             {
                 //********************************Ouverture Panel recapitulatif*****************************************
-
                 //renseigner les données du panel recapitulatif
                 OuverturePanelRecapitulatif();
+                textBox22.AppendText(Outils.ListPropertiesAndValuesEnroll(_dtoEnroll));
+
             }
 
 
@@ -786,7 +846,7 @@ namespace FingerPrintEcranPrincipal
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = false;
             panelResultatRecherche.Visible = false;
-            label1.Text = "CONSENTEMENT";
+            label1.Text = "RECAPITULATIF";
         }
         public void OuverturePanelEmpreinte()
         {
@@ -893,6 +953,7 @@ namespace FingerPrintEcranPrincipal
         private void btn_suivant_Click(object sender, EventArgs e)
         {
             OuverturePanelEnrollement();
+            _dtoEnroll = new DtoEnroll();
         }
         private void chkConsend_CheckedChanged(object sender, EventArgs e)
         {
@@ -923,6 +984,7 @@ namespace FingerPrintEcranPrincipal
             {
                 Parametre pr = new Parametre();
                 pr.Show();
+                ParamApp = Outils.recupAdminParam();
             }
             else
             {
@@ -934,7 +996,7 @@ namespace FingerPrintEcranPrincipal
         {
             if (ParamApp.Use_empreinte)
             {
-               OuverturePanelEmpreinte() ;
+                OuverturePanelEmpreinte();
             }
             else
             {
@@ -953,6 +1015,118 @@ namespace FingerPrintEcranPrincipal
         private void button12_Click(object sender, EventArgs e)
         {
             OuverturePanelRecapitulatif();
+            textBox22.AppendText(Outils.ListPropertiesAndValuesEnroll(_dtoEnroll));
+        }
+
+        private void comboSex_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private byte[]? GetImageBytes(Image image)
+        {
+            try
+            {
+                MemoryStream ms = new();
+                image.Save(ms, ImageFormat.Png);
+                return ms.ToArray();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+
+        }
+
+        private async void button13_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dtoEnroll.empreintes = _empreinte;
+                await PostDataToserver(_dtoEnroll);
+                //AvertissementPopup Avp = new AvertissementPopup("Enorllmeent effectué avec Succes");
+                //Avp.ShowDialog();
+                OuverturePanelVerification();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }
+        }
+
+
+        public async Task PostDataToserver(DtoEnroll sendEmpreinte)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                try
+                {
+                    string _Uri = Outils.recup().baseUriApi + "/Enrolle";
+                    HttpContent content = new StringContent(JsonConvert.SerializeObject(sendEmpreinte), Encoding.UTF8, "application/json");
+                    HttpResponseMessage _response = await client.PostAsync(_Uri, content);
+
+                    string parseur = _response.Content.ReadAsStringAsync().Result;
+                    GeneraleResponse ResultJson = JsonConvert.DeserializeObject<GeneraleResponse>(parseur);
+                    //logger.Information($" Http status code {_response.StatusCode} Code retour {ResultJson?.code} Données presentes sont : {ResultJson?.data}");
+                    switch (_response.StatusCode)
+                    {
+                        case System.Net.HttpStatusCode.OK:
+                            AvertissementPopup Avp = new AvertissementPopup("Enorllmeent effectué avec Succes");
+                            Avp.ShowDialog();
+                            OuverturePanelVerification();
+                            break;
+                        case System.Net.HttpStatusCode.InternalServerError:
+                            switch (ResultJson.code)
+                            {
+                                case "ERR0018 ":
+                                    MessageBox.Show("erreur dans la sauvegarde de l'empreinte");
+                                    break;
+                                case "ERR0016 ":
+                                    MessageBox.Show("erreur de récupération des paramètre de la Base de données");
+                                    break;
+                                case "ERR0020":
+                                    MessageBox.Show("Erreur système veuillez contacter l'administrateur");
+                                    break;
+                            }
+
+                            break;
+                        case System.Net.HttpStatusCode.BadRequest:
+                            switch (ResultJson.code)
+                            {
+                                case "ERR0010 ":
+                                    MessageBox.Show("Valeur invalide pour l'un des champs");
+                                    break;
+                                case "ERR0011 ":
+                                    MessageBox.Show("Format invalide pour la date de naissance");
+                                    break;
+                                case "ERR0012":
+                                    MessageBox.Show("Format invalide pour la date d'émission de la CNI");
+                                    break;
+                                case "ERR0013":
+                                    MessageBox.Show("Format invalide pour la date d'expiration de la CNI");
+                                    break;
+                                case "ERR0015":
+                                    MessageBox.Show("Valeur sexe invalide");
+                                    break;
+                                case "ERR0017":
+                                    MessageBox.Show(ResultJson.descrition);
+                                    break;
+                            }
+                            break;
+
+                        default:
+                            MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+                }
+
+            }
         }
     }
 }
