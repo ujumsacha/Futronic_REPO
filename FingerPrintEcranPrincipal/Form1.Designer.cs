@@ -229,7 +229,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1948, 70);
+            panel1.Size = new System.Drawing.Size(1101, 70);
             panel1.TabIndex = 47;
             // 
             // button16
@@ -1933,7 +1933,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1940, 1100);
+            ClientSize = new System.Drawing.Size(1093, 617);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
