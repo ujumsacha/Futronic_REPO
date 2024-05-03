@@ -2,6 +2,8 @@
 using FingerPrintEcranPrincipal.Request;
 using Futronic.Scanners.FS26X80;
 using Newtonsoft.Json;
+using Serilog;
+using Serilog.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -40,8 +42,8 @@ namespace FingerPrintEcranPrincipal
         private byte[] RingFinger;
         private byte[] LittleFinger;
         //***********************Gestion d'array de byte pour les empreinte*******************************
-
-
+        private List<KeyValuePair<string, string>> keyValuePairs = new List<KeyValuePair<string, string>>();
+        private ILogger _logger;
         private AdminsystemeParam ParamApp = Outils.recupAdminParam();
         private DtoEnroll _dtoEnroll;
         private DtoEmpreinte _empreinte = new DtoEmpreinte();
@@ -50,8 +52,10 @@ namespace FingerPrintEcranPrincipal
         public frm_Acceuil()
         {
             InitializeComponent();
-           
 
+            _logger = Log.ForContext<frm_Acceuil>();
+            keyValuePairs.Add(new KeyValuePair<string, string>("M", "Homme"));
+            keyValuePairs.Add(new KeyValuePair<string, string>("F", "Femme"));
         }
         private void frm_Acceuil_Load(object sender, EventArgs e)
         {
@@ -252,7 +256,7 @@ namespace FingerPrintEcranPrincipal
         {
 
         }
-        private async void button6_Click(object sender, EventArgs e)
+        private void button6_Click(object sender, EventArgs e)
         {
             try
             {
@@ -268,23 +272,30 @@ namespace FingerPrintEcranPrincipal
                     dateNaiss = Pop._datenaissance.Date.ToString("yyyyMMdd");
                     dateFin = Pop.dateExpire.Date.ToString("yyyyMMdd"); ;
                     typePiece = Pop.Typedepiece;
-                    (bool, DataCarteNfc) res = Outils.Executerbatch(typePiece, dateNaiss, dateFin, Numpiece);
-                    //**************************************************************************
-                    if (!res.Item1)
-                    {
-                        OuverturePanelSaisieEnrollement();
-                        remplirAvecInformationPiece(res.Item2);
+                    (bool, object) res = Outils.Executerbatch(typePiece, dateNaiss, dateFin, Numpiece);
 
+                    //**************************************************************************
+                    if (res.Item1)
+                    {
+                        _logger.Information("retour Vrai de la fonction executer Batch 1-1");
+                        OuverturePanelSaisieEnrollement();
+                        _logger.Information("retour Vrai de la fonction executer Batch 1-2" + res.Item2);
+                        remplirAvecInformationPiece((DataCarteNfc)res.Item2);
+                        _logger.Information("retour Vrai de la fonction executer Batch 1-3");
                     }
                     else
                     {
-                        AvertissementPopup Ap = new AvertissementPopup("Erreur de recuperation des information");
+
+                        _logger.Information("Erreur "+res.Item1);
+                        AvertissementPopup Ap = new AvertissementPopup((string)res.Item2);
                         Ap.ShowDialog();
                     }
                 }
             }
             catch (Exception ex)
             {
+                _logger.Error(ex.Message);
+
                 AvertissementPopup Ap = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
                 Ap.ShowDialog();
             }
@@ -299,6 +310,11 @@ namespace FingerPrintEcranPrincipal
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
         private async void button1_Click(object sender, EventArgs e)
         {
+            if((textBox1.Text==string.Empty) || (textBox1.Text.Count()<3))
+            {
+                AvertissementPopup AVSp = new AvertissementPopup("Veuillez renseigner les valeur correct");
+                AVSp.ShowDialog();
+            }
             try
             {
                 pictureBox3.Visible = true;
@@ -491,7 +507,22 @@ namespace FingerPrintEcranPrincipal
         }
 
 
+        private void  remplirComboSexe()
+        {
+           
+                // Assurez-vous que le ComboBox est vide avant de le remplir
+                comboSex.Items.Clear();
 
+                // Parcourez chaque paire clé-valeur dans la liste et ajoutez-la au ComboBox
+                foreach (var kvp in keyValuePairs)
+                {
+                    comboSex.Items.Add(kvp);
+                }
+
+            // Définissez la propriété DisplayMember pour afficher la valeur
+            comboSex.DisplayMember = "Value";
+            
+        }
 
         private async void pictureIndex_Click(object sender, EventArgs e)
         {

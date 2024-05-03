@@ -8,7 +8,7 @@ namespace FingerPrintEcranPrincipal.Reponses
 {
     public class GeneraleResponseNFC 
     {
-        public int code { get; set; }
+        public int status { get; set; }
         public string descrition { get; set; }
         public string data { get; set; }
     }

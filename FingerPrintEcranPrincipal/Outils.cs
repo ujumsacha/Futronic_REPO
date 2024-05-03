@@ -1,6 +1,8 @@
 ﻿using FingerPrintEcranPrincipal.Reponses;
 using FingerPrintEcranPrincipal.Request;
 using Newtonsoft.Json;
+using Serilog;
+using Serilog.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,13 +10,27 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace FingerPrintEcranPrincipal
 {
     public class Outils
     {
+
+        static Outils()
+        {
+            var dt = DateTime.Now.Date.ToString().Substring(0, 10).Replace("/", "");
+            Serilog.Log.Logger = new LoggerConfiguration()
+                   .WriteTo.File($"logFolder/log_{dt}_outils.txt") // Écrit les logs dans un fichier
+                   .CreateLogger();
+        }
+
+        
+
+
         public static Param recup()
         {
             string lechemin = Path.Combine(Directory.GetCurrentDirectory(), "ConfigFolder");
@@ -177,53 +193,87 @@ namespace FingerPrintEcranPrincipal
         }
 
 
-        public static (bool, DataCarteNfc) Executerbatch(string type, string datenaiss, string datefin, string numero)
+        public static (bool, object?) Executerbatch(string type, string datenaiss, string datefin, string numero)
         {
-            string urifile = @"C:/Users/sacha.ogou/source/repos/Futronic_REPO/FingerPrintEcranPrincipal/bin/Debug/net5.0-windows/APP NFC/NFCEXE.bat";
+            string urifile = recup().NFCappLaunch;
 
-
-            string mesparams = "\" "+type+","+numero+","+datenaiss+","+datefin+" \"";
+            Log.Information("DEBUT =======> :" + urifile);
+            string mesparams = "\""+type+","+numero+","+datenaiss+","+datefin+"\"";
             try
             {
                 using (StreamWriter writer = new StreamWriter(urifile))
                 {
                     var test = @"@echo off " + Environment.NewLine;
-                    test += "java -jar \"C:\\Users\\sacha.ogou\\source\\repos\\Futronic_REPO\\FingerPrintEcranPrincipal\\bin\\Debug\\net5.0-windows\\APP NFC\\scan.jar \" "+ mesparams+ Environment.NewLine; 
-                    test +=" pause" + Environment.NewLine;
+                    test += "java -jar \"" + recup().CheminScanJar + "\" " + mesparams+Environment.NewLine;
+                    test += "pause";
                     writer.Write(test);
                 }
+
+
                 string cheminFile = recup().CheminIntoBatfile;
                 //********************************************Execute NFC*****************************************************
                 string command = urifile;
                 //string args = "MyParam1 MyParam2";
 
+
+
+
+                //*****************************************USE PROCESS START*****************************************
+                Log.Information("Debut de traitement Initialisation Execution commande");
                 Process process = new Process();
                 process.StartInfo.FileName = command;
                 //process.StartInfo.Arguments = args;
                 process.Start();
+
                 process.WaitForExit();
+                //Thread.Sleep(3000);
+                Log.Information("Debut de traitement Initialisation Execution commande");
+                //*****************************************USE PROCESS START*****************************************
+                ///
+                //*****************************************USE PROCESS START UPDATE*****************************************
+                //Process.Start(command).WaitForExit();
 
-                if(!File.Exists(cheminFile))
+                //*****************************************USE PROCESS START UPDATE*****************************************
+
+                //*******************************************USE PROCESS START POUR INVITE DE COMMANDE************************
+                //string  test1 = "java -jar \"" + recup().CheminScanJar + "\" " + mesparams + Environment.NewLine;
+
+
+                //Log.Information("Debut de traitement Initialisation Execution commande");
+                //string test1 = $"java -jar \"{recup().CheminScanJar}\" \"{mesparams}\"";
+                //Process process = new Process();
+                //process.StartInfo.FileName = "cmd.exe";
+                //process.StartInfo.Arguments = $"/C {test1}"; // Commande à exécuter
+                //process.StartInfo.UseShellExecute = true;
+                //process.Start();
+                //Log.Information("Debut de traitement Initialisation Execution commande");
+                //process.WaitForExit();
+                //////*******************************************USE PROCESS START POUR INVITE DE COMMANDE************************
+
+                if (!File.Exists(cheminFile))
                 {
-                    return (false, null);
-
+                    return (false, "Fichier n'existe pas ");
                 }
+                
                 string content = File.ReadAllText(cheminFile);
+                Log.Information("LIEN DU FICHIER =======> :" + cheminFile);
+                Log.Information("Lecture du fichier OK =======> :" + content);
                 GeneraleResponseNFC Gn1 = JsonConvert.DeserializeObject<GeneraleResponseNFC>(content);
-                if (Gn1.code != 1)
+                if (Gn1.status != 1)
                 {
-                    return (false, null);
-
+                    Log.Information("rentrer dans l'erreur car code egale a :"+Gn1.status);
+                    return (false, "Code du fichier est different de 1");
                 }
-
+                Log.Information("rentrer ok car  :" + Gn1.status);
                 //********************************************Execute NFC*****************************************************
                 DataCarteNfc Dte = JsonConvert.DeserializeObject<DataCarteNfc>(Gn1.data);
+                Log.Information("Gn1.data :" + Gn1.data);
                 return (true, Dte);
             }
             catch (Exception ex)
             {
-
-                return (false, null);
+                Log.Error(ex.Message);
+                return (false, new string(ex.Message));
             }
         }
     }

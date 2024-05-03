@@ -14,5 +14,7 @@ namespace FingerPrintEcranPrincipal
         public string folderimageget { get; set; }
         public string NFCappLaunch { get; set; }
         public string CheminIntoBatfile { get; set; }
+        public string CheminScanJar { get; set; }
+        
     }
 }

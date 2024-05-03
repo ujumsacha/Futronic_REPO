@@ -1,10 +1,13 @@
+using Microsoft.VisualBasic.Logging;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Serilog;
 
 namespace FingerPrintEcranPrincipal
 {
@@ -21,6 +24,13 @@ namespace FingerPrintEcranPrincipal
             Application.SetCompatibleTextRenderingDefault(false);
             createfile();
             createfileParametre();
+
+            var dt = DateTime.Now.Date.ToString().Substring(0, 10).Replace("/", "");
+            Serilog.Log.Logger = new LoggerConfiguration()
+               .WriteTo.File($"logFolder/log_{dt}.txt") // Écrit les logs dans un fichier
+               .CreateLogger();
+
+
             Application.Run(new frm_Acceuil());
         }
         public static void createfile()
@@ -101,5 +111,6 @@ namespace FingerPrintEcranPrincipal
             }
 
         }
+
     }
 }

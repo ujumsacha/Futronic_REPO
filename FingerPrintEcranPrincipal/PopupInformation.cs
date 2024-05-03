@@ -32,8 +32,8 @@ namespace FingerPrintEcranPrincipal
         private void ChargeCombo()
         {
             List<KeyValuePair<string, string>> items = new List<KeyValuePair<string, string>>();
-            items.Add(new KeyValuePair<string, string>("newCni", "Ancienne CNI"));
-            items.Add(new KeyValuePair<string, string>("lastCni", "Nouvelle CNI"));
+            items.Add(new KeyValuePair<string, string>("lastCni", "Ancienne CNI"));
+            items.Add(new KeyValuePair<string, string>("newCni", "Nouvelle CNI"));
             items.Add(new KeyValuePair<string, string>("passPort", "Passport"));
 
             // Attribuez les éléments à la source de données du ComboBox
