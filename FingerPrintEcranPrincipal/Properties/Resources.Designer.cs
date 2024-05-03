@@ -63,6 +63,16 @@ namespace FingerPrintEcranPrincipal.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1494 {
+            get {
+                object obj = ResourceManager.GetObject("1494", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap empreintedigitale {
             get {
                 object obj = ResourceManager.GetObject("empreintedigitale", resourceCulture);

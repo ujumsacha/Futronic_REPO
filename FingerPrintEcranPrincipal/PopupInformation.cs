@@ -15,8 +15,10 @@ namespace FingerPrintEcranPrincipal
 
         public string Typedepiece { get; set; }
         public string numeroPIECE { get; set; }
-        public DateTime datenaissance { get; set; }
+        public DateTime _datenaissance { get; set; }
         public DateTime dateExpire { get; set; }
+
+        public bool isvalid { get; set; } = false;
         public PopupInformation()
         {
             InitializeComponent();
@@ -30,9 +32,9 @@ namespace FingerPrintEcranPrincipal
         private void ChargeCombo()
         {
             List<KeyValuePair<string, string>> items = new List<KeyValuePair<string, string>>();
-            items.Add(new KeyValuePair<string, string>("P001", "Ancienne CNI"));
-            items.Add(new KeyValuePair<string, string>("P002", "Nouvelle CNI"));
-            items.Add(new KeyValuePair<string, string>("p003", "Passport"));
+            items.Add(new KeyValuePair<string, string>("newCni", "Ancienne CNI"));
+            items.Add(new KeyValuePair<string, string>("lastCni", "Nouvelle CNI"));
+            items.Add(new KeyValuePair<string, string>("passPort", "Passport"));
 
             // Attribuez les éléments à la source de données du ComboBox
             comboBox1.DataSource = items;
@@ -46,21 +48,18 @@ namespace FingerPrintEcranPrincipal
             // Sélectionnez un élément par défaut si nécessaire
             comboBox1.SelectedIndex = 0; // Pour sélectionner le premier élément
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             Typedepiece = comboBox1.SelectedValue.ToString();
             numeroPIECE = txt_numpiece.Text;
-            datenaissance = datenaissance.Date;
-            dateExpire = dateExpire.Date;
+            _datenaissance = Dt_naissance.Value.Date;
+            dateExpire = Dt_Exp.Value.Date;
+            isvalid = true;
             this.Close();
-            
-
         }
     }
 }

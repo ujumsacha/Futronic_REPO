@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acceuil));
             panel1 = new System.Windows.Forms.Panel();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
             button16 = new System.Windows.Forms.Button();
             button7 = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
@@ -188,6 +189,7 @@
             button13 = new System.Windows.Forms.Button();
             textBox22 = new System.Windows.Forms.TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panelVerif.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             grp1.SuspendLayout();
@@ -223,14 +225,26 @@
             // 
             panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             panel1.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(button16);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(label1);
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1101, 70);
+            panel1.Size = new System.Drawing.Size(1107, 70);
             panel1.TabIndex = 47;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources._1494;
+            pictureBox3.Location = new System.Drawing.Point(909, 12);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(56, 50);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 59;
+            pictureBox3.TabStop = false;
+            pictureBox3.Visible = false;
             // 
             // button16
             // 
@@ -250,6 +264,7 @@
             button7.Size = new System.Drawing.Size(40, 32);
             button7.TabIndex = 57;
             button7.UseVisualStyleBackColor = true;
+            button7.Click += button7_Click;
             // 
             // label1
             // 
@@ -271,7 +286,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(44, 97);
+            panelVerif.Location = new System.Drawing.Point(17, 86);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -708,7 +723,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(25, 84);
+            panelSignaletique.Location = new System.Drawing.Point(16, 90);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -1933,7 +1948,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1093, 617);
+            ClientSize = new System.Drawing.Size(1099, 625);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
@@ -1952,6 +1967,7 @@
             Load += frm_Acceuil_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panelVerif.ResumeLayout(false);
             panelVerif.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -2160,5 +2176,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

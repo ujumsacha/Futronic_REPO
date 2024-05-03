@@ -37,8 +37,8 @@
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            dateniassance = new System.Windows.Forms.DateTimePicker();
-            dateexp = new System.Windows.Forms.DateTimePicker();
+            Dt_naissance = new System.Windows.Forms.DateTimePicker();
+            Dt_Exp = new System.Windows.Forms.DateTimePicker();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
             panel5.SuspendLayout();
@@ -73,8 +73,8 @@
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(dateniassance);
-            groupBox1.Controls.Add(dateexp);
+            groupBox1.Controls.Add(Dt_naissance);
+            groupBox1.Controls.Add(Dt_Exp);
             groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             groupBox1.Location = new System.Drawing.Point(14, 52);
             groupBox1.Name = "groupBox1";
@@ -135,21 +135,21 @@
             label1.TabIndex = 2;
             label1.Text = "Date de Naissance :";
             // 
-            // dateniassance
+            // Dt_naissance
             // 
-            dateniassance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateniassance.Location = new System.Drawing.Point(157, 126);
-            dateniassance.Name = "dateniassance";
-            dateniassance.Size = new System.Drawing.Size(190, 29);
-            dateniassance.TabIndex = 1;
+            Dt_naissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            Dt_naissance.Location = new System.Drawing.Point(157, 126);
+            Dt_naissance.Name = "Dt_naissance";
+            Dt_naissance.Size = new System.Drawing.Size(190, 29);
+            Dt_naissance.TabIndex = 1;
             // 
-            // dateexp
+            // Dt_Exp
             // 
-            dateexp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateexp.Location = new System.Drawing.Point(158, 172);
-            dateexp.Name = "dateexp";
-            dateexp.Size = new System.Drawing.Size(190, 29);
-            dateexp.TabIndex = 0;
+            Dt_Exp.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            Dt_Exp.Location = new System.Drawing.Point(158, 172);
+            Dt_Exp.Name = "Dt_Exp";
+            Dt_Exp.Size = new System.Drawing.Size(190, 29);
+            Dt_Exp.TabIndex = 0;
             // 
             // button1
             // 
@@ -196,10 +196,10 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DateTimePicker dateexp;
+        private System.Windows.Forms.DateTimePicker Dt_Exp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateniassance;
+        private System.Windows.Forms.DateTimePicker Dt_naissance;
         private System.Windows.Forms.TextBox txt_numpiece;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

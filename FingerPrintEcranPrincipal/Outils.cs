@@ -1,7 +1,9 @@
-﻿using FingerPrintEcranPrincipal.Request;
+﻿using FingerPrintEcranPrincipal.Reponses;
+using FingerPrintEcranPrincipal.Request;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -172,6 +174,57 @@ namespace FingerPrintEcranPrincipal
 
 
             return Contentdata;
+        }
+
+
+        public static (bool, DataCarteNfc) Executerbatch(string type, string datenaiss, string datefin, string numero)
+        {
+            string urifile = @"C:/Users/sacha.ogou/source/repos/Futronic_REPO/FingerPrintEcranPrincipal/bin/Debug/net5.0-windows/APP NFC/NFCEXE.bat";
+
+
+            string mesparams = "\" "+type+","+numero+","+datenaiss+","+datefin+" \"";
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(urifile))
+                {
+                    var test = @"@echo off " + Environment.NewLine;
+                    test += "java -jar \"C:\\Users\\sacha.ogou\\source\\repos\\Futronic_REPO\\FingerPrintEcranPrincipal\\bin\\Debug\\net5.0-windows\\APP NFC\\scan.jar \" "+ mesparams+ Environment.NewLine; 
+                    test +=" pause" + Environment.NewLine;
+                    writer.Write(test);
+                }
+                string cheminFile = recup().CheminIntoBatfile;
+                //********************************************Execute NFC*****************************************************
+                string command = urifile;
+                //string args = "MyParam1 MyParam2";
+
+                Process process = new Process();
+                process.StartInfo.FileName = command;
+                //process.StartInfo.Arguments = args;
+                process.Start();
+                process.WaitForExit();
+
+                if(!File.Exists(cheminFile))
+                {
+                    return (false, null);
+
+                }
+                string content = File.ReadAllText(cheminFile);
+                GeneraleResponseNFC Gn1 = JsonConvert.DeserializeObject<GeneraleResponseNFC>(content);
+                if (Gn1.code != 1)
+                {
+                    return (false, null);
+
+                }
+
+                //********************************************Execute NFC*****************************************************
+                DataCarteNfc Dte = JsonConvert.DeserializeObject<DataCarteNfc>(Gn1.data);
+                return (true, Dte);
+            }
+            catch (Exception ex)
+            {
+
+                return (false, null);
+            }
         }
     }
 }

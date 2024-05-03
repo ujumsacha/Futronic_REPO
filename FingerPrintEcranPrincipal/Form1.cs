@@ -50,30 +50,40 @@ namespace FingerPrintEcranPrincipal
         public frm_Acceuil()
         {
             InitializeComponent();
+           
+
+        }
+        private void frm_Acceuil_Load(object sender, EventArgs e)
+        {
             try
             {
-                device = accessor.AccessFingerprintDevice();
-                Task.Run(() =>
-                {
-                    device.StartFingerDetection();
-                    device.SwitchLedState(false, true);
 
-                    device.SwitchLedState(false, false);
-                });
+                device = accessor.AccessFingerprintDevice();
+                if (device == null)
+                {
+                    AvertissementPopup AVp = new AvertissementPopup("Lecteur d'empreinte non connecter l'application va s'arreter");
+                    AVp.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    Task.Run(() =>
+                    {
+                        device.StartFingerDetection();
+                        device.SwitchLedState(false, true);
+                        device.SwitchLedState(false, false);
+                    });
+                }
+                
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Erreur veuillez connecter tous les lecteurs SVP");
             }
 
-        }
 
 
 
-
-        private void frm_Acceuil_Load(object sender, EventArgs e)
-        {
             lbl_messageinput.Visible = true;
             lbl_messageinput.Text = "Veuillez renseigner le numero CNI SVP ...";
             rd_numPiece.Checked = true;
@@ -87,12 +97,10 @@ namespace FingerPrintEcranPrincipal
             panelResultatRecherche.Visible = false;
 
         }
-
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
         }
-
         private void rd_numPiece_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -148,7 +156,6 @@ namespace FingerPrintEcranPrincipal
                 //***************GESTION ACTIVATION DE L'EMPREINTE *************************
             }
         }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
 
@@ -247,47 +254,55 @@ namespace FingerPrintEcranPrincipal
         }
         private async void button6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                PopupInformation Pop = new PopupInformation();
+                Pop.ShowDialog();
+                string Numpiece = "";
+                string dateNaiss = "";
+                string dateFin = "";
+                string typePiece = "";
+                if (Pop.isvalid)
+                {
+                    Numpiece = Pop.numeroPIECE;
+                    dateNaiss = Pop._datenaissance.Date.ToString("yyyyMMdd");
+                    dateFin = Pop.dateExpire.Date.ToString("yyyyMMdd"); ;
+                    typePiece = Pop.Typedepiece;
+                    (bool, DataCarteNfc) res = Outils.Executerbatch(typePiece, dateNaiss, dateFin, Numpiece);
+                    //**************************************************************************
+                    if (!res.Item1)
+                    {
+                        OuverturePanelSaisieEnrollement();
+                        remplirAvecInformationPiece(res.Item2);
+
+                    }
+                    else
+                    {
+                        AvertissementPopup Ap = new AvertissementPopup("Erreur de recuperation des information");
+                        Ap.ShowDialog();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                AvertissementPopup Ap = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
+                Ap.ShowDialog();
+            }
+           
 
             //**************************************************************************
-            //var rett = await LanceAppliRecupData();
-            //**************************************************************************
-
-            //*******************************************AJOUTéééééééééééééé***********************
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = false;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = true;
-            panelResultatRecherche.Visible = false;
-            textBox7.Text = "ANKON";
-            textBox8.Text = "OGOU SACHA MAXIME";
-            //*******************************************AJOUTéééééééééééééé***********************
-
-
-            //PopupInformation popup = new PopupInformation();
-            //if (popup.ShowDialog() == DialogResult.OK)
-            //{
-
-            //    // Récupérez les informations saisies par l'utilisateur
-            //    string numpiece = popup.numeroPIECE;
-            //    string typePiece = popup.Typedepiece;
-            //    DateTime datenaissance = popup.datenaissance;
-            //    DateTime dateExpire = popup.dateExpire;
-
-            //    // Utilisez les informations récupérées comme vous le souhaitez
-            //    MessageBox.Show($"Nom d'utilisateur saisi : {typePiece} avec TypePiece {typePiece}");
-
-            //}
-            //if (DialogResult == DialogResult.None)
-            //{
-            //    MessageBox.Show($"Vous avez annuler l'operation");
-            //}
+            
+            //*******************************************AJOUTE*****************************************
+            
+            //*******************************************AJOUTE*****************************************
         }
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
         private async void button1_Click(object sender, EventArgs e)
         {
             try
             {
+                pictureBox3.Visible = true;
+                panelVerif.Enabled = true;
                 using (HttpClient client = new HttpClient())
                 {
                     // Define the URL where you want to send the POST request
@@ -323,7 +338,8 @@ namespace FingerPrintEcranPrincipal
                             {
                                 bool bres = false;
                                 DemandeMessage Dm = new DemandeMessage();
-
+                                pictureBox3.Visible = false;
+                                panelVerif.Enabled = true;
                                 Dm.ShowDialog();
                                 if (Dm.ret)
                                 {
@@ -343,7 +359,8 @@ namespace FingerPrintEcranPrincipal
                                 //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
                                 //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
                                 //OuverturePanelSaisieEnrollement();
-
+                                pictureBox3.Visible = false;
+                                panelVerif.Enabled = true;
                                 //affichage du pannel
                                 OuverturePanelResultatrecherche();
                                 //Remise a zero des champs
@@ -354,6 +371,8 @@ namespace FingerPrintEcranPrincipal
 
                             break;
                         default:
+                            pictureBox3.Visible = false;
+                            panelVerif.Enabled = true;
                             MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
                             break;
                     }
@@ -361,6 +380,8 @@ namespace FingerPrintEcranPrincipal
             }
             catch (Exception ex)
             {
+                pictureBox3.Visible = true;
+                panelVerif.Enabled = false;
                 MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
             }
 
@@ -547,8 +568,24 @@ namespace FingerPrintEcranPrincipal
                 else
                 {
                     button6.Visible = false;
+
+                    PopupInformation Pi = new PopupInformation();
+
+                    Pi.ShowDialog();
+
+                    if (Pi.isvalid)
+                    {
+
+                    }
+
+
                     //********************************************PAR NFC **************************************************************
-                    //var rett = await LanceAppliRecupData();
+                    //LanceAPP
+
+                    //    @"@echo off
+                    //        java -jar ""C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\scan.jar"" ""newCni,CI003054046,19931112,20320128""
+
+                    //    pause"
 
                     //********************************************PAR NFC **************************************************************
                 }
@@ -1127,6 +1164,31 @@ namespace FingerPrintEcranPrincipal
                 }
 
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+           //Outils.WriteContenueFichierBat();
+        }
+
+
+        private void remplirAvecInformationPiece(DataCarteNfc Dtnfc)
+        {
+            txt_numpiece.Text = Dtnfc.numPiece;
+            txt_lieuemission.Text = Dtnfc.lieuEmission;
+            txtLieuNaissance.Text = Dtnfc.lieuNaissance;
+            txt_nationnalite.Text = Dtnfc.nationnalite;
+            txt_NNi.Text = "";
+            textBox7.Text = Dtnfc.nom;
+            txt_numuniq.Text = "";
+            textBox8.Text = Dtnfc.prenom;
+            txt_proffession.Text = Dtnfc.profession;
+            textBox9.Text = Dtnfc.taille;
+            dateTimePicker2.Value = DateTime.ParseExact(Dtnfc.dateEmission, "dd/MM/yyyy", null);
+            dateTimePicker3.Value = DateTime.ParseExact(Dtnfc.dateExpire, "dd/MM/yyyy", null); ;
+            dateTimePicker1.Value = DateTime.ParseExact(Dtnfc.dateNaissance, "dd/MM/yyyy", null);
+            comboSex.ValueMember = Dtnfc.genre;
+
         }
     }
 }

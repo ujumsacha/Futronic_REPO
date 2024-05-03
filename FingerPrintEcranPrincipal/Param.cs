@@ -13,5 +13,6 @@ namespace FingerPrintEcranPrincipal
         public string tempfolder { get; set; }
         public string folderimageget { get; set; }
         public string NFCappLaunch { get; set; }
+        public string CheminIntoBatfile { get; set; }
     }
 }
