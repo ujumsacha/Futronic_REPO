@@ -205,7 +205,7 @@ namespace FingerPrintEcranPrincipal
                 {
                     var test = @"@echo off " + Environment.NewLine;
                     test += "java -jar \"" + recup().CheminScanJar + "\" " + mesparams+Environment.NewLine;
-                    test += "pause";
+                    //test += "pause";
                     writer.Write(test);
                 }
 

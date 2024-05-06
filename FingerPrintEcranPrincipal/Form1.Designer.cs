@@ -80,7 +80,7 @@
             label68 = new System.Windows.Forms.Label();
             txt_NNi = new System.Windows.Forms.TextBox();
             nom = new System.Windows.Forms.Label();
-            txt_sexe = new System.Windows.Forms.ComboBox();
+            txt_typepiece = new System.Windows.Forms.ComboBox();
             txt_numpiece = new System.Windows.Forms.TextBox();
             label46 = new System.Windows.Forms.Label();
             label67 = new System.Windows.Forms.Label();
@@ -232,7 +232,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1102, 70);
+            panel1.Size = new System.Drawing.Size(1948, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -286,7 +286,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(17, 80);
+            panelVerif.Location = new System.Drawing.Point(711, 73);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -402,7 +402,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(21, 80);
+            panelEnrollement.Location = new System.Drawing.Point(29, 88);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -723,7 +723,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(17, 80);
+            panelSignaletique.Location = new System.Drawing.Point(19, 84);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -735,7 +735,7 @@
             groupBox4.Controls.Add(label68);
             groupBox4.Controls.Add(txt_NNi);
             groupBox4.Controls.Add(nom);
-            groupBox4.Controls.Add(txt_sexe);
+            groupBox4.Controls.Add(txt_typepiece);
             groupBox4.Controls.Add(txt_numpiece);
             groupBox4.Controls.Add(label46);
             groupBox4.Controls.Add(label67);
@@ -795,15 +795,16 @@
             nom.TabIndex = 91;
             nom.Text = "Numero de Pièce :";
             // 
-            // txt_sexe
+            // txt_typepiece
             // 
-            txt_sexe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            txt_sexe.FormattingEnabled = true;
-            txt_sexe.Items.AddRange(new object[] { "Homme", "Femme" });
-            txt_sexe.Location = new System.Drawing.Point(14, 40);
-            txt_sexe.Name = "txt_sexe";
-            txt_sexe.Size = new System.Drawing.Size(139, 23);
-            txt_sexe.TabIndex = 93;
+            txt_typepiece.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            txt_typepiece.FormattingEnabled = true;
+            txt_typepiece.Items.AddRange(new object[] { "Homme", "Femme" });
+            txt_typepiece.Location = new System.Drawing.Point(14, 40);
+            txt_typepiece.Name = "txt_typepiece";
+            txt_typepiece.Size = new System.Drawing.Size(139, 23);
+            txt_typepiece.TabIndex = 93;
+            txt_typepiece.SelectedIndexChanged += txt_sexe_SelectedIndexChanged;
             // 
             // txt_numpiece
             // 
@@ -1182,7 +1183,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(21, 87);
+            panelEmpreinte.Location = new System.Drawing.Point(31, 96);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -1909,9 +1910,9 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(20, 97);
+            panelRecapitulatif.Location = new System.Drawing.Point(20, 96);
             panelRecapitulatif.Name = "panelRecapitulatif";
-            panelRecapitulatif.Size = new System.Drawing.Size(1036, 476);
+            panelRecapitulatif.Size = new System.Drawing.Size(1036, 485);
             panelRecapitulatif.TabIndex = 64;
             panelRecapitulatif.Visible = false;
             // 
@@ -1948,7 +1949,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1094, 623);
+            ClientSize = new System.Drawing.Size(1940, 629);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
@@ -2087,7 +2088,7 @@
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.TextBox txt_NNi;
         private System.Windows.Forms.Label nom;
-        private System.Windows.Forms.ComboBox txt_sexe;
+        private System.Windows.Forms.ComboBox txt_typepiece;
         private System.Windows.Forms.TextBox txt_numpiece;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label67;

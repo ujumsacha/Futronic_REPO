@@ -43,6 +43,7 @@ namespace FingerPrintEcranPrincipal
         private byte[] LittleFinger;
         //***********************Gestion d'array de byte pour les empreinte*******************************
         private List<KeyValuePair<string, string>> keyValuePairs = new List<KeyValuePair<string, string>>();
+        private List<KeyValuePair<string, string>> listTypePiece = new List<KeyValuePair<string, string>>();
         private ILogger _logger;
         private AdminsystemeParam ParamApp = Outils.recupAdminParam();
         private DtoEnroll _dtoEnroll;
@@ -61,24 +62,31 @@ namespace FingerPrintEcranPrincipal
         {
             try
             {
-
-                device = accessor.AccessFingerprintDevice();
-                if (device == null)
+                if (ParamApp.Use_empreinte)
                 {
-                    AvertissementPopup AVp = new AvertissementPopup("Lecteur d'empreinte non connecter l'application va s'arreter");
-                    AVp.ShowDialog();
-                    this.Close();
+                    device = accessor.AccessFingerprintDevice();
+
+                    if (device == null)
+                    {
+                        AvertissementPopup AVp = new AvertissementPopup("Lecteur d'empreinte non connecter l'application va s'arreter");
+                        AVp.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        Task.Run(() =>
+                        {
+                            device.StartFingerDetection();
+                            device.SwitchLedState(false, true);
+                            device.SwitchLedState(false, false);
+                        });
+                    }
+
                 }
                 else
                 {
-                    Task.Run(() =>
-                    {
-                        device.StartFingerDetection();
-                        device.SwitchLedState(false, true);
-                        device.SwitchLedState(false, false);
-                    });
+
                 }
-                
             }
             catch (Exception ex)
             {
@@ -93,12 +101,7 @@ namespace FingerPrintEcranPrincipal
             rd_numPiece.Checked = true;
 
 
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = true;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
+            OuverturePanelVerification();
 
         }
         private void radioButton1_CheckedChanged(object sender, EventArgs e)
@@ -135,22 +138,40 @@ namespace FingerPrintEcranPrincipal
                         break;
 
                     case 2:
-                        pictureBox2.Visible = true;
-                        label2.Visible = true;
-                        lbl_messageinput.Visible = false;
-                        textBox1.Visible = false;
-                        button1.Visible = false;
 
-                        //***************GESTION ACTIVATION DE L'EMPREINTE *************************
-                        if (rd_empreinte.Checked)
+                        if (!ParamApp.Use_empreinte)
                         {
-                            activedetectionFingerprint();
+                            AvertissementPopup Avpp = new AvertissementPopup("Votre configuration ne vous permet pas d'utiliser cette recherche");
+                            Avpp.ShowDialog();
+                            rd_numPiece.Checked = true;
+                            lbl_messageinput.Visible = true;
+                            textBox1.Visible = true;
+                            pictureBox2.Visible = false;
+                            label2.Visible = false;
+                            button1.Visible = true;
+                            lbl_messageinput.Text = "Veuillez renseigner le numero CNI SVP ...";
+                            return;
                         }
-
                         else
                         {
-                            desactivedetectionFingerprint();
+                            pictureBox2.Visible = true;
+                            label2.Visible = true;
+                            lbl_messageinput.Visible = false;
+                            textBox1.Visible = false;
+                            button1.Visible = false;
+
+                            //***************GESTION ACTIVATION DE L'EMPREINTE *************************
+                            if (rd_empreinte.Checked)
+                            {
+                                activedetectionFingerprint();
+                            }
+
+                            else
+                            {
+                                desactivedetectionFingerprint();
+                            }
                         }
+
                         break;
 
                     default:
@@ -286,7 +307,7 @@ namespace FingerPrintEcranPrincipal
                     else
                     {
 
-                        _logger.Information("Erreur "+res.Item1);
+                        _logger.Information("Erreur " + res.Item1);
                         AvertissementPopup Ap = new AvertissementPopup((string)res.Item2);
                         Ap.ShowDialog();
                     }
@@ -299,108 +320,115 @@ namespace FingerPrintEcranPrincipal
                 AvertissementPopup Ap = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
                 Ap.ShowDialog();
             }
-           
+
 
             //**************************************************************************
-            
+
             //*******************************************AJOUTE*****************************************
-            
+
             //*******************************************AJOUTE*****************************************
         }
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
         private async void button1_Click(object sender, EventArgs e)
         {
-            if((textBox1.Text==string.Empty) || (textBox1.Text.Count()<3))
+            if ((textBox1.Text == string.Empty) || (textBox1.Text.Count() < 3))
             {
                 AvertissementPopup AVSp = new AvertissementPopup("Veuillez renseigner les valeur correct");
                 AVSp.ShowDialog();
             }
-            try
+            else
             {
-                pictureBox3.Visible = true;
-                panelVerif.Enabled = true;
-                using (HttpClient client = new HttpClient())
+                try
                 {
-                    // Define the URL where you want to send the POST request
-                    string url = URIBD + "/Getone";
-                    string jsonContent = null;
-                    ParamVerif parmV = new ParamVerif
+                    pictureBox3.Visible = true;
+                    panelVerif.Enabled = false;
+                    using (HttpClient client = new HttpClient())
                     {
-                        r_value = textBox1.Text
-                    };
-                    if (rd_numPiece.Checked)
-                    {
-                        parmV.r_Key = "CNI";
-                    }
-                    if (rd_numUnique.Checked)
-                    {
-                        parmV.r_Key = "UNIQUE";
-                    }
+                        // Define the URL where you want to send the POST request
+                        string url = URIBD + "/Getone";
+                        string jsonContent = null;
+                        ParamVerif parmV = new ParamVerif
+                        {
+                            r_value = textBox1.Text
+                        };
+                        if (rd_numPiece.Checked)
+                        {
+                            parmV.r_Key = "CNI";
+                        }
+                        if (rd_numUnique.Checked)
+                        {
+                            parmV.r_Key = "UNIQUE";
+                        }
 
-                    jsonContent = JsonConvert.SerializeObject(parmV);
-                    // Define your JSON content to be sent in the request body
+                        jsonContent = JsonConvert.SerializeObject(parmV);
+                        // Define your JSON content to be sent in the request body
 
-                    HttpContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
-                    HttpResponseMessage response = await client.PostAsync(url, content);
+                        HttpContent content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+                        HttpResponseMessage response = await client.PostAsync(url, content);
 
-                    switch (response.StatusCode)
-                    {
-                        case System.Net.HttpStatusCode.OK:
-                            string responseBody = await response.Content.ReadAsStringAsync();
+                        switch (response.StatusCode)
+                        {
+                            case System.Net.HttpStatusCode.OK:
+                                string responseBody = await response.Content.ReadAsStringAsync();
 
-                            GeneraleResponse GN = new GeneraleResponse();
-                            GN = JsonConvert.DeserializeObject<GeneraleResponse>(responseBody);
-                            if (GN.data == "[  ]")
-                            {
-                                bool bres = false;
-                                DemandeMessage Dm = new DemandeMessage();
-                                pictureBox3.Visible = false;
-                                panelVerif.Enabled = true;
-                                Dm.ShowDialog();
-                                if (Dm.ret)
+                                GeneraleResponse GN = new GeneraleResponse();
+                                GN = JsonConvert.DeserializeObject<GeneraleResponse>(responseBody);
+                                if (GN.data == "[  ]")
                                 {
-                                    OuverturePanelConditionUtilisation();
+                                    bool bres = false;
+                                    DemandeMessage Dm = new DemandeMessage();
+                                    pictureBox3.Visible = false;
+                                    panelVerif.Enabled = true;
+                                    Dm.ShowDialog();
+                                    if (Dm.ret)
+                                    {
+                                        OuverturePanelConditionUtilisation();
+                                    }
+                                    else
+                                    {
+                                        textBox1.Text = String.Empty;
+
+                                    }
                                 }
                                 else
                                 {
-                                    textBox1.Text = String.Empty;
-                                }
-                            }
-                            else
-                            {
-                                textBox1.Text = string.Empty;
-                                DTORetCompImage[]? dtretemp;
-                                dtretemp = JsonConvert.DeserializeObject<DTORetCompImage[]>(GN.data.ToString());
-                                DTORetCompImage? dtre = dtretemp[0];
-                                //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
-                                //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
-                                //OuverturePanelSaisieEnrollement();
-                                pictureBox3.Visible = false;
-                                panelVerif.Enabled = true;
-                                //affichage du pannel
-                                OuverturePanelResultatrecherche();
-                                //Remise a zero des champs
-                                voidMiseAblancSearchTiers();
-                                //Remplir les champs avec le resultat
-                                RempliChampsderecherche(dtre);
-                            }
+                                    textBox1.Text = string.Empty;
+                                    DTORetCompImage[]? dtretemp;
+                                    dtretemp = JsonConvert.DeserializeObject<DTORetCompImage[]>(GN.data.ToString());
+                                    DTORetCompImage? dtre = dtretemp[0];
+                                    //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
+                                    //**********************************Appeler la method pour renseigner les differents valeur retrouver sur l'interface*****************
+                                    //OuverturePanelSaisieEnrollement();
 
-                            break;
-                        default:
-                            pictureBox3.Visible = false;
-                            panelVerif.Enabled = true;
-                            MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
-                            break;
+                                    //affichage du pannel
+                                    OuverturePanelResultatrecherche();
+                                    //Remise a zero des champs
+                                    voidMiseAblancSearchTiers();
+                                    //Remplir les champs avec le resultat
+                                    RempliChampsderecherche(dtre);
+                                }
+
+                                break;
+                            default:
+
+                                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+                                break;
+                        }
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                pictureBox3.Visible = true;
-                panelVerif.Enabled = false;
-                MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
-            }
+                catch (Exception ex)
+                {
 
+                    MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+                }
+                finally
+                {
+                    pictureBox3.Visible = false;
+                    panelVerif.Enabled = true;
+
+                }
+            }
+           
         }
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
 
@@ -507,21 +535,21 @@ namespace FingerPrintEcranPrincipal
         }
 
 
-        private void  remplirComboSexe()
+        private void remplirComboSexe()
         {
-           
-                // Assurez-vous que le ComboBox est vide avant de le remplir
-                comboSex.Items.Clear();
 
-                // Parcourez chaque paire clé-valeur dans la liste et ajoutez-la au ComboBox
-                foreach (var kvp in keyValuePairs)
-                {
-                    comboSex.Items.Add(kvp);
-                }
+            // Assurez-vous que le ComboBox est vide avant de le remplir
+            comboSex.Items.Clear();
+
+            // Parcourez chaque paire clé-valeur dans la liste et ajoutez-la au ComboBox
+            foreach (var kvp in keyValuePairs)
+            {
+                comboSex.Items.Add(kvp);
+            }
 
             // Définissez la propriété DisplayMember pour afficher la valeur
             comboSex.DisplayMember = "Value";
-            
+
         }
 
         private async void pictureIndex_Click(object sender, EventArgs e)
@@ -1062,6 +1090,7 @@ namespace FingerPrintEcranPrincipal
 
         private void btn_precedent_Click(object sender, EventArgs e)
         {
+            textBox22.Text = string.Empty;
             if (ParamApp.Use_empreinte)
             {
                 OuverturePanelEmpreinte();
@@ -1069,8 +1098,6 @@ namespace FingerPrintEcranPrincipal
             else
             {
                 //********************************Ouverture Panel recapitulatif*****************************************
-
-                //renseigner les données du panel recapitulatif
                 OuverturePanelSaisieEnrollement();
             }
         }
@@ -1112,8 +1139,9 @@ namespace FingerPrintEcranPrincipal
             {
                 _dtoEnroll.empreintes = _empreinte;
                 await PostDataToserver(_dtoEnroll);
-                //AvertissementPopup Avp = new AvertissementPopup("Enorllmeent effectué avec Succes");
-                //Avp.ShowDialog();
+                AvertissementPopup Avp = new AvertissementPopup("Enrolement effectué avec Succes");
+                Avp.ShowDialog();
+                textBox22.Text = string.Empty;
                 OuverturePanelVerification();
             }
             catch (Exception ex)
@@ -1199,7 +1227,7 @@ namespace FingerPrintEcranPrincipal
 
         private void button7_Click(object sender, EventArgs e)
         {
-           //Outils.WriteContenueFichierBat();
+            //Outils.WriteContenueFichierBat();
         }
 
 
@@ -1219,6 +1247,11 @@ namespace FingerPrintEcranPrincipal
             dateTimePicker3.Value = DateTime.ParseExact(Dtnfc.dateExpire, "dd/MM/yyyy", null); ;
             dateTimePicker1.Value = DateTime.ParseExact(Dtnfc.dateNaissance, "dd/MM/yyyy", null);
             comboSex.ValueMember = Dtnfc.genre;
+
+        }
+
+        private void txt_sexe_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }
