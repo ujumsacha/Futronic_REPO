@@ -59,7 +59,7 @@
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label7.Location = new System.Drawing.Point(227, 9);
+            label7.Location = new System.Drawing.Point(226, 12);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(89, 19);
             label7.TabIndex = 1;
@@ -79,9 +79,10 @@
             groupBox1.Location = new System.Drawing.Point(14, 52);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new System.Drawing.Size(536, 222);
-            groupBox1.TabIndex = 5;
+            groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Information";
+            groupBox1.Text = "Information(s)";
+            groupBox1.Enter += groupBox1_Enter;
             // 
             // label4
             // 
@@ -98,7 +99,7 @@
             comboBox1.Location = new System.Drawing.Point(158, 45);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new System.Drawing.Size(189, 29);
-            comboBox1.TabIndex = 6;
+            comboBox1.TabIndex = 1;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
             // txt_numpiece
@@ -106,7 +107,8 @@
             txt_numpiece.Location = new System.Drawing.Point(158, 86);
             txt_numpiece.Name = "txt_numpiece";
             txt_numpiece.Size = new System.Drawing.Size(189, 29);
-            txt_numpiece.TabIndex = 5;
+            txt_numpiece.TabIndex = 2;
+            txt_numpiece.TextChanged += txt_numpiece_TextChanged;
             // 
             // label3
             // 
@@ -122,9 +124,9 @@
             label2.AutoSize = true;
             label2.Location = new System.Drawing.Point(6, 172);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(98, 21);
+            label2.Size = new System.Drawing.Size(135, 21);
             label2.TabIndex = 3;
-            label2.Text = "Date de Exp. ";
+            label2.Text = "Date d’expiration :";
             // 
             // label1
             // 
@@ -138,10 +140,11 @@
             // Dt_naissance
             // 
             Dt_naissance.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            Dt_naissance.Location = new System.Drawing.Point(157, 126);
+            Dt_naissance.Location = new System.Drawing.Point(158, 126);
             Dt_naissance.Name = "Dt_naissance";
-            Dt_naissance.Size = new System.Drawing.Size(190, 29);
-            Dt_naissance.TabIndex = 1;
+            Dt_naissance.Size = new System.Drawing.Size(189, 29);
+            Dt_naissance.TabIndex = 3;
+            Dt_naissance.ValueChanged += Dt_naissance_ValueChanged;
             // 
             // Dt_Exp
             // 
@@ -149,32 +152,38 @@
             Dt_Exp.Location = new System.Drawing.Point(158, 172);
             Dt_Exp.Name = "Dt_Exp";
             Dt_Exp.Size = new System.Drawing.Size(190, 29);
-            Dt_Exp.TabIndex = 0;
+            Dt_Exp.TabIndex = 4;
             // 
             // button1
             // 
+            button1.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            button1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button1.Location = new System.Drawing.Point(422, 285);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(125, 28);
             button1.TabIndex = 6;
             button1.Text = "Valider";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // button2
             // 
+            button2.BackColor = System.Drawing.Color.Firebrick;
+            button2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button2.Location = new System.Drawing.Point(14, 284);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(125, 28);
             button2.TabIndex = 7;
             button2.Text = "Annuler";
-            button2.UseVisualStyleBackColor = true;
+            button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
             // PopupInformation
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            BackColor = System.Drawing.SystemColors.ButtonHighlight;
             ClientSize = new System.Drawing.Size(562, 332);
             Controls.Add(button2);
             Controls.Add(button1);

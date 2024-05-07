@@ -93,6 +93,9 @@ namespace FingerPrintEcranPrincipal
                 MessageBox.Show("Erreur veuillez connecter tous les lecteurs SVP");
             }
 
+            toolTip1.SetToolTip(button7, "Aide");
+            toolTip2.ToolTipTitle = "Parametre";
+            toolTip2.SetToolTip(button16, "Parametre Systeme");
 
 
 
@@ -281,12 +284,14 @@ namespace FingerPrintEcranPrincipal
         {
             try
             {
+                panelEnrollement.Enabled = false;
                 PopupInformation Pop = new PopupInformation();
                 Pop.ShowDialog();
                 string Numpiece = "";
                 string dateNaiss = "";
                 string dateFin = "";
                 string typePiece = "";
+                panelEnrollement.Enabled = true;
                 if (Pop.isvalid)
                 {
                     Numpiece = Pop.numeroPIECE;
@@ -320,6 +325,10 @@ namespace FingerPrintEcranPrincipal
                 AvertissementPopup Ap = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
                 Ap.ShowDialog();
             }
+            finally
+            {
+                panelEnrollement.Enabled = true;
+            }
 
 
             //**************************************************************************
@@ -333,7 +342,7 @@ namespace FingerPrintEcranPrincipal
         {
             if ((textBox1.Text == string.Empty) || (textBox1.Text.Count() < 3))
             {
-                AvertissementPopup AVSp = new AvertissementPopup("Veuillez renseigner les valeur correct");
+                AvertissementPopup AVSp = new AvertissementPopup("Veuillez renseigner des valeurs correctes");
                 AVSp.ShowDialog();
             }
             else
@@ -428,7 +437,7 @@ namespace FingerPrintEcranPrincipal
 
                 }
             }
-           
+
         }
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
 
@@ -894,7 +903,7 @@ namespace FingerPrintEcranPrincipal
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = false;
             panelResultatRecherche.Visible = false;
-            label1.Text = "ENROLLEMENT";
+            label1.Text = "ENRÔLEMENT";
         }
         public void OuverturePanelVerification()
         {
@@ -918,7 +927,7 @@ namespace FingerPrintEcranPrincipal
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = true;
             panelResultatRecherche.Visible = false;
-            label1.Text = "SAISIE DES INFORMATION SIGNALETIQUE";
+            label1.Text = "SAISIE DES INFORMATIONS SIGNALETIQUES";
         }
         public void OuverturePanelConsentement()
         {
@@ -1251,6 +1260,11 @@ namespace FingerPrintEcranPrincipal
         }
 
         private void txt_sexe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSignaletique_Paint(object sender, PaintEventArgs e)
         {
 
         }

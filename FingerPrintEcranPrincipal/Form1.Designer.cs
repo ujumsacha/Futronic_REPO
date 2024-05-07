@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acceuil));
             panel1 = new System.Windows.Forms.Panel();
             pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -118,6 +119,7 @@
             checkBox1 = new System.Windows.Forms.CheckBox();
             textBox2 = new System.Windows.Forms.TextBox();
             panelEmpreinte = new System.Windows.Forms.Panel();
+            label74 = new System.Windows.Forms.Label();
             labelMsgemp = new System.Windows.Forms.Label();
             pB_empr = new System.Windows.Forms.PictureBox();
             groupBox5 = new System.Windows.Forms.GroupBox();
@@ -188,6 +190,8 @@
             btn_precedent = new System.Windows.Forms.Button();
             button13 = new System.Windows.Forms.Button();
             textBox22 = new System.Windows.Forms.TextBox();
+            toolTip1 = new System.Windows.Forms.ToolTip(components);
+            toolTip2 = new System.Windows.Forms.ToolTip(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panelVerif.SuspendLayout();
@@ -232,7 +236,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1948, 70);
+            panel1.Size = new System.Drawing.Size(1096, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -286,7 +290,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(711, 73);
+            panelVerif.Location = new System.Drawing.Point(17, 80);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -402,7 +406,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(29, 88);
+            panelEnrollement.Location = new System.Drawing.Point(23, 82);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -444,11 +448,11 @@
             label11.AutoSize = true;
             label11.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             label11.ForeColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            label11.Location = new System.Drawing.Point(55, 190);
+            label11.Location = new System.Drawing.Point(138, 200);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(354, 17);
+            label11.Size = new System.Drawing.Size(187, 17);
             label11.TabIndex = 61;
-            label11.Text = "Veuillez poser votre Piece puis cliquez ci-dessous";
+            label11.Text = "Veuillez poser votre Pièce";
             label11.Visible = false;
             // 
             // pictureBox1
@@ -639,7 +643,7 @@
             groupBox3.Size = new System.Drawing.Size(335, 100);
             groupBox3.TabIndex = 53;
             groupBox3.TabStop = false;
-            groupBox3.Text = "Type d'utilisateur";
+            groupBox3.Text = "Type de Client";
             // 
             // radioButton4
             // 
@@ -722,11 +726,13 @@
             panelSignaletique.Controls.Add(groupBox4);
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
+            panelSignaletique.Controls.Add(panelEmpreinte);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(19, 84);
+            panelSignaletique.Location = new System.Drawing.Point(20, 87);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
+            panelSignaletique.Paint += panelSignaletique_Paint;
             // 
             // groupBox4
             // 
@@ -1126,7 +1132,7 @@
             panelconsentement.Controls.Add(btn_annuler);
             panelconsentement.Controls.Add(checkBox1);
             panelconsentement.Controls.Add(textBox2);
-            panelconsentement.Location = new System.Drawing.Point(38, 106);
+            panelconsentement.Location = new System.Drawing.Point(23, 91);
             panelconsentement.Name = "panelconsentement";
             panelconsentement.Size = new System.Drawing.Size(1021, 492);
             panelconsentement.TabIndex = 60;
@@ -1147,7 +1153,7 @@
             // 
             btn_annuler.Location = new System.Drawing.Point(30, 438);
             btn_annuler.Name = "btn_annuler";
-            btn_annuler.Size = new System.Drawing.Size(58, 37);
+            btn_annuler.Size = new System.Drawing.Size(73, 37);
             btn_annuler.TabIndex = 2;
             btn_annuler.Text = "Annuler";
             btn_annuler.UseVisualStyleBackColor = true;
@@ -1178,15 +1184,27 @@
             // 
             // panelEmpreinte
             // 
+            panelEmpreinte.Controls.Add(label74);
             panelEmpreinte.Controls.Add(labelMsgemp);
             panelEmpreinte.Controls.Add(pB_empr);
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(31, 96);
+            panelEmpreinte.Location = new System.Drawing.Point(18, 8);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
+            // 
+            // label74
+            // 
+            label74.AutoSize = true;
+            label74.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            label74.ForeColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            label74.Location = new System.Drawing.Point(194, 5);
+            label74.Name = "label74";
+            label74.Size = new System.Drawing.Size(705, 18);
+            label74.TabIndex = 84;
+            label74.Text = "Veuillez cliquez sur l'image correspondant l'empreinte du doigt que vous souhaiter enregistrer";
             // 
             // labelMsgemp
             // 
@@ -1910,7 +1928,7 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(20, 96);
+            panelRecapitulatif.Location = new System.Drawing.Point(25, 90);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1036, 485);
             panelRecapitulatif.TabIndex = 64;
@@ -1945,16 +1963,19 @@
             textBox22.Size = new System.Drawing.Size(999, 388);
             textBox22.TabIndex = 0;
             // 
+            // toolTip1
+            // 
+            toolTip1.ToolTipTitle = "AIDE";
+            // 
             // frm_Acceuil
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1940, 629);
+            ClientSize = new System.Drawing.Size(1088, 616);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
             Controls.Add(panelResultatRecherche);
-            Controls.Add(panelEmpreinte);
             Controls.Add(panelconsentement);
             Controls.Add(panelSignaletique);
             Controls.Add(panelVerif);
@@ -2178,5 +2199,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
     }
 }

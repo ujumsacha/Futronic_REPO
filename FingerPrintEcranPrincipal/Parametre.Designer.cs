@@ -36,6 +36,7 @@
             groupBox2 = new System.Windows.Forms.GroupBox();
             button3 = new System.Windows.Forms.Button();
             checkBox1 = new System.Windows.Forms.CheckBox();
+            label1 = new System.Windows.Forms.Label();
             panel5.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
@@ -65,7 +66,7 @@
             // 
             groupBox1.Controls.Add(button2);
             groupBox1.Controls.Add(button1);
-            groupBox1.Location = new System.Drawing.Point(12, 432);
+            groupBox1.Location = new System.Drawing.Point(12, 417);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new System.Drawing.Size(292, 107);
             groupBox1.TabIndex = 9;
@@ -104,7 +105,7 @@
             groupBox2.Controls.Add(checkBox1);
             groupBox2.Location = new System.Drawing.Point(12, 61);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(292, 365);
+            groupBox2.Size = new System.Drawing.Size(292, 352);
             groupBox2.TabIndex = 10;
             groupBox2.TabStop = false;
             groupBox2.Text = "GESTION";
@@ -114,7 +115,7 @@
             button3.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
             button3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             button3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            button3.Location = new System.Drawing.Point(16, 319);
+            button3.Location = new System.Drawing.Point(16, 305);
             button3.Name = "button3";
             button3.Size = new System.Drawing.Size(261, 40);
             button3.TabIndex = 2;
@@ -132,11 +133,22 @@
             checkBox1.Text = "Systeme de gestion des empreintes";
             checkBox1.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label1.Location = new System.Drawing.Point(216, 527);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(88, 15);
+            label1.TabIndex = 11;
+            label1.Text = "Version 1.1.1.0";
+            // 
             // Parametre
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(316, 551);
+            Controls.Add(label1);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(panel5);
@@ -150,6 +162,7 @@
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -162,5 +175,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label1;
     }
 }

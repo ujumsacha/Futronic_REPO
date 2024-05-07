@@ -27,6 +27,7 @@ namespace FingerPrintEcranPrincipal
                 Outils.ModifierContenueParam(res);
                 is_refresh = true;
                 this.Close();
+                
                 MessageBox.Show("Mise a jour Effectué avec Succes");
             }
             catch (Exception ex)

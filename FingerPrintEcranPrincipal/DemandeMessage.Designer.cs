@@ -41,7 +41,7 @@
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            label7.Location = new System.Drawing.Point(166, 12);
+            label7.Location = new System.Drawing.Point(205, 12);
             label7.Name = "label7";
             label7.Size = new System.Drawing.Size(89, 19);
             label7.TabIndex = 1;
@@ -53,7 +53,7 @@
             panel5.Controls.Add(label7);
             panel5.Location = new System.Drawing.Point(0, 0);
             panel5.Name = "panel5";
-            panel5.Size = new System.Drawing.Size(439, 44);
+            panel5.Size = new System.Drawing.Size(482, 44);
             panel5.TabIndex = 5;
             // 
             // label1
@@ -61,7 +61,7 @@
             label1.AutoSize = true;
             label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             label1.ForeColor = System.Drawing.Color.Red;
-            label1.Location = new System.Drawing.Point(18, 76);
+            label1.Location = new System.Drawing.Point(12, 72);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(408, 16);
             label1.TabIndex = 6;
@@ -70,7 +70,8 @@
             // button1
             // 
             button1.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
-            button1.Location = new System.Drawing.Point(334, 122);
+            button1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            button1.Location = new System.Drawing.Point(397, 122);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(72, 51);
             button1.TabIndex = 7;
@@ -81,6 +82,7 @@
             // button2
             // 
             button2.BackColor = System.Drawing.Color.Firebrick;
+            button2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             button2.Location = new System.Drawing.Point(33, 122);
             button2.Name = "button2";
             button2.Size = new System.Drawing.Size(72, 51);
@@ -94,7 +96,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackColor = System.Drawing.SystemColors.ActiveBorder;
-            ClientSize = new System.Drawing.Size(438, 185);
+            ClientSize = new System.Drawing.Size(481, 185);
             Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(label1);

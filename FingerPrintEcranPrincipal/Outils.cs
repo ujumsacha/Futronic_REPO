@@ -175,7 +175,7 @@ namespace FingerPrintEcranPrincipal
             Contentdata += $"Numero CNI :{dt.txt_cni} "+Environment.NewLine;
             Contentdata += $"NOM :{dt.txt_nom} "+Environment.NewLine;
             Contentdata += $"PRENOMS :{dt.txt_prenom} "+Environment.NewLine;
-            Contentdata += $"GENRE :{dt.txt_sexe} " +Environment.NewLine;
+            Contentdata += $"GENRE :{((dt.txt_sexe=='M') ? "Homme": "Femme")} " +Environment.NewLine;
             Contentdata += $"Numero UNIQUE :{dt.txt_num_unique} "+Environment.NewLine;
             Contentdata += $"LIEU D'EMISSION :{dt.txt_lieu_emission} " +Environment.NewLine;
             Contentdata += $"LIEU DE NAISSANCE :{dt.txt_lieu_naissance} " +Environment.NewLine;
@@ -183,7 +183,7 @@ namespace FingerPrintEcranPrincipal
             Contentdata += $"PROFESSION :{dt.txt_profession} " +Environment.NewLine;
             Contentdata += $"TAILLE (cm) :{dt.txt_taille} " +Environment.NewLine;
             Contentdata += $"DATE D'EMISSION :{dt.date_emiss_cni} " +Environment.NewLine;
-            Contentdata += $"DATE D'EXPIRATION :{dt.date_expir_cni} " +Environment.NewLine;
+            Contentdata += $"DATE D'EXPIRATION :{dt.date_expir_cni} " +Environment.NewLine; 
             Contentdata += $"DATE DE NAISSANCE :{dt.date_naiss} " +Environment.NewLine;
 
 
@@ -252,7 +252,7 @@ namespace FingerPrintEcranPrincipal
 
                 if (!File.Exists(cheminFile))
                 {
-                    return (false, "Fichier n'existe pas ");
+                    return (false, "Fichier Inexistant ");
                 }
                 
                 string content = File.ReadAllText(cheminFile);

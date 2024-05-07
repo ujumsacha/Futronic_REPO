@@ -61,5 +61,20 @@ namespace FingerPrintEcranPrincipal
             isvalid = true;
             this.Close();
         }
+
+        private void Dt_naissance_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_numpiece_TextChanged(object sender, EventArgs e)
+        {
+            txt_numpiece.Text=txt_numpiece.Text.ToUpper();
+        }
     }
 }
