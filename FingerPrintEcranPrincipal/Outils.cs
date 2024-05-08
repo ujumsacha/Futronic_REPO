@@ -252,7 +252,7 @@ namespace FingerPrintEcranPrincipal
 
                 if (!File.Exists(cheminFile))
                 {
-                    return (false, "Fichier Inexistant ");
+                    return (false, $"Fichier Inexistant {cheminFile}");
                 }
                 
                 string content = File.ReadAllText(cheminFile);

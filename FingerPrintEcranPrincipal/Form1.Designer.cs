@@ -113,11 +113,6 @@
             label49 = new System.Windows.Forms.Label();
             button10 = new System.Windows.Forms.Button();
             button11 = new System.Windows.Forms.Button();
-            panelconsentement = new System.Windows.Forms.Panel();
-            button3 = new System.Windows.Forms.Button();
-            btn_annuler = new System.Windows.Forms.Button();
-            checkBox1 = new System.Windows.Forms.CheckBox();
-            textBox2 = new System.Windows.Forms.TextBox();
             panelEmpreinte = new System.Windows.Forms.Panel();
             label74 = new System.Windows.Forms.Label();
             labelMsgemp = new System.Windows.Forms.Label();
@@ -135,6 +130,11 @@
             label69 = new System.Windows.Forms.Label();
             button9 = new System.Windows.Forms.Button();
             button12 = new System.Windows.Forms.Button();
+            panelconsentement = new System.Windows.Forms.Panel();
+            button3 = new System.Windows.Forms.Button();
+            btn_annuler = new System.Windows.Forms.Button();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            textBox2 = new System.Windows.Forms.TextBox();
             panelResultatRecherche = new System.Windows.Forms.Panel();
             panel3 = new System.Windows.Forms.Panel();
             label45 = new System.Windows.Forms.Label();
@@ -208,7 +208,6 @@
             panelSignaletique.SuspendLayout();
             groupBox4.SuspendLayout();
             groupBox2.SuspendLayout();
-            panelconsentement.SuspendLayout();
             panelEmpreinte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pB_empr).BeginInit();
             groupBox5.SuspendLayout();
@@ -217,6 +216,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureIndex).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureThumb).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureMiddle).BeginInit();
+            panelconsentement.SuspendLayout();
             panelResultatRecherche.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
@@ -236,7 +236,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1096, 70);
+            panel1.Size = new System.Drawing.Size(1948, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -290,7 +290,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(17, 80);
+            panelVerif.Location = new System.Drawing.Point(15, 88);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -406,7 +406,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(23, 82);
+            panelEnrollement.Location = new System.Drawing.Point(14, 80);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -676,13 +676,13 @@
             groupBox1.Controls.Add(radioButton2);
             groupBox1.Controls.Add(radioButton3);
             groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            groupBox1.Location = new System.Drawing.Point(47, 149);
+            groupBox1.Location = new System.Drawing.Point(47, 148);
             groupBox1.Margin = new System.Windows.Forms.Padding(25, 3, 3, 3);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new System.Drawing.Size(339, 209);
             groupBox1.TabIndex = 51;
             groupBox1.TabStop = false;
-            groupBox1.Text = "Choisir le mode d'enrollement";
+            groupBox1.Text = "Choisir le mode d'enrôlement";
             groupBox1.Visible = false;
             // 
             // radioButton1
@@ -726,9 +726,8 @@
             panelSignaletique.Controls.Add(groupBox4);
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
-            panelSignaletique.Controls.Add(panelEmpreinte);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(20, 87);
+            panelSignaletique.Location = new System.Drawing.Point(975, 72);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -1126,62 +1125,6 @@
             button11.UseVisualStyleBackColor = true;
             button11.Click += button11_Click;
             // 
-            // panelconsentement
-            // 
-            panelconsentement.Controls.Add(button3);
-            panelconsentement.Controls.Add(btn_annuler);
-            panelconsentement.Controls.Add(checkBox1);
-            panelconsentement.Controls.Add(textBox2);
-            panelconsentement.Location = new System.Drawing.Point(23, 91);
-            panelconsentement.Name = "panelconsentement";
-            panelconsentement.Size = new System.Drawing.Size(1021, 492);
-            panelconsentement.TabIndex = 60;
-            // 
-            // button3
-            // 
-            button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button3.Enabled = false;
-            button3.Image = (System.Drawing.Image)resources.GetObject("button3.Image");
-            button3.Location = new System.Drawing.Point(945, 429);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(68, 46);
-            button3.TabIndex = 54;
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // btn_annuler
-            // 
-            btn_annuler.Location = new System.Drawing.Point(30, 438);
-            btn_annuler.Name = "btn_annuler";
-            btn_annuler.Size = new System.Drawing.Size(73, 37);
-            btn_annuler.TabIndex = 2;
-            btn_annuler.Text = "Annuler";
-            btn_annuler.UseVisualStyleBackColor = true;
-            btn_annuler.Click += btn_annuler_Click;
-            // 
-            // checkBox1
-            // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new System.Drawing.Point(33, 413);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new System.Drawing.Size(340, 19);
-            checkBox1.TabIndex = 1;
-            checkBox1.Text = "Je consens à l'enrôlement de mes empreintes biométriques.";
-            checkBox1.UseVisualStyleBackColor = true;
-            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
-            // 
-            // textBox2
-            // 
-            textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            textBox2.Location = new System.Drawing.Point(30, 37);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new System.Drawing.Size(886, 370);
-            textBox2.TabIndex = 0;
-            textBox2.Text = resources.GetString("textBox2.Text");
-            // 
             // panelEmpreinte
             // 
             panelEmpreinte.Controls.Add(label74);
@@ -1190,7 +1133,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(18, 8);
+            panelEmpreinte.Location = new System.Drawing.Point(16, 82);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -1385,12 +1328,68 @@
             button12.UseVisualStyleBackColor = true;
             button12.Click += button12_Click;
             // 
+            // panelconsentement
+            // 
+            panelconsentement.Controls.Add(button3);
+            panelconsentement.Controls.Add(btn_annuler);
+            panelconsentement.Controls.Add(checkBox1);
+            panelconsentement.Controls.Add(textBox2);
+            panelconsentement.Location = new System.Drawing.Point(17, 80);
+            panelconsentement.Name = "panelconsentement";
+            panelconsentement.Size = new System.Drawing.Size(1021, 492);
+            panelconsentement.TabIndex = 60;
+            // 
+            // button3
+            // 
+            button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            button3.Enabled = false;
+            button3.Image = (System.Drawing.Image)resources.GetObject("button3.Image");
+            button3.Location = new System.Drawing.Point(945, 429);
+            button3.Name = "button3";
+            button3.Size = new System.Drawing.Size(68, 46);
+            button3.TabIndex = 54;
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
+            // btn_annuler
+            // 
+            btn_annuler.Location = new System.Drawing.Point(30, 438);
+            btn_annuler.Name = "btn_annuler";
+            btn_annuler.Size = new System.Drawing.Size(73, 37);
+            btn_annuler.TabIndex = 2;
+            btn_annuler.Text = "Annuler";
+            btn_annuler.UseVisualStyleBackColor = true;
+            btn_annuler.Click += btn_annuler_Click;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(33, 413);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(340, 19);
+            checkBox1.TabIndex = 1;
+            checkBox1.Text = "Je consens à l'enrôlement de mes empreintes biométriques.";
+            checkBox1.UseVisualStyleBackColor = true;
+            checkBox1.CheckedChanged += checkBox1_CheckedChanged;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            textBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            textBox2.Location = new System.Drawing.Point(30, 37);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.ReadOnly = true;
+            textBox2.Size = new System.Drawing.Size(886, 370);
+            textBox2.TabIndex = 0;
+            textBox2.Text = resources.GetString("textBox2.Text");
+            // 
             // panelResultatRecherche
             // 
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
             panelResultatRecherche.Controls.Add(button8);
-            panelResultatRecherche.Location = new System.Drawing.Point(31, 95);
+            panelResultatRecherche.Location = new System.Drawing.Point(13, 83);
             panelResultatRecherche.Name = "panelResultatRecherche";
             panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
             panelResultatRecherche.TabIndex = 62;
@@ -1875,7 +1874,7 @@
             panelCondutil.Controls.Add(chkConsend);
             panelCondutil.Controls.Add(textBox21);
             panelCondutil.Controls.Add(btn_suivant);
-            panelCondutil.Location = new System.Drawing.Point(33, 100);
+            panelCondutil.Location = new System.Drawing.Point(14, 82);
             panelCondutil.Name = "panelCondutil";
             panelCondutil.Size = new System.Drawing.Size(1026, 489);
             panelCondutil.TabIndex = 63;
@@ -1928,9 +1927,9 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(25, 90);
+            panelRecapitulatif.Location = new System.Drawing.Point(12, 82);
             panelRecapitulatif.Name = "panelRecapitulatif";
-            panelRecapitulatif.Size = new System.Drawing.Size(1036, 485);
+            panelRecapitulatif.Size = new System.Drawing.Size(1030, 485);
             panelRecapitulatif.TabIndex = 64;
             panelRecapitulatif.Visible = false;
             // 
@@ -1971,11 +1970,12 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1088, 616);
+            ClientSize = new System.Drawing.Size(1940, 607);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
             Controls.Add(panelResultatRecherche);
+            Controls.Add(panelEmpreinte);
             Controls.Add(panelconsentement);
             Controls.Add(panelSignaletique);
             Controls.Add(panelVerif);
@@ -2014,8 +2014,6 @@
             groupBox4.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
-            panelconsentement.ResumeLayout(false);
-            panelconsentement.PerformLayout();
             panelEmpreinte.ResumeLayout(false);
             panelEmpreinte.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pB_empr).EndInit();
@@ -2026,6 +2024,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureIndex).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureThumb).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureMiddle).EndInit();
+            panelconsentement.ResumeLayout(false);
+            panelconsentement.PerformLayout();
             panelResultatRecherche.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();

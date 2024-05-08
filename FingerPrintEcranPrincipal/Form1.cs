@@ -50,6 +50,73 @@ namespace FingerPrintEcranPrincipal
         private DtoEmpreinte _empreinte = new DtoEmpreinte();
         private readonly string URIBD = Outils.recup().baseUriApi.ToString();
         private string LanceAPP = Outils.recup().NFCappLaunch.ToString();
+
+
+        private async void chargeDataTypePiece()
+        {
+            using (HttpClient _client = new HttpClient())
+            {
+                try
+                {
+                    // Envoyer une requête GET à une URL spécifique
+                    HttpResponseMessage response =await _client.GetAsync(URIBD+ "/Getone");
+
+                    // Vérifier si la réponse est réussie
+                    if (response.IsSuccessStatusCode)
+                    {
+                        // Lire le contenu de la réponse
+                        string responseBody =await response.Content.ReadAsStringAsync();
+                       
+                        List<RetourComboType>? ret_type= JsonConvert.DeserializeObject<List<RetourComboType>>(responseBody);
+                        if(ret_type!=null)
+                        {
+                            txt_typepiece.Items.Clear();
+                            txt_typepiece.DataSource=ret_type;
+                            // Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
+                            txt_typepiece.DisplayMember = "libelle_type_piece";
+
+                            // Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
+                            txt_typepiece.ValueMember = "id_type_piece";
+
+                            // Sélectionnez un élément par défaut si nécessaire
+                            txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
+                        }
+
+                    }
+                    else
+                    {
+                       AvertissementPopup vre = new AvertissementPopup("Erreur Systeme de recuperation, Contactez l'administrateur");
+                       vre.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    AvertissementPopup vre = new AvertissementPopup("Erreur Systeme veuillez Contactez l'administrateur");
+                    vre.ShowDialog();
+
+                }
+            }
+            //List<KeyValuePair<string, string>> items = new List<KeyValuePair<string, string>>();
+            //items.Add(new KeyValuePair<string, string>("lastCni", "Ancienne CNI"));
+            //items.Add(new KeyValuePair<string, string>("newCni", "Nouvelle CNI"));
+            //items.Add(new KeyValuePair<string, string>("passPort", "Passport"));
+
+            //// Attribuez les éléments à la source de données du ComboBox
+            //txt_typepiece.DataSource = items;
+
+            //// Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
+            //txt_typepiece.DisplayMember = "Value";
+
+            //// Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
+            //txt_typepiece.ValueMember = "Key";
+
+            //// Sélectionnez un élément par défaut si nécessaire
+            //txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
+        }
+        
+
+
+
         public frm_Acceuil()
         {
             InitializeComponent();
@@ -57,6 +124,7 @@ namespace FingerPrintEcranPrincipal
             _logger = Log.ForContext<frm_Acceuil>();
             keyValuePairs.Add(new KeyValuePair<string, string>("M", "Homme"));
             keyValuePairs.Add(new KeyValuePair<string, string>("F", "Femme"));
+            
         }
         private void frm_Acceuil_Load(object sender, EventArgs e)
         {
@@ -92,7 +160,7 @@ namespace FingerPrintEcranPrincipal
             {
                 MessageBox.Show("Erreur veuillez connecter tous les lecteurs SVP");
             }
-
+            chargeDataTypePiece();
             toolTip1.SetToolTip(button7, "Aide");
             toolTip2.ToolTipTitle = "Parametre";
             toolTip2.SetToolTip(button16, "Parametre Systeme");
@@ -312,7 +380,7 @@ namespace FingerPrintEcranPrincipal
                     else
                     {
 
-                        _logger.Information("Erreur " + res.Item1);
+                        _logger.Information("Erreur " + res.Item1 + res.Item2);
                         AvertissementPopup Ap = new AvertissementPopup((string)res.Item2);
                         Ap.ShowDialog();
                     }
@@ -440,8 +508,6 @@ namespace FingerPrintEcranPrincipal
 
         }
         //**********************************VERIFICATION DES RETOUR AFIN DE CALL LE PANEL ADEQUAT***********************************************
-
-
 
         private async void pictureThumb_Click(object sender, EventArgs e)
         {
@@ -647,18 +713,9 @@ namespace FingerPrintEcranPrincipal
                     }
 
 
-                    //********************************************PAR NFC **************************************************************
-                    //LanceAPP
-
-                    //    @"@echo off
-                    //        java -jar ""C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\scan.jar"" ""newCni,CI003054046,19931112,20320128""
-
-                    //    pause"
-
-                    //********************************************PAR NFC **************************************************************
+              
                 }
             }
-            //**********************************Si je ne suis pas client******************************
 
         }
         public async Task<(bool, string)> LanceAppliRecupData()
@@ -696,8 +753,8 @@ namespace FingerPrintEcranPrincipal
                 txt_sexe = (comboSex.SelectedIndex == 0) ? 'M' : 'F',
                 date_emiss_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker2.Value.Date),
                 date_expir_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker3.Value.Date),
-                date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date)
-
+                date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date),
+                type_piece = txt_typepiece.SelectedItem.ToString()
 
             };
 
@@ -1152,12 +1209,42 @@ namespace FingerPrintEcranPrincipal
                 Avp.ShowDialog();
                 textBox22.Text = string.Empty;
                 OuverturePanelVerification();
+
+                ViderlesChampsConcerne();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
             }
+        }
+
+        private void ViderlesChampsConcerne()
+        {
+            textBox1.Text = string.Empty;
+            textBox6.Text = string.Empty;
+            textBox7.Text = string.Empty;
+            textBox8.Text = string.Empty;
+            textBox9.Text = string.Empty;
+
+            txtLieuNaissance.Text = string.Empty;
+            txt_nationnalite.Text = string.Empty;
+            txt_proffession.Text = string.Empty;
+            txt_perename.Text = string.Empty;
+            txt_merename.Text = string.Empty;
+            txt_numpiece.Text = string.Empty;
+            txt_numuniq.Text = string.Empty;
+            txt_lieuemission.Text = string.Empty;
+            txt_NNi.Text = string.Empty;
+
+            dateTimePicker1.Value= DateTime.Now;
+            dateTimePicker2.Value= DateTime.Now;
+            dateTimePicker3.Value= DateTime.Now;
+
+            checkBox1.Checked =false;
+            chkConsend.Checked =false;
+
+            
         }
 
 
@@ -1242,6 +1329,12 @@ namespace FingerPrintEcranPrincipal
 
         private void remplirAvecInformationPiece(DataCarteNfc Dtnfc)
         {
+            if(radioButton3.Checked)
+            {
+                chargeDataTypePiece();
+            }
+            
+
             txt_numpiece.Text = Dtnfc.numPiece;
             txt_lieuemission.Text = Dtnfc.lieuEmission;
             txtLieuNaissance.Text = Dtnfc.lieuNaissance;

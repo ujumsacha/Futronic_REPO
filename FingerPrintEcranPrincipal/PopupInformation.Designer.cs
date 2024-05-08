@@ -144,6 +144,7 @@
             Dt_naissance.Name = "Dt_naissance";
             Dt_naissance.Size = new System.Drawing.Size(189, 29);
             Dt_naissance.TabIndex = 3;
+            Dt_naissance.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             Dt_naissance.ValueChanged += Dt_naissance_ValueChanged;
             // 
             // Dt_Exp
@@ -153,6 +154,7 @@
             Dt_Exp.Name = "Dt_Exp";
             Dt_Exp.Size = new System.Drawing.Size(190, 29);
             Dt_Exp.TabIndex = 4;
+            Dt_Exp.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // button1
             // 

@@ -54,6 +54,7 @@ namespace FingerPrintEcranPrincipal
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
             Typedepiece = comboBox1.SelectedValue.ToString();
             numeroPIECE = txt_numpiece.Text;
             _datenaissance = Dt_naissance.Value.Date;
