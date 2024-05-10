@@ -236,7 +236,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1101, 70);
+            panel1.Size = new System.Drawing.Size(1095, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -727,7 +727,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(7, 76);
+            panelSignaletique.Location = new System.Drawing.Point(12, 80);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -818,6 +818,7 @@
             txt_numpiece.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_numpiece.Location = new System.Drawing.Point(211, 39);
             txt_numpiece.Name = "txt_numpiece";
+            txt_numpiece.PlaceholderText = "CI0000000001";
             txt_numpiece.Size = new System.Drawing.Size(183, 23);
             txt_numpiece.TabIndex = 90;
             // 
@@ -855,6 +856,7 @@
             txt_lieuemission.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_lieuemission.Location = new System.Drawing.Point(401, 96);
             txt_lieuemission.Name = "txt_lieuemission";
+            txt_lieuemission.PlaceholderText = "BOUAKE";
             txt_lieuemission.Size = new System.Drawing.Size(172, 23);
             txt_lieuemission.TabIndex = 86;
             // 
@@ -883,6 +885,7 @@
             txt_numuniq.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_numuniq.Location = new System.Drawing.Point(16, 95);
             txt_numuniq.Name = "txt_numuniq";
+            txt_numuniq.PlaceholderText = "0025465";
             txt_numuniq.Size = new System.Drawing.Size(137, 23);
             txt_numuniq.TabIndex = 82;
             // 
@@ -958,6 +961,7 @@
             txt_merename.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_merename.Location = new System.Drawing.Point(474, 162);
             txt_merename.Name = "txt_merename";
+            txt_merename.PlaceholderText = "ROKIATOU DIALLO";
             txt_merename.Size = new System.Drawing.Size(359, 23);
             txt_merename.TabIndex = 98;
             // 
@@ -977,6 +981,7 @@
             txt_perename.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_perename.Location = new System.Drawing.Point(17, 162);
             txt_perename.Name = "txt_perename";
+            txt_perename.PlaceholderText = "TAPE JEAN";
             txt_perename.Size = new System.Drawing.Size(404, 23);
             txt_perename.TabIndex = 94;
             // 
@@ -996,6 +1001,7 @@
             txt_nationnalite.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_nationnalite.Location = new System.Drawing.Point(541, 106);
             txt_nationnalite.Name = "txt_nationnalite";
+            txt_nationnalite.PlaceholderText = "IVOIRIEN";
             txt_nationnalite.Size = new System.Drawing.Size(151, 23);
             txt_nationnalite.TabIndex = 92;
             // 
@@ -1015,6 +1021,7 @@
             txtLieuNaissance.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txtLieuNaissance.Location = new System.Drawing.Point(355, 107);
             txtLieuNaissance.Name = "txtLieuNaissance";
+            txtLieuNaissance.PlaceholderText = "ABIDJAN";
             txtLieuNaissance.Size = new System.Drawing.Size(157, 23);
             txtLieuNaissance.TabIndex = 90;
             // 
@@ -1043,6 +1050,7 @@
             textBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textBox9.Location = new System.Drawing.Point(17, 106);
             textBox9.Name = "textBox9";
+            textBox9.PlaceholderText = "170";
             textBox9.Size = new System.Drawing.Size(108, 23);
             textBox9.TabIndex = 86;
             // 
@@ -1062,6 +1070,7 @@
             textBox8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textBox8.Location = new System.Drawing.Point(159, 51);
             textBox8.Name = "textBox8";
+            textBox8.PlaceholderText = "EX : JEAN ";
             textBox8.Size = new System.Drawing.Size(353, 23);
             textBox8.TabIndex = 84;
             // 
@@ -1092,6 +1101,7 @@
             textBox7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textBox7.Location = new System.Drawing.Point(17, 51);
             textBox7.Name = "textBox7";
+            textBox7.PlaceholderText = "EX : KOUADIO";
             textBox7.Size = new System.Drawing.Size(108, 23);
             textBox7.TabIndex = 80;
             // 
@@ -1970,7 +1980,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1093, 603);
+            ClientSize = new System.Drawing.Size(1087, 603);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
