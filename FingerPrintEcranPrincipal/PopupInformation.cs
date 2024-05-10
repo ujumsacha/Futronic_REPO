@@ -54,7 +54,21 @@ namespace FingerPrintEcranPrincipal
         }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            if(Dt_naissance.Value.Date.Year<1900)
+            {
+                label5.Visible = true;
+                Task.Delay(2000);
+                label5.Visible = false;
+                return;
+            }
+            if(Dt_Exp.Value.Date.Year<1900)
+            {
+                label6.Visible = true;
+                Task.Delay(2000);
+                label6.Visible = false;
+                return;
+            }
+           
             Typedepiece = comboBox1.SelectedValue.ToString();
             numeroPIECE = txt_numpiece.Text;
             _datenaissance = Dt_naissance.Value.Date;

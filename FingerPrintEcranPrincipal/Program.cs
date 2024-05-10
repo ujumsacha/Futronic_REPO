@@ -25,10 +25,10 @@ namespace FingerPrintEcranPrincipal
             createfile();
             createfileParametre();
 
-            var dt = DateTime.Now.Date.ToString().Substring(0, 10).Replace("/", "");
-            Serilog.Log.Logger = new LoggerConfiguration()
-               .WriteTo.File($"logFolder/log_{dt}.txt") // Écrit les logs dans un fichier
-               .CreateLogger();
+            //var dt = DateTime.Now.Date.ToString().Substring(0, 10).Replace("/", "");
+            //Serilog.Log.Logger = new LoggerConfiguration()
+            //   .WriteTo.File($"logFolder/log_{dt}.txt") // Écrit les logs dans un fichier
+            //   .CreateLogger();
 
 
             Application.Run(new frm_Acceuil());

@@ -108,7 +108,7 @@
             label56 = new System.Windows.Forms.Label();
             textBox8 = new System.Windows.Forms.TextBox();
             label47 = new System.Windows.Forms.Label();
-            comboSex = new System.Windows.Forms.ComboBox();
+            comboSexgenre = new System.Windows.Forms.ComboBox();
             textBox7 = new System.Windows.Forms.TextBox();
             label49 = new System.Windows.Forms.Label();
             button10 = new System.Windows.Forms.Button();
@@ -236,7 +236,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1948, 70);
+            panel1.Size = new System.Drawing.Size(1101, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -290,7 +290,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(15, 88);
+            panelVerif.Location = new System.Drawing.Point(12, 78);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -406,7 +406,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(14, 80);
+            panelEnrollement.Location = new System.Drawing.Point(11, 80);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -469,11 +469,11 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             label10.ForeColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            label10.Location = new System.Drawing.Point(71, 163);
+            label10.Location = new System.Drawing.Point(65, 160);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(295, 17);
+            label10.Size = new System.Drawing.Size(260, 16);
             label10.TabIndex = 7;
             label10.Text = " de proceder a la saisie des informations ";
             label10.Visible = false;
@@ -481,11 +481,11 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             label9.ForeColor = System.Drawing.Color.FromArgb(192, 0, 0);
-            label9.Location = new System.Drawing.Point(24, 143);
+            label9.Location = new System.Drawing.Point(9, 141);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(404, 17);
+            label9.Size = new System.Drawing.Size(363, 16);
             label9.TabIndex = 6;
             label9.Text = "Veuillez cliquer sur le bouton suivant en bas a droite Afin";
             label9.Visible = false;
@@ -727,7 +727,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(975, 72);
+            panelSignaletique.Location = new System.Drawing.Point(7, 76);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -905,7 +905,7 @@
             groupBox2.Controls.Add(label56);
             groupBox2.Controls.Add(textBox8);
             groupBox2.Controls.Add(label47);
-            groupBox2.Controls.Add(comboSex);
+            groupBox2.Controls.Add(comboSexgenre);
             groupBox2.Controls.Add(textBox7);
             groupBox2.Controls.Add(label49);
             groupBox2.Location = new System.Drawing.Point(20, 22);
@@ -1074,16 +1074,16 @@
             label47.TabIndex = 81;
             label47.Text = "Nom :";
             // 
-            // comboSex
+            // comboSexgenre
             // 
-            comboSex.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            comboSex.FormattingEnabled = true;
-            comboSex.Items.AddRange(new object[] { "Homme", "Femme" });
-            comboSex.Location = new System.Drawing.Point(541, 51);
-            comboSex.Name = "comboSex";
-            comboSex.Size = new System.Drawing.Size(97, 23);
-            comboSex.TabIndex = 83;
-            comboSex.SelectedIndexChanged += comboSex_SelectedIndexChanged;
+            comboSexgenre.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            comboSexgenre.FormattingEnabled = true;
+            comboSexgenre.Items.AddRange(new object[] { "Homme", "Femme" });
+            comboSexgenre.Location = new System.Drawing.Point(541, 51);
+            comboSexgenre.Name = "comboSexgenre";
+            comboSexgenre.Size = new System.Drawing.Size(97, 23);
+            comboSexgenre.TabIndex = 83;
+            comboSexgenre.SelectedIndexChanged += comboSex_SelectedIndexChanged;
             // 
             // textBox7
             // 
@@ -1389,7 +1389,7 @@
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
             panelResultatRecherche.Controls.Add(button8);
-            panelResultatRecherche.Location = new System.Drawing.Point(13, 83);
+            panelResultatRecherche.Location = new System.Drawing.Point(12, 83);
             panelResultatRecherche.Name = "panelResultatRecherche";
             panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
             panelResultatRecherche.TabIndex = 62;
@@ -1927,7 +1927,7 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(12, 82);
+            panelRecapitulatif.Location = new System.Drawing.Point(10, 80);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1030, 485);
             panelRecapitulatif.TabIndex = 64;
@@ -1970,7 +1970,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1940, 607);
+            ClientSize = new System.Drawing.Size(1093, 603);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
@@ -2090,7 +2090,7 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label47;
-        private System.Windows.Forms.ComboBox comboSex;
+        private System.Windows.Forms.ComboBox comboSexgenre;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Button button10;

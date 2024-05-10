@@ -10,6 +10,7 @@ namespace FingerPrintEcranPrincipal.Reponses
     {
         public int id_type_piece { get; set; }
         public string libelle_type_piece { get; set; }
+        public string code{ get; set; }
     }
 }
 

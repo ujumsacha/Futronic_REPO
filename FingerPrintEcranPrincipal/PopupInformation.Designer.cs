@@ -41,6 +41,8 @@
             Dt_Exp = new System.Windows.Forms.DateTimePicker();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
+            label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
             panel5.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -67,6 +69,8 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label6);
+            groupBox1.Controls.Add(label5);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(comboBox1);
             groupBox1.Controls.Add(txt_numpiece);
@@ -180,6 +184,28 @@
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = System.Drawing.Color.Red;
+            label5.Location = new System.Drawing.Point(365, 132);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(107, 21);
+            label5.TabIndex = 8;
+            label5.Text = "Date incorrect";
+            label5.Visible = false;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = System.Drawing.Color.Red;
+            label6.Location = new System.Drawing.Point(365, 178);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(107, 21);
+            label6.TabIndex = 9;
+            label6.Text = "Date incorrect";
+            label6.Visible = false;
+            // 
             // PopupInformation
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -217,5 +243,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -53,45 +53,45 @@ namespace FormCreation
             //// Récupération de la sortie standard et d'erreur (optionnel)
             //string output = process.StandardOutput.ReadToEnd();
             //string error = process.StandardError.ReadToEnd();
-            WriteContenueFichierBat();
+            //WriteContenueFichierBat();
 
-            string command = @"C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\NFC.bat";
-            //string args = "MyParam1 MyParam2";
+            //string command = @"C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\NFC.bat";
+            ////string args = "MyParam1 MyParam2";
 
-            Process process = new Process();
-            process.StartInfo.FileName = command;
-            //process.StartInfo.Arguments = args;
-            process.Start();
+            //Process process = new Process();
+            //process.StartInfo.FileName = command;
+            ////process.StartInfo.Arguments = args;
+            //process.Start();
 
-            
-
-
-                //string command = @"java -jar ""C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\scan.jar"" ""newCni,CI003054046,19931112,20320128""";
-
-                //ProcessStartInfo procStartInfo = new ProcessStartInfo("cmd", "/c " + command);
-
-                //procStartInfo.RedirectStandardOutput = true;
-                //procStartInfo.UseShellExecute = false;
-                //procStartInfo.CreateNoWindow = true;
-
-                //using (Process process = new Process())
-                //{
-                //    process.StartInfo = procStartInfo;
-                //    process.Start();
-
-                //    // Add this: wait until process does its work
-                //    process.WaitForExit();
-
-                //    // and only then read the result
-                //    string result = process.StandardOutput.ReadToEnd();
-                //    Console.WriteLine(result);
-                //}
+            dateTimePicker1.Value= DateTime.ParseExact("19941220", "yyyyMMdd", null);
 
 
+            //string command = @"java -jar ""C:\Users\sacha.ogou\source\repos\Futronic_REPO\FingerPrintEcranPrincipal\bin\Debug\net5.0-windows\APP NFC\scan.jar"" ""newCni,CI003054046,19931112,20320128""";
+
+            //ProcessStartInfo procStartInfo = new ProcessStartInfo("cmd", "/c " + command);
+
+            //procStartInfo.RedirectStandardOutput = true;
+            //procStartInfo.UseShellExecute = false;
+            //procStartInfo.CreateNoWindow = true;
+
+            //using (Process process = new Process())
+            //{
+            //    process.StartInfo = procStartInfo;
+            //    process.Start();
+
+            //    // Add this: wait until process does its work
+            //    process.WaitForExit();
+
+            //    // and only then read the result
+            //    string result = process.StandardOutput.ReadToEnd();
+            //    Console.WriteLine(result);
+            //}
 
 
 
-            }
+
+
+        }
 
         public static (bool, bool) WriteContenueFichierBat()
         {
@@ -106,7 +106,7 @@ namespace FormCreation
                                 pause";
                     writer.Write(test);
                 }
-                return (true,true);
+                return (true, true);
             }
             catch (Exception ex)
             {
@@ -115,7 +115,12 @@ namespace FormCreation
             }
         }
 
-            private void button1_Click_1(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
         {
 
         }

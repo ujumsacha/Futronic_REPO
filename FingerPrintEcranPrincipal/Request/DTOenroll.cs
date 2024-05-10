@@ -30,7 +30,7 @@ namespace FingerPrintEcranPrincipal.Request
         [JsonPropertyName("Taille(cm) ")]
         public string txt_taille { get; set; }
         [JsonPropertyName("Sexe")]
-        public char txt_sexe { get; set; }
+        public string txt_sexe { get; set; }
 
         [JsonPropertyName("Date de Naissance")]
         public string date_naiss { get; set; } // "AAAA/MM/JJ"

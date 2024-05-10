@@ -29,11 +29,12 @@
         private void InitializeComponent()
         {
             button1 = new System.Windows.Forms.Button();
+            dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new System.Drawing.Point(178, 76);
+            button1.Location = new System.Drawing.Point(424, 176);
             button1.Name = "button1";
             button1.Size = new System.Drawing.Size(75, 23);
             button1.TabIndex = 0;
@@ -41,19 +42,29 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new System.Drawing.Point(162, 174);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            dateTimePicker1.TabIndex = 1;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1060, 572);
+            Controls.Add(dateTimePicker1);
             Controls.Add(button1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }

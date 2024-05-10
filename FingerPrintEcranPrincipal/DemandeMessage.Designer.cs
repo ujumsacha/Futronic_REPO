@@ -63,9 +63,9 @@
             label1.ForeColor = System.Drawing.Color.Red;
             label1.Location = new System.Drawing.Point(12, 72);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(408, 16);
+            label1.Size = new System.Drawing.Size(404, 16);
             label1.TabIndex = 6;
-            label1.Text = "Identifiant non trouvé voulez vous passer a votre Enrollement ?";
+            label1.Text = "Identifiant non trouvé voulez vous passer a votre Enrôlement ?";
             // 
             // button1
             // 

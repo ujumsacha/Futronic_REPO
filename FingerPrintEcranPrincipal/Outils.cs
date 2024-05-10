@@ -175,7 +175,7 @@ namespace FingerPrintEcranPrincipal
             Contentdata += $"Numero CNI :{dt.txt_cni} "+Environment.NewLine;
             Contentdata += $"NOM :{dt.txt_nom} "+Environment.NewLine;
             Contentdata += $"PRENOMS :{dt.txt_prenom} "+Environment.NewLine;
-            Contentdata += $"GENRE :{((dt.txt_sexe=='M') ? "Homme": "Femme")} " +Environment.NewLine;
+            Contentdata += $"GENRE :{((dt.txt_sexe=="M") ? "Homme": "Femme")} " +Environment.NewLine;
             Contentdata += $"Numero UNIQUE :{dt.txt_num_unique} "+Environment.NewLine;
             Contentdata += $"LIEU D'EMISSION :{dt.txt_lieu_emission} " +Environment.NewLine;
             Contentdata += $"LIEU DE NAISSANCE :{dt.txt_lieu_naissance} " +Environment.NewLine;
@@ -185,9 +185,6 @@ namespace FingerPrintEcranPrincipal
             Contentdata += $"DATE D'EMISSION :{dt.date_emiss_cni} " +Environment.NewLine;
             Contentdata += $"DATE D'EXPIRATION :{dt.date_expir_cni} " +Environment.NewLine; 
             Contentdata += $"DATE DE NAISSANCE :{dt.date_naiss} " +Environment.NewLine;
-
-
-
 
             return Contentdata;
         }
@@ -205,10 +202,9 @@ namespace FingerPrintEcranPrincipal
                 {
                     var test = @"@echo off " + Environment.NewLine;
                     test += "java -jar \"" + recup().CheminScanJar + "\" " + mesparams+Environment.NewLine;
-                    //test += "pause";
+                    test += "pause";
                     writer.Write(test);
                 }
-
 
                 string cheminFile = recup().CheminIntoBatfile;
                 //********************************************Execute NFC*****************************************************
@@ -252,7 +248,7 @@ namespace FingerPrintEcranPrincipal
 
                 if (!File.Exists(cheminFile))
                 {
-                    return (false, $"Fichier Inexistant {cheminFile}");
+                    return (false, "Fichier Inexistant");
                 }
                 
                 string content = File.ReadAllText(cheminFile);

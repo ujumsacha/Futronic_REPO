@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using Serilog;
 using Serilog.Core;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,7 +44,7 @@ namespace FingerPrintEcranPrincipal
         private byte[] LittleFinger;
         //***********************Gestion d'array de byte pour les empreinte*******************************
         private List<KeyValuePair<string, string>> keyValuePairs = new List<KeyValuePair<string, string>>();
-        private List<KeyValuePair<string, string>> listTypePiece = new List<KeyValuePair<string, string>>();
+        //private List<KeyValuePair<string, string>> listTypePiece = new List<KeyValuePair<string, string>>();
         private ILogger _logger;
         private AdminsystemeParam ParamApp = Outils.recupAdminParam();
         private DtoEnroll _dtoEnroll;
@@ -52,14 +53,14 @@ namespace FingerPrintEcranPrincipal
         private string LanceAPP = Outils.recup().NFCappLaunch.ToString();
 
 
-        private async void chargeDataTypePiece()
+        private async void chargeDataTypePiece(string _data)
         {
             using (HttpClient _client = new HttpClient())
             {
                 try
                 {
                     // Envoyer une requête GET à une URL spécifique
-                    HttpResponseMessage response =await _client.GetAsync(URIBD+ "/Getone");
+                    HttpResponseMessage response =await _client.GetAsync(URIBD+ $"/gettypepiece/{_data}");
 
                     // Vérifier si la réponse est réussie
                     if (response.IsSuccessStatusCode)
@@ -67,21 +68,31 @@ namespace FingerPrintEcranPrincipal
                         // Lire le contenu de la réponse
                         string responseBody =await response.Content.ReadAsStringAsync();
                        
-                        List<RetourComboType>? ret_type= JsonConvert.DeserializeObject<List<RetourComboType>>(responseBody);
-                        if(ret_type!=null)
+                        GeneraleResponse GN1 = JsonConvert.DeserializeObject< GeneraleResponse>(responseBody);
+                        if (GN1.data == "[  ]")
                         {
-                            txt_typepiece.Items.Clear();
-                            txt_typepiece.DataSource=ret_type;
-                            // Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
-                            txt_typepiece.DisplayMember = "libelle_type_piece";
-
-                            // Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
-                            txt_typepiece.ValueMember = "id_type_piece";
-
-                            // Sélectionnez un élément par défaut si nécessaire
-                            txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
+                            AvertissementPopup Avs = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
+                            Avs.ShowDialog();
+                            Application.Exit();
                         }
+                        else
+                        {
+                            BindingList<RetourComboType>? ret_type = JsonConvert.DeserializeObject<BindingList<RetourComboType>>(GN1.data);
+                            if (ret_type != null)
+                            {
+                                txt_typepiece.Items.Clear();
+                                txt_typepiece.DataSource = ret_type;
+                                // Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
+                                
+                                txt_typepiece.DisplayMember = "libelle_type_piece";
 
+                                // Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
+                                txt_typepiece.ValueMember = "code";
+
+                                // Sélectionnez un élément par défaut si nécessaire
+                                //txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
+                            }
+                        }
                     }
                     else
                     {
@@ -96,22 +107,6 @@ namespace FingerPrintEcranPrincipal
 
                 }
             }
-            //List<KeyValuePair<string, string>> items = new List<KeyValuePair<string, string>>();
-            //items.Add(new KeyValuePair<string, string>("lastCni", "Ancienne CNI"));
-            //items.Add(new KeyValuePair<string, string>("newCni", "Nouvelle CNI"));
-            //items.Add(new KeyValuePair<string, string>("passPort", "Passport"));
-
-            //// Attribuez les éléments à la source de données du ComboBox
-            //txt_typepiece.DataSource = items;
-
-            //// Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
-            //txt_typepiece.DisplayMember = "Value";
-
-            //// Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
-            //txt_typepiece.ValueMember = "Key";
-
-            //// Sélectionnez un élément par défaut si nécessaire
-            //txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
         }
         
 
@@ -122,8 +117,7 @@ namespace FingerPrintEcranPrincipal
             InitializeComponent();
 
             _logger = Log.ForContext<frm_Acceuil>();
-            keyValuePairs.Add(new KeyValuePair<string, string>("M", "Homme"));
-            keyValuePairs.Add(new KeyValuePair<string, string>("F", "Femme"));
+           
             
         }
         private void frm_Acceuil_Load(object sender, EventArgs e)
@@ -160,18 +154,23 @@ namespace FingerPrintEcranPrincipal
             {
                 MessageBox.Show("Erreur veuillez connecter tous les lecteurs SVP");
             }
-            chargeDataTypePiece();
+            //chargeDataTypePiece();
+            keyValuePairs.Add(new KeyValuePair<string, string>("M", "Homme"));
+            keyValuePairs.Add(new KeyValuePair<string, string>("F", "Femme"));
             toolTip1.SetToolTip(button7, "Aide");
             toolTip2.ToolTipTitle = "Parametre";
             toolTip2.SetToolTip(button16, "Parametre Systeme");
 
-
+            var dt = DateTime.Now.Date.ToString().Substring(0, 10).Replace("/", "");
+            Serilog.Log.Logger = new LoggerConfiguration()
+                   .WriteTo.File($"logFolder/log_{dt}_forms.txt") // Écrit les logs dans un fichier
+                   .CreateLogger();
 
             lbl_messageinput.Visible = true;
             lbl_messageinput.Text = "Veuillez renseigner le numero CNI SVP ...";
             rd_numPiece.Checked = true;
 
-
+            remplirComboSexe();
             OuverturePanelVerification();
 
         }
@@ -614,16 +613,21 @@ namespace FingerPrintEcranPrincipal
         {
 
             // Assurez-vous que le ComboBox est vide avant de le remplir
-            comboSex.Items.Clear();
+            comboSexgenre.Items.Clear();
 
             // Parcourez chaque paire clé-valeur dans la liste et ajoutez-la au ComboBox
-            foreach (var kvp in keyValuePairs)
-            {
-                comboSex.Items.Add(kvp);
-            }
+            //foreach (var kvp in keyValuePairs)
+            //{
+            //    comboSexgenre.Items.Add(kvp);
+                
+            //}
+            comboSexgenre.DataSource = keyValuePairs;
+            comboSexgenre.ValueMember = "Key";
+            comboSexgenre.DisplayMember = "Value";
+
 
             // Définissez la propriété DisplayMember pour afficher la valeur
-            comboSex.DisplayMember = "Value";
+            //comboSexgenre.DisplayMember = "Value";
 
         }
 
@@ -750,14 +754,19 @@ namespace FingerPrintEcranPrincipal
                 txt_prenom = textBox8.Text,
                 txt_profession = txt_proffession.Text,
                 txt_taille = textBox9.Text,
-                txt_sexe = (comboSex.SelectedIndex == 0) ? 'M' : 'F',
+
+                
+                txt_sexe =(string)comboSexgenre.SelectedValue,
+
                 date_emiss_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker2.Value.Date),
                 date_expir_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker3.Value.Date),
                 date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date),
-                type_piece = txt_typepiece.SelectedItem.ToString()
+                type_piece = (string)txt_typepiece.SelectedValue
+
 
             };
-
+            Log.Information($"RECUPERATION COMBO SEXE ==================> INDEX {comboSexgenre.SelectedIndex.ToString()} ValueMember {comboSexgenre.ValueMember} SelectedValue {comboSexgenre.SelectedValue})");
+            Log.Information($"RECUPERATION TYPE DE PIECE ==================> INDEX {txt_typepiece.SelectedIndex.ToString()} ValueMember {txt_typepiece.ValueMember} SelectedValue {txt_typepiece.SelectedValue})");
             if (ParamApp.Use_empreinte)
             {
                 OuverturePanelConsentement();
@@ -934,7 +943,7 @@ namespace FingerPrintEcranPrincipal
             panelEmpreinte.Visible = false;
             panelSignaletique.Visible = false;
             panelResultatRecherche.Visible = true;
-            label1.Text = "VERIFICATION DES INFORMATION SIGNALETIQUE";
+            label1.Text = "VERIFICATION DES INFORMATIONS SIGNALETIQUES";
         }
         public void OuverturePanelConditionUtilisation()
         {
@@ -1203,18 +1212,30 @@ namespace FingerPrintEcranPrincipal
         {
             try
             {
-                _dtoEnroll.empreintes = _empreinte;
-                await PostDataToserver(_dtoEnroll);
-                AvertissementPopup Avp = new AvertissementPopup("Enrolement effectué avec Succes");
-                Avp.ShowDialog();
-                textBox22.Text = string.Empty;
-                OuverturePanelVerification();
+                _dtoEnroll.empreintes = null;
+                (bool,string) mavarret = await PostDataToserver(_dtoEnroll);
 
-                ViderlesChampsConcerne();
+                Log.Information($"REt====>{mavarret.Item1} contenue est {mavarret.Item2}");
+                if(mavarret.Item1)
+                {
+                    AvertissementPopup Avp = new AvertissementPopup("Enrôlement effectué avec Succes");
+                    Avp.ShowDialog();
+                    textBox22.Text = string.Empty;
+                    OuverturePanelVerification();
+
+                    ViderlesChampsConcerne();
+                }
+                else
+                {
+                    AvertissementPopup Avp = new AvertissementPopup(mavarret.Item2);
+                    Avp.ShowDialog();
+                }
+                
+                
             }
             catch (Exception ex)
             {
-
+                Log.Error(ex.Message);
                 MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
             }
         }
@@ -1248,7 +1269,7 @@ namespace FingerPrintEcranPrincipal
         }
 
 
-        public async Task PostDataToserver(DtoEnroll sendEmpreinte)
+        public async Task<(bool,string)> PostDataToserver(DtoEnroll sendEmpreinte)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -1258,64 +1279,67 @@ namespace FingerPrintEcranPrincipal
                     HttpContent content = new StringContent(JsonConvert.SerializeObject(sendEmpreinte), Encoding.UTF8, "application/json");
                     HttpResponseMessage _response = await client.PostAsync(_Uri, content);
 
+
+                    Log.Information($"Contenue de la requette===================================> {JsonConvert.SerializeObject(sendEmpreinte)}");
                     string parseur = _response.Content.ReadAsStringAsync().Result;
                     GeneraleResponse ResultJson = JsonConvert.DeserializeObject<GeneraleResponse>(parseur);
+
+
+
+                    Log.Information($"Retour requette HTTP====>{parseur}");
                     //logger.Information($" Http status code {_response.StatusCode} Code retour {ResultJson?.code} Données presentes sont : {ResultJson?.data}");
                     switch (_response.StatusCode)
                     {
                         case System.Net.HttpStatusCode.OK:
-                            AvertissementPopup Avp = new AvertissementPopup("Enorllmeent effectué avec Succes");
-                            Avp.ShowDialog();
-                            OuverturePanelVerification();
-                            break;
+
+                            return (true,"Enrôlement effectué avec Succes");
+                            
                         case System.Net.HttpStatusCode.InternalServerError:
                             switch (ResultJson.code)
                             {
                                 case "ERR0018 ":
-                                    MessageBox.Show("erreur dans la sauvegarde de l'empreinte");
-                                    break;
+                                    return (false, "erreur dans la sauvegarde de l'empreinte");
+                                    
                                 case "ERR0016 ":
-                                    MessageBox.Show("erreur de récupération des paramètre de la Base de données");
-                                    break;
+                                    return (false, "erreur de récupération des paramètre de la Base de données");
+                                   
                                 case "ERR0020":
-                                    MessageBox.Show("Erreur système veuillez contacter l'administrateur");
-                                    break;
+                                    return (false, "Erreur système veuillez contacter l'administrateur");
+                                default:
+                                    return (false, "Erreur 500 Systeme veuillez contacter l'administrateur");
                             }
-
-                            break;
                         case System.Net.HttpStatusCode.BadRequest:
                             switch (ResultJson.code)
                             {
                                 case "ERR0010 ":
-                                    MessageBox.Show("Valeur invalide pour l'un des champs");
-                                    break;
+                                   return (false, "Valeur invalide pour l'un des champs");
+                                    
                                 case "ERR0011 ":
-                                    MessageBox.Show("Format invalide pour la date de naissance");
-                                    break;
+                                   return (false, "Format invalide pour la date de naissance");
+                                    
                                 case "ERR0012":
-                                    MessageBox.Show("Format invalide pour la date d'émission de la CNI");
-                                    break;
+                                   return (false, "Format invalide pour la date d'émission de la Pièce");
+                                    
                                 case "ERR0013":
-                                    MessageBox.Show("Format invalide pour la date d'expiration de la CNI");
-                                    break;
+                                   return (false, "Format invalide pour la date d'expiration de la Pièce");
+                                   
                                 case "ERR0015":
-                                    MessageBox.Show("Valeur sexe invalide");
-                                    break;
+                                   return (false, "Valeur sexe invalide");
+                                    
                                 case "ERR0017":
-                                    MessageBox.Show(ResultJson.descrition);
-                                    break;
+                                   return (false, ResultJson.descrition);
+                                default:
+                                    return (false, "Erreur 400 Systeme veuillez contacter l'administrateur ");
                             }
-                            break;
 
                         default:
-                            MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
-                            break;
+                           return (false, "Erreur (default) Systeme veuillez contacter l'administrateur");
+                           
                     }
                 }
                 catch (Exception ex)
                 {
-
-                    MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+                   return (false, "Erreur Systeme veuillez contacter l'administrateur");
                 }
 
             }
@@ -1331,24 +1355,26 @@ namespace FingerPrintEcranPrincipal
         {
             if(radioButton3.Checked)
             {
-                chargeDataTypePiece();
+                chargeDataTypePiece("NFC");
+                txt_numpiece.Text = Dtnfc.numPiece;
+                txt_lieuemission.Text = Dtnfc.lieuEmission;
+                txtLieuNaissance.Text = Dtnfc.lieuNaissance;
+                txt_nationnalite.Text = Dtnfc.nationnalite;
+                txt_NNi.Text = "";
+                textBox7.Text = Dtnfc.nom;
+                txt_numuniq.Text = "";
+                textBox8.Text = Dtnfc.prenom;
+                txt_proffession.Text = Dtnfc.profession;
+                textBox9.Text = Dtnfc.taille;
+                dateTimePicker2.Value = DateTime.ParseExact(((Dtnfc.dateEmission==string.Empty) ? "18000101" : Dtnfc.dateEmission), "yyyyMMdd", null);
+                dateTimePicker3.Value = DateTime.ParseExact(((Dtnfc.dateExpire == string.Empty) ? "18000101" : Dtnfc.dateExpire), "yyyyMMdd", null);
+                dateTimePicker1.Value = DateTime.ParseExact(((Dtnfc.dateNaissance == string.Empty) ? "18000101" : Dtnfc.dateNaissance), "yyyyMMdd", null);
+ 
+                comboSexgenre.SelectedValue = Dtnfc.genre;
             }
             
 
-            txt_numpiece.Text = Dtnfc.numPiece;
-            txt_lieuemission.Text = Dtnfc.lieuEmission;
-            txtLieuNaissance.Text = Dtnfc.lieuNaissance;
-            txt_nationnalite.Text = Dtnfc.nationnalite;
-            txt_NNi.Text = "";
-            textBox7.Text = Dtnfc.nom;
-            txt_numuniq.Text = "";
-            textBox8.Text = Dtnfc.prenom;
-            txt_proffession.Text = Dtnfc.profession;
-            textBox9.Text = Dtnfc.taille;
-            dateTimePicker2.Value = DateTime.ParseExact(Dtnfc.dateEmission, "dd/MM/yyyy", null);
-            dateTimePicker3.Value = DateTime.ParseExact(Dtnfc.dateExpire, "dd/MM/yyyy", null); ;
-            dateTimePicker1.Value = DateTime.ParseExact(Dtnfc.dateNaissance, "dd/MM/yyyy", null);
-            comboSex.ValueMember = Dtnfc.genre;
+           
 
         }
 
