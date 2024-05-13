@@ -118,6 +118,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackColor = System.Drawing.SystemColors.ButtonHighlight;
             ClientSize = new System.Drawing.Size(346, 200);
             Controls.Add(label2);
             Controls.Add(button2);

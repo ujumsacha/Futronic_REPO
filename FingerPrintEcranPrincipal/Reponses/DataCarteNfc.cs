@@ -34,5 +34,6 @@ namespace FingerPrintEcranPrincipal.Reponses
         public string nomComplet { get; set; }
         public string lieuEmission { get; set; }
         public string pays { get; set; }
+        public string numNNI { get; set; }
     }
 }

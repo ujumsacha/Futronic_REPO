@@ -31,6 +31,8 @@
             panel5 = new System.Windows.Forms.Panel();
             label7 = new System.Windows.Forms.Label();
             groupBox1 = new System.Windows.Forms.GroupBox();
+            label6 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
             txt_numpiece = new System.Windows.Forms.TextBox();
@@ -41,8 +43,6 @@
             Dt_Exp = new System.Windows.Forms.DateTimePicker();
             button1 = new System.Windows.Forms.Button();
             button2 = new System.Windows.Forms.Button();
-            label5 = new System.Windows.Forms.Label();
-            label6 = new System.Windows.Forms.Label();
             panel5.SuspendLayout();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -87,6 +87,28 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Information(s)";
             groupBox1.Enter += groupBox1_Enter;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = System.Drawing.Color.Red;
+            label6.Location = new System.Drawing.Point(365, 178);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(107, 21);
+            label6.TabIndex = 9;
+            label6.Text = "Date incorrect";
+            label6.Visible = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.ForeColor = System.Drawing.Color.Red;
+            label5.Location = new System.Drawing.Point(365, 132);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(107, 21);
+            label5.TabIndex = 8;
+            label5.Text = "Date incorrect";
+            label5.Visible = false;
             // 
             // label4
             // 
@@ -148,7 +170,7 @@
             Dt_naissance.Name = "Dt_naissance";
             Dt_naissance.Size = new System.Drawing.Size(189, 29);
             Dt_naissance.TabIndex = 3;
-            Dt_naissance.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            Dt_naissance.Value = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             Dt_naissance.ValueChanged += Dt_naissance_ValueChanged;
             // 
             // Dt_Exp
@@ -158,7 +180,7 @@
             Dt_Exp.Name = "Dt_Exp";
             Dt_Exp.Size = new System.Drawing.Size(190, 29);
             Dt_Exp.TabIndex = 4;
-            Dt_Exp.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            Dt_Exp.Value = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             // 
             // button1
             // 
@@ -183,28 +205,6 @@
             button2.Text = "Annuler";
             button2.UseVisualStyleBackColor = false;
             button2.Click += button2_Click;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.ForeColor = System.Drawing.Color.Red;
-            label5.Location = new System.Drawing.Point(365, 132);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(107, 21);
-            label5.TabIndex = 8;
-            label5.Text = "Date incorrect";
-            label5.Visible = false;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.ForeColor = System.Drawing.Color.Red;
-            label6.Location = new System.Drawing.Point(365, 178);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(107, 21);
-            label6.TabIndex = 9;
-            label6.Text = "Date incorrect";
-            label6.Visible = false;
             // 
             // PopupInformation
             // 

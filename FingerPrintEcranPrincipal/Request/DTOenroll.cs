@@ -17,7 +17,7 @@ namespace FingerPrintEcranPrincipal.Request
         public string txt_lieu_naissance { get; set; }
         [JsonPropertyName("Nationalité")]
         public string txt_nationnalite { get; set; }
-        [JsonPropertyName("Numero NNI")]
+        
         public string txt_nni { get; set; }
         [JsonPropertyName("Nom")]
         public string txt_nom { get; set; }

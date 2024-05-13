@@ -60,15 +60,15 @@ namespace FingerPrintEcranPrincipal
                 try
                 {
                     // Envoyer une requête GET à une URL spécifique
-                    HttpResponseMessage response =await _client.GetAsync(URIBD+ $"/gettypepiece/{_data}");
+                    HttpResponseMessage response = await _client.GetAsync(URIBD + $"/gettypepiece/{_data}");
 
                     // Vérifier si la réponse est réussie
                     if (response.IsSuccessStatusCode)
                     {
                         // Lire le contenu de la réponse
-                        string responseBody =await response.Content.ReadAsStringAsync();
-                       
-                        GeneraleResponse GN1 = JsonConvert.DeserializeObject< GeneraleResponse>(responseBody);
+                        string responseBody = await response.Content.ReadAsStringAsync();
+
+                        GeneraleResponse GN1 = JsonConvert.DeserializeObject<GeneraleResponse>(responseBody);
                         if (GN1.data == "[  ]")
                         {
                             AvertissementPopup Avs = new AvertissementPopup("Erreur Systeme veuillez contacter l'administrateur");
@@ -83,7 +83,7 @@ namespace FingerPrintEcranPrincipal
                                 txt_typepiece.Items.Clear();
                                 txt_typepiece.DataSource = ret_type;
                                 // Définissez la propriété DisplayMember pour afficher la valeur de la paire clé/valeur
-                                
+
                                 txt_typepiece.DisplayMember = "libelle_type_piece";
 
                                 // Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
@@ -96,8 +96,8 @@ namespace FingerPrintEcranPrincipal
                     }
                     else
                     {
-                       AvertissementPopup vre = new AvertissementPopup("Erreur Systeme de recuperation, Contactez l'administrateur");
-                       vre.ShowDialog();
+                        AvertissementPopup vre = new AvertissementPopup("Erreur Systeme de recuperation, Contactez l'administrateur");
+                        vre.ShowDialog();
                     }
                 }
                 catch (Exception ex)
@@ -108,7 +108,7 @@ namespace FingerPrintEcranPrincipal
                 }
             }
         }
-        
+
 
 
 
@@ -117,8 +117,8 @@ namespace FingerPrintEcranPrincipal
             InitializeComponent();
 
             _logger = Log.ForContext<frm_Acceuil>();
-           
-            
+
+
         }
         private void frm_Acceuil_Load(object sender, EventArgs e)
         {
@@ -619,7 +619,7 @@ namespace FingerPrintEcranPrincipal
             //foreach (var kvp in keyValuePairs)
             //{
             //    comboSexgenre.Items.Add(kvp);
-                
+
             //}
             comboSexgenre.DataSource = keyValuePairs;
             comboSexgenre.ValueMember = "Key";
@@ -717,7 +717,7 @@ namespace FingerPrintEcranPrincipal
                     }
 
 
-              
+
                 }
             }
 
@@ -741,6 +741,16 @@ namespace FingerPrintEcranPrincipal
         }
         private void button11_Click(object sender, EventArgs e)
         {
+            DateTime gt = new DateTime(1900, 01, 01);
+            if(textBox7.Text==string.Empty) { AvertissementPopup tt1 = new AvertissementPopup("Veuillez renseigner votre nom"); tt1.ShowDialog();return; }
+            if(textBox8.Text==string.Empty) { AvertissementPopup tt2 = new AvertissementPopup("Veuillez renseigner votre prenom"); tt2.ShowDialog();return; }
+            if(dateTimePicker1.Value< gt) { AvertissementPopup tt3 = new AvertissementPopup("Veuillez renseigner une date de naissance valide"); tt3.ShowDialog();return; }
+            if(dateTimePicker2.Value< gt) { AvertissementPopup tt4 = new AvertissementPopup("Veuillez renseigner une date d'emission valide"); tt4.ShowDialog();return; }
+            if(dateTimePicker3.Value< gt) { AvertissementPopup tt5 = new AvertissementPopup("Veuillez renseigner une date d'expiration valide"); tt5.ShowDialog();return; }
+            
+            
+            
+            
             //************************************SI activation empreinte valide alors appeler la lecture de l'empreinte sinon passer au recapitulatif**************
             _dtoEnroll = new DtoEnroll
             {
@@ -755,14 +765,12 @@ namespace FingerPrintEcranPrincipal
                 txt_profession = txt_proffession.Text,
                 txt_taille = textBox9.Text,
 
-                
-                txt_sexe =(string)comboSexgenre.SelectedValue,
+                txt_sexe = (string)comboSexgenre.SelectedValue,
 
                 date_emiss_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker2.Value.Date),
                 date_expir_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker3.Value.Date),
                 date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date),
                 type_piece = (string)txt_typepiece.SelectedValue
-
 
             };
             Log.Information($"RECUPERATION COMBO SEXE ==================> INDEX {comboSexgenre.SelectedIndex.ToString()} ValueMember {comboSexgenre.ValueMember} SelectedValue {comboSexgenre.SelectedValue})");
@@ -828,6 +836,9 @@ namespace FingerPrintEcranPrincipal
             pB_empr.Visible = false;
             labelMsgemp.Visible = false;
         }
+
+
+
         private async void recupempreinte(object? sender, EventArgs e)
         {
             try
@@ -1093,6 +1104,10 @@ namespace FingerPrintEcranPrincipal
 
             return formattedDate;
         }
+
+
+
+
         private async Task desactivedetectionFingerprint()
         {
             device.FingerDetected -= recupempreinte;
@@ -1121,6 +1136,9 @@ namespace FingerPrintEcranPrincipal
 
             this.Invoke(affichagedumessageutilisateurA, "Mise à jour depuis le thread secondaire avec des paramètres");
         }
+
+
+
         private void btn_suivant_Click(object sender, EventArgs e)
         {
             OuverturePanelEnrollement();
@@ -1213,10 +1231,10 @@ namespace FingerPrintEcranPrincipal
             try
             {
                 _dtoEnroll.empreintes = null;
-                (bool,string) mavarret = await PostDataToserver(_dtoEnroll);
+                (bool, string) mavarret = await PostDataToserver(_dtoEnroll);
 
                 Log.Information($"REt====>{mavarret.Item1} contenue est {mavarret.Item2}");
-                if(mavarret.Item1)
+                if (mavarret.Item1)
                 {
                     AvertissementPopup Avp = new AvertissementPopup("Enrôlement effectué avec Succes");
                     Avp.ShowDialog();
@@ -1230,8 +1248,8 @@ namespace FingerPrintEcranPrincipal
                     AvertissementPopup Avp = new AvertissementPopup(mavarret.Item2);
                     Avp.ShowDialog();
                 }
-                
-                
+
+
             }
             catch (Exception ex)
             {
@@ -1258,18 +1276,22 @@ namespace FingerPrintEcranPrincipal
             txt_lieuemission.Text = string.Empty;
             txt_NNi.Text = string.Empty;
 
-            dateTimePicker1.Value= DateTime.Now;
-            dateTimePicker2.Value= DateTime.Now;
-            dateTimePicker3.Value= DateTime.Now;
+            dateTimePicker1.Value = DateTime.Now;
+            dateTimePicker2.Value = DateTime.Now;
+            dateTimePicker3.Value = DateTime.Now;
 
-            checkBox1.Checked =false;
-            chkConsend.Checked =false;
+            checkBox1.Checked = false;
+            chkConsend.Checked = false;
 
-            
+            pictureIndex.Image = null;
+            pictureMiddle.Image = null;
+            pictureRing.Image = null;
+            pictureThumb.Image = null;
+            pictureLittle.Image = null;
+
         }
 
-
-        public async Task<(bool,string)> PostDataToserver(DtoEnroll sendEmpreinte)
+        public async Task<(bool, string)> PostDataToserver(DtoEnroll sendEmpreinte)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -1292,17 +1314,17 @@ namespace FingerPrintEcranPrincipal
                     {
                         case System.Net.HttpStatusCode.OK:
 
-                            return (true,"Enrôlement effectué avec Succes");
-                            
+                            return (true, "Enrôlement effectué avec Succes");
+
                         case System.Net.HttpStatusCode.InternalServerError:
                             switch (ResultJson.code)
                             {
                                 case "ERR0018 ":
                                     return (false, "erreur dans la sauvegarde de l'empreinte");
-                                    
+
                                 case "ERR0016 ":
                                     return (false, "erreur de récupération des paramètre de la Base de données");
-                                   
+
                                 case "ERR0020":
                                     return (false, "Erreur système veuillez contacter l'administrateur");
                                 default:
@@ -1312,34 +1334,34 @@ namespace FingerPrintEcranPrincipal
                             switch (ResultJson.code)
                             {
                                 case "ERR0010 ":
-                                   return (false, "Valeur invalide pour l'un des champs");
-                                    
+                                    return (false, "Valeur invalide pour l'un des champs");
+
                                 case "ERR0011 ":
-                                   return (false, "Format invalide pour la date de naissance");
-                                    
+                                    return (false, "Format invalide pour la date de naissance");
+
                                 case "ERR0012":
-                                   return (false, "Format invalide pour la date d'émission de la Pièce");
-                                    
+                                    return (false, "Format invalide pour la date d'émission de la Pièce");
+
                                 case "ERR0013":
-                                   return (false, "Format invalide pour la date d'expiration de la Pièce");
-                                   
+                                    return (false, "Format invalide pour la date d'expiration de la Pièce");
+
                                 case "ERR0015":
-                                   return (false, "Valeur sexe invalide");
-                                    
+                                    return (false, "Valeur sexe invalide");
+
                                 case "ERR0017":
-                                   return (false, ResultJson.descrition);
+                                    return (false, ResultJson.descrition);
                                 default:
                                     return (false, "Erreur 400 Systeme veuillez contacter l'administrateur ");
                             }
 
                         default:
-                           return (false, "Erreur (default) Systeme veuillez contacter l'administrateur");
-                           
+                            return (false, "Erreur (default) Systeme veuillez contacter l'administrateur");
+
                     }
                 }
                 catch (Exception ex)
                 {
-                   return (false, "Erreur Systeme veuillez contacter l'administrateur");
+                    return (false, "Erreur Systeme veuillez contacter l'administrateur");
                 }
 
             }
@@ -1353,7 +1375,7 @@ namespace FingerPrintEcranPrincipal
 
         private void remplirAvecInformationPiece(DataCarteNfc Dtnfc)
         {
-            if(radioButton3.Checked)
+            if (radioButton3.Checked)
             {
                 chargeDataTypePiece("NFC");
                 txt_numpiece.Text = Dtnfc.numPiece;
@@ -1366,15 +1388,17 @@ namespace FingerPrintEcranPrincipal
                 textBox8.Text = Dtnfc.prenom;
                 txt_proffession.Text = Dtnfc.profession;
                 textBox9.Text = Dtnfc.taille;
-                dateTimePicker2.Value = DateTime.ParseExact(((Dtnfc.dateEmission==string.Empty) ? "18000101" : Dtnfc.dateEmission), "yyyyMMdd", null);
+                dateTimePicker2.Value = DateTime.ParseExact(((Dtnfc.dateEmission == string.Empty) ? "18000101" : Dtnfc.dateEmission), "yyyyMMdd", null);
                 dateTimePicker3.Value = DateTime.ParseExact(((Dtnfc.dateExpire == string.Empty) ? "18000101" : Dtnfc.dateExpire), "yyyyMMdd", null);
                 dateTimePicker1.Value = DateTime.ParseExact(((Dtnfc.dateNaissance == string.Empty) ? "18000101" : Dtnfc.dateNaissance), "yyyyMMdd", null);
- 
+                txt_NNi.Text=Dtnfc.numNNI;
                 comboSexgenre.SelectedValue = Dtnfc.genre;
             }
-            
+            else if(radioButton2.Checked)
+            {
+                chargeDataTypePiece("MANUEL");
+            }
 
-           
 
         }
 
@@ -1384,6 +1408,11 @@ namespace FingerPrintEcranPrincipal
         }
 
         private void panelSignaletique_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
         {
 
         }

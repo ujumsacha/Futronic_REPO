@@ -76,6 +76,13 @@
             radioButton3 = new System.Windows.Forms.RadioButton();
             panelSignaletique = new System.Windows.Forms.Panel();
             groupBox4 = new System.Windows.Forms.GroupBox();
+            label87 = new System.Windows.Forms.Label();
+            label86 = new System.Windows.Forms.Label();
+            label85 = new System.Windows.Forms.Label();
+            label84 = new System.Windows.Forms.Label();
+            label83 = new System.Windows.Forms.Label();
+            label82 = new System.Windows.Forms.Label();
+            label81 = new System.Windows.Forms.Label();
             dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             label68 = new System.Windows.Forms.Label();
@@ -91,6 +98,12 @@
             label62 = new System.Windows.Forms.Label();
             txt_numuniq = new System.Windows.Forms.TextBox();
             groupBox2 = new System.Windows.Forms.GroupBox();
+            label80 = new System.Windows.Forms.Label();
+            label79 = new System.Windows.Forms.Label();
+            label78 = new System.Windows.Forms.Label();
+            label77 = new System.Windows.Forms.Label();
+            label76 = new System.Windows.Forms.Label();
+            label75 = new System.Windows.Forms.Label();
             dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             label64 = new System.Windows.Forms.Label();
             txt_proffession = new System.Windows.Forms.TextBox();
@@ -236,7 +249,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1095, 70);
+            panel1.Size = new System.Drawing.Size(1948, 70);
             panel1.TabIndex = 47;
             // 
             // pictureBox3
@@ -290,7 +303,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(12, 78);
+            panelVerif.Location = new System.Drawing.Point(11, 77);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -406,7 +419,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(11, 80);
+            panelEnrollement.Location = new System.Drawing.Point(12, 78);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -727,7 +740,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(12, 80);
+            panelSignaletique.Location = new System.Drawing.Point(206, 73);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -735,6 +748,13 @@
             // 
             // groupBox4
             // 
+            groupBox4.Controls.Add(label87);
+            groupBox4.Controls.Add(label86);
+            groupBox4.Controls.Add(label85);
+            groupBox4.Controls.Add(label84);
+            groupBox4.Controls.Add(label83);
+            groupBox4.Controls.Add(label82);
+            groupBox4.Controls.Add(label81);
             groupBox4.Controls.Add(dateTimePicker3);
             groupBox4.Controls.Add(dateTimePicker2);
             groupBox4.Controls.Add(label68);
@@ -756,13 +776,91 @@
             groupBox4.TabStop = false;
             groupBox4.Text = "Information Sur la Pièce";
             // 
+            // label87
+            // 
+            label87.AutoSize = true;
+            label87.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label87.ForeColor = System.Drawing.Color.Red;
+            label87.Location = new System.Drawing.Point(894, 94);
+            label87.Name = "label87";
+            label87.Size = new System.Drawing.Size(21, 25);
+            label87.TabIndex = 107;
+            label87.Text = "*";
+            // 
+            // label86
+            // 
+            label86.AutoSize = true;
+            label86.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label86.ForeColor = System.Drawing.Color.Red;
+            label86.Location = new System.Drawing.Point(722, 95);
+            label86.Name = "label86";
+            label86.Size = new System.Drawing.Size(21, 25);
+            label86.TabIndex = 114;
+            label86.Text = "*";
+            // 
+            // label85
+            // 
+            label85.AutoSize = true;
+            label85.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label85.ForeColor = System.Drawing.Color.Red;
+            label85.Location = new System.Drawing.Point(576, 96);
+            label85.Name = "label85";
+            label85.Size = new System.Drawing.Size(21, 25);
+            label85.TabIndex = 113;
+            label85.Text = "*";
+            // 
+            // label84
+            // 
+            label84.AutoSize = true;
+            label84.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label84.ForeColor = System.Drawing.Color.Red;
+            label84.Location = new System.Drawing.Point(332, 95);
+            label84.Name = "label84";
+            label84.Size = new System.Drawing.Size(21, 25);
+            label84.TabIndex = 112;
+            label84.Text = "*";
+            // 
+            // label83
+            // 
+            label83.AutoSize = true;
+            label83.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label83.ForeColor = System.Drawing.Color.Red;
+            label83.Location = new System.Drawing.Point(156, 94);
+            label83.Name = "label83";
+            label83.Size = new System.Drawing.Size(21, 25);
+            label83.TabIndex = 111;
+            label83.Text = "*";
+            // 
+            // label82
+            // 
+            label82.AutoSize = true;
+            label82.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label82.ForeColor = System.Drawing.Color.Red;
+            label82.Location = new System.Drawing.Point(400, 38);
+            label82.Name = "label82";
+            label82.Size = new System.Drawing.Size(21, 25);
+            label82.TabIndex = 110;
+            label82.Text = "*";
+            // 
+            // label81
+            // 
+            label81.AutoSize = true;
+            label81.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label81.ForeColor = System.Drawing.Color.Red;
+            label81.Location = new System.Drawing.Point(156, 39);
+            label81.Name = "label81";
+            label81.Size = new System.Drawing.Size(21, 25);
+            label81.TabIndex = 109;
+            label81.Text = "*";
+            // 
             // dateTimePicker3
             // 
             dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            dateTimePicker3.Location = new System.Drawing.Point(592, 96);
+            dateTimePicker3.Location = new System.Drawing.Point(606, 96);
             dateTimePicker3.Name = "dateTimePicker3";
             dateTimePicker3.Size = new System.Drawing.Size(112, 23);
             dateTimePicker3.TabIndex = 97;
+            dateTimePicker3.Value = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             // 
             // dateTimePicker2
             // 
@@ -771,11 +869,12 @@
             dateTimePicker2.Name = "dateTimePicker2";
             dateTimePicker2.Size = new System.Drawing.Size(118, 23);
             dateTimePicker2.TabIndex = 96;
+            dateTimePicker2.Value = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             // 
             // label68
             // 
             label68.AutoSize = true;
-            label68.Location = new System.Drawing.Point(741, 76);
+            label68.Location = new System.Drawing.Point(749, 76);
             label68.Name = "label68";
             label68.Size = new System.Drawing.Size(34, 15);
             label68.TabIndex = 95;
@@ -786,9 +885,9 @@
             txt_NNi.AcceptsReturn = true;
             txt_NNi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             txt_NNi.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            txt_NNi.Location = new System.Drawing.Point(741, 95);
+            txt_NNi.Location = new System.Drawing.Point(749, 95);
             txt_NNi.Name = "txt_NNi";
-            txt_NNi.Size = new System.Drawing.Size(81, 23);
+            txt_NNi.Size = new System.Drawing.Size(142, 23);
             txt_NNi.TabIndex = 94;
             // 
             // nom
@@ -804,7 +903,6 @@
             // 
             txt_typepiece.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             txt_typepiece.FormattingEnabled = true;
-            txt_typepiece.Items.AddRange(new object[] { "Homme", "Femme" });
             txt_typepiece.Location = new System.Drawing.Point(14, 40);
             txt_typepiece.Name = "txt_typepiece";
             txt_typepiece.Size = new System.Drawing.Size(139, 23);
@@ -834,7 +932,7 @@
             // label67
             // 
             label67.AutoSize = true;
-            label67.Location = new System.Drawing.Point(590, 76);
+            label67.Location = new System.Drawing.Point(604, 76);
             label67.Name = "label67";
             label67.Size = new System.Drawing.Size(103, 15);
             label67.TabIndex = 89;
@@ -891,6 +989,12 @@
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(label80);
+            groupBox2.Controls.Add(label79);
+            groupBox2.Controls.Add(label78);
+            groupBox2.Controls.Add(label77);
+            groupBox2.Controls.Add(label76);
+            groupBox2.Controls.Add(label75);
             groupBox2.Controls.Add(dateTimePicker1);
             groupBox2.Controls.Add(label64);
             groupBox2.Controls.Add(txt_proffession);
@@ -918,6 +1022,72 @@
             groupBox2.TabStop = false;
             groupBox2.Text = "Information personnelles";
             // 
+            // label80
+            // 
+            label80.AutoSize = true;
+            label80.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label80.ForeColor = System.Drawing.Color.Red;
+            label80.Location = new System.Drawing.Point(695, 105);
+            label80.Name = "label80";
+            label80.Size = new System.Drawing.Size(21, 25);
+            label80.TabIndex = 108;
+            label80.Text = "*";
+            // 
+            // label79
+            // 
+            label79.AutoSize = true;
+            label79.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label79.ForeColor = System.Drawing.Color.Red;
+            label79.Location = new System.Drawing.Point(514, 107);
+            label79.Name = "label79";
+            label79.Size = new System.Drawing.Size(21, 25);
+            label79.TabIndex = 107;
+            label79.Text = "*";
+            // 
+            // label78
+            // 
+            label78.AutoSize = true;
+            label78.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label78.ForeColor = System.Drawing.Color.Red;
+            label78.Location = new System.Drawing.Point(299, 106);
+            label78.Name = "label78";
+            label78.Size = new System.Drawing.Size(21, 25);
+            label78.TabIndex = 106;
+            label78.Text = "*";
+            // 
+            // label77
+            // 
+            label77.AutoSize = true;
+            label77.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label77.ForeColor = System.Drawing.Color.Red;
+            label77.Location = new System.Drawing.Point(641, 51);
+            label77.Name = "label77";
+            label77.Size = new System.Drawing.Size(21, 25);
+            label77.TabIndex = 105;
+            label77.Text = "*";
+            // 
+            // label76
+            // 
+            label76.AutoSize = true;
+            label76.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label76.ForeColor = System.Drawing.Color.Red;
+            label76.Location = new System.Drawing.Point(514, 50);
+            label76.Name = "label76";
+            label76.Size = new System.Drawing.Size(21, 25);
+            label76.TabIndex = 104;
+            label76.Text = "*";
+            // 
+            // label75
+            // 
+            label75.AutoSize = true;
+            label75.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label75.ForeColor = System.Drawing.Color.Red;
+            label75.Location = new System.Drawing.Point(127, 51);
+            label75.Name = "label75";
+            label75.Size = new System.Drawing.Size(21, 25);
+            label75.TabIndex = 103;
+            label75.Text = "*";
+            // 
             // dateTimePicker1
             // 
             dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -925,6 +1095,7 @@
             dateTimePicker1.Name = "dateTimePicker1";
             dateTimePicker1.Size = new System.Drawing.Size(137, 23);
             dateTimePicker1.TabIndex = 102;
+            dateTimePicker1.Value = new System.DateTime(1800, 1, 1, 0, 0, 0, 0);
             // 
             // label64
             // 
@@ -1050,9 +1221,10 @@
             textBox9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             textBox9.Location = new System.Drawing.Point(17, 106);
             textBox9.Name = "textBox9";
-            textBox9.PlaceholderText = "170";
+            textBox9.PlaceholderText = "170(Cm)";
             textBox9.Size = new System.Drawing.Size(108, 23);
             textBox9.TabIndex = 86;
+            textBox9.TextChanged += textBox9_TextChanged;
             // 
             // label56
             // 
@@ -1143,7 +1315,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(16, 82);
+            panelEmpreinte.Location = new System.Drawing.Point(12, 81);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -1155,9 +1327,9 @@
             label74.ForeColor = System.Drawing.Color.FromArgb(82, 153, 139);
             label74.Location = new System.Drawing.Point(194, 5);
             label74.Name = "label74";
-            label74.Size = new System.Drawing.Size(705, 18);
+            label74.Size = new System.Drawing.Size(718, 18);
             label74.TabIndex = 84;
-            label74.Text = "Veuillez cliquez sur l'image correspondant l'empreinte du doigt que vous souhaiter enregistrer";
+            label74.Text = "Veuillez cliquez sur l'image correspondant à l'empreinte du doigt que vous souhaiter enregistrer";
             // 
             // labelMsgemp
             // 
@@ -1399,7 +1571,7 @@
             panelResultatRecherche.Controls.Add(panel3);
             panelResultatRecherche.Controls.Add(panel6);
             panelResultatRecherche.Controls.Add(button8);
-            panelResultatRecherche.Location = new System.Drawing.Point(12, 83);
+            panelResultatRecherche.Location = new System.Drawing.Point(12, 79);
             panelResultatRecherche.Name = "panelResultatRecherche";
             panelResultatRecherche.Size = new System.Drawing.Size(1029, 497);
             panelResultatRecherche.TabIndex = 62;
@@ -1884,7 +2056,7 @@
             panelCondutil.Controls.Add(chkConsend);
             panelCondutil.Controls.Add(textBox21);
             panelCondutil.Controls.Add(btn_suivant);
-            panelCondutil.Location = new System.Drawing.Point(14, 82);
+            panelCondutil.Location = new System.Drawing.Point(14, 79);
             panelCondutil.Name = "panelCondutil";
             panelCondutil.Size = new System.Drawing.Size(1026, 489);
             panelCondutil.TabIndex = 63;
@@ -1937,7 +2109,7 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(10, 80);
+            panelRecapitulatif.Location = new System.Drawing.Point(12, 82);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1030, 485);
             panelRecapitulatif.TabIndex = 64;
@@ -1980,14 +2152,14 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1087, 603);
+            ClientSize = new System.Drawing.Size(1940, 595);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
             Controls.Add(panelResultatRecherche);
             Controls.Add(panelEmpreinte);
-            Controls.Add(panelconsentement);
             Controls.Add(panelSignaletique);
+            Controls.Add(panelconsentement);
             Controls.Add(panelVerif);
             Controls.Add(panelEnrollement);
             Controls.Add(panel1);
@@ -2212,5 +2384,18 @@
         private System.Windows.Forms.Label label74;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Label label75;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.Label label77;
+        private System.Windows.Forms.Label label76;
     }
 }
