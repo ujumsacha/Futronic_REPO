@@ -39,7 +39,7 @@ namespace FingerPrintEcranPrincipal.Request
         [JsonPropertyName("Date expiration")]
         public string date_expir_cni { get; set; } // "AAAA/MM/JJ"
         [JsonPropertyName("type_piece")]
-        public string type_piece { get; set; } // "AAAA/MM/JJ"
+        public int type_piece { get; set; } // "AAAA/MM/JJ"
 
 
         [JsonPropertyName("empreintes")]

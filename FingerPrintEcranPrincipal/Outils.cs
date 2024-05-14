@@ -185,6 +185,7 @@ namespace FingerPrintEcranPrincipal
             Contentdata += $"DATE D'EMISSION :{dt.date_emiss_cni} " +Environment.NewLine;
             Contentdata += $"DATE D'EXPIRATION :{dt.date_expir_cni} " +Environment.NewLine; 
             Contentdata += $"DATE DE NAISSANCE :{dt.date_naiss} " +Environment.NewLine;
+            Contentdata += $"NNI :{dt.txt_nni} " +Environment.NewLine;
 
             return Contentdata;
         }
@@ -202,7 +203,7 @@ namespace FingerPrintEcranPrincipal
                 {
                     var test = @"@echo off " + Environment.NewLine;
                     test += "java -jar \"" + recup().CheminScanJar + "\" " + mesparams+Environment.NewLine;
-                    test += "pause";
+                    //test += "pause";
                     writer.Write(test);
                 }
 
@@ -258,7 +259,7 @@ namespace FingerPrintEcranPrincipal
                 if (Gn1.status != 1)
                 {
                     Log.Information("rentrer dans l'erreur car code egale a :"+Gn1.status);
-                    return (false, "Code du fichier est different de 1");
+                    return (false, "Erreur dans la lecture du fichier");
                 }
                 Log.Information("rentrer ok car  :" + Gn1.status);
                 //********************************************Execute NFC*****************************************************

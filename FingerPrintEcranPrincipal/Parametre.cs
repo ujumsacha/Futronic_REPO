@@ -28,7 +28,8 @@ namespace FingerPrintEcranPrincipal
                 is_refresh = true;
                 this.Close();
                 
-                MessageBox.Show("Mise a jour Effectué avec Succes");
+                MessageBox.Show("Mise a jour Effectué avec Succes , l'application se fermera");
+                Application.Exit();
             }
             catch (Exception ex)
             {

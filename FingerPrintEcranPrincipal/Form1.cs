@@ -87,7 +87,7 @@ namespace FingerPrintEcranPrincipal
                                 txt_typepiece.DisplayMember = "libelle_type_piece";
 
                                 // Définissez la propriété ValueMember pour spécifier la valeur de la paire clé/valeur
-                                txt_typepiece.ValueMember = "code";
+                                txt_typepiece.ValueMember = "id_type_piece";
 
                                 // Sélectionnez un élément par défaut si nécessaire
                                 //txt_typepiece.SelectedIndex = 0; // Pour sélectionner le premier élément
@@ -692,6 +692,7 @@ namespace FingerPrintEcranPrincipal
                 {
                     button6.Visible = false;
                     //********************************************PAR SAISIE MANUELLE *************************************************************
+                    chargeDataTypePiece("MANUEL");
                     OuverturePanelSaisieEnrollement();
                     //********************************************PAR SAISIE MANUELLE *************************************************************
                 }
@@ -770,7 +771,7 @@ namespace FingerPrintEcranPrincipal
                 date_emiss_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker2.Value.Date),
                 date_expir_cni = string.Format("{0:yyyy/MM/dd}", dateTimePicker3.Value.Date),
                 date_naiss = string.Format("{0:yyyy/MM/dd}", dateTimePicker1.Value.Date),
-                type_piece = (string)txt_typepiece.SelectedValue
+                type_piece = (int)txt_typepiece.SelectedValue
 
             };
             Log.Information($"RECUPERATION COMBO SEXE ==================> INDEX {comboSexgenre.SelectedIndex.ToString()} ValueMember {comboSexgenre.ValueMember} SelectedValue {comboSexgenre.SelectedValue})");
