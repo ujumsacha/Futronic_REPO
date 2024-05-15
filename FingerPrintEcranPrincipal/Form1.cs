@@ -110,7 +110,7 @@ namespace FingerPrintEcranPrincipal
             }
         }
 
-
+        
 
 
         public frm_Acceuil()
@@ -118,7 +118,6 @@ namespace FingerPrintEcranPrincipal
             InitializeComponent();
 
             _logger = Log.ForContext<frm_Acceuil>();
-
 
         }
         private void frm_Acceuil_Load(object sender, EventArgs e)
@@ -190,7 +189,7 @@ namespace FingerPrintEcranPrincipal
             {
                 switch (radioButton.TabIndex)
                 {
-                    
+
                     case 0:
                         desactivedetectionFingerprint();
                         lbl_messageinput.Visible = true;
@@ -748,15 +747,15 @@ namespace FingerPrintEcranPrincipal
         private void button11_Click(object sender, EventArgs e)
         {
             DateTime gt = new DateTime(1900, 01, 01);
-            if(textBox7.Text==string.Empty) { AvertissementPopup tt1 = new AvertissementPopup("Veuillez renseigner votre nom"); tt1.ShowDialog();return; }
-            if(textBox8.Text==string.Empty) { AvertissementPopup tt2 = new AvertissementPopup("Veuillez renseigner votre prenom"); tt2.ShowDialog();return; }
-            if(dateTimePicker1.Value< gt) { AvertissementPopup tt3 = new AvertissementPopup("Veuillez renseigner une date de naissance valide"); tt3.ShowDialog();return; }
-            if(dateTimePicker2.Value< gt) { AvertissementPopup tt4 = new AvertissementPopup("Veuillez renseigner une date d'emission valide"); tt4.ShowDialog();return; }
-            if(dateTimePicker3.Value< gt) { AvertissementPopup tt5 = new AvertissementPopup("Veuillez renseigner une date d'expiration valide"); tt5.ShowDialog();return; }
-            
-            
-            
-            
+            if (textBox7.Text == string.Empty) { AvertissementPopup tt1 = new AvertissementPopup("Veuillez renseigner votre nom"); tt1.ShowDialog(); return; }
+            if (textBox8.Text == string.Empty) { AvertissementPopup tt2 = new AvertissementPopup("Veuillez renseigner votre prenom"); tt2.ShowDialog(); return; }
+            if (dateTimePicker1.Value < gt) { AvertissementPopup tt3 = new AvertissementPopup("Veuillez renseigner une date de naissance valide"); tt3.ShowDialog(); return; }
+            if (dateTimePicker2.Value < gt) { AvertissementPopup tt4 = new AvertissementPopup("Veuillez renseigner une date d'emission valide"); tt4.ShowDialog(); return; }
+            if (dateTimePicker3.Value < gt) { AvertissementPopup tt5 = new AvertissementPopup("Veuillez renseigner une date d'expiration valide"); tt5.ShowDialog(); return; }
+
+
+
+
             //************************************SI activation empreinte valide alors appeler la lecture de l'empreinte sinon passer au recapitulatif**************
             _dtoEnroll = new DtoEnroll
             {
@@ -814,23 +813,11 @@ namespace FingerPrintEcranPrincipal
         }
         private void button8_Click(object sender, EventArgs e)
         {
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = true;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
-            label1.Text = "VERIFICATION";
+           OuverturePanelVerification();
         }
         private void button9_Click_1(object sender, EventArgs e)
         {
-            panelconsentement.Visible = false;
-            panelEnrollement.Visible = false;
-            panelVerif.Visible = true;
-            panelEmpreinte.Visible = false;
-            panelSignaletique.Visible = false;
-            panelResultatRecherche.Visible = false;
-            label1.Text = "VERIFICATION";
+            OuverturePanelVerification();
 
         }
         private void button8_Click_1(object sender, EventArgs e)
@@ -847,6 +834,7 @@ namespace FingerPrintEcranPrincipal
 
         private async void recupempreinte(object? sender, EventArgs e)
         {
+            bool Empreinte_is_passed = false;
             try
             {
 
@@ -854,8 +842,26 @@ namespace FingerPrintEcranPrincipal
                 var ber = device.ReadFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
                 desactivedetectionFingerprint();
+
+
+                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+                Action<string> TDDMESSAGE = new Action<string>((message) =>
+                {
+                    // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                    label88.Text = "Veillez retirer votre main du capteur";
+                    label88.Visible = true;
+
+
+                });
+
+                this.Invoke(TDDMESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
+                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+
+
+
+
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
-                
+
                 var tempFile = Guid.NewGuid().ToString();
                 var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
                 var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
@@ -888,11 +894,56 @@ namespace FingerPrintEcranPrincipal
                                 DTORetCompImage? dtretemp;
                                 dtretemp = JsonConvert.DeserializeObject<DTORetCompImage>(ResultJson.data.ToString());
                                 //affichage du pannel
-                                OuverturePanelResultatrecherche();
-                                //Remise a zero des champs
-                                voidMiseAblancSearchTiers();
-                                //Remplir les champs avec le resultat
-                                RempliChampsderecherche(dtretemp);
+                                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+                                Action<string> TDD1MESSAGE = new Action<string>((message) =>
+                                {
+                                    // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                                    OuverturePanelResultatrecherche();
+                                    //Remise a zero des champs
+                                    voidMiseAblancSearchTiers();
+                                    //Remplir les champs avec le resultat
+                                    RempliChampsderecherche(dtretemp);
+
+                                });
+
+                                this.Invoke(TDD1MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
+                                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+
+                            }
+                            break;
+                        case System.Net.HttpStatusCode.BadRequest:
+                            bool bres = false;
+                            DemandeMessage Dm = new DemandeMessage();
+                            //pictureBox3.Visible = false;
+                            //panelVerif.Enabled = true;
+                            Dm.ShowDialog();
+                            if (Dm.ret)
+                            {
+                                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+                                Action<string> TDD2MESSAGE = new Action<string>((message) =>
+                                {
+                                    // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                                    OuverturePanelConditionUtilisation();
+                                    Empreinte_is_passed=true;
+                                });
+
+                                this.Invoke(TDD2MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
+                                //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
+                                
+                                
+                            }
+                            else
+                            {
+                                Action<string> TDD3MESSAGE = new Action<string>((message) =>
+                                {
+                                    // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                                    textBox1.Text = String.Empty;
+
+                                });
+
+                                this.Invoke(TDD3MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
+                                
+
                             }
                             break;
                         default:
@@ -911,7 +962,26 @@ namespace FingerPrintEcranPrincipal
             finally
             {
                 miseAjour(false);
-                activedetectionFingerprint();
+                if(Empreinte_is_passed)
+                {
+                    desactivedetectionFingerprint();
+                }
+                else
+                {
+                    activedetectionFingerprint();
+                }
+                
+                Action<string> TDD4MESSAGE = new Action<string>((message) =>
+                {
+                    // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
+                    label88.Visible = true;
+
+                });
+
+                Empreinte_is_passed = false;
+
+                this.Invoke(TDD4MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
+               
             }
         }
 
@@ -1162,6 +1232,8 @@ namespace FingerPrintEcranPrincipal
                 this.label3.ForeColor = Color.Red;
                 device.SwitchLedState(false, true);//cni
 
+
+
             });
 
             this.Invoke(affichagedumessageutilisateur, "Mise à jour depuis le thread secondaire avec des paramètres");
@@ -1170,7 +1242,7 @@ namespace FingerPrintEcranPrincipal
         {
             label88.Visible = true;
             pictureBox3.Visible = true;
-            panelVerif.Enabled = false; 
+            panelVerif.Enabled = false;
 
             device.FingerDetected += recupempreinte;
             _isDetecteMode = true;
@@ -1347,8 +1419,8 @@ namespace FingerPrintEcranPrincipal
             radioButton3.Checked = false;
             radioButton4.Checked = false;
             radioButton5.Checked = false;
-            panelporteur.Visible=false;
-            panelclient.Visible=false;
+            panelporteur.Visible = false;
+            panelclient.Visible = false;
 
         }
 
@@ -1452,10 +1524,10 @@ namespace FingerPrintEcranPrincipal
                 dateTimePicker2.Value = DateTime.ParseExact(((Dtnfc.dateEmission == string.Empty) ? "18000101" : Dtnfc.dateEmission), "yyyyMMdd", null);
                 dateTimePicker3.Value = DateTime.ParseExact(((Dtnfc.dateExpire == string.Empty) ? "18000101" : Dtnfc.dateExpire), "yyyyMMdd", null);
                 dateTimePicker1.Value = DateTime.ParseExact(((Dtnfc.dateNaissance == string.Empty) ? "18000101" : Dtnfc.dateNaissance), "yyyyMMdd", null);
-                txt_NNi.Text=Dtnfc.numNNI;
+                txt_NNi.Text = Dtnfc.numNNI;
                 comboSexgenre.SelectedValue = Dtnfc.genre;
             }
-            else if(radioButton2.Checked)
+            else if (radioButton2.Checked)
             {
                 chargeDataTypePiece("MANUEL");
             }
