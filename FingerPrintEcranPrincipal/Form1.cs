@@ -102,6 +102,7 @@ namespace FingerPrintEcranPrincipal
                 }
                 catch (Exception ex)
                 {
+                    Log.Error($"Erreur systeme =================================================> {ex.Message}");
                     AvertissementPopup vre = new AvertissementPopup("Erreur Systeme veuillez Contactez l'administrateur");
                     vre.ShowDialog();
 
@@ -182,14 +183,16 @@ namespace FingerPrintEcranPrincipal
         {
 
         }
-        private async void radiobutton_CheckedChanged(object sender, EventArgs e)
+        private void radiobutton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton? radioButton = sender as RadioButton;
             if (radioButton != null && radioButton.Checked)
             {
                 switch (radioButton.TabIndex)
                 {
+                    
                     case 0:
+                        desactivedetectionFingerprint();
                         lbl_messageinput.Visible = true;
                         textBox1.Visible = true;
                         pictureBox2.Visible = false;
@@ -199,6 +202,7 @@ namespace FingerPrintEcranPrincipal
                         break;
 
                     case 1:
+                        desactivedetectionFingerprint();
                         lbl_messageinput.Visible = true;
                         textBox1.Visible = true;
                         pictureBox2.Visible = false;
@@ -245,6 +249,7 @@ namespace FingerPrintEcranPrincipal
                         break;
 
                     default:
+                        desactivedetectionFingerprint();
                         break;
 
                 }
@@ -844,11 +849,13 @@ namespace FingerPrintEcranPrincipal
         {
             try
             {
+
+                miseAjour(true);
                 var ber = device.ReadFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
                 desactivedetectionFingerprint();
                 //*********************************desactivation de la detection automatique dee l'empreinte***************************************
-
+                
                 var tempFile = Guid.NewGuid().ToString();
                 var tempFileall = Path.Combine(Outils.recup().tempfolder, tempFile);
                 var tmpBmpFile = Path.ChangeExtension(tempFileall, "bmp");
@@ -878,7 +885,6 @@ namespace FingerPrintEcranPrincipal
                             }
                             else
                             {
-
                                 DTORetCompImage? dtretemp;
                                 dtretemp = JsonConvert.DeserializeObject<DTORetCompImage>(ResultJson.data.ToString());
                                 //affichage du pannel
@@ -887,10 +893,10 @@ namespace FingerPrintEcranPrincipal
                                 voidMiseAblancSearchTiers();
                                 //Remplir les champs avec le resultat
                                 RempliChampsderecherche(dtretemp);
-
                             }
                             break;
                         default:
+                            //string parseur1 = _response.Content.ReadAsStringAsync().Result;
                             MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
                             break;
                     }
@@ -898,14 +904,50 @@ namespace FingerPrintEcranPrincipal
             }
             catch (Exception ex)
             {
-
+                //miseAjour(true);
+                Log.Error(ex.Message);
                 MessageBox.Show($"Erreur dans a detection de l'empreinte veuillez contacter l'administrateur {ex.Message}");
             }
             finally
             {
+                miseAjour(false);
                 activedetectionFingerprint();
             }
         }
+
+
+
+
+
+
+
+        private void miseAjour(bool isactive)
+        {
+
+            Action<string> miseajourMessage = new Action<string>((message) =>
+            {
+                if (isactive)
+                {
+                    pictureBox3.Visible = true;
+                    panelVerif.Enabled = false;
+                }
+                else
+                {
+                    pictureBox3.Visible = false;
+                    panelVerif.Enabled = true;
+                }
+
+            });
+            this.Invoke(miseajourMessage, "Mise à jour depuis le thread secondaire avec des paramètres");
+
+        }
+
+
+
+
+
+
+
         private async void recupempreinteEnroll(object? sender, EventArgs e)
         {
             try
@@ -1126,6 +1168,10 @@ namespace FingerPrintEcranPrincipal
         }
         private async Task activedetectionFingerprint()
         {
+            label88.Visible = true;
+            pictureBox3.Visible = true;
+            panelVerif.Enabled = false; 
+
             device.FingerDetected += recupempreinte;
             _isDetecteMode = true;
             Action<string> affichagedumessageutilisateurA = new Action<string>((message) =>
@@ -1136,6 +1182,10 @@ namespace FingerPrintEcranPrincipal
             });
 
             this.Invoke(affichagedumessageutilisateurA, "Mise à jour depuis le thread secondaire avec des paramètres");
+
+            label88.Visible = false;
+            pictureBox3.Visible = false;
+            panelVerif.Enabled = true;
         }
 
 
@@ -1289,6 +1339,16 @@ namespace FingerPrintEcranPrincipal
             pictureRing.Image = null;
             pictureThumb.Image = null;
             pictureLittle.Image = null;
+
+
+
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            radioButton3.Checked = false;
+            radioButton4.Checked = false;
+            radioButton5.Checked = false;
+            panelporteur.Visible=false;
+            panelclient.Visible=false;
 
         }
 

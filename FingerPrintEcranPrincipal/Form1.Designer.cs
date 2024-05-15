@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_Acceuil));
             panel1 = new System.Windows.Forms.Panel();
+            label88 = new System.Windows.Forms.Label();
             pictureBox3 = new System.Windows.Forms.PictureBox();
             button16 = new System.Windows.Forms.Button();
             button7 = new System.Windows.Forms.Button();
@@ -242,6 +243,7 @@
             // 
             panel1.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             panel1.BackColor = System.Drawing.Color.FromArgb(82, 153, 139);
+            panel1.Controls.Add(label88);
             panel1.Controls.Add(pictureBox3);
             panel1.Controls.Add(button16);
             panel1.Controls.Add(button7);
@@ -249,8 +251,20 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1108, 70);
+            panel1.Size = new System.Drawing.Size(1098, 70);
             panel1.TabIndex = 47;
+            // 
+            // label88
+            // 
+            label88.AutoSize = true;
+            label88.BackColor = System.Drawing.Color.White;
+            label88.Font = new System.Drawing.Font("Arial Narrow", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            label88.Location = new System.Drawing.Point(650, 31);
+            label88.Name = "label88";
+            label88.Size = new System.Drawing.Size(242, 16);
+            label88.TabIndex = 60;
+            label88.Text = "INITIALISATION DU CAPTEUR D'EMPREINTE";
+            label88.Visible = false;
             // 
             // pictureBox3
             // 
@@ -303,7 +317,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(13, 78);
+            panelVerif.Location = new System.Drawing.Point(13, 80);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -419,7 +433,7 @@
             panelEnrollement.Controls.Add(button4);
             panelEnrollement.Controls.Add(groupBox3);
             panelEnrollement.Controls.Add(groupBox1);
-            panelEnrollement.Location = new System.Drawing.Point(11, 79);
+            panelEnrollement.Location = new System.Drawing.Point(14, 81);
             panelEnrollement.Name = "panelEnrollement";
             panelEnrollement.Size = new System.Drawing.Size(1022, 490);
             panelEnrollement.TabIndex = 56;
@@ -740,7 +754,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(12, 75);
+            panelSignaletique.Location = new System.Drawing.Point(12, 82);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -2152,7 +2166,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1100, 595);
+            ClientSize = new System.Drawing.Size(1090, 595);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
@@ -2397,5 +2411,6 @@
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label88;
     }
 }
