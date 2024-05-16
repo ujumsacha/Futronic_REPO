@@ -110,7 +110,7 @@ namespace FingerPrintEcranPrincipal
             }
         }
 
-        
+
 
 
         public frm_Acceuil()
@@ -182,7 +182,7 @@ namespace FingerPrintEcranPrincipal
         {
 
         }
-        private void radiobutton_CheckedChanged(object sender, EventArgs e)
+        private async void radiobutton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton? radioButton = sender as RadioButton;
             if (radioButton != null && radioButton.Checked)
@@ -191,7 +191,7 @@ namespace FingerPrintEcranPrincipal
                 {
 
                     case 0:
-                        desactivedetectionFingerprint();
+                        //desactivedetectionFingerprint();
                         lbl_messageinput.Visible = true;
                         textBox1.Visible = true;
                         pictureBox2.Visible = false;
@@ -201,7 +201,7 @@ namespace FingerPrintEcranPrincipal
                         break;
 
                     case 1:
-                        desactivedetectionFingerprint();
+                        //desactivedetectionFingerprint();
                         lbl_messageinput.Visible = true;
                         textBox1.Visible = true;
                         pictureBox2.Visible = false;
@@ -236,7 +236,12 @@ namespace FingerPrintEcranPrincipal
                             //***************GESTION ACTIVATION DE L'EMPREINTE *************************
                             if (rd_empreinte.Checked)
                             {
-                                activedetectionFingerprint();
+                                panelVerif.Enabled = false;
+
+                                //ChargementEmpreinte Ch = new ChargementEmpreinte();
+                                //Ch.Show();
+                                await activedetectionFingerprint();
+                                //Ch.Close();
                             }
 
                             else
@@ -813,7 +818,7 @@ namespace FingerPrintEcranPrincipal
         }
         private void button8_Click(object sender, EventArgs e)
         {
-           OuverturePanelVerification();
+            OuverturePanelVerification();
         }
         private void button9_Click_1(object sender, EventArgs e)
         {
@@ -924,13 +929,11 @@ namespace FingerPrintEcranPrincipal
                                 {
                                     // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
                                     OuverturePanelConditionUtilisation();
-                                    Empreinte_is_passed=true;
+                                    Empreinte_is_passed = true;
                                 });
 
                                 this.Invoke(TDD2MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
                                 //////////////************************AFFICHAGE DU MESSAGE DU RETRAIT DE L'EMPREINTE **************************
-                                
-                                
                             }
                             else
                             {
@@ -942,7 +945,7 @@ namespace FingerPrintEcranPrincipal
                                 });
 
                                 this.Invoke(TDD3MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
-                                
+
 
                             }
                             break;
@@ -961,27 +964,28 @@ namespace FingerPrintEcranPrincipal
             }
             finally
             {
-                miseAjour(false);
-                if(Empreinte_is_passed)
-                {
-                    desactivedetectionFingerprint();
-                }
-                else
-                {
-                    activedetectionFingerprint();
-                }
-                
+               
+
                 Action<string> TDD4MESSAGE = new Action<string>((message) =>
                 {
+                    miseAjour(false);
+                    if (Empreinte_is_passed)
+                    {
+                        desactivedetectionFingerprint();
+                    }
+                    else
+                    {
+                        activedetectionFingerprint();
+                    }
                     // Appelez la méthode de mise à jour de l'interface utilisateur avec le message
-                    label88.Visible = true;
-
+                    label88.Visible = false;
+                    Empreinte_is_passed = false;
                 });
 
-                Empreinte_is_passed = false;
+              
 
                 this.Invoke(TDD4MESSAGE, "Mise à jour depuis le thread secondaire avec des paramètres");
-               
+
             }
         }
 
@@ -1326,7 +1330,23 @@ namespace FingerPrintEcranPrincipal
         private void button12_Click(object sender, EventArgs e)
         {
             OuverturePanelRecapitulatif();
+            if (ParamApp.Use_empreinte)
+            {
+
+                DtoEmpreinte dtoEmpreinte = new DtoEmpreinte
+                {
+                    pouce = Convert.ToBase64String(Thumb),
+                    index = Convert.ToBase64String(IndexFinger),
+                    majeur = Convert.ToBase64String(MiddleFinger),
+                    auriculaire = Convert.ToBase64String(LittleFinger),
+                    annulaire = Convert.ToBase64String(RingFinger)
+
+
+                };
+                _dtoEnroll.empreintes= dtoEmpreinte;
+            }
             textBox22.AppendText(Outils.ListPropertiesAndValuesEnroll(_dtoEnroll));
+
         }
 
         private void comboSex_SelectedIndexChanged(object sender, EventArgs e)
@@ -1351,12 +1371,17 @@ namespace FingerPrintEcranPrincipal
 
         private async void button13_Click(object sender, EventArgs e)
         {
+
             try
             {
-                _dtoEnroll.empreintes = null;
+                panelRecapitulatif.Enabled = false;
+                pictureBox3.Visible = true;
+                Log.Information($"Contenue a evoyer au serveur ====>{JsonConvert.SerializeObject(_dtoEnroll)}");
+                //_dtoEnroll.empreintes = null;
                 (bool, string) mavarret = await PostDataToserver(_dtoEnroll);
 
                 Log.Information($"REt====>{mavarret.Item1} contenue est {mavarret.Item2}");
+
                 if (mavarret.Item1)
                 {
                     AvertissementPopup Avp = new AvertissementPopup("Enrôlement effectué avec Succes");
@@ -1378,6 +1403,11 @@ namespace FingerPrintEcranPrincipal
             {
                 Log.Error(ex.Message);
                 MessageBox.Show("Erreur Systeme veuillez contacter l'administrateur");
+            }
+            finally
+            {
+                panelRecapitulatif.Enabled = true;
+                pictureBox3.Visible = false;
             }
         }
 

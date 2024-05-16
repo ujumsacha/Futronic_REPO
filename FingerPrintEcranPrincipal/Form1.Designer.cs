@@ -251,7 +251,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1096, 70);
+            panel1.Size = new System.Drawing.Size(1110, 70);
             panel1.TabIndex = 47;
             // 
             // label88
@@ -317,7 +317,7 @@
             panelVerif.Controls.Add(lbl_messageinput);
             panelVerif.Controls.Add(textBox1);
             panelVerif.Controls.Add(grp1);
-            panelVerif.Location = new System.Drawing.Point(11, 78);
+            panelVerif.Location = new System.Drawing.Point(14, 77);
             panelVerif.Name = "panelVerif";
             panelVerif.Size = new System.Drawing.Size(1026, 498);
             panelVerif.TabIndex = 52;
@@ -1329,7 +1329,7 @@
             panelEmpreinte.Controls.Add(groupBox5);
             panelEmpreinte.Controls.Add(button9);
             panelEmpreinte.Controls.Add(button12);
-            panelEmpreinte.Location = new System.Drawing.Point(12, 81);
+            panelEmpreinte.Location = new System.Drawing.Point(11, 76);
             panelEmpreinte.Name = "panelEmpreinte";
             panelEmpreinte.Size = new System.Drawing.Size(1026, 497);
             panelEmpreinte.TabIndex = 61;
@@ -2123,7 +2123,7 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(12, 82);
+            panelRecapitulatif.Location = new System.Drawing.Point(11, 73);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1030, 485);
             panelRecapitulatif.TabIndex = 64;
@@ -2166,7 +2166,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1088, 595);
+            ClientSize = new System.Drawing.Size(1102, 595);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
