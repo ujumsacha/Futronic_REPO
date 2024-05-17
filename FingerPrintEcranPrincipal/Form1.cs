@@ -759,7 +759,9 @@ namespace FingerPrintEcranPrincipal
             if (dateTimePicker3.Value < gt) { AvertissementPopup tt5 = new AvertissementPopup("Veuillez renseigner une date d'expiration valide"); tt5.ShowDialog(); return; }
 
 
-
+            if (dateTimePicker1.Value.Date >= dateTimePicker2.Value.Date) { AvertissementPopup tt1 = new AvertissementPopup("Date de naissance non valide"); tt1.ShowDialog(); return; }
+            if (dateTimePicker2.Value.Date >= dateTimePicker3.Value.Date) { AvertissementPopup tt1 = new AvertissementPopup("Date d'emission non valide"); tt1.ShowDialog(); return; }
+            if (dateTimePicker1.Value.Date >= dateTimePicker3.Value.Date) { AvertissementPopup tt1 = new AvertissementPopup("Date de naissance non valide"); tt1.ShowDialog(); return; }
 
             //************************************SI activation empreinte valide alors appeler la lecture de l'empreinte sinon passer au recapitulatif**************
             _dtoEnroll = new DtoEnroll

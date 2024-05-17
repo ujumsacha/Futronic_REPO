@@ -251,7 +251,7 @@
             panel1.Location = new System.Drawing.Point(-1, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(1110, 70);
+            panel1.Size = new System.Drawing.Size(1948, 70);
             panel1.TabIndex = 47;
             // 
             // label88
@@ -754,7 +754,7 @@
             panelSignaletique.Controls.Add(groupBox2);
             panelSignaletique.Controls.Add(button10);
             panelSignaletique.Controls.Add(button11);
-            panelSignaletique.Location = new System.Drawing.Point(12, 82);
+            panelSignaletique.Location = new System.Drawing.Point(908, 72);
             panelSignaletique.Name = "panelSignaletique";
             panelSignaletique.Size = new System.Drawing.Size(1024, 497);
             panelSignaletique.TabIndex = 58;
@@ -2123,7 +2123,7 @@
             panelRecapitulatif.Controls.Add(btn_precedent);
             panelRecapitulatif.Controls.Add(button13);
             panelRecapitulatif.Controls.Add(textBox22);
-            panelRecapitulatif.Location = new System.Drawing.Point(11, 73);
+            panelRecapitulatif.Location = new System.Drawing.Point(11, 78);
             panelRecapitulatif.Name = "panelRecapitulatif";
             panelRecapitulatif.Size = new System.Drawing.Size(1030, 485);
             panelRecapitulatif.TabIndex = 64;
@@ -2166,7 +2166,7 @@
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1102, 595);
+            ClientSize = new System.Drawing.Size(1940, 595);
             ControlBox = false;
             Controls.Add(panelRecapitulatif);
             Controls.Add(panelCondutil);
